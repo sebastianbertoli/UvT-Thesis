@@ -1,0 +1,182 @@
+---
+title: "Data processing & exploration"
+output: html_notebook
+---
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(lubridate)
+library(geosphere)
+library(tools)
+library(gridExtra)
+source("define functions2.r")
+```
+### Importing and pre-processing the data
+First we load two datasets: 
+
+1. AIS measurements captured within a 15km radius of Las Palmas.
+2. Vessel-information data.
+
+During the import process we already remove invalid and insufficient measurements (e.g. duplicate data). This affected aproximately 12% of the data imported. Each measurement is then labelled with a new position id to make each data row uniquely identifiable (*POSID*).
+
+*Note: (1) Had already seen some pre-processing in R and QGIS. (2) Was scraped from Marinetraffic and then made tidy using regular expressions.*
+```{r, echo=TRUE, message=FALSE, warning=FALSE, results=FALSE}
+vesseldetails <- read_csv('dataset/Finals/df_vesseldetails.csv')
+aisdata <- read_csv('dataset/Finals/df_1d_selection_restricted.csv') 
+tmp_noimp <-  nrow(aisdata)
+aisdata <- aisdata %>% 
+  subset(select = -c(1,2)) %>% 
+  filter(MMSI %in% vesseldetails$MMSI) %>%
+  subset(!duplicated(select(.,MMSI,TIMESTAMP))) %>% 
+  group_by(MMSI) %>% 
+  filter(n() > 10) %>% 
+  ungroup() %>%
+  arrange(MMSI,TIMESTAMP) %>% 
+  mutate(POSID = row_number(x = .$MMSI))
+cat(' Number of AIS measurements available:',tmp_noimp,
+    '\n','Number of valid AIS measurements imported:', nrow(aisdata))
+```
+
+### Create tracks and detect trips
+The AIS data imported in the previous step only contains point measurements for 
+each vessel that was caputred in the dataset. The left plot shows such
+AIS point measurements for a particular vessel.
+
+One crucial preliminary step is to convert these measurements into a trjaectory
+pictured in the middle plot. A trajectory is composed of a number of segments. 
+Each segment has 'overall characteristics' that can be calculated from the data
+(Fosca, 2008, p.19). For instance a length or a duration of. The function `Points2Trajectory()` below transforms the data from the point
+measurement representations into the trajectory representation.
+
+However the trajectory representation alone is is not enough and a further step is required. A vessel's continuous trajectory which may span navigation data over
+long periods of time (up to a month in this case) needs to be broken up into
+trips. Because a vessel may depart from the port of Las Palmas and perhaps return
+only 2 weeks later. Therefore the trajectory should be separated into two trips:
+one were the vessel departs and eventually leaves the covered area and one where
+it returns to the port two weeks later. This new trips representation can be seen
+in the rightmost plot below where the dwo different trips are color coded. The red
+trip took place on XXX whilst the blue trip took place on XXX. The 
+`Trajectory2Trips()` below is the function I wrote for converting the trajectory data
+into trips. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+tmp <- filter(aisdata, MMSI == 224548000, LON > -15.44 , LON < -15.37)
+tmp3a <- filter(tmp, day(TIMESTAMP) == 26)
+tmp3b <- filter(tmp, day(TIMESTAMP) == 05)
+tmp_p1 <- ggplot(tmp) +
+  geom_point(aes(LON, LAT), color = "blue") + 
+  ggtitle('Points') +
+  coord_fixed()
+tmp_p2 <- ggplot(tmp) + 
+  geom_point(aes(LON, LAT), color = "blue") + 
+  geom_path(aes(LON, LAT), color = "blue") + 
+  ggtitle('Tracks') +
+  coord_fixed()
+tmp_p3 <- ggplot() + 
+  geom_point(data = tmp3a, aes(LON, LAT), color = "blue") +
+  geom_point(data = tmp3b, aes(LON, LAT), color = "red") +
+  geom_path(data = tmp3a, aes(LON, LAT), color = "blue") +
+  geom_path(data = tmp3b, aes(LON, LAT), color = "red") + 
+  ggtitle('Trips') + 
+  coord_fixed()
+tmp_p123 <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1)
+ggsave("figures/point-track-trips.png", plot = tmp_p123)
+RemoveObjects('tmp')
+```
+
+This function splits a vessel's trajetory 
+consisting of one long sequence of timestamped coordinates at major 
+discontinuities in time (using interquartiles and the average time differential 
+between tracks) as well as when a vessel stops for a significant amount of time.
+
+First we convert the AIS measurements (GPS coordinates) into a collection of
+tracks. We have one track per vessel. A vessel's track consists of a continuous
+series of segments with a start and end point, a duration etc. Of particular
+importance is the duration (`TIME_DIFF`) we calculate below. This tells us the 
+time passed between consecutive measurements. If this time is significantly larger 
+spike in terms of this time it means that a vessel may have left the area from 
+which the data was collected and returned at a later date or that the AIS signal 
+was lost for other reasons. 
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+Points2Trajectory <- function(df){
+  df <- df %>% arrange(TIMESTAMP)  
+  idx1 <- seq(1, nrow(df) - 1, 1)
+  idx2 <- seq(2, nrow(df), 1) 
+  startpoints <- slice(df,idx1) %>% select(START_LON = LON, START_LAT = LAT)
+  endpoints <- slice(df,idx2) %>% select(END_LON = LON, END_LAT = LAT)
+  start_time <- slice(df,idx1) %>% .$TIMESTAMP
+  end_time <- slice(df,idx2) %>% .$TIMESTAMP
+  data.frame(slice(df,idx1) %>% select(MMSI),
+             slice(df,idx1) %>% select(START_POSID = POSID),
+             slice(df,idx2) %>% select(END_POSID = POSID),
+             TIME_START = start_time,
+             TIME_END = end_time,
+             startpoints,
+             endpoints,
+             DISTANCE = distCosine(startpoints, endpoints),
+             # TIME_DIFF = as.numeric(end_time - start_time)
+             TIME_DIFF = as.numeric(end_time - start_time, units="secs")
+             ) %>% 
+  mutate(AVG_SPEED = DISTANCE / TIME_DIFF)
+}
+
+trajectories <- aisdata %>% group_by(MMSI) %>% do(Points2Trajectory(.)) %>% as.data.frame()
+```
+Now that we 
+```{r}
+ggplot(data = trajectories) + 
+  geom_histogram(mapping = aes(x = TIME_DIFF, )) +
+  scale_x_log10()
+```
+
+Here we compute some averge statistics over the entire trajectory of each vessel.
+This is needed to determine the trips.
+```{r}
+# Find shorter way for doing this. 
+sample_rate_stats <- trajectories %>% group_by(MMSI) %>% 
+  summarise(DISTANCE_TOTAL = sum(DISTANCE),
+            DISTANCE_MEAN = mean(DISTANCE),
+            DISTANCE_MEDIAN = median(DISTANCE),
+            DISTANCE_DEVIATION = sd(DISTANCE),
+            DISTANCE_MIN = min(DISTANCE),
+            DISTANCE_MAX = max(DISTANCE),
+            DISTANCE_QUANTI = quantile(DISTANCE, probs = c(.95)),
+            TIME_DIFF_TOTAL = sum(TIME_DIFF),
+            TIME_DIFF_MEDIAN = median(TIME_DIFF), 
+            TIME_DIFF_MEAN = mean(TIME_DIFF), 
+            TIME_DIFF_DEVIATION = sd(TIME_DIFF),
+            TIME_DIFF_MIN = min(TIME_DIFF),
+            TIME_DIFF_MAX = max(TIME_DIFF),
+            TIME_DIFF_QUANTI = quantile(TIME_DIFF, probs = c(.95)))
+```
+
+Convert tracks to trips
+```{r}
+Trajectory2Trips <- function(df){
+  result <- c(1:nrow(df))
+  threshold <- quantile(df$TIME_DIFF, probs = c(.95), type = 8)
+  counter <- 1
+  for (i in 1:nrow(df)) {
+    if (df$TIME_DIFF[i] <= threshold){
+      result[i] <- counter  
+    }else{
+      result[i] <- -1
+      counter <- counter + 1
+    }
+  }
+  data.frame(result)
+}
+```
+
+```{r}
+trips <- trajectories %>% 
+  group_by(MMSI) %>% 
+  do(Trajectory2Trips(.)) %>% 
+  as.data.frame() %>% 
+  select(result) %>% 
+  cbind(trajectories, TRIP_ID = .$result) 
+```
+```{r}
+ggplot(data = )
+```
+
