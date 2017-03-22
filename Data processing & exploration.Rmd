@@ -11,6 +11,7 @@ library(tools)
 library(gridExtra)
 library(RColorBrewer)
 source("define functions.r")
+options(dplyr.show_progress = FALSE)
 ```
 ### Importing and pre-processing the data
 First we load two datasets: 
@@ -53,12 +54,14 @@ E.g. the duration or length of a segment. These transformations are implemented
 within the `Points2Trajectory()` function below.
 
 On the right plot further transformations were carried out. Here a vessel's 
-trajectory is broken up into two 'trips': a departure-trip and a return trip. 
-This is necessary because a vessel may leave the port of Las Palmas on a Monday 
-and only return several days later. Not doing this transformation leads to 
-problems such as sudden jumps in the vessel-position visible (visible from the straight diagonal line in the Tracks plot). The transformation from a 
-vessel trajectory to trips is implemented in the `Trajectory2Trips()` function 
-below.
+trajectory is broken up into two 'trips' which occured on two different days. 
+The trip colored in red occured on the 5th of June 2014, while the trip colored 
+in blue occured on the 26th of June 2014. This is necessary because not doing so
+leads to  problems such as sudden jumps in the vessel-position (visible from the
+straight diagonal line in the Tracks plot). The transformation from a  vessel 
+trajectory to trips is implemented in the `Trajectory2Trips()` function  further
+below. The functions goes even one step further and subdivides trips occuring at
+different days into outbound and inbound trips.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 tmp <- filter(aisdata, MMSI == 224548000, LON > -15.44 , LON < -15.37) %>% 
@@ -83,7 +86,7 @@ RemoveObjects('tmp')
 Here we transform the point representation into a trajectory representation as 
 explained before.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE, results=FALSE}
+```{r, message=FALSE, warning=FALSE, results=FALSE}
 Points2Trajectory <- function(df){
   df <- df %>% arrange(TIMESTAMP)  
   idx1 <- seq(1, nrow(df) - 1, 1)
@@ -100,21 +103,36 @@ Points2Trajectory <- function(df){
              startpoints,
              endpoints,
              DISTANCE = distCosine(startpoints, endpoints),
-             # TIME_DIFF = as.numeric(end_time - start_time)
-             TIME_DIFF = as.numeric(end_time - start_time, units="secs")
+             TIME_DIFF = as.numeric(end_time - start_time, units = "secs")
              ) %>% 
   mutate(AVG_SPEED = DISTANCE / TIME_DIFF)
 }
 trajectories <- aisdata %>% group_by(MMSI) %>% 
   do(Points2Trajectory(.)) %>% as.data.frame()
+ExportObject(trajectories)
 ```
-CONTINUE HERE
+
+
+#### Detect trips
 
 Before we can convert the trajectory into trips we need to have a closer look at the data. 
 ```{r}
 ggplot(data = trajectories) + 
-  geom_histogram(mapping = aes(x = TIME_DIFF, )) +
-  scale_x_log10()
+  geom_histogram(mapping = aes(x = TIME_DIFF), bins = 75) +
+  scale_x_log10() + scale_y_log10()
+
+trajectories %>% 
+  filter(LAT > -15.4165, LAT < -15.3933  )
+  group_by(MMSI) %>% 
+  summarise_each (funs(mean,median,sd), DISTANCE) %>% 
+  ggplot() + 
+  geom_histogram(mapping = aes(x = mean), bins = 100)
+  # geom_histogram(mapping = aes(x = mean), bins = 100)
+
+
+
+trajectories %>% group_by(MMSI) %>% summarise(mean(TIME_DIFF)) %>% 
+  filter(TIME_DIFF > 600) %>% nrow()
 ```
 
 This function splits a vessel's trajetory  consisting of one long sequence of timestamped coordinates at major  discontinuities in time (using interquartiles and the average time differential  between tracks) as well as when a vessel stops for a significant amount of time. First we convert the AIS measurements (GPS coordinates) into a collection of tracks. We have one track per vessel. A vessel's track consists of a continuous series of segments with a start and end point, a duration etc. Of particular importance is the duration (`TIME_DIFF`) we calculate below. This tells us the  time passed between consecutive measurements. If this time is significantly larger  spike in terms of this time it means that a vessel may have left the area from  which the data was collected and returned at a later date or that the AIS signal was lost for other reasons.
@@ -146,20 +164,7 @@ trips <- trajectories %>%
 
 TODO:
 ```{r}
-# Find shorter way for doing this. 
-sample_rate_stats <- trajectories %>% group_by(MMSI) %>% 
-  summarise(DISTANCE_TOTAL = sum(DISTANCE),
-            DISTANCE_MEAN = mean(DISTANCE),
-            DISTANCE_MEDIAN = median(DISTANCE),
-            DISTANCE_DEVIATION = sd(DISTANCE),
-            DISTANCE_MIN = min(DISTANCE),
-            DISTANCE_MAX = max(DISTANCE),
-            DISTANCE_QUANTI = quantile(DISTANCE, probs = c(.95)),
-            TIME_DIFF_TOTAL = sum(TIME_DIFF),
-            TIME_DIFF_MEDIAN = median(TIME_DIFF), 
-            TIME_DIFF_MEAN = mean(TIME_DIFF), 
-            TIME_DIFF_DEVIATION = sd(TIME_DIFF),
-            TIME_DIFF_MIN = min(TIME_DIFF),
-            TIME_DIFF_MAX = max(TIME_DIFF),
-            TIME_DIFF_QUANTI = quantile(TIME_DIFF, probs = c(.95)))
+
+
+
 ```

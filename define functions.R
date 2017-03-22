@@ -12,7 +12,7 @@ ReadFiles <- function(path, pattern, num_files = 100000L) {
 
 
 ExportObject <- function(object_to_export, 
-                             directory_path = '../r-exports/') {
+                             directory_path = './dataset/') {
   filepath <-  paste(directory_path, deparse(substitute(object_to_export)), 
                      sep = "") 
   if (typeof(object_to_export) == 'list') {
@@ -23,8 +23,8 @@ ExportObject <- function(object_to_export,
     filepath <- paste(filepath, '.txt', sep = "")  
     write.table(object_to_export, file = filepath) 
   }
-  cat("Wohoo! Your r-object has been exported to: ")
-  cat(file_path_as_absolute(filepath))
+  # cat("Wohoo! Your r-object has been exported to: ")
+  # cat(file_path_as_absolute(filepath))
 }
 
 
