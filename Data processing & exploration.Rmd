@@ -12,6 +12,7 @@ library(gridExtra)
 library(RColorBrewer)
 source("define functions.r")
 options(dplyr.show_progress = FALSE)
+options(scipen=999)
 ```
 ### Importing and pre-processing the data
 First we load two datasets: 
@@ -84,8 +85,8 @@ RemoveObjects('tmp')
 ```
 
 Here we transform the point representation into a trajectory representation as 
-explained before.
-
+explained before. Very importantly we calculate the duration of each segment on
+the trajectory as well as the average speed and bearing. 
 ```{r, message=FALSE, warning=FALSE, results=FALSE}
 Points2Trajectory <- function(df){
   df <- df %>% arrange(TIMESTAMP)  
@@ -103,37 +104,59 @@ Points2Trajectory <- function(df){
              startpoints,
              endpoints,
              DISTANCE = distCosine(startpoints, endpoints),
+             BEARING = bearing(startpoints, endpoints),
              TIME_DIFF = as.numeric(end_time - start_time, units = "secs")
              ) %>% 
   mutate(AVG_SPEED = DISTANCE / TIME_DIFF)
 }
 trajectories <- aisdata %>% group_by(MMSI) %>% 
   do(Points2Trajectory(.)) %>% as.data.frame()
-ExportObject(trajectories)
+# ExportObject(trajectories)
 ```
 
 
 #### Detect trips
+We divide a vessel's trajectory into a collection of trips based on the time
+difference between subsequent measurements. In other words if a vessel does not
+broadcast any position-data within a given time threshold it is assumed that the
+vessel has left the area surrounding the port of Las Palmas.
 
-Before we can convert the trajectory into trips we need to have a closer look at the data. 
+First, we determine the time threshold  based on a subselection of the data.
+This subselection is necessary to make sure that the threshold is ubiased due to
+poor or missing position-data.
 ```{r}
-ggplot(data = trajectories) + 
-  geom_histogram(mapping = aes(x = TIME_DIFF), bins = 75) +
-  scale_x_log10() + scale_y_log10()
+tmp_trajectories_port <- trajectories %>%
+  filter(START_LON > -15.6165, START_LON < -15.3933)  %>%
+  filter(START_LAT > 28.1032, START_LAT < 28.1507) %>%
+  filter(END_LON > -15.6165, END_LON < -15.3933)  %>%
+  filter(END_LAT > 28.1032, END_LAT < 28.1507) %>%
+  filter( (day(TIME_START) - day(TIME_END)) < 2 ) %>%   # To avoid day jumps.
+  mutate(TIME_DIFF_MIN = round((TIME_DIFF/60)))
 
-trajectories %>% 
-  filter(LAT > -15.4165, LAT < -15.3933  )
-  group_by(MMSI) %>% 
-  summarise_each (funs(mean,median,sd), DISTANCE) %>% 
-  ggplot() + 
-  geom_histogram(mapping = aes(x = mean), bins = 100)
-  # geom_histogram(mapping = aes(x = mean), bins = 100)
+tmp_test <- tmp_trajectories_port  %>% 
+  count(TIME_DIFF_MIN) %>%
+  mutate(prop = n/sum(n)*100) %>% 
+  filter(prop > 0.5)
+sum(tmp_test$prop)
 
+ggplot(data = tmp_test) + 
+  geom_col(mapping = aes(x = TIME_DIFF_MIN, y = prop)) +
+  scale_x_continuous(breaks = seq(1:32)) +
+  labs(title = "Time differentials", 
+       x = "Time between subsequent measurements [ minutes ]", y = "Proportion of data [ % ]")
 
+# CONTINUE HERE
 
-trajectories %>% group_by(MMSI) %>% summarise(mean(TIME_DIFF)) %>% 
-  filter(TIME_DIFF > 600) %>% nrow()
+ggplot(data = tmp_trajectories_port) + 
+  geom_density2d(mapping = aes(x=START_LAT,y=START_LON))
+m <- ggplot(tmp_trajectories_port,aes(x=START_LON,y=START_LAT)) +
+ # geom_point(alpha=0.1) +
+ # xlim(0.5, 6) +
+ # ylim(40, 110) + 
+  geom_density_2d()
+m + stat_density_2d(aes(fill = ..level..), geom = "polygon")
 ```
+
 
 This function splits a vessel's trajetory  consisting of one long sequence of timestamped coordinates at major  discontinuities in time (using interquartiles and the average time differential  between tracks) as well as when a vessel stops for a significant amount of time. First we convert the AIS measurements (GPS coordinates) into a collection of tracks. We have one track per vessel. A vessel's track consists of a continuous series of segments with a start and end point, a duration etc. Of particular importance is the duration (`TIME_DIFF`) we calculate below. This tells us the  time passed between consecutive measurements. If this time is significantly larger  spike in terms of this time it means that a vessel may have left the area from  which the data was collected and returned at a later date or that the AIS signal was lost for other reasons.
 ```{r}
@@ -162,9 +185,3 @@ trips <- trajectories %>%
   cbind(trajectories, TRIP_ID = .$result) 
 ```
 
-TODO:
-```{r}
-
-
-
-```
