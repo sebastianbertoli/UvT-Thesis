@@ -145,37 +145,53 @@ tmp_trajectories_port <- trajectories %>%
 
 # ExportObject(select(tmp_trajectories_port,START_LON, START_LAT))
 # Discard uncommon measurements
-tmp_test <- tmp_trajectories_port  %>% 
+tmp_counts <- tmp_trajectories_port  %>% 
   count(TIME_DIFF_MIN) %>%
   mutate(prop = n/sum(n)*100) %>% 
   filter(prop > .5)
 
 # Plot time differentials
-ggplot(data = tmp_test) + 
+ggplot(data = tmp_counts) + 
   geom_col(mapping = aes(x = TIME_DIFF_MIN, y = prop)) +
   scale_x_continuous(breaks = seq(1:32)) +
   ylim(0, 35) +
   labs(title = paste("Time difference between measurements. \nn = ", 
                      nrow(tmp_trajectories_port), 
-                     'with',round(sum(tmp_test$prop),1),'% of the data shown'), 
+                     'with',round(sum(tmp_counts$prop),1),'% of the data shown'), 
        x = "Time between subsequent measurements (minutes)", 
        y = "Proportion of data (%)") +
   geom_label(aes(label = paste(round(prop,1),'%'), x = TIME_DIFF_MIN, y = prop + 1 ),
-             vjust = 0.3, size = 3, label.padding = unit(0.15, "lines"))
-RemoveObjects('tmp')
+             vjust = 0.5, size = 3, label.padding = unit(0.15, "lines"))
+ExportObject(tmp_trajectories_port)
+# RemoveObjects('tmp')
 ```
 The plot above tells us how many minute pass between subsequent measurements and
 how much of the sampled data occurs within a given time interval. For instance
 we can see that 32.5% of the measurements occur in 21 minute intervals. Overall
 for 96.1% of the sampled data less than 30 minutes pass between subsequent
-measurements. Note that sampling rates that occur in less than 0.5% of the
-sampled data were excluded.
+measurements. *Footnote: Note that sampling rates that occur in less than 0.5% of the
+sampled data were excluded.*
 
-This data suggests that the sampling intervals 
+We can seethat the most frequent time intervals are concentrated within a small
+range of values. That is for most vessels in this subset we have a measurement
+or datapoint between every 2 and every 4 minutes or between every 20 and every
+24 minutes.
+
+Importantly the time interval between subsequent measurements is for most 
+datapoints over 20 minutes. This is in stark contrast to the nominal AIS 
+reporting intervals which typically are either every 3 minutes or every 10 
+minutes. (Source: http://arundale.com/docs/ais/ais_reporting_rates.html). A
+possible reason for this could be that the data provided by Greenpeace had been
+sampled down to include fewer updates. 
+
+There are two takeaways from this. First, we set the time treshold used to determine separate trips to 30 minutes. Second, the rather long update intervals between position measurements may determine the method we will be able to use.
+
+Of course there are some limitations... (TODO Add limitations.)
 
 CONTINUE HERE!
 
 ```{r}
+# Just checking what vessels have 30 minutes time differences
 tmp2 <- filter(tmp_trajectories_port, TIME_DIFF_MIN == 30)
 tmp3 <- select(tmp2,MMSI) %>% unique.data.frame()
 tmp_vesseldetails <- left_join(tmp3, vesseldetails, by = 'MMSI')
