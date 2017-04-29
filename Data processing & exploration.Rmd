@@ -10,12 +10,14 @@ library(geosphere)
 library(tools)
 library(gridExtra)
 library(RColorBrewer)
+library(ggthemes)
+
 source("define functions.r")
 options(dplyr.show_progress = FALSE)
 options(scipen=999)
 ```
 ### Importing and pre-processing the data
-First we load two datasets: 
+First we load two data sets: 
 
 1. AIS measurements captured within a 15km radius of Las Palmas.
 2. Vessel-information data.
@@ -79,8 +81,8 @@ tmp_p3 <- ggplot() +
   geom_path(data = tmp, aes(LON, LAT, color = daytrip)) + 
   ggtitle('Trips') + theme(legend.position = 'none') + coord_fixed() +
   scale_colour_brewer(palette = "Set1")
-tmp_p123 <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1)
-ggsave("figures/point-track-trips.png", plot = tmp_p123)
+plot_point_tracks <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1) 
+ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
 RemoveObjects('tmp')
 ```
 
@@ -118,21 +120,22 @@ trajectories <- aisdata %>% group_by(MMSI) %>%
 
 #### Detect trips
 We divide each vessel's trajectory into a collection of trips. We do this based 
-on the time difference between subsequent  location measurements. In 
-other words if the time difference between two measurements exceeds a certain
-value then it is assumed that the current vessel's trip has ended and a new trip
-has started. This may be the case when a vessel either leaves the port area or
-turns off its AIS transmitter.
+on the time difference between subsequent location measurements. In other words,
+if the time difference between two measurements exceeds a certain value, then it
+is assumed that the current vessel's trip has ended and a new trip has started.
+This may be the case when a vessel either leaves the port area or turns off its
+AIS transmitter.
 
-But first we must determine the the time threshold to determine where a 
-trajectory needs to be split or not. We do this by plotting the proportion of
-time differences observed between each measurement using a subselection of the 
-data. 
+But first we must determine the time threshold above which a trajectory needs to
+be split or not. We do this by plotting the proportion of time differences
+observed between each measurement using a subselection of the data.
 
-This subselection of data uses contains only vessels in the immediate proximity
-of the port. By doing this we are more likely to have data where the time
-difference is unaffected by unwanted factors (e.g. signal disturbances). (TODO
-insert ref on better signal near coasts) and therefore unbiased.
+This subselection of data contains only vessels in the immediate proximity of
+the port of Las Palmas. By doing so we are more likely to have data where the
+time difference is unaffected by undesired factors (e.g. signal disturbances).
+Nonetheless this subselecton covers 75% of the measurements in the data set.
+(TODO insert ref on better signal near coasts) and therefore unbiased.
+
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Temporary subselection of data
@@ -151,7 +154,7 @@ tmp_counts <- tmp_trajectories_port  %>%
   filter(prop > .5)
 
 # Plot time differentials
-ggplot(data = tmp_counts) + 
+plot_tdiff = ggplot(data = tmp_counts) +
   geom_col(mapping = aes(x = TIME_DIFF_MIN, y = prop)) +
   scale_x_continuous(breaks = seq(1:32)) +
   ylim(0, 35) +
@@ -161,49 +164,50 @@ ggplot(data = tmp_counts) +
        x = "Time between subsequent measurements (minutes)", 
        y = "Proportion of data (%)") +
   geom_label(aes(label = paste(round(prop,1),'%'), x = TIME_DIFF_MIN, y = prop + 1 ),
-             vjust = 0.5, size = 3, label.padding = unit(0.15, "lines"))
-ExportObject(tmp_trajectories_port)
-# RemoveObjects('tmp')
+             vjust = 0.5, size = 3, label.padding = unit(0.15, "lines")) +
+  theme(panel.grid.major.x = element_blank(), 
+        panel.grid.minor.x = element_blank(), 
+        panel.grid.minor.y = element_blank())
+plot_tdiff
+# ggsave("figures/point-track-trips.png", plot = plot_tdiff)
+# ExportObject(tmp_trajectories_port)
+RemoveObjects('tmp')
 ```
-The plot above tells us how many minute pass between subsequent measurements and
-how much of the sampled data occurs within a given time interval. For instance
-we can see that 32.5% of the measurements occur in 21 minute intervals. Overall
-for 96.1% of the sampled data less than 30 minutes pass between subsequent
-measurements. *Footnote: Note that sampling rates that occur in less than 0.5% of the
-sampled data were excluded.*
+The plot above shows in what time intervals the vessels position measurements
+are updated as well as the proportion of measurements occurring at a given time
+interval. For instance we can see that 32.5% of the measurements occur in 21
+minute intervals. Overall for 96.1% of the sampled data less than 30 minutes
+pass between subsequent measurements. *Footnote: Note that sampling rates that
+occur in less than 0.5% of the sampled data were excluded.*
 
-We can seethat the most frequent time intervals are concentrated within a small
-range of values. That is for most vessels in this subset we have a measurement
-or datapoint between every 2 and every 4 minutes or between every 20 and every
-24 minutes.
+We can see that the most frequent time intervals are concentrated within a small 
+range of values. In other words most position measurement occur within 2 minutes 
+and 4 minutes or within 20 minutes and 24 minutes.
 
-Importantly the time interval between subsequent measurements is for most 
-datapoints over 20 minutes. This is in stark contrast to the nominal AIS 
-reporting intervals which typically are either every 3 minutes or every 10 
-minutes. (Source: http://arundale.com/docs/ais/ais_reporting_rates.html). A
-possible reason for this could be that the data provided by Greenpeace had been
-sampled down to include fewer updates. 
+Importantly, 63% of measurements occur within a 20 to 24 minute interval. This
+is in stark contrast to the nominal AIS reporting intervals which typically are
+either every 3 minutes or every 10 minutes. (Source:
+http://arundale.com/docs/ais/ais_reporting_rates.html). A possible reason for
+this could be that the data provided by Greenpeace had been sampled down to
+include fewer updates.
 
-There are two takeaways from this. First, we set the time treshold used to determine separate trips to 30 minutes. Second, the rather long update intervals between position measurements may determine the method we will be able to use.
+There are two takeaways from this. First, we set the time treshold to determine 
+where to split the trajectory into separate trips at 30 minutes. Second, the 
+rather long measurement intervals determine the machine learning methods that
+can realistically be used for classifying vessels based on their navigation
+data. For instance methods relying on the geometric properties of a trajectory
+may be less suitable because sparse measurements also mean that the geometry of
+a vessel will not be very well described.
 
-Of course there are some limitations... (TODO Add limitations.)
+Next we split the trajectory data into separate trips according to the 30 minute
+time threshold we have just determined. For this we have written a function
+`Trajectory2Trips()` which does this for us.
 
-CONTINUE HERE!
-
-```{r}
-# Just checking what vessels have 30 minutes time differences
-tmp2 <- filter(tmp_trajectories_port, TIME_DIFF_MIN == 30)
-tmp3 <- select(tmp2,MMSI) %>% unique.data.frame()
-tmp_vesseldetails <- left_join(tmp3, vesseldetails, by = 'MMSI')
-tmp_vesseldetails
-```
-
-
-This function splits a vessel's trajetory  consisting of one long sequence of timestamped coordinates at major  discontinuities in time (using interquartiles and the average time differential  between tracks) as well as when a vessel stops for a significant amount of time. First we convert the AIS measurements (GPS coordinates) into a collection of tracks. We have one track per vessel. A vessel's track consists of a continuous series of segments with a start and end point, a duration etc. Of particular importance is the duration (`TIME_DIFF`) we calculate below. This tells us the  time passed between consecutive measurements. If this time is significantly larger  spike in terms of this time it means that a vessel may have left the area from  which the data was collected and returned at a later date or that the AIS signal was lost for other reasons.
 ```{r}
 Trajectory2Trips <- function(df){
   result <- c(1:nrow(df))
-  threshold <- quantile(df$TIME_DIFF, probs = c(.95), type = 8)
+  # 30 Minute time threshold determined before in seconds
+  threshold <- 30*60
   counter <- 1
   for (i in 1:nrow(df)) {
     if (df$TIME_DIFF[i] <= threshold){
@@ -217,12 +221,45 @@ Trajectory2Trips <- function(df){
 }
 ```
 
+We apply the `Trajectory2Trips()` function to the dataframe and save the result 
+in a new dataframe `trips`. Now that the data is in the correct format we can 
+carry out some exploratory data analysis.
 ```{r}
 trips <- trajectories %>% 
-  group_by(MMSI) %>% 
+  # group_by(MMSI) %>% 
   do(Trajectory2Trips(.)) %>% 
   as.data.frame() %>% 
   select(result) %>% 
-  cbind(trajectories, TRIP_ID = .$result) 
+  cbind(trajectories)
+colnames(trips)[1] <- "TRIP_ID"
+# ExportObject(trips)
 ```
+
+CONTINUE HERE / TODO
+- Remove segments with insane average speed
+- trips with to few measurements
+
+
+### Exploratory Analysis
+In this section we carry out the exploratory data analysis. The goal is on the 
+one hand to get a better feel of the data, on the other hand to answer some
+preliminary but nonetheless important question.
+
+**Which vessel types carry out the greatest number of trips?**
+
+Since the purpose of this research is to classify vessels we first need to find
+out for which type of vessels there is enough data to work with. To do that we
+count the number of unique trips per vessel-type.
+
+Below we have plotted the total number of trips for each vessel-type for which
+more than 50 trips have been recorded. In total we have 8 types of vessels that
+have carried out at least 50 trips over the entire time period recorded in the 
+dataset. Sailing Vessels carry out the greatest number of trips whereas high 
+speed crafts carry out the smallest number of trips. 
+![Amount trips per type](./figures/amount_trips_per_type.png){ width=100%}
+
+
+
+
+
 

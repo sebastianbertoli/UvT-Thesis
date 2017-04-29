@@ -1,0 +1,11 @@
+This function splits a vessel's trajetory  consisting of one long sequence of
+timestamped coordinates at major  discontinuities in time (using interquartiles
+and the average time differential  between tracks) as well as when a vessel
+stops for a significant amount of time. First we convert the AIS measurements
+(GPS coordinates) into a collection of tracks. We have one track per vessel. A
+vessel's track consists of a continuous series of segments with a start and end
+point, a duration etc. Of particular importance is the duration (`TIME_DIFF`) we
+calculate below. This tells us the  time passed between consecutive
+measurements. If this time is significantly larger  spike in terms of this time
+it means that a vessel may have left the area from  which the data was collected
+and returned at a later date or that the AIS signal was lost for other reasons.
