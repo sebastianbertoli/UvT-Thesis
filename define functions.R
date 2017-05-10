@@ -12,7 +12,7 @@ ReadFiles <- function(path, pattern, num_files = 100000L) {
 
 
 ExportObject <- function(object_to_export, 
-                             directory_path = './dataset/') {
+                             directory_path = './dataset/finals/') {
   filepath <-  paste(directory_path, deparse(substitute(object_to_export)), 
                      sep = "") 
   if (typeof(object_to_export) == 'list') {

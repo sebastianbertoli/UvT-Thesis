@@ -14,7 +14,7 @@ library(ggthemes)
 
 source("define functions.r")
 options(dplyr.show_progress = FALSE)
-options(scipen=999)
+options(scipen = 999)
 ```
 ### Importing and pre-processing the data
 First we load two data sets: 
@@ -29,7 +29,7 @@ data row uniquely identifiable (*POSID*).
 
 *Note: (1) Had already seen some pre-processing in R and QGIS. (2) Was scraped from Marinetraffic and then made tidy using regular expressions.*
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, results=FALSE}
-vesseldetails <- read_csv('dataset/Finals/df_vesseldetails.csv')
+vesseldetails <- read_csv('dataset/Finals/df_vesseldetails_original.csv')
 aisdata <- read_csv('dataset/Finals/df_1d_selection_restricted.csv') 
 tmp_noimp <-  nrow(aisdata)
 aisdata <- aisdata %>% 
@@ -82,7 +82,7 @@ tmp_p3 <- ggplot() +
   ggtitle('Trips') + theme(legend.position = 'none') + coord_fixed() +
   scale_colour_brewer(palette = "Set1")
 plot_point_tracks <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1) 
-ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
+# ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
 RemoveObjects('tmp')
 ```
 
@@ -224,6 +224,9 @@ Trajectory2Trips <- function(df){
 We apply the `Trajectory2Trips()` function to the dataframe and save the result 
 in a new dataframe `trips`. Now that the data is in the correct format we can 
 carry out some exploratory data analysis.
+
+Next we remove those segments were the trips have been split. We also remove all trips with less than 2 segments because we found that those trips had too 
+few datapoints to be in any way insightful.
 ```{r}
 trips <- trajectories %>% 
   # group_by(MMSI) %>% 
@@ -232,14 +235,38 @@ trips <- trajectories %>%
   select(result) %>% 
   cbind(trajectories)
 colnames(trips)[1] <- "TRIP_ID"
-# ExportObject(trips)
+
+# Remove invalid trips
+trips <- filter(trips, TRIP_ID > -1)  
+# Get id's of just one segment trips
+tmp_to_keep <- trips %>% count(TRIP_ID) %>% filter(n > 5) %>% .$TRIP_ID
+trips <- filter(trips, TRIP_ID  %in% tmp_to_keep)
+ExportObject(trips)
 ```
 
-CONTINUE HERE / TODO
-- Remove segments with insane average speed
-- trips with to few measurements
 
+#### Recoding vessel categories
+As explained in the introduction a curated list of vesseltypes was used instead
+of the crude vessel categorisation provided by the AIS devices themselves.
+Furthermore the categorisation was further refined by recoding some of the
+categories.
+```{r}
+vesseldetails$vessel.type =  recode(vesseldetails$ship.type,
+                                   "Sailing Vessel" = "Pleasure Craft",
+                                   "Passengers Ship" = "Passenger",
+                                   "Ro-Ro/Passenger Ship" = "Passenger",
+                                   "Ro-Ro Cargo" = "Passenger",
+                                   "Crude Oil Tanker" = "Tanker",
+                                   "Oil Products Tanker" = "Tanker",
+                                   "Chemical Tanker" = "Tanker",
+                                   "Oil/Chemical Tanker" = "Tanker",
+                                   "LPG Tanker" = "Tanker",
+                                   "Fishing" = "Fishing Vessel")
 
+# Let's also add the vessel.type column to the trips dataframe. 
+trips <- left_join(trips, vesseldetails[,c('MMSI', 'vessel.type')], by='MMSI')
+# ExportObject(vesseldetails)
+```
 ### Exploratory Analysis
 In this section we carry out the exploratory data analysis. The goal is on the 
 one hand to get a better feel of the data, on the other hand to answer some
@@ -249,15 +276,32 @@ preliminary but nonetheless important question.
 
 Since the purpose of this research is to classify vessels we first need to find
 out for which type of vessels there is enough data to work with. To do that we
-count the number of unique trips per vessel-type.
+count the number of unique trips per vessel-type. 
 
-Below we have plotted the total number of trips for each vessel-type for which
-more than 50 trips have been recorded. In total we have 8 types of vessels that
-have carried out at least 50 trips over the entire time period recorded in the 
-dataset. Sailing Vessels carry out the greatest number of trips whereas high 
-speed crafts carry out the smallest number of trips. 
-![Amount trips per type](./figures/amount_trips_per_type.png){ width=100%}
+Below we have plotted the total number of trips for each vessel-type for which 
+more than 48 trips have been recorded. In total we have 8 types of vessels that have carried out at least 48 trips over the entire time period recorded in the 
+dataset. Pleasure crafts which includes small private sailing vessels as well as
+private vessels carry out the greatest number of trips whereas bulk carriers
+carry out the smallest number of trips.
+![Amount trips per type](./figures/Vessel Types.png){width=100%}
+**Average Trip Duration**
+```{r}
+trips_stats <- trips %>% group_by(TRIP_ID) %>% 
+  summarize(duration_total_minutes = sum(TIME_DIFF)/60,
+            duration_segment = mean(TIME_DIFF),
+            speed_average = mean(AVG_SPEED),
+            speed_max = max(AVG_SPEED),
+            distance_total = sum(DISTANCE),
+            distance_segment = mean(DISTANCE),
+            time_start = min(TIME_START),
+            time_end = max(TIME_END),
+            datapoints = count(TRIP_ID))
+trips_stats
+nrow(test)
+```
 
+
+**Average Speed/Max/Min**
 
 
 
