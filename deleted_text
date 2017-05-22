@@ -1,3 +1,28 @@
+```{r, eval=FALSE, include=FALSE}
+# Note this code is very inefficient (5 minutes), do not run but rather load the
+# the sparse matrix in the next block. TODO: rewrite at some point using for
+# loop.
+tmp_positions <-  c('START_LON', 'START_LAT', 'END_LON', 'END_LAT')
+areas = read_csv('./dataset/areas.csv')
+locmat_sparse <- apply(trips[tmp_positions],1, function(x){
+  tmp_vec <- rep(0, nrow(areas))
+  indeces <- intersect(filter(areas, lon_left <= x['START_LON'],
+                              x['START_LON'] <= lon_right,
+                              lat_bottom <= x['START_LAT'],
+                              x['START_LAT'] <= lat_top) %>% .$area_code,
+                       filter(areas, lon_left <= x['END_LON'],
+                              x['END_LON'] <= lon_right,
+                              lat_bottom <= x['END_LAT'],
+                              x['END_LAT'] <= lat_top) %>% .$area_code)
+  tmp_vec[indeces] <- 1
+  tmp_vec
+  }) %>% t %>% Matrix(locmat, sparse = TRUE)
+# writeMM(locmat_sparse, file = './dataset/locmat_sparse.txt')
+
+
+
+
+
 This function splits a vessel's trajetory  consisting of one long sequence of
 timestamped coordinates at major  discontinuities in time (using interquartiles
 and the average time differential  between tracks) as well as when a vessel

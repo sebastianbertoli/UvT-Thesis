@@ -11,7 +11,7 @@ library(tools)
 library(gridExtra)
 library(RColorBrewer)
 library(ggthemes)
-
+library('Matrix')
 source("define functions.r")
 options(dplyr.show_progress = FALSE)
 options(scipen = 999)
@@ -24,10 +24,11 @@ First we load two data sets:
 
 During the import process we already remove invalid and insufficient
 measurements (e.g. duplicate data). This affected aproximately 12% of the data 
-imported. Each measurement is then labelled with a new position id to make each 
+imported. Each measurement is then labelled with a new position id to make each
 data row uniquely identifiable (*POSID*).
 
-*Note: (1) Had already seen some pre-processing in R and QGIS. (2) Was scraped from Marinetraffic and then made tidy using regular expressions.*
+*Note: (1) Had already seen some pre-processing in R and QGIS. (2) Was scraped
+from Marinetraffic and then made tidy using regular expressions.*
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, results=FALSE}
 vesseldetails <- read_csv('dataset/Finals/df_vesseldetails_original.csv')
 aisdata <- read_csv('dataset/Finals/df_1d_selection_restricted.csv') 
@@ -225,8 +226,9 @@ We apply the `Trajectory2Trips()` function to the dataframe and save the result
 in a new dataframe `trips`. Now that the data is in the correct format we can 
 carry out some exploratory data analysis.
 
-Next we remove those segments were the trips have been split. We also remove all trips with less than 2 segments because we found that those trips had too 
-few datapoints to be in any way insightful.
+Next we remove those segments were the trips have been split. We also remove all
+trips with less than 2 segments because we found that those trips had too few
+datapoints to be in any way insightful.
 ```{r}
 trips <- trajectories %>% 
   # group_by(MMSI) %>% 
@@ -238,10 +240,11 @@ colnames(trips)[1] <- "TRIP_ID"
 
 # Remove invalid trips
 trips <- filter(trips, TRIP_ID > -1)  
-# Get id's of just one segment trips
+# Get id's of at least 5 segment trips
 tmp_to_keep <- trips %>% count(TRIP_ID) %>% filter(n > 5) %>% .$TRIP_ID
 trips <- filter(trips, TRIP_ID  %in% tmp_to_keep)
-ExportObject(trips)
+rm(tmp_to_keep)
+# ExportObject(trips)
 ```
 
 
@@ -262,9 +265,8 @@ vesseldetails$vessel.type =  recode(vesseldetails$ship.type,
                                    "Oil/Chemical Tanker" = "Tanker",
                                    "LPG Tanker" = "Tanker",
                                    "Fishing" = "Fishing Vessel")
-
 # Let's also add the vessel.type column to the trips dataframe. 
-trips <- left_join(trips, vesseldetails[,c('MMSI', 'vessel.type')], by='MMSI')
+trips <- left_join(trips, vesseldetails[,c('MMSI', 'vessel.type')], by = 'MMSI')
 # ExportObject(vesseldetails)
 ```
 ### Exploratory Analysis
@@ -286,18 +288,80 @@ carry out the smallest number of trips.
 ![Amount trips per type](./figures/Vessel Types.png){width=100%}
 **Average Trip Duration**
 ```{r}
-trips_stats <- trips %>% group_by(TRIP_ID) %>% 
+trips_stats <- group_by(trips, TRIP_ID) %>% 
   summarize(duration_total_minutes = sum(TIME_DIFF)/60,
             duration_segment = mean(TIME_DIFF),
-            speed_average = mean(AVG_SPEED),
+            speed_avg = mean(AVG_SPEED),
             speed_max = max(AVG_SPEED),
             distance_total = sum(DISTANCE),
             distance_segment = mean(DISTANCE),
             time_start = min(TIME_START),
-            time_end = max(TIME_END),
-            datapoints = count(TRIP_ID))
-trips_stats
-nrow(test)
+            time_end = max(TIME_END))
+# nrow(test)
+```
+
+
+
+```{r, eval=FALSE, include=FALSE}
+# Note this code is very inefficient (5 minutes), do not run but rather load the
+# the sparse matrix in the next block. TODO: rewrite at some point using for
+# loop.
+tmp_positions <-  c('START_LON', 'START_LAT', 'END_LON', 'END_LAT')
+areas = read_csv('./dataset/areas.csv')
+locmat_sparse <- apply(trips[tmp_positions],1, function(x){
+  tmp_vec <- rep(0, nrow(areas))
+  indeces <- intersect(filter(areas, lon_left <= x['START_LON'],
+                              x['START_LON'] <= lon_right,
+                              lat_bottom <= x['START_LAT'],
+                              x['START_LAT'] <= lat_top) %>% .$area_code,
+                       filter(areas, lon_left <= x['END_LON'],
+                              x['END_LON'] <= lon_right,
+                              lat_bottom <= x['END_LAT'],
+                              x['END_LAT'] <= lat_top) %>% .$area_code)
+  tmp_vec[indeces] <- 1
+  tmp_vec
+  }) %>% t %>% Matrix(locmat, sparse = TRUE)
+# writeMM(locmat_sparse, file = './dataset/locmat_sparse.txt')
+```
+
+```{r}
+areas = read_csv('./dataset/areas.csv')
+# Load location matrix
+location_matrix <- readMM(file = './dataset/locmat_sparse.txt')
+# For each trip compute time spent in each area, return list of df. TODO: change into for loop.
+time_in_area_list <- apply(location_matrix, 2, function(x)
+  trips %>% 
+    select(TRIP_ID, MMSI, TIME_DIFF, START_POSID) %>%
+    slice(which(x != 0)) %>% 
+    group_by(TRIP_ID) %>% 
+    summarise(total_time <- sum(TIME_DIFF)) %>% 
+    data.frame())
+
+# In the previous list of df rename the total_time column.
+time_in_area_list <- lapply(seq_along(time_in_area_list), function(x){
+  df <- data.frame(time_in_area_list[x])
+  names(df)[-1] <- paste('area',x,sep = '_')
+  df
+})
+
+# Join all those list together to get 1df with total time spent in each area.
+time_in_area = time_in_area_list %>%
+  Reduce(function(df1,df2) full_join(df1,df2,by="TRIP_ID"), .) %>% 
+  arrange(TRIP_ID)
+rm(time_in_area_list)
+```
+
+```{r}
+# Check how much overlap there is between areas
+tmp <- apply(location_matrix[,1:15], 1, sum) %>% as.vector()
+
+keep <- apply(location_matrix[which(tmp > 2),], 2, sum)
+
+
+
+# Check how many datapoints are outside port
+
+# For those trips check average speed, therefore export col 15 from loc matrix
 ```
 
 
