@@ -3,19 +3,21 @@ title: "Data processing & exploration"
 output: html_notebook
 ---
 
-```{r message=FALSE, warning=FALSE}
+```{r libraries, warning=FALSE, include=FALSE}
 library(tidyverse)
 library(lubridate)
 library(geosphere)
 library(tools)
 library(gridExtra)
-library(RColorBrewer)
+# library(RColorBrewer)
 library(ggthemes)
-library('Matrix')
+library(Matrix)
 source("define functions.r")
 options(dplyr.show_progress = FALSE)
 options(scipen = 999)
-categories <- c("Bulk Carrier", "Fishing Vessel", "High Speed Craft", "General Cargo ", "Container Ship", "Port Tender", "Tanker", "Passenger", "Pleasure Craft")
+categories <- c("Bulk Carrier", "Fishing Vessel", "High Speed Craft", 
+                "General Cargo ", "Container Ship", "Port Tender", "Tanker",
+                "Passenger", "Pleasure Craft")
 ```
 ### Importing and pre-processing the data
 First we load two data sets: 
@@ -30,7 +32,7 @@ data row uniquely identifiable (*POSID*).
 
 *Note: (1) Had already seen some pre-processing in R and QGIS. (2) Was scraped
 from Marinetraffic and then made tidy using regular expressions.*
-```{r, echo=TRUE, message=FALSE, warning=FALSE, results=FALSE}
+```{r load ais, echo=TRUE, message=FALSE, warning=FALSE, results=TRUE}
 vesseldetails <- read_csv('dataset/in/df_vesseldetails_original.csv')
 aisdata <- read_csv('dataset/in/df_1d_selection_restricted.csv') 
 tmp_noimp <-  nrow(aisdata)
@@ -45,12 +47,8 @@ aisdata <- aisdata %>%
   mutate(POSID = row_number(x = .$MMSI))
 cat(' Number of AIS measurements available:',tmp_noimp,
     '\n','Number of valid AIS measurements imported:', nrow(aisdata))
-```
-
-```{r}
 head(aisdata)
 ```
-
 
 ### Create tracks and detect trips
 The plot below shows three different representations of the AIS data. In the 
@@ -73,7 +71,7 @@ trajectory to trips is implemented in the `Trajectory2Trips()` function  further
 below. The functions goes even one step further and subdivides trips occuring at
 different days into outbound and inbound trips.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r plot point-traj-trips, echo=FALSE, message=FALSE, warning=FALSE}
 tmp <- filter(aisdata, MMSI == 224548000, LON > -15.44 , LON < -15.37) %>% 
   mutate(daytrip = as.factor(day(TIMESTAMP)))
 tmp_p1 <- ggplot(tmp) +
@@ -89,14 +87,14 @@ tmp_p3 <- ggplot() +
   ggtitle('Trips') + theme(legend.position = 'none') + coord_fixed() +
   scale_colour_brewer(palette = "Set1")
 plot_point_tracks <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1) 
-# ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
+ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
 RemoveObjects('tmp')
 ```
 
 Here we transform the point representation into a trajectory representation as 
 explained before. Very importantly we calculate the duration of each segment on
 the trajectory as well as the average speed and bearing. 
-```{r, message=FALSE, warning=FALSE, results=FALSE}
+```{r create trajectories, message=FALSE, warning=FALSE, results=FALSE}
 Points2Trajectory <- function(df){
   df <- df %>% arrange(TIMESTAMP)  
   idx1 <- seq(1, nrow(df) - 1, 1)
@@ -123,8 +121,6 @@ trajectories <- aisdata %>% group_by(MMSI) %>%
   do(Points2Trajectory(.)) %>% as.data.frame()
 head(trajectories)
 ```
-
-
 #### Detect trips
 We divide each vessel's trajectory into a collection of trips. We do this based 
 on the time difference between subsequent location measurements. In other words,
@@ -144,7 +140,7 @@ Nonetheless this subselecton covers 75% of the measurements in the data set.
 (TODO insert ref on better signal near coasts) and therefore unbiased.
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r plot time-diffs, echo=FALSE, message=FALSE, warning=FALSE}
 # Temporary subselection of data
 tmp_trajectories_port <- trajectories %>%
   filter(START_LON > -15.45, START_LON < -15.37)  %>%
@@ -209,8 +205,9 @@ Next we split the trajectory data into separate trips according to the 30 minute
 time threshold we have just determined. For this we have written a function
 `Trajectory2Trips()` which does this for us.
 
-```{r}
+```{r trips function}
 Trajectory2Trips <- function(df){
+  # TODO SORT BY TIME
   result <- c(1:nrow(df))
   # 30 Minute time threshold determined before in seconds
   threshold <- 30*60
@@ -234,29 +231,38 @@ carry out some exploratory data analysis.
 Next we remove those segments were the trips have been split. We also remove all
 trips with less than 2 segments because we found that those trips had too few
 datapoints to be in any way insightful.
-```{r}
+```{r create trips}
+# Convert trajectories into trips
 trips <- trajectories %>% 
-  # group_by(MMSI) %>% 
+  group_by(MMSI) %>% # TODO THIS PROBABLY NEEDS TO STAY ON BUT WAS OFF UNTIL 30.05
   do(Trajectory2Trips(.)) %>% 
   as.data.frame() %>% 
   select(result) %>% 
   cbind(trajectories)
 colnames(trips)[1] <- "TRIP_ID"
 
-# Remove invalid trips
-trips <- filter(trips, TRIP_ID > -1)  
-# Get id's of at least 5 segment trips
+# Remove invalid trips (where there is a large time gap)
+trips <- filter(trips, TRIP_ID > -1)
+
+# Create unique ids for each Trip-MMSI combination
+tmp <- trips[c("TRIP_ID", "MMSI")] %>% distinct()
+tmp <- mutate(tmp, TRIP_ID_NEW = seq(1:nrow(tmp)))
+trips <- left_join(trips, tmp, by=c('TRIP_ID', 'MMSI'))
+trips$TRIP_ID <- trips$TRIP_ID_NEW
+trips <- subset(trips, select = -c(TRIP_ID_NEW))
+
+# Only keep trips with at least 5 segments.
 tmp_to_keep <- trips %>% count(TRIP_ID) %>% filter(n > 5) %>% .$TRIP_ID
 trips <- filter(trips, TRIP_ID  %in% tmp_to_keep)
-rm(tmp_to_keep)
-```
+rm(tmp_to_keep, tmp)
 
+```
 #### Recoding vessel categories
 As explained in the introduction a curated list of vesseltypes was used instead
 of the crude vessel categorisation provided by the AIS devices themselves.
 Furthermore the categorisation was further refined by recoding some of the
 categories.
-```{r}
+```{r recode vessel categories}
 vesseldetails$VESSEL_TYPE <- recode(vesseldetails$ship.type,
                                    "Sailing Vessel" = "Pleasure Craft",
                                    "Passengers Ship" = "Passenger",
@@ -270,6 +276,7 @@ vesseldetails$VESSEL_TYPE <- recode(vesseldetails$ship.type,
                                    "Fishing" = "Fishing Vessel")
 # Let's also add the vessel.type column to the trips dataframe. 
 trips <- left_join(trips, vesseldetails[,c('MMSI', 'VESSEL_TYPE')], by = 'MMSI')
+trips$VESSEL_TYPE <- as.factor(trips$VESSEL_TYPE)
 head(trips)
 ```
 
@@ -309,7 +316,7 @@ generated `trips` dataframe we check if the segment is within in any of the
 defined port areas. We record the results in a sparse matrix [#segments x #areas
 ] and export the data.
 
-```{r, eval=FALSE, include=TRUE}
+```{r create locmat, eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
 # Note this code is very slow (run time ~5 minutes), do not run but rather load
 # the the sparse matrix in the next block. TODO: rewrite using for loop.
 tmp_positions <-  c('START_LON', 'START_LAT', 'END_LON', 'END_LAT')
@@ -338,16 +345,18 @@ rm(tmp_positions)
 Once we know which segments of a vessels trips are in which area we can compute
 for each vessel, for each trip the total time spent in the respective areas
 defined.
-```{r warning=FALSE, message=FALSE}
+
+```{r time-in-area,warning=FALSE, message=FALSE}
 # Load areas and locmat again (previous codeblock is usually not run).
 areas <- read_csv('./dataset/in/areas.csv')
 locmat_sparse <- readMM(file = './dataset/in/locmat_sparse.txt')
 
-# For each trip compute time spent in each area, return list of df. TODO: change into for loop.
+# For each trip compute time spent in each area, return list of df. TODO: change
+# into for loop.
 time_in_area_list <- apply(locmat_sparse, 2, function(x)
   trips %>% 
     select(TRIP_ID, MMSI, TIME_DIFF, START_POSID) %>%
-    slice(which(x != 0)) %>% 
+    slice(which(x != 0)) %>%  # TODO IF I COMMENT THIS OUT IT FIXES MISSING IDS ISSUE
     group_by(TRIP_ID) %>% 
     summarise(total_time = sum(TIME_DIFF)) %>% 
     data.frame())
@@ -363,28 +372,38 @@ time_in_area_list <- lapply(seq_along(time_in_area_list), function(x){
 time_in_area <- time_in_area_list %>%
   Reduce(function(df1,df2) full_join(df1, df2, by = "TRIP_ID"), .) %>% 
   arrange(TRIP_ID)
+time_in_area <- left_join(time_in_area, distinct(trips[c('TRIP_ID')]),
+                          by='TRIP_ID')
+
+time_in_area_long <- gather(time_in_area, statistic, value, area_1:area_15,
+                            factor_key=TRUE) %>% 
+  filter(value>= 0) %>%
+  left_join(distinct(trips[c("TRIP_ID", "MMSI", "VESSEL_TYPE")]), by="TRIP_ID")
+  
 rm(time_in_area_list)
-head(time_in_area)
-ExportObject(time_in_area)
 ```
+
 
 It is also useful to know which segments of a vessel's trips are outside the 
 port area and which ones are inside. For instance when comparing the average 
 speed across different types of vessels it makes sense to do this only on those 
-parts of a trajectory that are outside the port area. The reason bein that
-within the port areas all vessel are required to abide to speed limits and
-therefore navigate at similar speeds. In contrast on open water vessels are
-allowed to navigate at their full speed and consequently allow us to
+parts of a trajectory that are outside the port area. The reason bein that 
+within the port areas all vessel are required to abide to speed limits and 
+therefore navigate at similar speeds. In contrast on open water vessels are 
+allowed to navigate at their full speed and consequently allow us to 
 discriminate between high speed vessels and slow sailing vessels just to mention
-a few. For this purpose we create a new binomial feature in `trips` indicating which
-segments are within the port area and which outside.
-```{r}
-trips <- mutate(trips, IN_PORT = locmat_sparse[,15])
+a few. For this purpose we create a new binomial feature in `trips` indicating
+which segments are within the port area and which outside.
+```{r add info on time in port}
+trips <- mutate(trips, IN_PORT = as.factor(locmat_sparse[,15]))
+levels(trips$IN_PORT) <- c("Outside Port", "In Port")
 ```
 
-#### Computing Vessel statistics
-```{r}
-trips_stats <- group_by(trips, TRIP_ID) %>% 
+#### Computing trip statistics 
+Here we calculate various trip statistics to be used as features. We also add
+the statistics concerning the time spent 
+```{r trip statistics}
+trips_stats <- group_by(trips, TRIP_ID, MMSI, VESSEL_TYPE) %>% 
   summarize(duration_total_minutes = sum(TIME_DIFF)/60,
             duration_segment = mean(TIME_DIFF),
             speed_avg = mean(AVG_SPEED),
@@ -392,60 +411,100 @@ trips_stats <- group_by(trips, TRIP_ID) %>%
             distance_total = sum(DISTANCE),
             distance_segment = mean(DISTANCE),
             time_start = min(TIME_START),
-            time_end = max(TIME_END))
+            time_end = max(TIME_END)) %>%
+  ungroup() %>% 
+  left_join(x=., y = time_in_area, by = "TRIP_ID")
+trips_stats[is.na(trips_stats)] <- 0
 ```
 
 ### Exploratory Analysis
 In this section we carry out the exploratory data analysis. The goal is on the 
-one hand to get a better feel of the data, on the other hand to answer some
-preliminary but nonetheless important question.
+one hand to get a better feel of the data, to answer some preliminary but
+nonetheless important question and to inform the feature engineering process.
 
 #### Which vessel types carry out the greatest number of trips?
-
 Since the purpose of this research is to classify vessels we first need to find
 out for which type of vessels there is enough data to work with. To do that we
 count the number of unique trips per vessel-type. 
 
 Below we have plotted the total number of trips for each vessel-type for which 
-more than 48 trips have been recorded. In total we have 8 types of vessels that have carried out at least 48 trips over the entire time period recorded in the 
+more than 48 trips have been recorded. In total we have 8 types of vessels that
+have carried out at least 48 trips over the entire time period recorded in the 
 dataset. Pleasure crafts which includes small private sailing vessels as well as
-private vessels carry out the greatest number of trips whereas bulk carriers
-carry out the smallest number of trips.
-![Amount trips per type](./figures/Vessel Types.png){width=100%}
+private vessels carry out the greatest number of trips whereas bulk carriers 
+carry out the smallest number of trips. 
+![Amount trips pertype](./figures/amount_trips_per_type.png){width=100%}
 
 #### Do vessels travel at different speeds?
-```{r, echo=FALSE, message=FALSE}
-plot_speeds <- filter(trips, VESSEL_TYPE %in% categories) %>% 
+Here we investigate whether different types of vessels navigate at different 
+speeds. To do this we check the navigation speed distribution per vesseltype. We
+consider a ship to be navigating when it's travellspeed exceeds a thresholdvalue
+of 1m/s. We do this for the trips taking place inside as well as outside the
+port of Las Palmas. We make this distinction because we hypothesize that inside
+the port vessels will either travel at similar speeds prescribed by the port
+authorities or they will be docked.
+
+Indeed the boxplot below shows that speed-distributions for vessels navigating 
+in open water are much more disitinct. For instance outside the port area  High 
+Speed crafts travel as expected much faster than the rest whereas bulk carriers 
+seem to be the slowest travelling vessels. In the top plot (Outside Port) can
+also see that the speed distributions vary too. For instance they are much more
+narrow for pleasure crafts in contrast to passenger vessels where speeds vary a
+lot.
+
+Overall these plots suggest that the navigatin speed may be a good feature to 
+individuate high speed vessels but it is less of a good feature to for instance 
+distinguish between bulk carriers and container vessels where there is much
+overlap.
+
+```{r boxplots speed, echo=FALSE, message=FALSE}
+plot_speeds_box <- filter(trips, VESSEL_TYPE %in% categories, AVG_SPEED > 1) %>% 
   ggplot() +
   geom_boxplot(mapping = aes(x = VESSEL_TYPE, y = AVG_SPEED),
                outlier.alpha = 0.1, outlier.size = 1) +
-  labs(title = 'Distriubution of average speed per segment.',
-       x = 'Vessel Type', y = 'Average Speed (m/s)') +
+  labs(title = 'Distribution of average speed per segment.',
+       x = 'Vessel Type', y = 'Moving Speed (m/s)') +
   facet_wrap(~ IN_PORT, nrow = 2) +
   coord_flip()
-plot_speeds
-ggsave("figures/plot_speeds.png", plot = plot_speeds)
+plot_speeds_box
+ggsave("figures/plot_speeds_box_new.png", plot = plot_speeds_box)
+```
+We also plot some density estimates to give us insights into the shape of the 
+speed distributions. We see that the distributions bell curved shapes. 
+```{r density speed, message=FALSE, echo=FALSE}
+plot_speeds_density <- trips %>% 
+  filter(VESSEL_TYPE %in% categories, 
+         AVG_SPEED > 1, AVG_SPEED < 15, 
+         IN_PORT=="In Port") %>% 
+  ggplot() +
+  geom_freqpoly(mapping = aes(x = AVG_SPEED, color=VESSEL_TYPE), stat = 'density') +
+  labs(title = 'Smoothed density estimates', x = 'Moving Speed (m/s)', y = 'Density') +
+  xlim(0,15)
+plot_speeds_density
+ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
 ```
 
-#### Export all data
-```{r}
+#### Which vessels spent how much time in each area?
+
+
+
+
+# Export all data
+```{r export data}
 write_csv(trajectories, path = './dataset/out/trajectories.csv')
 write_csv(vesseldetails,'./dataset/out/vesseldetails.csv')
 write_csv(trips,'./dataset/out/trips.csv')
-write_csv(trips,'./dataset/out/trips_stats.csv')
-
+write_tsv(trips_stats,'./dataset/out/trips_stats.tsv')
+write_tsv(time_in_area_long,'./dataset/out/time_in_area_long.tsv')
 ```
+
 
 
 
 **Average Trip Duration**
-
 ```{r}
 
 # Check how many datapoints are outside port
-
-# For those trips check average speed, therefore export col 15 from loc matrix
-
 
 # **Average Speed/Max/Min**
 ```

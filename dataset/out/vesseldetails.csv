@@ -1,4 +1,4 @@
-imo,MMSI,ais.type,call.Sign,flag,gross.tonnage,deadweight,length,width,image.src,ship.type,name,vessel.type
+imo,MMSI,ais.type,call.Sign,flag,gross.tonnage,deadweight,length,width,image.src,ship.type,name,VESSEL_TYPE
 NA,235095944,Sailing Vessel,2GBD9,United Kingdom [GB],NA,NA,11,3,http://photos.marinetraffic.com/ais/showphoto.aspx?photoid=1304953&size=,Sailing Vessel,EL STAN,Pleasure Craft
 9300178,477133800,Cargo,VRMY3,Hong Kong [HK],19885,32573,177,28,http://photos.marinetraffic.com/ais/showphoto.aspx?photoid=1870261&size=,Bulk Carrier,HAINAN ISLAND,Bulk Carrier
 9321500,220477000,Cargo - Hazard D (Recognizable),OVXP2,Denmark [DK],170794,105750,397,71,http://photos.marinetraffic.com/ais/showphoto.aspx?photoid=70793&size=,Container Ship,ELEONORA MAERSK,Container Ship
