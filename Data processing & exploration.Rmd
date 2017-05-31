@@ -467,7 +467,7 @@ distinguish between bulk carriers and container vessels where there is much
 overlap.
 
 ```{r boxplots speed, echo=FALSE, message=FALSE}
-plot_speeds_box <- filter(trips_stats_fl, AVG_SPEED > 1) %>% 
+plot_speeds_box <- filter(trips_fl, AVG_SPEED > 1) %>% 
   ggplot(mapping = aes(x = VESSEL_TYPE, y = AVG_SPEED)) +
   geom_boxplot( outlier.alpha = 0.1, outlier.size = 1) +
   labs(title = 'Distribution of average speed per segment.',
@@ -556,7 +556,7 @@ ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
 ggsave("figures/plot_tdiff.png", plot = plot_tdiff)
 ggsave("figures/plot_speeds_box_new.png", plot = plot_speeds_box)
 ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
-ggsave("figures/plot_tripdduration.png", plot = plot_tripdduration)
+ggsave("figures/plot_tripduration.png", plot = plot_tripduration)
 ```
 
 
