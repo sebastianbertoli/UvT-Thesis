@@ -485,12 +485,31 @@ ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
 ```
 
 #### Which vessels spent how much time in each area?
+See Tableau
 
+```{r}
+# plot_tripduration_box <- filter(trips_stats, VESSEL_TYPE %in% categories) %>% 
+#   ggplot() +
+#   geom_boxplot(mapping = aes(x = VESSEL_TYPE, y = duration_total_minutes),
+#                outlier.alpha = 0.1, outlier.size = 1) +
+#   labs(title = 'Distribution of average speed per segment.',
+#        x = 'Vessel Type', y = 'Moving Speed (m/s)') +
+#   coord_flip()
+# plot_tripduration_box
 
+trips_stats %>% 
+  filter(VESSEL_TYPE %in% categories) %>%
+  ggplot() +
+  geom_freqpoly(mapping = aes(x = duration_total_minutes, color=VESSEL_TYPE), 
+                stat = 'density') +
+  labs(title = 'Smoothed density estimates', x = 'Moving Speed (m/s)', y = 'Density') +
+  xlim(0,1000)
+
+```
 
 
 # Export all data
-```{r export data}
+```{r export data, eval=FALSE, include=FALSE}
 write_csv(trajectories, path = './dataset/out/trajectories.csv')
 write_csv(vesseldetails,'./dataset/out/vesseldetails.csv')
 write_csv(trips,'./dataset/out/trips.csv')
