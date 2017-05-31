@@ -9,12 +9,15 @@ library(lubridate)
 library(geosphere)
 library(tools)
 library(gridExtra)
-# library(RColorBrewer)
 library(ggthemes)
 library(Matrix)
+library(rstudioapi)
 source("define functions.r")
+
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 options(dplyr.show_progress = FALSE)
 options(scipen = 999)
+
 categories <- c("Bulk Carrier", "Fishing Vessel", "High Speed Craft", 
                 "General Cargo ", "Container Ship", "Port Tender", "Tanker",
                 "Passenger", "Pleasure Craft")
@@ -459,9 +462,8 @@ overlap.
 
 ```{r boxplots speed, echo=FALSE, message=FALSE}
 plot_speeds_box <- filter(trips, VESSEL_TYPE %in% categories, AVG_SPEED > 1) %>% 
-  ggplot() +
-  geom_boxplot(mapping = aes(x = VESSEL_TYPE, y = AVG_SPEED),
-               outlier.alpha = 0.1, outlier.size = 1) +
+  ggplot(mapping = aes(x = VESSEL_TYPE, y = AVG_SPEED)) +
+  geom_boxplot( outlier.alpha = 0.1, outlier.size = 1) +
   labs(title = 'Distribution of average speed per segment.',
        x = 'Vessel Type', y = 'Moving Speed (m/s)') +
   facet_wrap(~ IN_PORT, nrow = 2) +
@@ -474,37 +476,38 @@ speed distributions. We see that the distributions bell curved shapes.
 ```{r density speed, message=FALSE, echo=FALSE}
 plot_speeds_density <- trips %>% 
   filter(VESSEL_TYPE %in% categories, 
-         AVG_SPEED > 1, AVG_SPEED < 15, 
+         AVG_SPEED > 1, AVG_SPEED < 10, 
          IN_PORT=="In Port") %>% 
   ggplot() +
   geom_freqpoly(mapping = aes(x = AVG_SPEED, color=VESSEL_TYPE), stat = 'density') +
   labs(title = 'Smoothed density estimates', x = 'Moving Speed (m/s)', y = 'Density') +
-  xlim(0,15)
+  xlim(0,10) + 
+  theme(legend.position="bottom", legend.title=element_blank())
 plot_speeds_density
 ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
 ```
 
 #### Which vessels spent how much time in each area?
-See Tableau
+See Tableau chart.
 
-```{r}
-# plot_tripduration_box <- filter(trips_stats, VESSEL_TYPE %in% categories) %>% 
-#   ggplot() +
-#   geom_boxplot(mapping = aes(x = VESSEL_TYPE, y = duration_total_minutes),
-#                outlier.alpha = 0.1, outlier.size = 1) +
-#   labs(title = 'Distribution of average speed per segment.',
-#        x = 'Vessel Type', y = 'Moving Speed (m/s)') +
-#   coord_flip()
-# plot_tripduration_box
+#### How long is a trip? 
+A trip is the duration from when a vessel enteres the Port of Las Palmas to the
+moment it leaves the are or turns off its AIS transmitter for more than 15 minutes. Below we plotted the distribution of trip duration per type of vessel. We can seee that 
 
-trips_stats %>% 
-  filter(VESSEL_TYPE %in% categories) %>%
-  ggplot() +
-  geom_freqpoly(mapping = aes(x = duration_total_minutes, color=VESSEL_TYPE), 
-                stat = 'density') +
-  labs(title = 'Smoothed density estimates', x = 'Moving Speed (m/s)', y = 'Density') +
-  xlim(0,1000)
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot_tripdduration <- filter(trips_stats, VESSEL_TYPE %in% categories) %>%
+  ggplot(aes(VESSEL_TYPE, duration_total_minutes, color=VESSEL_TYPE)) +
+  geom_jitter(alpha=0.2, position=position_jitter(0.3)) +
+  geom_boxplot(outlier.alpha = 0, alpha = 0.5, 
+               fill='white', color = 'black', width=0.1, weight=0.1) +
+  labs(title = 'Trip duration',
+       x = 'Vessel Type', y = 'Trip Duration in Minutes') +
+  theme(legend.position="none") + 
+  coord_flip() +
+  ylim(0,6000)
 
+plot_tripdduration
+ggsave("figures/plot_tripdduration.png", plot = plot_tripdduration)
 ```
 
 
