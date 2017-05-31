@@ -8,5 +8,9 @@ More to come soon. :)
 
 Files
 --------------------
+* `Data processing & exploration.Rmd`: Data processing and Exploratory data analysis.
+* `define functions.R`: A number of helper functions used.
 
-* 
+Folders
+--------------------
+* `figures`: Generated figures.
