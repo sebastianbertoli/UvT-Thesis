@@ -1,0 +1,24 @@
+---
+title: "Data modelling and model evaulation"
+output: html_notebook
+---
+
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(corrplot)
+library(leaflet)
+```
+
+```{r, message=FALSE, warning=FALSE}
+sample_df <- sample_n(aisdata, 5000)
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addCircleMarkers(lng=sample_df$LON, lat=sample_df$LAT,
+    radius = 2,
+    color = 'red',
+    stroke = FALSE, fillOpacity = 0.5
+  )
+m  # Print the map
+```
+

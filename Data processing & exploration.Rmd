@@ -5,8 +5,7 @@ output:
   html_document: default
   pdf_document: default
 ---
-## Loadd Libraries and Settings
-```{r libraries, warning=FALSE, include=TRUE}
+```{r libraries, message=FALSE, warning=FALSE, include=TRUE}
 library(tidyverse)
 library(lubridate)
 library(geosphere)
@@ -15,19 +14,20 @@ library(gridExtra)
 library(ggthemes)
 library(Matrix)
 library(rstudioapi)
+library(leaflet)
+# library(mapview)
 source("define functions.r")
 
-# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 options(dplyr.show_progress = FALSE)
 options(scipen = 999)
-
 categories <- c("Bulk Carrier", "Fishing Vessel", "High Speed Craft", 
                 "General Cargo ", "Container Ship", "Port Tender", "Tanker",
                 "Passenger", "Pleasure Craft")
 thm <- NULL
 ```
 
-## Importing and pre-processing the data
+## Importing and pre-processing the data from points to trips
+### Import
 First we load two data sets: 
 
 1. AIS measurements captured within a 15km radius of Las Palmas.
@@ -39,7 +39,7 @@ imported. Each measurement is then labelled with a new position id to make each
 data row uniquely identifiable (*POSID*).
 
 *Note: (1) Had already seen some pre-processing in R and QGIS. (2) Was scraped
-from Marinetraffic and then made tidy using regular expressions.*
+from Marinetraffic and relevan data was extracted using regular expressions.
 ```{r load ais, echo=TRUE, message=FALSE, warning=FALSE, results=TRUE}
 vesseldetails <- read_csv('dataset/in/df_vesseldetails_original.csv')
 aisdata <- read_csv('dataset/in/df_1d_selection_restricted.csv') 
@@ -49,13 +49,27 @@ aisdata <- aisdata %>%
   filter(MMSI %in% vesseldetails$MMSI) %>%
   subset(!duplicated(select(.,MMSI,TIMESTAMP))) %>% 
   group_by(MMSI) %>% 
-  filter(n() > 10) %>% 
+  filter(n() > 10) %>%  # TODO Try turning this one off.
   ungroup() %>%
   arrange(MMSI,TIMESTAMP) %>% 
   mutate(POSID = row_number(x = .$MMSI))
 cat(' Number of AIS measurements available:',tmp_noimp,
     '\n','Number of valid AIS measurements imported:', nrow(aisdata))
-head(aisdata)
+```
+If we were to plot a small sample on a map this is how it looks like. 
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+set.seed(1234)
+ships_to_plot <- sample(unique(aisdata$MMSI), 10)
+sample_df <- filter (aisdata, MMSI %in% ships_to_plot)
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addCircleMarkers(lng=sample_df$LON, lat=sample_df$LAT,
+    radius = 3,
+    color = "red",
+    stroke = FALSE, fillOpacity = 0.6
+  )
+m, , 
 ```
 
 ### Create tracks
@@ -95,7 +109,7 @@ tmp_p3 <- ggplot() +
   ggtitle('Trips') + theme(legend.position = 'none') + coord_fixed() +
   scale_colour_brewer(palette = "Set1")
 plot_point_tracks <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1)
-plot_point_tracks
+# plot_point_tracks
 RemoveObjects('tmp')
 ```
 
@@ -179,7 +193,7 @@ plot_tdiff <- ggplot(data = tmp_counts) +
   theme(panel.grid.major.x = element_blank(), 
         panel.grid.minor.x = element_blank(), 
         panel.grid.minor.y = element_blank())
-plot_tdiff 
+plot_tdiff
 RemoveObjects('tmp')
 ```
 The plot above shows in what time intervals the vessels position measurements
@@ -238,6 +252,7 @@ carry out some exploratory data analysis.
 Next we remove those segments were the trips have been split. We also remove all
 trips with less than 2 segments because we found that those trips had too few
 datapoints to be in any way insightful.
+
 ```{r create trips}
 # Convert trajectories into trips
 trips <- trajectories %>% 
@@ -262,7 +277,6 @@ trips <- subset(trips, select = -c(TRIP_ID_NEW))
 tmp_to_keep <- trips %>% count(TRIP_ID) %>% filter(n > 5) %>% .$TRIP_ID
 trips <- filter(trips, TRIP_ID  %in% tmp_to_keep)
 rm(tmp_to_keep, tmp)
-
 ```
 ### Recoding vessel categories
 As explained in the introduction a curated list of vesseltypes was used instead
@@ -288,7 +302,8 @@ head(trips)
 ```
 
 
-## Feature Engineering
+## Data Transformation and Feature Engineering
+### Introduction
 Vessel trajectories are not just some geometric shapes existing in a vacuum. 
 First, they have specific properties relating to the vessel creating the 
 trajectory. For instance the speed of the vessel across the trajectory or the 
@@ -363,7 +378,7 @@ locmat_sparse <- readMM(file = './dataset/in/locmat_sparse.txt')
 time_in_area_list <- apply(locmat_sparse, 2, function(x)
   trips %>% 
     select(TRIP_ID, MMSI, TIME_DIFF, START_POSID) %>%
-    slice(which(x != 0)) %>%  # TODO IF I COMMENT THIS OUT IT FIXES MISSING IDS ISSUE
+    slice(which(x != 0)) %>%
     group_by(TRIP_ID) %>% 
     summarise(total_time = sum(TIME_DIFF)) %>% 
     data.frame())
@@ -386,7 +401,6 @@ time_in_area_long <- gather(time_in_area, statistic, value, area_1:area_15,
                             factor_key=TRUE) %>% 
   filter(value>= 0) %>%
   left_join(distinct(trips[c("TRIP_ID", "MMSI", "VESSEL_TYPE")]), by="TRIP_ID")
-  
 rm(time_in_area_list)
 ```
 
@@ -404,9 +418,10 @@ which segments are within the port area and which outside.
 ```{r add info on time in port}
 trips <- mutate(trips, IN_PORT = as.factor(locmat_sparse[,15]))
 levels(trips$IN_PORT) <- c("Outside Port", "In Port")
+trips <- cbind(trips, as.data.frame(as.matrix(locmat_sparse))) 
 ```
 
-#### Computing trip statistics 
+### Computing trip statistics 
 Here we calculate various trip statistics to be used as features. We also add
 the statistics concerning the time spent 
 ```{r trip statistics}
@@ -422,13 +437,11 @@ trips_stats <- group_by(trips, TRIP_ID, MMSI, VESSEL_TYPE) %>%
   ungroup() %>% 
   left_join(x=., y = time_in_area, by = "TRIP_ID")
 trips_stats[is.na(trips_stats)] <- 0
-```
 
-#### Just keep the categfories we are actually interested in
-```{r}
+# Just keep the categfories we are actually interested in
 trips_stats_fl <- filter(trips_stats, VESSEL_TYPE %in% categories)
 trips_fl <- filter(trips, VESSEL_TYPE %in% categories)
-```
+```  
 
 ## Exploratory Analysis
 In this section we carry out the exploratory data analysis. The goal is on the 
@@ -436,19 +449,34 @@ one hand to get a better feel of the data, to answer some preliminary but
 nonetheless important question and to inform the feature engineering process.
 
 ### Which vessel types carry out the greatest number of trips?
-Since the purpose of this research is to classify vessels we first need to find
-out for which type of vessels there is enough data to work with. To do that we
-count the number of unique trips per vessel-type. 
+Since the purpose of this research is to classify vessels we first need to find 
+out for which type of vessels there is enough data to work with. To do that we 
+count the number of unique trips per vessel-type. Below we have plotted the
+total number of trips for each vessel-type for which more than 50 trips have
+been recorded.
 
-Below we have plotted the total number of trips for each vessel-type for which 
-more than 48 trips have been recorded. In total we have 8 types of vessels that
-have carried out at least 48 trips over the entire time period recorded in the 
-dataset. Pleasure crafts which includes small private sailing vessels as well as
-private vessels carry out the greatest number of trips whereas bulk carriers 
-carry out the smallest number of trips. 
-![Amount trips pertype](./figures/amount_trips_per_type.png){width=100%}
+The first important finding is that we have some significant class imbalances.
+For instance while we have 341 one trips recorded by pleasure crafts we only
+have 58 trips from high speed vessels. This class imbalance can be problematic
+later on when we will be training and evaluating the training model. 
 
-#### Do vessels travel at different speeds?
+There are 4 approaches on how to deal with such class imbalances. The first is
+to 
+```{r}
+select(trips, VESSEL_TYPE, TRIP_ID) %>% 
+  unique() %>% 
+  count(VESSEL_TYPE) %>%
+  filter(n > 50) %>%
+  ggplot() +
+  geom_col(mapping=aes(x=reorder(VESSEL_TYPE, n), y=n), width = 0.7) +
+  geom_text(mapping = aes(x=VESSEL_TYPE, y=n, label=n), 
+            nudge_y = 10, size=3) +
+  labs(title='Number Trips per Vessel Type', y='# Trips', x='Vessel Type') +
+  coord_flip() + thm + theme(aspect.ratio = .5)
+```
+
+
+### Do vessels travel at different speeds?
 Here we investigate whether different types of vessels navigate at different 
 speeds. To do this we check the navigation speed distribution per vesseltype. We
 consider a ship to be navigating when it's travellspeed exceeds a thresholdvalue
@@ -515,9 +543,9 @@ plot_tripduration <- trips_stats_fl %>%
                fill='black', color = 'black', width=0.2) +
   labs(title = 'Trip duration',
        x = 'Vessel Type', y = 'Total Trip Duration in Days')  +
-  theme(legend.position="none") + 
   coord_flip() +
   ylim(0,4) 
+plot_tripduration <- plot_tripduration + thm + theme(legend.position="none")
 plot_tripduration
 ```
 ### Time spent in the port-area
@@ -533,25 +561,29 @@ plot_time_in_port <- trips_stats_fl %>%
   theme(legend.position="none") + 
   coord_flip() +
   ylim(0,36) 
+plot_time_in_port <- plot_time_in_port + thm + theme(legend.position="none")
 plot_time_in_port
 ```
 
+### On what days do travel?
+
 
 ## Export all data
-```{r export data, eval=FALSE, include=FALSE}
+```{r export data, eval=FALSE, include=TRUE}
 write_csv(trajectories, path = './dataset/out/trajectories.csv')
 write_csv(vesseldetails,'./dataset/out/vesseldetails.csv')
 write_csv(trips,'./dataset/out/trips.csv')
 write_tsv(trips_stats,'./dataset/out/trips_stats.tsv')
+write_tsv(trips_stats_fl,'./dataset/out/trips_stats_fl.tsv')
 write_tsv(time_in_area_long,'./dataset/out/time_in_area_long.tsv')
 ```
 
-## Export all Figures
+## Export all figures
 ```{r, message=FALSE, warning=FALSE}
 ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
 ggsave("figures/plot_tdiff.png", plot = plot_tdiff)
 ggsave("figures/plot_speeds_box_new.png", plot = plot_speeds_box)
 ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
 ggsave("figures/plot_tripduration.png", plot = plot_tripduration)
-# Test
+ggsave("figures/plot_time_in_port.png", plot = plot_time_in_port)
 ```
