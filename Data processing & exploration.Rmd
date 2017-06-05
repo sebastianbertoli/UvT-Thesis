@@ -565,9 +565,30 @@ plot_time_in_port <- plot_time_in_port + thm + theme(legend.position="none")
 plot_time_in_port
 ```
 
-### On what days do travel?
-
-
+### On what days do vessels travel?
+Below we have plotted the number of unique trips carried out by the vessels of 
+each vesseltype. What we are interested here is not the absolute number of trips
+carried out by each vessel but on the contrary the what the traffic patterns for
+each individual vessel type is. For instance we can see that pleasure crafts
+(e.g. sailing vessels) tend to travel less mid-week as opposed to the weekend or
+beginning of the week. Ohter vessel types also show different travel patterns
+throughout the different weekdays, however they appear to be less pronounced.
+```{r}
+tmp <- trips_fl %>% 
+  select(VESSEL_TYPE, TIME_END, TRIP_ID) %>% 
+  mutate(week_day = wday(TIME_END)) %>% 
+  select(-(TIME_END)) %>% 
+  distinct() %>% 
+  group_by(VESSEL_TYPE) %>% 
+  count(week_day)
+  
+plot_tripsperday <- ggplot(data = tmp) +
+  geom_line(mapping = aes(x=week_day, y=n, colour=VESSEL_TYPE))  + 
+  scale_x_continuous(breaks=c(1:7), labels=c("Monday", "Tuesday", "Wednesday",
+                              "Thursday", "Friday", "Saturday", "Sunday"))
+plot_tripsperday
+rm(tmp)
+```
 ## Export all data
 ```{r export data, eval=FALSE, include=TRUE}
 write_csv(trajectories, path = './dataset/out/trajectories.csv')
@@ -580,10 +601,13 @@ write_tsv(time_in_area_long,'./dataset/out/time_in_area_long.tsv')
 
 ## Export all figures
 ```{r, message=FALSE, warning=FALSE}
+# TODO Write function to export all figures in one go. 
 ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
 ggsave("figures/plot_tdiff.png", plot = plot_tdiff)
 ggsave("figures/plot_speeds_box_new.png", plot = plot_speeds_box)
 ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
 ggsave("figures/plot_tripduration.png", plot = plot_tripduration)
 ggsave("figures/plot_time_in_port.png", plot = plot_time_in_port)
+ggsave("figures/plot_tripsperday.png", plot = plot_tripsperday)
+
 ```
