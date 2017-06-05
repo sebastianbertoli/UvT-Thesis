@@ -6,19 +6,124 @@ output: html_notebook
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
+library (reshape2)
+library(e1071)
+library(stringr)
+library(caret)
 library(corrplot)
-library(leaflet)
+library(GGally)
+# library(cowplot)
 ```
 
 ```{r, message=FALSE, warning=FALSE}
-sample_df <- sample_n(aisdata, 5000)
-m <- leaflet() %>%
-  addTiles() %>%  # Add default OpenStreetMap map tiles
-  addCircleMarkers(lng=sample_df$LON, lat=sample_df$LAT,
-    radius = 2,
-    color = 'red',
-    stroke = FALSE, fillOpacity = 0.5
-  )
-m  # Print the map
+# Import data if not already loaded.
+if(!exists("trips_stats_fl")){
+ trips_stats_fl <- read_tsv("./dataset/out/trips_stats_fl.tsv")
+}
 ```
+
+## Data Tranformation for individual predictors
+While in the previous part we were focused on bringing the data from a point 
+representation into a trip representation here we are concerned with 
+transforming the data into a state that makes it suitable for modelling. For 
+instance by scaling and centering the data.
+
+```{r}
+
+tmp_dropcols <- c("VESSEL_TYPE", "TRIP_ID", "MMSI", "time_start", "time_end")
+tmp_areacols <- names(trips_stats_fl) %>% str_extract("area_\\d*") %>% na.omit() %>% as.vector()
+
+# Create x and y data. 
+xdata <- trips_stats_fl %>%
+  ungroup() %>% 
+  select(-one_of(tmp_dropcols))
+ydata <- select(trips_stats_fl, VESSEL_TYPE)
+```
+
+Below we plot density plots for the semantic features and the trip statistics we
+have previously created. We observe that for the semantic features the 
+distributions appear to be strongly skewed. This is partly due to the fact that 
+most vessel will have spent some time only in couple of the dock areas of the 
+port we have defined. Cosnequently most values will be 0.  Moreover, as noted by
+/cite{Kuhn} an apparent skew may be exaberated by the relatively small sample 
+size. For instance variable area_17 which appears to be extremely skewed had 
+only 7 non-zero measurements. 
+
+Next we plot the densities of the features describing the various
+vesselstatistics we have previously calculated. The densities of the remaining
+feautures also show considerable skewness in particular the
+"duration_total_minutes" shows some strong right-skew.
+
+Skewed input data can prevent a machine learning model to to porperly use the
+information. For instance while decision trees are unaffected by skewed data
+neural networks, which use the raw values for the calculations are. A common
+solution is the binning of continuous values but this is inevitably lead to a
+loss of information. A better approach is to apply a log-transformation to the
+data. /cite{Berry Data mining techniques}
+
+Finally, the features have very different measurement scales which can lead to
+severe problems. As a standard procedure we normalise each feature to have 
+a 0 mean and standard deviation of 1. This also helps with the training of a
+neural netwwork classifier because convergence is usually faster when using
+normalized inputs /cite{Lecun efficient backprop}.
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Plot area densities
+plot_area_densities <- xdata[, tmp_areacols] %>% 
+  melt() %>% 
+  ggplot() +
+  geom_density(mapping = aes(x=value/60/60), color="black", fill="blue", alpha=0.3) +
+  scale_x_continuous(breaks=c(0, 1, 2, 4, 8, 16, 32, 64),trans="log1p", expand=c(0,0)) +
+  scale_y_continuous(breaks=c(0, 0.25, 0.5, 1, 2, 4),trans="log1p", expand=c(0,0)) +
+  labs(title="Densityes of area features", x="Time spent in area [hours]", y="Density") +
+  facet_wrap(~ variable, ncol = 5, scales = "free")
+plot_area_densities
+
+xdata[, tmp_areacols] %>% 
+  melt() %>% group_by(variable) %>% filter(value > 0) %>% count() %>% arrange(n)
+
+plot_vars_histo <- xdata[,0:6]%>%
+  melt() %>%
+  ggplot() +
+  geom_histogram(mapping = aes(x=value), color="black", fill="blue", alpha=0.3) +
+  theme(text = element_text(size=8)) +
+  facet_wrap(~ variable, ncol = 3, scales = "free")
+plot_vars_histo
+```
+
+Below we have plotted the log-transformed and normalised input data. In other 
+words we applied a log transformation, we centered the data by subtracting the 
+mean and standardized the data by dividing every value through their standard 
+deviation. #TODO Combine before after of certain variables. 
+```{r}
+# Apply log+1 transformation and scaling. 
+xdata_transformed <- sapply(xdata, function(x) scale(log(1+x))) %>% data.frame()
+
+# Apply boxcox. TODO: Decide which transformation is more suitable. 
+predict_boxcox <- preProcess(as.matrix(xdata),method = "BoxCox")
+xdata_boxcox <- predict(predict_boxcox, as.matrix(xdata))  %>% data.frame()
+```
+
+Plot the stuff...
+
+```{r}
+plot_scalelogvars_densities <- xdata_transformed[,c(0:6)] %>%
+  melt() %>%
+  ggplot() +
+  geom_histogram(mapping = aes(x=value), color="black", fill="blue", alpha=0.3) +
+  theme(text = element_text(size=8)) +
+  facet_wrap(~ variable, ncol = 3, scales = "free")
+plot_scalelogvars_densities
+```
+
+```{r}
+segCorr <- cor(xdata_transformed)
+corrplot(segCorr, order = "original", tl.cex = .7, tl.col = "black")
+## caret's findCorrelation function is used to identify columns to remove.
+findCorrelation(segCorr, .75)
+```
+
+
+
+
+
 
