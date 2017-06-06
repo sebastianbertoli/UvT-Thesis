@@ -29,7 +29,6 @@ transforming the data into a state that makes it suitable for modelling. For
 instance by scaling and centering the data.
 
 ```{r}
-
 tmp_dropcols <- c("VESSEL_TYPE", "TRIP_ID", "MMSI", "time_start", "time_end")
 tmp_areacols <- names(trips_stats_fl) %>% str_extract("area_\\d*") %>% na.omit() %>% as.vector()
 
@@ -37,7 +36,7 @@ tmp_areacols <- names(trips_stats_fl) %>% str_extract("area_\\d*") %>% na.omit()
 xdata <- trips_stats_fl %>%
   ungroup() %>% 
   select(-one_of(tmp_dropcols))
-ydata <- select(trips_stats_fl, VESSEL_TYPE)
+ydata <- trips_stats_fl$VESSEL_TYPE %>% as.factor()
 ```
 
 Below we plot density plots for the semantic features and the trip statistics we
@@ -76,7 +75,6 @@ plot_area_densities <- xdata[, tmp_areacols] %>%
   scale_y_continuous(breaks=c(0, 0.25, 0.5, 1, 2, 4),trans="log1p", expand=c(0,0)) +
   labs(title="Densityes of area features", x="Time spent in area [hours]", y="Density") +
   facet_wrap(~ variable, ncol = 5, scales = "free")
-plot_area_densities
 
 xdata[, tmp_areacols] %>% 
   melt() %>% group_by(variable) %>% filter(value > 0) %>% count() %>% arrange(n)
@@ -97,10 +95,6 @@ deviation. #TODO Combine before after of certain variables.
 ```{r}
 # Apply log+1 transformation and scaling. 
 xdata_transformed <- sapply(xdata, function(x) scale(log(1+x))) %>% data.frame()
-
-# Apply boxcox. TODO: Decide which transformation is more suitable. 
-predict_boxcox <- preProcess(as.matrix(xdata),method = "BoxCox")
-xdata_boxcox <- predict(predict_boxcox, as.matrix(xdata))  %>% data.frame()
 ```
 
 Plot the stuff...
@@ -115,15 +109,30 @@ plot_scalelogvars_densities <- xdata_transformed[,c(0:6)] %>%
 plot_scalelogvars_densities
 ```
 
+## Investigate relationship between features
+The linear correlation betweeen the feautures is higher for the transformed
+dataset compared to the original data. Thid suggests that there is a nonlinear
+relationship between the features. For instance the distance covered within each
+segment correlates quite strongly with the total distance covered after each
+trip. When using the spearman correlation, which is invariant to transformaiton
+the measured correlation before and after the data transformation remains 
+unchanged. 
 ```{r}
-segCorr <- cor(xdata_transformed)
+segCorr <- cor(xdata_transformed, method = "pearson")
 corrplot(segCorr, order = "original", tl.cex = .7, tl.col = "black")
-## caret's findCorrelation function is used to identify columns to remove.
-findCorrelation(segCorr, .75)
+
+segCorr2 <- cor(xdata, method = "pearson")
+corrplot(segCorr2, order = "original", tl.cex = .7, tl.col = "black")
 ```
 
+Below we plot again the correlation matrix for just the features that showed
+some correltion before. We can see how the data-transformation did increase the 
+pearson correlation between the features. We will consider removing some feature
+since they appear to express the same information anyway. For instance the
+distance covered within a segment is a function of the overall average speed of
+the vessel and the duration of the segment.
+```{r}
+plot_corrxtrans <- cbind(ydata, xdata_transformed) %>% ggscatmat(columns = 1:6, color="ydata", alpha=0.1, corMethod="pearson")
+ggsave("figures/plot_corrxtrans.png", plot_corrxtrans)
 
-
-
-
-
+```
