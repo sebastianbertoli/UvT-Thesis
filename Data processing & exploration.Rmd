@@ -426,7 +426,7 @@ Here we calculate various trip statistics to be used as features. We also add
 the statistics concerning the time spent 
 ```{r trip statistics}
 trips_stats <- group_by(trips, TRIP_ID, MMSI, VESSEL_TYPE) %>% 
-  summarize(duration_total_minutes = sum(TIME_DIFF)/60,
+  summarize(duration_total = sum(TIME_DIFF),
             duration_segment = mean(TIME_DIFF),
             speed_avg = mean(AVG_SPEED),
             speed_max = max(AVG_SPEED),
