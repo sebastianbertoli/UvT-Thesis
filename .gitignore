@@ -3,7 +3,7 @@
 .RData
 .Ruserdata
 dataset/out/
-Data processing & exploration.nb.html
+*.html
 thesis-rstudio.Rproj
 old/
 figures/
