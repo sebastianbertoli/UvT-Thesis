@@ -4,6 +4,7 @@
 .Ruserdata
 dataset/out/
 *.html
+*.png
 thesis-rstudio.Rproj
 old/
 figures/
