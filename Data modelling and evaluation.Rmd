@@ -2,8 +2,6 @@
 title: "Data modelling and model evaulation"
 output: html_notebook
 ---
-
-
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library (reshape2)
@@ -12,7 +10,12 @@ library(stringr)
 library(caret)
 library(corrplot)
 library(GGally)
-# library(cowplot)
+library(ggfortify)
+library(mlbench)
+library(gbm)
+library(parallel)
+library(doParallel)
+library(Rtsne)
 ```
 
 ```{r, message=FALSE, warning=FALSE}
@@ -21,13 +24,12 @@ if(!exists("trips_stats_fl")){
  trips_stats_fl <- read_tsv("./dataset/out/trips_stats_fl.tsv")
 }
 ```
-
+# Data Tranformation
 ## Data Tranformation for individual predictors
 While in the previous part we were focused on bringing the data from a point 
 representation into a trip representation here we are concerned with 
 transforming the data into a state that makes it suitable for modelling. For 
 instance by scaling and centering the data.
-
 ```{r}
 tmp_dropcols <- c("VESSEL_TYPE", "TRIP_ID", "MMSI", "time_start", "time_end")
 tmp_areacols <- names(trips_stats_fl) %>% str_extract("area_\\d*") %>% na.omit() %>% as.vector()
@@ -37,6 +39,12 @@ xdata <- trips_stats_fl %>%
   ungroup() %>% 
   select(-one_of(tmp_dropcols))
 ydata <- trips_stats_fl$VESSEL_TYPE %>% as.factor()
+
+# Apply log+1 transformation and scaling. 
+xdata_transformed <- sapply(xdata, function(x) scale(log(1+x))) %>% data.frame()
+
+yxdata_transformed <- cbind(ydata, xdata_transformed)
+yxdata <- cbind(ydata, xdata)
 ```
 
 Below we plot density plots for the semantic features and the trip statistics we
@@ -92,14 +100,10 @@ Below we have plotted the log-transformed and normalised input data. In other
 words we applied a log transformation, we centered the data by subtracting the 
 mean and standardized the data by dividing every value through their standard 
 deviation. #TODO Combine before after of certain variables. 
-```{r}
-# Apply log+1 transformation and scaling. 
-xdata_transformed <- sapply(xdata, function(x) scale(log(1+x))) %>% data.frame()
-```
 
 Plot the stuff...
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 plot_scalelogvars_densities <- xdata_transformed[,c(0:6)] %>%
   melt() %>%
   ggplot() +
@@ -109,7 +113,7 @@ plot_scalelogvars_densities <- xdata_transformed[,c(0:6)] %>%
 plot_scalelogvars_densities
 ```
 
-## Investigate relationship between features
+# Investigate relationship between features
 The linear correlation betweeen the feautures is higher for the transformed
 dataset compared to the original data. Thid suggests that there is a nonlinear
 relationship between the features. For instance the distance covered within each
@@ -124,15 +128,84 @@ corrplot(segCorr, order = "original", tl.cex = .7, tl.col = "black")
 segCorr2 <- cor(xdata, method = "pearson")
 corrplot(segCorr2, order = "original", tl.cex = .7, tl.col = "black")
 ```
-
 Below we plot again the correlation matrix for just the features that showed
 some correltion before. We can see how the data-transformation did increase the 
 pearson correlation between the features. We will consider removing some feature
 since they appear to express the same information anyway. For instance the
 distance covered within a segment is a function of the overall average speed of
 the vessel and the duration of the segment.
-```{r}
+```{r, message=FALSE, warning=FALSE}
 plot_corrxtrans <- cbind(ydata, xdata_transformed) %>% ggscatmat(columns = 1:6, color="ydata", alpha=0.1, corMethod="pearson")
 ggsave("figures/plot_corrxtrans.png", plot_corrxtrans)
+plot_corrxtrans
+```
 
+## PCA
+Data does not appear to be easily linearly separable. 
+```{r}
+pca_object <- prcomp(yxdata_transformed[,2:21], center = TRUE, scale = TRUE)
+# percentVariance <- pca_object$sd^2/sum(pca_object$sd^2)*100
+# percentVariance
+# head(pca_object$rotation[, 1:3])
+
+autoplot(pca_object, data = yxdata_transformed, colour = 'ydata', alpha=1, size=3)
+```
+
+## T-Sne
+blablabla
+```{r}
+
+perplexity_list <- c(80, 120)
+
+for (i in perplexity_list){
+  set.seed(1234)
+  tsne <- Rtsne(yxdata_transformed[,2:21], dims = 2, perplexity=i, 
+                verbose=FALSE, max_iter = 10000)
+  
+  embedding <- as.data.frame(tsne$Y)
+  embedding$Class <- as.factor(yxdata_transformed$ydata)
+  
+  plot_tsne <- ggplot(embedding, aes(x=V1, y=V2, color=Class)) +
+    geom_point(size=2, alpha=0.2)
+  ggsave(filename = paste("./figures/tsne_perp_", i, "_10000.png"), plot = plot_tsne)
+}
+
+
+```
+
+
+# Machine Learning Experiments
+```{r}
+
+yxdata_transformed$ydata <- mapvalues(
+  yxdata_transformed$ydata,
+  from = c("Bulk Carrier", "Container Ship", "Fishing Vessel", 
+           "High Speed Craft", "Passenger", "Pleasure Craft", "Port Tender",
+           "Tanker"), to = 1:8) %>% as.factor()
+head(yxdata_transformed)
+```
+
+
+```{r}
+# inTraining <- createDataPartition(Sonar$Class, p = .75, list = FALSE)
+# training <- Sonar[ inTraining,]
+# testing  <- Sonar[-inTraining,]
+
+fitControl <- trainControl(## 10-fold CV
+                           method = "repeatedcv",
+                           number = 10,
+                           ## repeated ten times
+                           repeats = 10, 
+                           allowParallel = FALSE, 
+                           sampling = "down")
+
+set.seed(825)
+gbmFit1 <- train(ydata ~ ., data = yxdata_transformed[1:6], 
+                 method = "gbm", 
+                 trControl = fitControl,
+                 ## This last option is actually one
+                 ## for gbm() that passes through
+                 verbose = FALSE)
+
+ggplot(gbmFit1)
 ```
