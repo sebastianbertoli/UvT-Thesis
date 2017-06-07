@@ -43,9 +43,10 @@ from Marinetraffic and relevan data was extracted using regular expressions.
 ```{r load ais, echo=TRUE, message=FALSE, warning=FALSE, results=TRUE}
 vesseldetails <- read_csv('dataset/in/df_vesseldetails_original.csv')
 aisdata <- read_csv('dataset/in/df_1d_selection_restricted.csv') 
+
 tmp_noimp <-  nrow(aisdata)
 aisdata <- aisdata %>% 
-  subset(select = -c(1,2)) %>% 
+  subset(select = -c(1,2)) %>%  #TODO Change to name selection
   filter(MMSI %in% vesseldetails$MMSI) %>%
   subset(!duplicated(select(.,MMSI,TIMESTAMP))) %>% 
   group_by(MMSI) %>% 
@@ -69,7 +70,7 @@ m <- leaflet() %>%
     color = "red",
     stroke = FALSE, fillOpacity = 0.6
   )
-m, , 
+m
 ```
 
 ### Create tracks
@@ -537,7 +538,7 @@ duration which is consistently under 2.5 hours.
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # tmp <- nrow(filter(trips_stats_fl, duration_total_minutes < 6000)
 plot_tripduration <- trips_stats_fl %>%
-  ggplot(aes(VESSEL_TYPE, duration_total_minutes/60/24, color=VESSEL_TYPE)) +
+  ggplot(aes(VESSEL_TYPE, duration_total/60/60/24, color=VESSEL_TYPE)) +
   geom_jitter(alpha=0.2, position=position_jitter(0.3)) +
   geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
                fill='black', color = 'black', width=0.2) +
