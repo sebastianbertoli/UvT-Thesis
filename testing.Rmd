@@ -72,3 +72,82 @@ ggplot(gbmFit2)
 ```
 
 
+```{r}
+
+library(AppliedPredictiveModeling)
+
+### Simulate some two class data with two predictors
+set.seed(975)
+training <- quadBoundaryFunc(500)
+testing <- quadBoundaryFunc(1000)
+testing$class2 <- ifelse(testing$class == "Class1", 1, 0)
+testing$ID <- 1:nrow(testing)
+
+library(MASS)
+qdaFit <- qda(class ~ X1 + X2, data = training)
+library(randomForest)
+rfFit <- randomForest(class ~ X1 + X2, data = training, ntree = 2000)
+
+### Predict the test set
+testing$qda <- predict(qdaFit, testing)$posterior[,1]
+testing$rf <- predict(rfFit, testing, type = "prob")[,1]
+
+
+### Generate the calibration analysis
+library(caret)
+calData1 <- calibration(class ~ qda + rf, data = testing, cuts = 10)
+
+### Plot the curve
+xyplot(calData1, auto.key = list(columns = 2))
+
+### To calibrate the data, treat the probabilities as inputs into the
+### model
+
+trainProbs <- training
+trainProbs$qda <- predict(qdaFit)$posterior[,1]
+
+
+trainProbs <- training
+trainProbs$qda <- predict(qdaFit)$posterior[,1]
+
+### These models take the probabilities as inputs and, based on the
+### true class, re-calibrate them.
+library(klaR)
+nbCal <- NaiveBayes(class ~ qda, data = trainProbs, usekernel = TRUE)
+
+### We use relevel() here because glm() models the probability of the
+### second factor level.
+lrCal <- glm(relevel(class, "Class2") ~ qda, data = trainProbs, family = binomial)
+
+### Now re-predict the test set using the modified class probability
+### estimates
+testing$qda2 <- predict(nbCal, testing[, "qda", drop = FALSE])$posterior[,1]
+testing$qda3 <- predict(lrCal, testing[, "qda", drop = FALSE], type = "response")
+
+
+### Manipulate the data a bit for pretty plotting
+simulatedProbs <- testing[, c("class", "rf", "qda3")]
+names(simulatedProbs) <- c("TrueClass", "RandomForestProb", "QDACalibrated")
+simulatedProbs$RandomForestClass <-  predict(rfFit, testing)
+
+calData2 <- calibration(class ~ qda + qda2 + qda3, data = testing)
+calData2$data$calibModelVar <- as.character(calData2$data$calibModelVar)
+calData2$data$calibModelVar <- ifelse(calData2$data$calibModelVar == "qda", 
+                                      "QDA",
+                                      calData2$data$calibModelVar)
+calData2$data$calibModelVar <- ifelse(calData2$data$calibModelVar == "qda2", 
+                                      "Bayesian Calibration",
+                                      calData2$data$calibModelVar)
+
+calData2$data$calibModelVar <- ifelse(calData2$data$calibModelVar == "qda3", 
+                                      "Sigmoidal Calibration",
+                                      calData2$data$calibModelVar)
+
+calData2$data$calibModelVar <- factor(calData2$data$calibModelVar,
+                                      levels = c("QDA", 
+                                                 "Bayesian Calibration", 
+                                                 "Sigmoidal Calibration"))
+
+xyplot(calData2, auto.key = list(columns = 1))
+```
+

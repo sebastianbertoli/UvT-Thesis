@@ -1,0 +1,88 @@
+---
+title: "Data modelling and model evaulation"
+output: html_notebook
+---
+```{r, message=FALSE, warning=FALSE}
+library(reshape2)
+library(e1071)
+library(stringr)
+library(caret)
+library(corrplot)
+library(GGally)
+library(ggfortify)
+library(mlbench)
+library(gbm)
+library(parallel)
+library(doParallel)
+library(Rtsne)
+library(tidyverse)
+```
+
+```{r, message=FALSE, warning=FALSE}
+yxdata_transformed <- read_tsv("dataset/out/yxdata_transformed.tsv")
+yxdata <- read_tsv("dataset/out/yxdata.tsv")
+```
+# Machine Learning Experiments
+```{r}
+set.seed(1234)
+inTraining <- createDataPartition(yxdata_transformed$ydata, p = .75, list = FALSE)
+training <- yxdata_transformed[ inTraining,]
+testing  <- yxdata_transformed[-inTraining,]
+
+library(doMC)
+registerDoMC(cores = 3)
+fitControl <- trainControl(## 10-fold CV
+                           method = "repeatedcv",
+                           number = 10,
+                           ## repeated ten times
+                           repeats = 10, 
+                           allowParallel = TRUE,
+                           sampling = "down")
+
+set.seed(825)
+gbmFit1 <- train(ydata ~ ., data = training, 
+                 method = "gbm", 
+                 trControl = fitControl,
+                 ## This last option is actually one
+                 ## for gbm() that passes through
+                 verbose = FALSE)
+
+prediction <- predict(gbmFit1, testing[,2:22])
+
+predtest <- data.frame(pred = prediction, obs = testing$ydata)
+
+multiClassSummary(predtest, testing$ydata)
+```
+
+```{r}
+set.seed(1234)
+inTraining <- createDataPartition(yxdata$ydata, p = .75, list = FALSE)
+training <- yxdata[ inTraining,]
+testing  <- yxdata[-inTraining,]
+
+library(doMC)
+registerDoMC(cores = 3)
+fitControl <- trainControl(## 10-fold CV
+                           method = "repeatedcv",
+                           number = 10,
+                           ## repeated ten times
+                           repeats = 10, 
+                           allowParallel = TRUE,
+                           sampling = "down")
+
+set.seed(825)
+gbmFit1 <- train(ydata ~ ., data = training, 
+                 method = "gbm", 
+                 trControl = fitControl,
+                 ## This last option is actually one
+                 ## for gbm() that passes through
+                 verbose = FALSE)
+
+prediction <- predict(gbmFit1, testing[,2:22])
+
+predtest <- data.frame(pred = prediction, obs = testing$ydata)
+
+multiClassSummary(predtest, testing$ydata)
+
+```
+
