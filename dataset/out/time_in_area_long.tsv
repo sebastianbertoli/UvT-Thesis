@@ -1,2284 +1,2284 @@
 TRIP_ID	statistic	value	MMSI	VESSEL_TYPE
-273	area_1	120	224101930	Tanker
-274	area_1	360	224101930	Tanker
-332	area_1	11340	224145000	Passenger
-333	area_1	37320	224145000	Passenger
-334	area_1	46440	224145000	Passenger
-335	area_1	44880	224145000	Passenger
-338	area_1	30420	224145000	Passenger
-348	area_1	29460	224145000	Passenger
-349	area_1	46740	224145000	Passenger
-353	area_1	31860	224145000	Passenger
-361	area_1	11040	224145000	Passenger
-362	area_1	38640	224145000	Passenger
-363	area_1	46980	224145000	Passenger
-372	area_1	37980	224145000	Passenger
-373	area_1	20280	224145000	Passenger
-515	area_1	1920	224227560	Pilot Vessel
-516	area_1	180	224227560	Pilot Vessel
-517	area_1	180	224227560	Pilot Vessel
-518	area_1	8880	224227560	Pilot Vessel
-519	area_1	720	224227560	Pilot Vessel
-529	area_1	2340	224255540	Unspecified
-533	area_1	360	224261240	Fire Fighting Vessel
-552	area_1	5640	224365000	Tanker
-553	area_1	3360	224365000	Tanker
-599	area_1	120	224494000	Tug
-611	area_1	540	224550000	Tug
-626	area_1	5280	224692000	Passenger
-627	area_1	33360	224692000	Passenger
-636	area_1	5520	224692000	Passenger
-641	area_1	11220	224692000	Passenger
-643	area_1	32400	224692000	Passenger
-646	area_1	5160	224692000	Passenger
-647	area_1	32280	224692000	Passenger
-654	area_1	30960	224692000	Passenger
-656	area_1	31500	224692000	Passenger
-666	area_1	168900	224761000	Passenger
-667	area_1	23100	224761000	Passenger
-668	area_1	23880	224761000	Passenger
-669	area_1	23400	224761000	Passenger
-670	area_1	21660	224761000	Passenger
-671	area_1	54360	224761000	Passenger
-672	area_1	137100	224761000	Passenger
-673	area_1	20580	224761000	Passenger
-674	area_1	20940	224761000	Passenger
-675	area_1	22980	224761000	Passenger
-676	area_1	23400	224761000	Passenger
+273	area_1	120.0	224101930	Tanker
+274	area_1	360.0	224101930	Tanker
+332	area_1	11340.0	224145000	Passenger
+333	area_1	37320.0	224145000	Passenger
+334	area_1	46440.0	224145000	Passenger
+335	area_1	44880.0	224145000	Passenger
+338	area_1	30420.0	224145000	Passenger
+348	area_1	29460.0	224145000	Passenger
+349	area_1	46740.0	224145000	Passenger
+353	area_1	31860.0	224145000	Passenger
+361	area_1	11040.0	224145000	Passenger
+362	area_1	38640.0	224145000	Passenger
+363	area_1	46980.0	224145000	Passenger
+372	area_1	37980.0	224145000	Passenger
+373	area_1	20280.0	224145000	Passenger
+515	area_1	1920.0	224227560	Pilot Vessel
+516	area_1	180.0	224227560	Pilot Vessel
+517	area_1	180.0	224227560	Pilot Vessel
+518	area_1	8880.0	224227560	Pilot Vessel
+519	area_1	720.0	224227560	Pilot Vessel
+529	area_1	2340.0	224255540	Unspecified
+533	area_1	360.0	224261240	Fire Fighting Vessel
+552	area_1	5640.0	224365000	Tanker
+553	area_1	3360.0	224365000	Tanker
+599	area_1	120.0	224494000	Tug
+611	area_1	540.0	224550000	Tug
+626	area_1	5280.0	224692000	Passenger
+627	area_1	33360.0	224692000	Passenger
+636	area_1	5520.0	224692000	Passenger
+641	area_1	11220.0	224692000	Passenger
+643	area_1	32400.0	224692000	Passenger
+646	area_1	5160.0	224692000	Passenger
+647	area_1	32280.0	224692000	Passenger
+654	area_1	30960.0	224692000	Passenger
+656	area_1	31500.0	224692000	Passenger
+666	area_1	168900.0	224761000	Passenger
+667	area_1	23100.0	224761000	Passenger
+668	area_1	23880.0	224761000	Passenger
+669	area_1	23400.0	224761000	Passenger
+670	area_1	21660.0	224761000	Passenger
+671	area_1	54360.0	224761000	Passenger
+672	area_1	137100.0	224761000	Passenger
+673	area_1	20580.0	224761000	Passenger
+674	area_1	20940.0	224761000	Passenger
+675	area_1	22980.0	224761000	Passenger
+676	area_1	23400.0	224761000	Passenger
 677	area_1	195e3	224761000	Passenger
-678	area_1	20040	224761000	Passenger
-679	area_1	24600	224761000	Passenger
-680	area_1	21060	224761000	Passenger
-681	area_1	21300	224761000	Passenger
-682	area_1	58860	224761000	Passenger
-683	area_1	88500	224761000	Passenger
-684	area_1	4320	224761000	Passenger
-685	area_1	20700	224761000	Passenger
-686	area_1	21300	224761000	Passenger
-687	area_1	20880	224761000	Passenger
-688	area_1	23880	224761000	Passenger
-689	area_1	61320	224761000	Passenger
-690	area_1	85020	224761000	Passenger
-691	area_1	16980	224761000	Passenger
-772	area_1	10980	224957000	Passenger
-773	area_1	38040	224957000	Passenger
-774	area_1	46800	224957000	Passenger
-775	area_1	46680	224957000	Passenger
-776	area_1	39900	224957000	Passenger
-781	area_1	67860	224957000	Passenger
-782	area_1	37620	224957000	Passenger
-786	area_1	28080	224957000	Passenger
-788	area_1	30780	224957000	Passenger
-794	area_1	31560	224957000	Passenger
-797	area_1	4920	224957000	Passenger
-798	area_1	29220	224957000	Passenger
+678	area_1	20040.0	224761000	Passenger
+679	area_1	24600.0	224761000	Passenger
+680	area_1	21060.0	224761000	Passenger
+681	area_1	21300.0	224761000	Passenger
+682	area_1	58860.0	224761000	Passenger
+683	area_1	88500.0	224761000	Passenger
+684	area_1	4320.0	224761000	Passenger
+685	area_1	20700.0	224761000	Passenger
+686	area_1	21300.0	224761000	Passenger
+687	area_1	20880.0	224761000	Passenger
+688	area_1	23880.0	224761000	Passenger
+689	area_1	61320.0	224761000	Passenger
+690	area_1	85020.0	224761000	Passenger
+691	area_1	16980.0	224761000	Passenger
+772	area_1	10980.0	224957000	Passenger
+773	area_1	38040.0	224957000	Passenger
+774	area_1	46800.0	224957000	Passenger
+775	area_1	46680.0	224957000	Passenger
+776	area_1	39900.0	224957000	Passenger
+781	area_1	67860.0	224957000	Passenger
+782	area_1	37620.0	224957000	Passenger
+786	area_1	28080.0	224957000	Passenger
+788	area_1	30780.0	224957000	Passenger
+794	area_1	31560.0	224957000	Passenger
+797	area_1	4920.0	224957000	Passenger
+798	area_1	29220.0	224957000	Passenger
 821	area_1	21e3	225416000	Passenger
-826	area_1	18540	225416000	Passenger
-830	area_1	8040	225416000	Passenger
-831	area_1	33960	225416000	Passenger
-835	area_1	9480	225416000	Passenger
-836	area_1	28980	225416000	Passenger
-1034	area_1	120	242576000	Tanker
-1346	area_1	120	367449000	Cargo/Containership
-1525	area_1	240	577129000	Offshore Supply Ship
-1598	area_1	2640	704643314	Pilot Vessel
-1599	area_1	660	704643314	Pilot Vessel
-21	area_2	19080	207137000	General Cargo
-89	area_2	38940	215825000	Tanker
-91	area_2	24360	219473000	Tanker
-274	area_2	37740	224101930	Tanker
-518	area_2	720	224227560	Pilot Vessel
-525	area_2	120	224255540	Unspecified
-526	area_2	120	224255540	Unspecified
-529	area_2	240	224255540	Unspecified
-533	area_2	1620	224261240	Fire Fighting Vessel
-552	area_2	8820	224365000	Tanker
-553	area_2	56640	224365000	Tanker
-599	area_2	120	224494000	Tug
-604	area_2	2340	224533000	Fire Fighting Vessel
-607	area_2	240	224533000	Fire Fighting Vessel
-612	area_2	480	224550000	Tug
-974	area_2	84600	235056099	Tug
-1034	area_2	39960	242576000	Tanker
-1043	area_2	75060	244810083	Tug
-1057	area_2	120420	247118800	Tanker
-1069	area_2	26820	249210000	Tanker
-1070	area_2	12960	249210000	Tanker
-1182	area_2	82020	273524300	Factory Trawler
-1249	area_2	119820	311042400	Reefer
-1283	area_2	41100	341591000	Trawler
-1308	area_2	17340	352896000	Tug
-1346	area_2	147180	367449000	Cargo/Containership
-1525	area_2	58860	577129000	Offshore Supply Ship
-1526	area_2	138120	577129000	Offshore Supply Ship
-1572	area_2	11940	636092141	Tanker
-1597	area_2	420	704643314	Pilot Vessel
-31	area_3	49500	209857000	Container Ship
-32	area_3	4500	209857000	Container Ship
-33	area_3	36600	209857000	Container Ship
-36	area_3	36960	210585000	Container Ship
-37	area_3	26580	210585000	Container Ship
-39	area_3	58140	210585000	Container Ship
-44	area_3	60120	210903000	Container Ship
-45	area_3	71280	210903000	Container Ship
-48	area_3	34500	211217360	Container Ship
-49	area_3	27240	211217360	Container Ship
+826	area_1	18540.0	225416000	Passenger
+830	area_1	8040.0	225416000	Passenger
+831	area_1	33960.0	225416000	Passenger
+835	area_1	9480.0	225416000	Passenger
+836	area_1	28980.0	225416000	Passenger
+1034	area_1	120.0	242576000	Tanker
+1346	area_1	120.0	367449000	Cargo/Containership
+1525	area_1	240.0	577129000	Offshore Supply Ship
+1598	area_1	2640.0	704643314	Pilot Vessel
+1599	area_1	660.0	704643314	Pilot Vessel
+21	area_2	19080.0	207137000	General Cargo
+89	area_2	38940.0	215825000	Tanker
+91	area_2	24360.0	219473000	Tanker
+274	area_2	37740.0	224101930	Tanker
+518	area_2	720.0	224227560	Pilot Vessel
+525	area_2	120.0	224255540	Unspecified
+526	area_2	120.0	224255540	Unspecified
+529	area_2	240.0	224255540	Unspecified
+533	area_2	1620.0	224261240	Fire Fighting Vessel
+552	area_2	8820.0	224365000	Tanker
+553	area_2	56640.0	224365000	Tanker
+599	area_2	120.0	224494000	Tug
+604	area_2	2340.0	224533000	Fire Fighting Vessel
+607	area_2	240.0	224533000	Fire Fighting Vessel
+612	area_2	480.0	224550000	Tug
+974	area_2	84600.0	235056099	Tug
+1034	area_2	39960.0	242576000	Tanker
+1043	area_2	75060.0	244810083	Tug
+1057	area_2	120420.0	247118800	Tanker
+1069	area_2	26820.0	249210000	Tanker
+1070	area_2	12960.0	249210000	Tanker
+1182	area_2	82020.0	273524300	Factory Trawler
+1249	area_2	119820.0	311042400	Reefer
+1283	area_2	41100.0	341591000	Trawler
+1308	area_2	17340.0	352896000	Tug
+1346	area_2	147180.0	367449000	Cargo/Containership
+1525	area_2	58860.0	577129000	Offshore Supply Ship
+1526	area_2	138120.0	577129000	Offshore Supply Ship
+1572	area_2	11940.0	636092141	Tanker
+1597	area_2	420.0	704643314	Pilot Vessel
+31	area_3	49500.0	209857000	Container Ship
+32	area_3	4500.0	209857000	Container Ship
+33	area_3	36600.0	209857000	Container Ship
+36	area_3	36960.0	210585000	Container Ship
+37	area_3	26580.0	210585000	Container Ship
+39	area_3	58140.0	210585000	Container Ship
+44	area_3	60120.0	210903000	Container Ship
+45	area_3	71280.0	210903000	Container Ship
+48	area_3	34500.0	211217360	Container Ship
+49	area_3	27240.0	211217360	Container Ship
 50	area_3	27e3	211217360	Container Ship
-51	area_3	25380	211217360	Container Ship
-52	area_3	27240	211217360	Container Ship
-53	area_3	96480	211382280	Container Ship
-69	area_3	20460	212740000	Container Ship
-70	area_3	18120	212740000	Container Ship
-71	area_3	25680	212740000	Container Ship
-72	area_3	16260	212740000	Container Ship
-74	area_3	11400	212777000	Container Ship
-75	area_3	81480	212777000	Container Ship
-76	area_3	69420	212777000	Container Ship
-77	area_3	64020	212903000	Container Ship
-78	area_3	55620	212903000	Container Ship
-79	area_3	9240	212903000	Container Ship
-80	area_3	38040	212903000	Container Ship
-81	area_3	25140	212903000	Container Ship
-82	area_3	41820	212903000	Container Ship
-98	area_3	180	224016190	Port Tender
-99	area_3	120	224016190	Port Tender
-129	area_3	120	224016190	Port Tender
-273	area_3	11340	224101930	Tanker
-274	area_3	55620	224101930	Tanker
-334	area_3	120	224145000	Passenger
-339	area_3	18240	224145000	Passenger
-340	area_3	54840	224145000	Passenger
-362	area_3	120	224145000	Passenger
-513	area_3	2220	224219620	Pilot Vessel
-514	area_3	4320	224219620	Pilot Vessel
-515	area_3	5640	224227560	Pilot Vessel
-516	area_3	600	224227560	Pilot Vessel
-517	area_3	4380	224227560	Pilot Vessel
-518	area_3	21120	224227560	Pilot Vessel
-519	area_3	1440	224227560	Pilot Vessel
-525	area_3	3360	224255540	Unspecified
-526	area_3	4140	224255540	Unspecified
-527	area_3	360	224255540	Unspecified
-529	area_3	16800	224255540	Unspecified
-531	area_3	360	224261240	Fire Fighting Vessel
-532	area_3	4920	224261240	Fire Fighting Vessel
-533	area_3	20640	224261240	Fire Fighting Vessel
-534	area_3	1260	224261240	Fire Fighting Vessel
-552	area_3	14340	224365000	Tanker
-553	area_3	43380	224365000	Tanker
-554	area_3	15900	224365000	Tanker
-598	area_3	6060	224494000	Tug
-599	area_3	13980	224494000	Tug
-600	area_3	2520	224494000	Tug
-604	area_3	8340	224533000	Fire Fighting Vessel
-605	area_3	10260	224533000	Fire Fighting Vessel
-607	area_3	8580	224533000	Fire Fighting Vessel
-608	area_3	600	224533000	Fire Fighting Vessel
-611	area_3	2520	224550000	Tug
-612	area_3	3540	224550000	Tug
-613	area_3	540	224550000	Tug
-616	area_3	300	224608620	Tanker
-617	area_3	25560	224608620	Tanker
-624	area_3	9060	224692000	Passenger
-625	area_3	25920	224692000	Passenger
-634	area_3	17700	224692000	Passenger
-635	area_3	26580	224692000	Passenger
-637	area_3	6600	224692000	Passenger
-638	area_3	11760	224692000	Passenger
-644	area_3	20400	224692000	Passenger
-645	area_3	25980	224692000	Passenger
-652	area_3	18360	224692000	Passenger
-653	area_3	5640	224692000	Passenger
-657	area_3	19920	224692000	Passenger
-658	area_3	63780	224692000	Passenger
-668	area_3	300	224761000	Passenger
-670	area_3	120	224761000	Passenger
-674	area_3	240	224761000	Passenger
-676	area_3	240	224761000	Passenger
-678	area_3	1140	224761000	Passenger
-681	area_3	180	224761000	Passenger
-682	area_3	240	224761000	Passenger
-685	area_3	180	224761000	Passenger
-686	area_3	240	224761000	Passenger
-688	area_3	240	224761000	Passenger
-689	area_3	240	224761000	Passenger
-691	area_3	120	224761000	Passenger
-760	area_3	20220	224957000	Passenger
-772	area_3	360	224957000	Passenger
-776	area_3	180	224957000	Passenger
-784	area_3	18540	224957000	Passenger
-785	area_3	5940	224957000	Passenger
-789	area_3	18060	224957000	Passenger
-790	area_3	81120	224957000	Passenger
-795	area_3	19380	224957000	Passenger
-796	area_3	24420	224957000	Passenger
-798	area_3	120	224957000	Passenger
-818	area_3	5160	225416000	Passenger
-819	area_3	18420	225416000	Passenger
-820	area_3	25920	225416000	Passenger
-823	area_3	5280	225416000	Passenger
-824	area_3	17520	225416000	Passenger
-825	area_3	23580	225416000	Passenger
-828	area_3	4860	225416000	Passenger
-829	area_3	18780	225416000	Passenger
-831	area_3	240	225416000	Passenger
-833	area_3	5700	225416000	Passenger
-834	area_3	18420	225416000	Passenger
-838	area_3	5040	225416000	Passenger
+51	area_3	25380.0	211217360	Container Ship
+52	area_3	27240.0	211217360	Container Ship
+53	area_3	96480.0	211382280	Container Ship
+69	area_3	20460.0	212740000	Container Ship
+70	area_3	18120.0	212740000	Container Ship
+71	area_3	25680.0	212740000	Container Ship
+72	area_3	16260.0	212740000	Container Ship
+74	area_3	11400.0	212777000	Container Ship
+75	area_3	81480.0	212777000	Container Ship
+76	area_3	69420.0	212777000	Container Ship
+77	area_3	64020.0	212903000	Container Ship
+78	area_3	55620.0	212903000	Container Ship
+79	area_3	9240.0	212903000	Container Ship
+80	area_3	38040.0	212903000	Container Ship
+81	area_3	25140.0	212903000	Container Ship
+82	area_3	41820.0	212903000	Container Ship
+98	area_3	180.0	224016190	Port Tender
+99	area_3	120.0	224016190	Port Tender
+129	area_3	120.0	224016190	Port Tender
+273	area_3	11340.0	224101930	Tanker
+274	area_3	55620.0	224101930	Tanker
+334	area_3	120.0	224145000	Passenger
+339	area_3	18240.0	224145000	Passenger
+340	area_3	54840.0	224145000	Passenger
+362	area_3	120.0	224145000	Passenger
+513	area_3	2220.0	224219620	Pilot Vessel
+514	area_3	4320.0	224219620	Pilot Vessel
+515	area_3	5640.0	224227560	Pilot Vessel
+516	area_3	600.0	224227560	Pilot Vessel
+517	area_3	4380.0	224227560	Pilot Vessel
+518	area_3	21120.0	224227560	Pilot Vessel
+519	area_3	1440.0	224227560	Pilot Vessel
+525	area_3	3360.0	224255540	Unspecified
+526	area_3	4140.0	224255540	Unspecified
+527	area_3	360.0	224255540	Unspecified
+529	area_3	16800.0	224255540	Unspecified
+531	area_3	360.0	224261240	Fire Fighting Vessel
+532	area_3	4920.0	224261240	Fire Fighting Vessel
+533	area_3	20640.0	224261240	Fire Fighting Vessel
+534	area_3	1260.0	224261240	Fire Fighting Vessel
+552	area_3	14340.0	224365000	Tanker
+553	area_3	43380.0	224365000	Tanker
+554	area_3	15900.0	224365000	Tanker
+598	area_3	6060.0	224494000	Tug
+599	area_3	13980.0	224494000	Tug
+600	area_3	2520.0	224494000	Tug
+604	area_3	8340.0	224533000	Fire Fighting Vessel
+605	area_3	10260.0	224533000	Fire Fighting Vessel
+607	area_3	8580.0	224533000	Fire Fighting Vessel
+608	area_3	600.0	224533000	Fire Fighting Vessel
+611	area_3	2520.0	224550000	Tug
+612	area_3	3540.0	224550000	Tug
+613	area_3	540.0	224550000	Tug
+616	area_3	300.0	224608620	Tanker
+617	area_3	25560.0	224608620	Tanker
+624	area_3	9060.0	224692000	Passenger
+625	area_3	25920.0	224692000	Passenger
+634	area_3	17700.0	224692000	Passenger
+635	area_3	26580.0	224692000	Passenger
+637	area_3	6600.0	224692000	Passenger
+638	area_3	11760.0	224692000	Passenger
+644	area_3	20400.0	224692000	Passenger
+645	area_3	25980.0	224692000	Passenger
+652	area_3	18360.0	224692000	Passenger
+653	area_3	5640.0	224692000	Passenger
+657	area_3	19920.0	224692000	Passenger
+658	area_3	63780.0	224692000	Passenger
+668	area_3	300.0	224761000	Passenger
+670	area_3	120.0	224761000	Passenger
+674	area_3	240.0	224761000	Passenger
+676	area_3	240.0	224761000	Passenger
+678	area_3	1140.0	224761000	Passenger
+681	area_3	180.0	224761000	Passenger
+682	area_3	240.0	224761000	Passenger
+685	area_3	180.0	224761000	Passenger
+686	area_3	240.0	224761000	Passenger
+688	area_3	240.0	224761000	Passenger
+689	area_3	240.0	224761000	Passenger
+691	area_3	120.0	224761000	Passenger
+760	area_3	20220.0	224957000	Passenger
+772	area_3	360.0	224957000	Passenger
+776	area_3	180.0	224957000	Passenger
+784	area_3	18540.0	224957000	Passenger
+785	area_3	5940.0	224957000	Passenger
+789	area_3	18060.0	224957000	Passenger
+790	area_3	81120.0	224957000	Passenger
+795	area_3	19380.0	224957000	Passenger
+796	area_3	24420.0	224957000	Passenger
+798	area_3	120.0	224957000	Passenger
+818	area_3	5160.0	225416000	Passenger
+819	area_3	18420.0	225416000	Passenger
+820	area_3	25920.0	225416000	Passenger
+823	area_3	5280.0	225416000	Passenger
+824	area_3	17520.0	225416000	Passenger
+825	area_3	23580.0	225416000	Passenger
+828	area_3	4860.0	225416000	Passenger
+829	area_3	18780.0	225416000	Passenger
+831	area_3	240.0	225416000	Passenger
+833	area_3	5700.0	225416000	Passenger
+834	area_3	18420.0	225416000	Passenger
+838	area_3	5040.0	225416000	Passenger
 839	area_3	18e3	225416000	Passenger
-960	area_3	58560	229651000	Container Ship
-978	area_3	120	235070715	General Cargo
-999	area_3	24660	236502000	Tanker
-1003	area_3	12360	236518000	Tanker
-1005	area_3	17700	236518000	Tanker
-1011	area_3	220080	240028000	Container Ship
-1034	area_3	120	242576000	Tanker
-1067	area_3	91680	248931000	Container Ship
-1068	area_3	78360	248955000	Container Ship
-1072	area_3	78120	249715000	Container Ship
-1076	area_3	28140	255802850	General Cargo
-1083	area_3	53580	255805600	Container Ship
-1084	area_3	59100	255805600	Container Ship
-1085	area_3	62280	255805601	Container Ship
-1086	area_3	55320	255805601	Container Ship
-1092	area_3	21600	256462000	Tanker
-1093	area_3	21660	256462000	Tanker
-1195	area_3	20880	304517000	General Cargo
-1196	area_3	118920	304517000	General Cargo
-1197	area_3	68940	304517000	General Cargo
-1198	area_3	119100	304984000	General Cargo
-1290	area_3	60540	351268000	Container Ship
-1292	area_3	27180	351607000	Container Ship
-1293	area_3	25920	351737000	Container Ship
-1294	area_3	55260	351737000	Container Ship
-1295	area_3	88920	351819000	Container Ship
-1301	area_3	78120	352619000	Container Ship
-1303	area_3	46200	352649000	Container Ship
-1304	area_3	76440	352649000	Container Ship
-1313	area_3	52500	353082000	Container Ship
-1321	area_3	63840	353775000	Container Ship
-1322	area_3	58500	353775000	Container Ship
-1324	area_3	2580	354537000	Container Ship
-1325	area_3	39900	354537000	Container Ship
-1328	area_3	83160	355194000	Container Ship
-1329	area_3	73740	355249000	Container Ship
-1330	area_3	71580	355289000	Container Ship
-1339	area_3	87900	356101000	Container Ship
-1340	area_3	29040	356101000	Container Ship
-1346	area_3	120	367449000	Cargo/Containership
-1361	area_3	72180	371059000	Container Ship
-1365	area_3	110640	371245000	Container Ship
-1368	area_3	92160	371443000	Container Ship
-1372	area_3	77820	371602000	Container Ship
-1373	area_3	94860	371602000	Container Ship
-1375	area_3	116400	372045000	Container Ship
-1454	area_3	81060	477519400	Container Ship
-1455	area_3	70740	477519400	Container Ship
-1544	area_3	88980	636014613	Container Ship
-1545	area_3	11760	636014613	Container Ship
-1558	area_3	56940	636015666	Container Ship
-1561	area_3	153960	636016014	Container Ship
-1565	area_3	183240	636016457	Container Ship
-1566	area_3	76980	636090524	Container Ship
-1567	area_3	16020	636090524	Container Ship
-1569	area_3	119760	636091187	Container Ship
-1570	area_3	94620	636091187	Container Ship
-1597	area_3	1140	704643314	Pilot Vessel
-1598	area_3	14160	704643314	Pilot Vessel
-42	area_4	23280	210757000	Container Ship
-147	area_4	118680	224020910	Tug
-153	area_4	16620	224029000	Vehicles Carrier
-154	area_4	24240	224029000	Vehicles Carrier
-155	area_4	20520	224029000	Vehicles Carrier
-156	area_4	17460	224029000	Vehicles Carrier
-157	area_4	19500	224029000	Vehicles Carrier
+960	area_3	58560.0	229651000	Container Ship
+978	area_3	120.0	235070715	General Cargo
+999	area_3	24660.0	236502000	Tanker
+1003	area_3	12360.0	236518000	Tanker
+1005	area_3	17700.0	236518000	Tanker
+1011	area_3	220080.0	240028000	Container Ship
+1034	area_3	120.0	242576000	Tanker
+1067	area_3	91680.0	248931000	Container Ship
+1068	area_3	78360.0	248955000	Container Ship
+1072	area_3	78120.0	249715000	Container Ship
+1076	area_3	28140.0	255802850	General Cargo
+1083	area_3	53580.0	255805600	Container Ship
+1084	area_3	59100.0	255805600	Container Ship
+1085	area_3	62280.0	255805601	Container Ship
+1086	area_3	55320.0	255805601	Container Ship
+1092	area_3	21600.0	256462000	Tanker
+1093	area_3	21660.0	256462000	Tanker
+1195	area_3	20880.0	304517000	General Cargo
+1196	area_3	118920.0	304517000	General Cargo
+1197	area_3	68940.0	304517000	General Cargo
+1198	area_3	119100.0	304984000	General Cargo
+1290	area_3	60540.0	351268000	Container Ship
+1292	area_3	27180.0	351607000	Container Ship
+1293	area_3	25920.0	351737000	Container Ship
+1294	area_3	55260.0	351737000	Container Ship
+1295	area_3	88920.0	351819000	Container Ship
+1301	area_3	78120.0	352619000	Container Ship
+1303	area_3	46200.0	352649000	Container Ship
+1304	area_3	76440.0	352649000	Container Ship
+1313	area_3	52500.0	353082000	Container Ship
+1321	area_3	63840.0	353775000	Container Ship
+1322	area_3	58500.0	353775000	Container Ship
+1324	area_3	2580.0	354537000	Container Ship
+1325	area_3	39900.0	354537000	Container Ship
+1328	area_3	83160.0	355194000	Container Ship
+1329	area_3	73740.0	355249000	Container Ship
+1330	area_3	71580.0	355289000	Container Ship
+1339	area_3	87900.0	356101000	Container Ship
+1340	area_3	29040.0	356101000	Container Ship
+1346	area_3	120.0	367449000	Cargo/Containership
+1361	area_3	72180.0	371059000	Container Ship
+1365	area_3	110640.0	371245000	Container Ship
+1368	area_3	92160.0	371443000	Container Ship
+1372	area_3	77820.0	371602000	Container Ship
+1373	area_3	94860.0	371602000	Container Ship
+1375	area_3	116400.0	372045000	Container Ship
+1454	area_3	81060.0	477519400	Container Ship
+1455	area_3	70740.0	477519400	Container Ship
+1544	area_3	88980.0	636014613	Container Ship
+1545	area_3	11760.0	636014613	Container Ship
+1558	area_3	56940.0	636015666	Container Ship
+1561	area_3	153960.0	636016014	Container Ship
+1565	area_3	183240.0	636016457	Container Ship
+1566	area_3	76980.0	636090524	Container Ship
+1567	area_3	16020.0	636090524	Container Ship
+1569	area_3	119760.0	636091187	Container Ship
+1570	area_3	94620.0	636091187	Container Ship
+1597	area_3	1140.0	704643314	Pilot Vessel
+1598	area_3	14160.0	704643314	Pilot Vessel
+42	area_4	23280.0	210757000	Container Ship
+147	area_4	118680.0	224020910	Tug
+153	area_4	16620.0	224029000	Vehicles Carrier
+154	area_4	24240.0	224029000	Vehicles Carrier
+155	area_4	20520.0	224029000	Vehicles Carrier
+156	area_4	17460.0	224029000	Vehicles Carrier
+157	area_4	19500.0	224029000	Vehicles Carrier
 274	area_4	117e3	224101930	Tanker
-514	area_4	2400	224219620	Pilot Vessel
-515	area_4	360	224227560	Pilot Vessel
-517	area_4	1020	224227560	Pilot Vessel
-518	area_4	4680	224227560	Pilot Vessel
-525	area_4	180	224255540	Unspecified
-527	area_4	240	224255540	Unspecified
-529	area_4	2940	224255540	Unspecified
-532	area_4	600	224261240	Fire Fighting Vessel
-533	area_4	3660	224261240	Fire Fighting Vessel
-534	area_4	900	224261240	Fire Fighting Vessel
-552	area_4	15120	224365000	Tanker
-553	area_4	40620	224365000	Tanker
-599	area_4	1380	224494000	Tug
-607	area_4	5700	224533000	Fire Fighting Vessel
-609	area_4	19380	224548000	Passenger
-610	area_4	26940	224548000	Passenger
-612	area_4	1500	224550000	Tug
-616	area_4	12060	224608620	Tanker
-803	area_4	13140	225302000	Passenger
-804	area_4	16200	225302000	Passenger
-805	area_4	15900	225302000	Passenger
-806	area_4	17160	225302000	Passenger
-807	area_4	7980	225302000	Passenger
-808	area_4	69120	225315000	Passenger
-809	area_4	52260	225315000	Passenger
-810	area_4	48720	225315000	Passenger
-811	area_4	44640	225315000	Passenger
-812	area_4	29820	225317000	Passenger
-813	area_4	360	225317000	Passenger
-814	area_4	17760	225317000	Passenger
-815	area_4	41460	225317000	Passenger
-816	area_4	17760	225317000	Passenger
-847	area_4	13020	225459000	Fishing Vessel
-848	area_4	72060	225459000	Fishing Vessel
-849	area_4	52200	225459000	Fishing Vessel
-850	area_4	45360	225459000	Fishing Vessel
-851	area_4	82860	225459000	Fishing Vessel
-852	area_4	29040	225459000	Fishing Vessel
-1005	area_4	19380	236518000	Tanker
-1006	area_4	1200	236518000	Tanker
-1264	area_4	93960	312036000	Multi Purpose Offshore Vessel
-1327	area_4	70920	354767000	Passenger
-1334	area_4	51960	355645000	Offshore Supply Ship
-1460	area_4	30900	477902400	General Cargo
-1524	area_4	21900	577129000	Offshore Supply Ship
-1574	area_4	1860	636092242	General Cargo
-1575	area_4	74520	636092242	General Cargo
-1577	area_4	16740	636092314	General Cargo
-1578	area_4	5460	636092314	General Cargo
-1598	area_4	3840	704643314	Pilot Vessel
-1599	area_4	1260	704643314	Pilot Vessel
-138	area_5	120	224016190	Port Tender
-390	area_5	360	224187980	Tug
-515	area_5	1740	224227560	Pilot Vessel
-516	area_5	1020	224227560	Pilot Vessel
-518	area_5	1680	224227560	Pilot Vessel
-526	area_5	240	224255540	Unspecified
-529	area_5	6180	224255540	Unspecified
-532	area_5	1980	224261240	Fire Fighting Vessel
-533	area_5	7500	224261240	Fire Fighting Vessel
-598	area_5	1500	224494000	Tug
-599	area_5	6960	224494000	Tug
-605	area_5	1740	224533000	Fire Fighting Vessel
-616	area_5	22680	224608620	Tanker
-757	area_5	6600	224783000	Pollution Control Vessel
-965	area_5	7560	233694000	General Cargo
-966	area_5	327300	233694000	General Cargo
-967	area_5	84480	233694000	General Cargo
-968	area_5	1624680	233694000	General Cargo
-969	area_5	97200	233694000	General Cargo
-971	area_5	10080	233694000	General Cargo
-974	area_5	125160	235056099	Tug
-989	area_5	26160	235465000	Tug/Supply Vessel
-990	area_5	397020	235465000	Tug/Supply Vessel
-991	area_5	546360	235465000	Tug/Supply Vessel
-992	area_5	67800	235631000	Offshore Supply Ship
-993	area_5	117420	235631000	Offshore Supply Ship
-1000	area_5	24900	236502000	Tanker
-1007	area_5	22260	236579000	Offshore Supply Ship
-1023	area_5	4140	242135100	Fishing Vessel
-1024	area_5	1080	242135100	Fishing Vessel
-1029	area_5	9360	242173100	Fishing Vessel
-1030	area_5	360	242173100	Fishing Vessel
-1031	area_5	161520	242173100	Fishing Vessel
-1032	area_5	78360	242173100	Fishing Vessel
-1065	area_5	1347060	248428000	Passenger
-1066	area_5	118800	248428000	Passenger
-1100	area_5	360	257146000	Trawler
-1102	area_5	240	257146000	Trawler
-1273	area_5	862740	312867000	Fishing Vessel
-1274	area_5	96660	312867000	Fishing Vessel
-1275	area_5	17820	312867000	Fishing Vessel
-1300	area_5	37680	352515000	Reefer
-1315	area_5	10080	353444000	Tug
+514	area_4	2400.0	224219620	Pilot Vessel
+515	area_4	360.0	224227560	Pilot Vessel
+517	area_4	1020.0	224227560	Pilot Vessel
+518	area_4	4680.0	224227560	Pilot Vessel
+525	area_4	180.0	224255540	Unspecified
+527	area_4	240.0	224255540	Unspecified
+529	area_4	2940.0	224255540	Unspecified
+532	area_4	600.0	224261240	Fire Fighting Vessel
+533	area_4	3660.0	224261240	Fire Fighting Vessel
+534	area_4	900.0	224261240	Fire Fighting Vessel
+552	area_4	15120.0	224365000	Tanker
+553	area_4	40620.0	224365000	Tanker
+599	area_4	1380.0	224494000	Tug
+607	area_4	5700.0	224533000	Fire Fighting Vessel
+609	area_4	19380.0	224548000	Passenger
+610	area_4	26940.0	224548000	Passenger
+612	area_4	1500.0	224550000	Tug
+616	area_4	12060.0	224608620	Tanker
+803	area_4	13140.0	225302000	Passenger
+804	area_4	16200.0	225302000	Passenger
+805	area_4	15900.0	225302000	Passenger
+806	area_4	17160.0	225302000	Passenger
+807	area_4	7980.0	225302000	Passenger
+808	area_4	69120.0	225315000	Passenger
+809	area_4	52260.0	225315000	Passenger
+810	area_4	48720.0	225315000	Passenger
+811	area_4	44640.0	225315000	Passenger
+812	area_4	29820.0	225317000	Passenger
+813	area_4	360.0	225317000	Passenger
+814	area_4	17760.0	225317000	Passenger
+815	area_4	41460.0	225317000	Passenger
+816	area_4	17760.0	225317000	Passenger
+847	area_4	13020.0	225459000	Fishing Vessel
+848	area_4	72060.0	225459000	Fishing Vessel
+849	area_4	52200.0	225459000	Fishing Vessel
+850	area_4	45360.0	225459000	Fishing Vessel
+851	area_4	82860.0	225459000	Fishing Vessel
+852	area_4	29040.0	225459000	Fishing Vessel
+1005	area_4	19380.0	236518000	Tanker
+1006	area_4	1200.0	236518000	Tanker
+1264	area_4	93960.0	312036000	Multi Purpose Offshore Vessel
+1327	area_4	70920.0	354767000	Passenger
+1334	area_4	51960.0	355645000	Offshore Supply Ship
+1460	area_4	30900.0	477902400	General Cargo
+1524	area_4	21900.0	577129000	Offshore Supply Ship
+1574	area_4	1860.0	636092242	General Cargo
+1575	area_4	74520.0	636092242	General Cargo
+1577	area_4	16740.0	636092314	General Cargo
+1578	area_4	5460.0	636092314	General Cargo
+1598	area_4	3840.0	704643314	Pilot Vessel
+1599	area_4	1260.0	704643314	Pilot Vessel
+138	area_5	120.0	224016190	Port Tender
+390	area_5	360.0	224187980	Tug
+515	area_5	1740.0	224227560	Pilot Vessel
+516	area_5	1020.0	224227560	Pilot Vessel
+518	area_5	1680.0	224227560	Pilot Vessel
+526	area_5	240.0	224255540	Unspecified
+529	area_5	6180.0	224255540	Unspecified
+532	area_5	1980.0	224261240	Fire Fighting Vessel
+533	area_5	7500.0	224261240	Fire Fighting Vessel
+598	area_5	1500.0	224494000	Tug
+599	area_5	6960.0	224494000	Tug
+605	area_5	1740.0	224533000	Fire Fighting Vessel
+616	area_5	22680.0	224608620	Tanker
+757	area_5	6600.0	224783000	Pollution Control Vessel
+965	area_5	7560.0	233694000	General Cargo
+966	area_5	327300.0	233694000	General Cargo
+967	area_5	84480.0	233694000	General Cargo
+968	area_5	1624680.0	233694000	General Cargo
+969	area_5	97200.0	233694000	General Cargo
+971	area_5	10080.0	233694000	General Cargo
+974	area_5	125160.0	235056099	Tug
+989	area_5	26160.0	235465000	Tug/Supply Vessel
+990	area_5	397020.0	235465000	Tug/Supply Vessel
+991	area_5	546360.0	235465000	Tug/Supply Vessel
+992	area_5	67800.0	235631000	Offshore Supply Ship
+993	area_5	117420.0	235631000	Offshore Supply Ship
+1000	area_5	24900.0	236502000	Tanker
+1007	area_5	22260.0	236579000	Offshore Supply Ship
+1023	area_5	4140.0	242135100	Fishing Vessel
+1024	area_5	1080.0	242135100	Fishing Vessel
+1029	area_5	9360.0	242173100	Fishing Vessel
+1030	area_5	360.0	242173100	Fishing Vessel
+1031	area_5	161520.0	242173100	Fishing Vessel
+1032	area_5	78360.0	242173100	Fishing Vessel
+1065	area_5	1347060.0	248428000	Passenger
+1066	area_5	118800.0	248428000	Passenger
+1100	area_5	360.0	257146000	Trawler
+1102	area_5	240.0	257146000	Trawler
+1273	area_5	862740.0	312867000	Fishing Vessel
+1274	area_5	96660.0	312867000	Fishing Vessel
+1275	area_5	17820.0	312867000	Fishing Vessel
+1300	area_5	37680.0	352515000	Reefer
+1315	area_5	10080.0	353444000	Tug
 1318	area_5	27e3	353444000	Tug
-1319	area_5	1035660	353444000	Tug
-1320	area_5	119160	353444000	Tug
-1393	area_5	7500	412110221	Fishing Vessel
-1400	area_5	2340	412110427	Fishing Vessel
-1409	area_5	420	412110429	Fishing Vessel
-1410	area_5	1680	412110441	Fishing Vessel
-1411	area_5	240	412110441	Fishing Vessel
-1436	area_5	177420	432991000	Fishing Vessel
-1438	area_5	5520	440747000	Trawler
-1440	area_5	660	440747000	Trawler
-1552	area_5	192960	636015400	Tanker
-1553	area_5	77700	636015400	Tanker
-1598	area_5	3660	704643314	Pilot Vessel
-515	area_6	180	224227560	Pilot Vessel
-516	area_6	240	224227560	Pilot Vessel
-517	area_6	180	224227560	Pilot Vessel
-518	area_6	480	224227560	Pilot Vessel
-529	area_6	1440	224255540	Unspecified
-533	area_6	1500	224261240	Fire Fighting Vessel
-599	area_6	2820	224494000	Tug
-607	area_6	2400	224533000	Fire Fighting Vessel
-608	area_6	420	224533000	Fire Fighting Vessel
-612	area_6	1680	224550000	Tug
-1156	area_6	78180	273250200	Factory Trawler
-1158	area_6	49920	273250200	Factory Trawler
-1159	area_6	704340	273250200	Factory Trawler
-1160	area_6	1108680	273250200	Factory Trawler
-1161	area_6	118320	273250200	Factory Trawler
-1164	area_6	7560	273290500	Factory Trawler
-1165	area_6	65520	273290500	Factory Trawler
-1167	area_6	77400	273290500	Factory Trawler
-1168	area_6	79020	273290500	Factory Trawler
-1169	area_6	68940	273290500	Factory Trawler
-1170	area_6	8820	273290500	Factory Trawler
-1171	area_6	91800	273290500	Factory Trawler
-1172	area_6	7740	273290500	Factory Trawler
-1186	area_6	537960	277519000	Factory Trawler
-1187	area_6	92340	277519000	Factory Trawler
-1188	area_6	1483380	277519000	Factory Trawler
-1189	area_6	323100	277519000	Factory Trawler
-1190	area_6	98640	277519000	Factory Trawler
-1191	area_6	17820	277519000	Factory Trawler
-1223	area_6	632580	309361000	Reefer
-1224	area_6	1036560	309361000	Reefer
-1225	area_6	779820	309361000	Reefer
-1226	area_6	118020	309361000	Reefer
-1311	area_6	68820	352913000	General Cargo
-1337	area_6	52380	356032000	General Cargo
-1338	area_6	13320	356032000	General Cargo
-1362	area_6	94860	371215000	Container Ship
+1319	area_5	1035660.0	353444000	Tug
+1320	area_5	119160.0	353444000	Tug
+1393	area_5	7500.0	412110221	Fishing Vessel
+1400	area_5	2340.0	412110427	Fishing Vessel
+1409	area_5	420.0	412110429	Fishing Vessel
+1410	area_5	1680.0	412110441	Fishing Vessel
+1411	area_5	240.0	412110441	Fishing Vessel
+1436	area_5	177420.0	432991000	Fishing Vessel
+1438	area_5	5520.0	440747000	Trawler
+1440	area_5	660.0	440747000	Trawler
+1552	area_5	192960.0	636015400	Tanker
+1553	area_5	77700.0	636015400	Tanker
+1598	area_5	3660.0	704643314	Pilot Vessel
+515	area_6	180.0	224227560	Pilot Vessel
+516	area_6	240.0	224227560	Pilot Vessel
+517	area_6	180.0	224227560	Pilot Vessel
+518	area_6	480.0	224227560	Pilot Vessel
+529	area_6	1440.0	224255540	Unspecified
+533	area_6	1500.0	224261240	Fire Fighting Vessel
+599	area_6	2820.0	224494000	Tug
+607	area_6	2400.0	224533000	Fire Fighting Vessel
+608	area_6	420.0	224533000	Fire Fighting Vessel
+612	area_6	1680.0	224550000	Tug
+1156	area_6	78180.0	273250200	Factory Trawler
+1158	area_6	49920.0	273250200	Factory Trawler
+1159	area_6	704340.0	273250200	Factory Trawler
+1160	area_6	1108680.0	273250200	Factory Trawler
+1161	area_6	118320.0	273250200	Factory Trawler
+1164	area_6	7560.0	273290500	Factory Trawler
+1165	area_6	65520.0	273290500	Factory Trawler
+1167	area_6	77400.0	273290500	Factory Trawler
+1168	area_6	79020.0	273290500	Factory Trawler
+1169	area_6	68940.0	273290500	Factory Trawler
+1170	area_6	8820.0	273290500	Factory Trawler
+1171	area_6	91800.0	273290500	Factory Trawler
+1172	area_6	7740.0	273290500	Factory Trawler
+1186	area_6	537960.0	277519000	Factory Trawler
+1187	area_6	92340.0	277519000	Factory Trawler
+1188	area_6	1483380.0	277519000	Factory Trawler
+1189	area_6	323100.0	277519000	Factory Trawler
+1190	area_6	98640.0	277519000	Factory Trawler
+1191	area_6	17820.0	277519000	Factory Trawler
+1223	area_6	632580.0	309361000	Reefer
+1224	area_6	1036560.0	309361000	Reefer
+1225	area_6	779820.0	309361000	Reefer
+1226	area_6	118020.0	309361000	Reefer
+1311	area_6	68820.0	352913000	General Cargo
+1337	area_6	52380.0	356032000	General Cargo
+1338	area_6	13320.0	356032000	General Cargo
+1362	area_6	94860.0	371215000	Container Ship
 1363	area_6	156e3	371215000	Container Ship
-1364	area_6	104640	371215000	Container Ship
-1393	area_6	328140	412110221	Fishing Vessel
-1395	area_6	113040	412110254	Pleasure Craft
-1397	area_6	48420	412110427	Fishing Vessel
-1398	area_6	228960	412110427	Fishing Vessel
-1399	area_6	210240	412110427	Fishing Vessel
-1400	area_6	20520	412110427	Fishing Vessel
-1408	area_6	345720	412110429	Fishing Vessel
-1410	area_6	329880	412110441	Fishing Vessel
-1589	area_6	45840	667997000	General Cargo
-1590	area_6	86700	667997000	General Cargo
-1591	area_6	59700	667997000	General Cargo
-1592	area_6	52500	667997000	General Cargo
-1595	area_6	88140	667997000	General Cargo
-1598	area_6	120	704643314	Pilot Vessel
-172	area_7	540	224049950	SAR
-273	area_7	12480	224101930	Tanker
-518	area_7	300	224227560	Pilot Vessel
-519	area_7	120	224227560	Pilot Vessel
-527	area_7	840	224255540	Unspecified
-532	area_7	120	224261240	Fire Fighting Vessel
-533	area_7	840	224261240	Fire Fighting Vessel
-552	area_7	90780	224365000	Tanker
-553	area_7	39600	224365000	Tanker
-598	area_7	360	224494000	Tug
-605	area_7	480	224533000	Fire Fighting Vessel
-1052	area_7	470400	246130000	Offshore Supply Ship
-1201	area_7	20160	305251000	General Cargo
-1217	area_7	6660	306796000	Reefer
-1218	area_7	116460	306796000	Reefer
-1411	area_7	7740	412110441	Fishing Vessel
-29	area_8	12840	209366000	General Cargo
-95	area_8	35280	220637000	Tanker
-515	area_8	240	224227560	Pilot Vessel
-517	area_8	240	224227560	Pilot Vessel
-529	area_8	120	224255540	Unspecified
-599	area_8	120	224494000	Tug
-614	area_8	19020	224600000	Passenger
-615	area_8	22800	224600000	Passenger
-840	area_8	132420	225430000	Passenger
-841	area_8	134040	225430000	Passenger
-842	area_8	134700	225430000	Passenger
-843	area_8	134340	225430000	Passenger
-844	area_8	39660	225430000	Passenger
-845	area_8	14520	225430000	Passenger
-985	area_8	11520	235080632	General Cargo
-986	area_8	17880	235080999	General Cargo
-998	area_8	196560	236502000	Tanker
-999	area_8	310080	236502000	Tanker
-1000	area_8	52380	236502000	Tanker
+1364	area_6	104640.0	371215000	Container Ship
+1393	area_6	328140.0	412110221	Fishing Vessel
+1395	area_6	113040.0	412110254	Pleasure Craft
+1397	area_6	48420.0	412110427	Fishing Vessel
+1398	area_6	228960.0	412110427	Fishing Vessel
+1399	area_6	210240.0	412110427	Fishing Vessel
+1400	area_6	20520.0	412110427	Fishing Vessel
+1408	area_6	345720.0	412110429	Fishing Vessel
+1410	area_6	329880.0	412110441	Fishing Vessel
+1589	area_6	45840.0	667997000	General Cargo
+1590	area_6	86700.0	667997000	General Cargo
+1591	area_6	59700.0	667997000	General Cargo
+1592	area_6	52500.0	667997000	General Cargo
+1595	area_6	88140.0	667997000	General Cargo
+1598	area_6	120.0	704643314	Pilot Vessel
+172	area_7	540.0	224049950	SAR
+273	area_7	12480.0	224101930	Tanker
+518	area_7	300.0	224227560	Pilot Vessel
+519	area_7	120.0	224227560	Pilot Vessel
+527	area_7	840.0	224255540	Unspecified
+532	area_7	120.0	224261240	Fire Fighting Vessel
+533	area_7	840.0	224261240	Fire Fighting Vessel
+552	area_7	90780.0	224365000	Tanker
+553	area_7	39600.0	224365000	Tanker
+598	area_7	360.0	224494000	Tug
+605	area_7	480.0	224533000	Fire Fighting Vessel
+1052	area_7	470400.0	246130000	Offshore Supply Ship
+1201	area_7	20160.0	305251000	General Cargo
+1217	area_7	6660.0	306796000	Reefer
+1218	area_7	116460.0	306796000	Reefer
+1411	area_7	7740.0	412110441	Fishing Vessel
+29	area_8	12840.0	209366000	General Cargo
+95	area_8	35280.0	220637000	Tanker
+515	area_8	240.0	224227560	Pilot Vessel
+517	area_8	240.0	224227560	Pilot Vessel
+529	area_8	120.0	224255540	Unspecified
+599	area_8	120.0	224494000	Tug
+614	area_8	19020.0	224600000	Passenger
+615	area_8	22800.0	224600000	Passenger
+840	area_8	132420.0	225430000	Passenger
+841	area_8	134040.0	225430000	Passenger
+842	area_8	134700.0	225430000	Passenger
+843	area_8	134340.0	225430000	Passenger
+844	area_8	39660.0	225430000	Passenger
+845	area_8	14520.0	225430000	Passenger
+985	area_8	11520.0	235080632	General Cargo
+986	area_8	17880.0	235080999	General Cargo
+998	area_8	196560.0	236502000	Tanker
+999	area_8	310080.0	236502000	Tanker
+1000	area_8	52380.0	236502000	Tanker
 1001	area_8	42e3	236502000	Tanker
-1003	area_8	19380	236518000	Tanker
-1004	area_8	158760	236518000	Tanker
-1005	area_8	75240	236518000	Tanker
-1006	area_8	14400	236518000	Tanker
-1044	area_8	35400	244819000	General Cargo
-1074	area_8	14040	255802440	Tanker
-1091	area_8	12360	256462000	Tanker
-1092	area_8	135120	256462000	Tanker
-1093	area_8	711960	256462000	Tanker
-1096	area_8	18720	256678000	Bulk Carrier
-1151	area_8	21120	271000601	General Cargo
-1284	area_8	16860	341891000	Reefer
-64	area_9	6660	212136000	General Cargo
-515	area_9	180	224227560	Pilot Vessel
-518	area_9	360	224227560	Pilot Vessel
-552	area_9	34740	224365000	Tanker
-599	area_9	120	224494000	Tug
-604	area_9	360	224533000	Fire Fighting Vessel
-664	area_9	62280	224731000	Hospital Ship
-755	area_9	61380	224782000	Fishing Vessel
-846	area_9	99540	225438000	Tanker
-963	area_9	49260	232977000	General Cargo
-976	area_9	13260	235067944	General Cargo
-979	area_9	13140	235073372	General Cargo
-1045	area_9	26580	245021000	Heavy Load Carrier
-1194	area_9	25620	304183000	General Cargo
-1306	area_9	100020	352896000	Tug
-1323	area_9	27840	354036000	Reefer
-1500	area_9	186120	538004308	Tanker
-1555	area_9	31680	636015519	Tanker
-1597	area_9	120	704643314	Pilot Vessel
-129	area_10	1500	224016190	Port Tender
-148	area_10	120	224024810	Tug
-514	area_10	480	224219620	Pilot Vessel
-518	area_10	540	224227560	Pilot Vessel
-529	area_10	780	224255540	Unspecified
-533	area_10	180	224261240	Fire Fighting Vessel
-543	area_10	135180	224298290	Motor Hopper
-553	area_10	67740	224365000	Tanker
-606	area_10	2220	224533000	Fire Fighting Vessel
-612	area_10	240	224550000	Tug
-1024	area_10	96360	242135100	Fishing Vessel
-1049	area_10	4380	245811000	Factory Trawler
-1109	area_10	80340	261522000	Trawler
-1176	area_10	152340	273353290	Suction Dredger
-1180	area_10	130980	273522400	Factory Trawler
-1181	area_10	13080	273523300	Factory Trawler
-1182	area_10	375360	273524300	Factory Trawler
-1206	area_10	288960	305592000	Multi Purpose Offshore Vessel
-1207	area_10	20880	305592000	Multi Purpose Offshore Vessel
-1221	area_10	260640	308014000	Research/Survey Vessel
-1263	area_10	597720	312036000	Multi Purpose Offshore Vessel
-1264	area_10	863280	312036000	Multi Purpose Offshore Vessel
-1266	area_10	146760	312448000	General Cargo
-1267	area_10	451140	312448000	General Cargo
-1268	area_10	269160	312534000	Reefer
-1269	area_10	63240	312534000	Reefer
-1270	area_10	295920	312534000	Reefer
-1271	area_10	125700	312534000	Reefer
-1272	area_10	24840	312534000	Reefer
-1306	area_10	134880	352896000	Tug
-1333	area_10	145080	355645000	Offshore Supply Ship
-1360	area_10	820500	370545000	General Cargo
-1366	area_10	843120	371322000	Reefer
-1394	area_10	153180	412110221	Fishing Vessel
-1396	area_10	203460	412110254	Pleasure Craft
-1419	area_10	118740	431038000	Fishing Vessel
-1420	area_10	164940	431500470	Fishing Vessel
-1421	area_10	111780	431700260	Fishing Vessel
-1430	area_10	357900	431813000	Fishing Vessel
-1438	area_10	132060	440747000	Trawler
-1519	area_10	268440	566347000	Offshore Supply Ship
-1526	area_10	14580	577129000	Offshore Supply Ship
-1527	area_10	1740	616885000	Reefer
-34	area_11	10500	210047000	General Cargo
+1003	area_8	19380.0	236518000	Tanker
+1004	area_8	158760.0	236518000	Tanker
+1005	area_8	75240.0	236518000	Tanker
+1006	area_8	14400.0	236518000	Tanker
+1044	area_8	35400.0	244819000	General Cargo
+1074	area_8	14040.0	255802440	Tanker
+1091	area_8	12360.0	256462000	Tanker
+1092	area_8	135120.0	256462000	Tanker
+1093	area_8	711960.0	256462000	Tanker
+1096	area_8	18720.0	256678000	Bulk Carrier
+1151	area_8	21120.0	271000601	General Cargo
+1284	area_8	16860.0	341891000	Reefer
+64	area_9	6660.0	212136000	General Cargo
+515	area_9	180.0	224227560	Pilot Vessel
+518	area_9	360.0	224227560	Pilot Vessel
+552	area_9	34740.0	224365000	Tanker
+599	area_9	120.0	224494000	Tug
+604	area_9	360.0	224533000	Fire Fighting Vessel
+664	area_9	62280.0	224731000	Hospital Ship
+755	area_9	61380.0	224782000	Fishing Vessel
+846	area_9	99540.0	225438000	Tanker
+963	area_9	49260.0	232977000	General Cargo
+976	area_9	13260.0	235067944	General Cargo
+979	area_9	13140.0	235073372	General Cargo
+1045	area_9	26580.0	245021000	Heavy Load Carrier
+1194	area_9	25620.0	304183000	General Cargo
+1306	area_9	100020.0	352896000	Tug
+1323	area_9	27840.0	354036000	Reefer
+1500	area_9	186120.0	538004308	Tanker
+1555	area_9	31680.0	636015519	Tanker
+1597	area_9	120.0	704643314	Pilot Vessel
+129	area_10	1500.0	224016190	Port Tender
+148	area_10	120.0	224024810	Tug
+514	area_10	480.0	224219620	Pilot Vessel
+518	area_10	540.0	224227560	Pilot Vessel
+529	area_10	780.0	224255540	Unspecified
+533	area_10	180.0	224261240	Fire Fighting Vessel
+543	area_10	135180.0	224298290	Motor Hopper
+553	area_10	67740.0	224365000	Tanker
+606	area_10	2220.0	224533000	Fire Fighting Vessel
+612	area_10	240.0	224550000	Tug
+1024	area_10	96360.0	242135100	Fishing Vessel
+1049	area_10	4380.0	245811000	Factory Trawler
+1109	area_10	80340.0	261522000	Trawler
+1176	area_10	152340.0	273353290	Suction Dredger
+1180	area_10	130980.0	273522400	Factory Trawler
+1181	area_10	13080.0	273523300	Factory Trawler
+1182	area_10	375360.0	273524300	Factory Trawler
+1206	area_10	288960.0	305592000	Multi Purpose Offshore Vessel
+1207	area_10	20880.0	305592000	Multi Purpose Offshore Vessel
+1221	area_10	260640.0	308014000	Research/Survey Vessel
+1263	area_10	597720.0	312036000	Multi Purpose Offshore Vessel
+1264	area_10	863280.0	312036000	Multi Purpose Offshore Vessel
+1266	area_10	146760.0	312448000	General Cargo
+1267	area_10	451140.0	312448000	General Cargo
+1268	area_10	269160.0	312534000	Reefer
+1269	area_10	63240.0	312534000	Reefer
+1270	area_10	295920.0	312534000	Reefer
+1271	area_10	125700.0	312534000	Reefer
+1272	area_10	24840.0	312534000	Reefer
+1306	area_10	134880.0	352896000	Tug
+1333	area_10	145080.0	355645000	Offshore Supply Ship
+1360	area_10	820500.0	370545000	General Cargo
+1366	area_10	843120.0	371322000	Reefer
+1394	area_10	153180.0	412110221	Fishing Vessel
+1396	area_10	203460.0	412110254	Pleasure Craft
+1419	area_10	118740.0	431038000	Fishing Vessel
+1420	area_10	164940.0	431500470	Fishing Vessel
+1421	area_10	111780.0	431700260	Fishing Vessel
+1430	area_10	357900.0	431813000	Fishing Vessel
+1438	area_10	132060.0	440747000	Trawler
+1519	area_10	268440.0	566347000	Offshore Supply Ship
+1526	area_10	14580.0	577129000	Offshore Supply Ship
+1527	area_10	1740.0	616885000	Reefer
+34	area_11	10500.0	210047000	General Cargo
 68	area_11	33e3	212634000	General Cargo
-90	area_11	24900	219148000	Tanker
-94	area_11	21240	220540000	General Cargo
-274	area_11	159300	224101930	Tanker
-515	area_11	240	224227560	Pilot Vessel
-527	area_11	120	224255540	Unspecified
-552	area_11	142680	224365000	Tanker
-553	area_11	581940	224365000	Tanker
-554	area_11	35100	224365000	Tanker
-580	area_11	1980	224462000	Tanker
-588	area_11	1440	224462000	Tanker
-592	area_11	1260	224462000	Tanker
-594	area_11	1260	224462000	Tanker
-596	area_11	2760	224474000	Fire Fighting Vessel
-616	area_11	79320	224608620	Tanker
-964	area_11	27540	233659000	Trawler
-994	area_11	54240	236111768	Tanker
-1051	area_11	117480	246100000	General Cargo
-1054	area_11	1320	246661000	Heavy Load Carrier
-1056	area_11	49920	247118800	Tanker
-1058	area_11	15780	247189500	General Cargo
-1075	area_11	48060	255802440	Tanker
-1088	area_11	23460	256252000	General Cargo
-1212	area_11	39180	305915000	General Cargo
-1281	area_11	9180	338108461	Pleasure Craft
-1282	area_11	12300	338108461	Pleasure Craft
-1308	area_11	16260	352896000	Tug
-1366	area_11	11520	371322000	Reefer
-1367	area_11	98280	371322000	Reefer
-1417	area_11	44520	412660220	Tanker
-1418	area_11	103620	412660220	Tanker
-1523	area_11	14220	576441000	Tug
-1598	area_11	360	704643314	Pilot Vessel
-96	area_12	9480	224016190	Port Tender
-97	area_12	7800	224016190	Port Tender
-98	area_12	10380	224016190	Port Tender
-99	area_12	29340	224016190	Port Tender
-101	area_12	840	224016190	Port Tender
-108	area_12	2700	224016190	Port Tender
-109	area_12	120	224016190	Port Tender
-110	area_12	28920	224016190	Port Tender
-111	area_12	3840	224016190	Port Tender
-112	area_12	51120	224016190	Port Tender
-113	area_12	11520	224016190	Port Tender
-114	area_12	1380	224016190	Port Tender
-117	area_12	2100	224016190	Port Tender
-118	area_12	3780	224016190	Port Tender
-119	area_12	2340	224016190	Port Tender
-120	area_12	73200	224016190	Port Tender
-121	area_12	12360	224016190	Port Tender
-124	area_12	52380	224016190	Port Tender
-125	area_12	2640	224016190	Port Tender
-126	area_12	1620	224016190	Port Tender
-127	area_12	4800	224016190	Port Tender
-128	area_12	4200	224016190	Port Tender
-129	area_12	27780	224016190	Port Tender
-131	area_12	26460	224016190	Port Tender
-132	area_12	3120	224016190	Port Tender
-133	area_12	1500	224016190	Port Tender
-135	area_12	120	224016190	Port Tender
-137	area_12	120	224016190	Port Tender
-138	area_12	3240	224016190	Port Tender
-139	area_12	2340	224016190	Port Tender
-140	area_12	7980	224016190	Port Tender
-141	area_12	41220	224016190	Port Tender
-143	area_12	180	224016190	Port Tender
-518	area_12	360	224227560	Pilot Vessel
-529	area_12	420	224255540	Unspecified
-1025	area_12	628560	242141100	Trawler
-1026	area_12	1264020	242141100	Trawler
-1027	area_12	33900	242141100	Trawler
-1028	area_12	119100	242141100	Trawler
-1285	area_12	156180	351238000	Reefer
-1286	area_12	1818180	351238000	Reefer
-1287	area_12	97680	351238000	Reefer
-1289	area_12	10440	351238000	Reefer
-1421	area_12	138720	431700260	Fishing Vessel
-1422	area_12	12600	431701650	Fishing Vessel
-1423	area_12	12780	431701650	Fishing Vessel
-1426	area_12	7920	431701650	Fishing Vessel
-1427	area_12	19080	431813000	Fishing Vessel
-1428	area_12	11700	431813000	Fishing Vessel
-1430	area_12	66480	431813000	Fishing Vessel
-1431	area_12	9540	431927000	Fishing Vessel
-1433	area_12	11880	431927000	Fishing Vessel
-1436	area_12	188340	432991000	Fishing Vessel
-1523	area_12	22560	576441000	Tug
-1579	area_12	631320	654045800	Fishing Vessel
-1580	area_12	892560	654045800	Fishing Vessel
-1581	area_12	240660	654045800	Fishing Vessel
-1582	area_12	57540	654045800	Fishing Vessel
-1583	area_12	65280	654045800	Fishing Vessel
-1584	area_12	232800	654045800	Fishing Vessel
-1586	area_12	144060	654045800	Fishing Vessel
-1587	area_12	28020	654045800	Fishing Vessel
-1588	area_12	103020	654045800	Fishing Vessel
-1598	area_12	120	704643314	Pilot Vessel
-3	area_13	480	205741010	Pleasure Craft
-4	area_13	69120	205864510	Pleasure Craft
-7	area_13	24120	205864510	Pleasure Craft
-8	area_13	58680	205864510	Pleasure Craft
-9	area_13	15120	205864510	Pleasure Craft
-10	area_13	12600	205864510	Pleasure Craft
-12	area_13	47220	205864510	Pleasure Craft
-13	area_13	55740	205864510	Pleasure Craft
-14	area_13	173400	205864510	Pleasure Craft
-17	area_13	16560	205864510	Pleasure Craft
-18	area_13	17640	205864510	Pleasure Craft
-20	area_13	60480	205864510	Pleasure Craft
-22	area_13	13140	207337000	Pleasure Craft
-54	area_13	632220	211513610	Pleasure Craft
-55	area_13	1817940	211513610	Pleasure Craft
-56	area_13	18300	211513610	Pleasure Craft
-57	area_13	77940	211513610	Pleasure Craft
-58	area_13	17460	211513610	Pleasure Craft
-59	area_13	1620	211609680	Pleasure Craft
-60	area_13	6840	211609680	Pleasure Craft
-61	area_13	1980	211609680	Pleasure Craft
-158	area_13	300	224049950	SAR
-159	area_13	33180	224049950	SAR
-160	area_13	31860	224049950	SAR
-161	area_13	31860	224049950	SAR
-162	area_13	480	224049950	SAR
-164	area_13	28500	224049950	SAR
-165	area_13	30420	224049950	SAR
-166	area_13	2820	224049950	SAR
-167	area_13	20700	224049950	SAR
-168	area_13	33300	224049950	SAR
-169	area_13	28260	224049950	SAR
-170	area_13	30600	224049950	SAR
-171	area_13	21600	224049950	SAR
-172	area_13	21240	224049950	SAR
-173	area_13	22860	224049950	SAR
-174	area_13	23220	224049950	SAR
-176	area_13	38340	224049950	SAR
-177	area_13	43260	224049950	SAR
-178	area_13	20160	224049950	SAR
-179	area_13	20520	224049950	SAR
-180	area_13	20340	224049950	SAR
-182	area_13	300	224049950	SAR
-184	area_13	21960	224049950	SAR
-255	area_13	7200	224070890	Pleasure Craft
-256	area_13	15540	224070890	Pleasure Craft
-257	area_13	10020	224070890	Pleasure Craft
-259	area_13	56460	224070890	Pleasure Craft
-260	area_13	82020	224070890	Pleasure Craft
-268	area_13	10380	224080480	Fishing Vessel
-269	area_13	120	224080480	Fishing Vessel
-275	area_13	720	224121420	Pleasure Craft
-276	area_13	180	224121420	Pleasure Craft
-278	area_13	8400	224121420	Pleasure Craft
-279	area_13	1560	224121420	Pleasure Craft
-280	area_13	1860	224121420	Pleasure Craft
-281	area_13	240	224121420	Pleasure Craft
-282	area_13	16200	224123390	Pleasure Craft
-283	area_13	191880	224123390	Pleasure Craft
-284	area_13	12960	224123390	Pleasure Craft
-286	area_13	32400	224123390	Pleasure Craft
-290	area_13	21600	224123390	Pleasure Craft
-291	area_13	13620	224123390	Pleasure Craft
-293	area_13	28080	224123390	Pleasure Craft
-294	area_13	55440	224123390	Pleasure Craft
-295	area_13	59400	224123390	Pleasure Craft
-296	area_13	16200	224123390	Pleasure Craft
-299	area_13	38880	224123390	Pleasure Craft
-300	area_13	32040	224123390	Pleasure Craft
-301	area_13	13260	224123390	Pleasure Craft
-306	area_13	12960	224123390	Pleasure Craft
-308	area_13	27720	224123390	Pleasure Craft
-309	area_13	31320	224123390	Pleasure Craft
-312	area_13	12240	224123390	Pleasure Craft
-313	area_13	23760	224123390	Pleasure Craft
-314	area_13	100620	224123390	Pleasure Craft
-315	area_13	114840	224123390	Pleasure Craft
-317	area_13	32340	224123390	Pleasure Craft
-318	area_13	73680	224123390	Pleasure Craft
-374	area_13	120	224162680	Pleasure Craft
-384	area_13	120	224166280	Pleasure Craft
-386	area_13	360	224168390	Pleasure Craft
-389	area_13	600	224184840	Pleasure Craft
-445	area_13	540	224191320	Pleasure Craft
-513	area_13	1080	224219620	Pilot Vessel
-514	area_13	1380	224219620	Pilot Vessel
-515	area_13	2820	224227560	Pilot Vessel
-516	area_13	840	224227560	Pilot Vessel
-517	area_13	900	224227560	Pilot Vessel
-518	area_13	16260	224227560	Pilot Vessel
-519	area_13	1800	224227560	Pilot Vessel
-525	area_13	1440	224255540	Unspecified
-526	area_13	3600	224255540	Unspecified
-527	area_13	1800	224255540	Unspecified
-529	area_13	13080	224255540	Unspecified
-597	area_13	120	224486160	Pleasure Craft
-854	area_13	2520	225922990	Pleasure Craft
-855	area_13	3060	225922990	Pleasure Craft
-859	area_13	1080	225939760	Pleasure Craft
-869	area_13	68400	227108720	Pleasure Craft
-870	area_13	34920	227108720	Pleasure Craft
-871	area_13	10080	227108720	Pleasure Craft
-872	area_13	9360	227108720	Pleasure Craft
-873	area_13	13320	227108720	Pleasure Craft
-874	area_13	10080	227108720	Pleasure Craft
-877	area_13	50040	227108720	Pleasure Craft
+90	area_11	24900.0	219148000	Tanker
+94	area_11	21240.0	220540000	General Cargo
+274	area_11	159300.0	224101930	Tanker
+515	area_11	240.0	224227560	Pilot Vessel
+527	area_11	120.0	224255540	Unspecified
+552	area_11	142680.0	224365000	Tanker
+553	area_11	581940.0	224365000	Tanker
+554	area_11	35100.0	224365000	Tanker
+580	area_11	1980.0	224462000	Tanker
+588	area_11	1440.0	224462000	Tanker
+592	area_11	1260.0	224462000	Tanker
+594	area_11	1260.0	224462000	Tanker
+596	area_11	2760.0	224474000	Fire Fighting Vessel
+616	area_11	79320.0	224608620	Tanker
+964	area_11	27540.0	233659000	Trawler
+994	area_11	54240.0	236111768	Tanker
+1051	area_11	117480.0	246100000	General Cargo
+1054	area_11	1320.0	246661000	Heavy Load Carrier
+1056	area_11	49920.0	247118800	Tanker
+1058	area_11	15780.0	247189500	General Cargo
+1075	area_11	48060.0	255802440	Tanker
+1088	area_11	23460.0	256252000	General Cargo
+1212	area_11	39180.0	305915000	General Cargo
+1281	area_11	9180.0	338108461	Pleasure Craft
+1282	area_11	12300.0	338108461	Pleasure Craft
+1308	area_11	16260.0	352896000	Tug
+1366	area_11	11520.0	371322000	Reefer
+1367	area_11	98280.0	371322000	Reefer
+1417	area_11	44520.0	412660220	Tanker
+1418	area_11	103620.0	412660220	Tanker
+1523	area_11	14220.0	576441000	Tug
+1598	area_11	360.0	704643314	Pilot Vessel
+96	area_12	9480.0	224016190	Port Tender
+97	area_12	7800.0	224016190	Port Tender
+98	area_12	10380.0	224016190	Port Tender
+99	area_12	29340.0	224016190	Port Tender
+101	area_12	840.0	224016190	Port Tender
+108	area_12	2700.0	224016190	Port Tender
+109	area_12	120.0	224016190	Port Tender
+110	area_12	28920.0	224016190	Port Tender
+111	area_12	3840.0	224016190	Port Tender
+112	area_12	51120.0	224016190	Port Tender
+113	area_12	11520.0	224016190	Port Tender
+114	area_12	1380.0	224016190	Port Tender
+117	area_12	2100.0	224016190	Port Tender
+118	area_12	3780.0	224016190	Port Tender
+119	area_12	2340.0	224016190	Port Tender
+120	area_12	73200.0	224016190	Port Tender
+121	area_12	12360.0	224016190	Port Tender
+124	area_12	52380.0	224016190	Port Tender
+125	area_12	2640.0	224016190	Port Tender
+126	area_12	1620.0	224016190	Port Tender
+127	area_12	4800.0	224016190	Port Tender
+128	area_12	4200.0	224016190	Port Tender
+129	area_12	27780.0	224016190	Port Tender
+131	area_12	26460.0	224016190	Port Tender
+132	area_12	3120.0	224016190	Port Tender
+133	area_12	1500.0	224016190	Port Tender
+135	area_12	120.0	224016190	Port Tender
+137	area_12	120.0	224016190	Port Tender
+138	area_12	3240.0	224016190	Port Tender
+139	area_12	2340.0	224016190	Port Tender
+140	area_12	7980.0	224016190	Port Tender
+141	area_12	41220.0	224016190	Port Tender
+143	area_12	180.0	224016190	Port Tender
+518	area_12	360.0	224227560	Pilot Vessel
+529	area_12	420.0	224255540	Unspecified
+1025	area_12	628560.0	242141100	Trawler
+1026	area_12	1264020.0	242141100	Trawler
+1027	area_12	33900.0	242141100	Trawler
+1028	area_12	119100.0	242141100	Trawler
+1285	area_12	156180.0	351238000	Reefer
+1286	area_12	1818180.0	351238000	Reefer
+1287	area_12	97680.0	351238000	Reefer
+1289	area_12	10440.0	351238000	Reefer
+1421	area_12	138720.0	431700260	Fishing Vessel
+1422	area_12	12600.0	431701650	Fishing Vessel
+1423	area_12	12780.0	431701650	Fishing Vessel
+1426	area_12	7920.0	431701650	Fishing Vessel
+1427	area_12	19080.0	431813000	Fishing Vessel
+1428	area_12	11700.0	431813000	Fishing Vessel
+1430	area_12	66480.0	431813000	Fishing Vessel
+1431	area_12	9540.0	431927000	Fishing Vessel
+1433	area_12	11880.0	431927000	Fishing Vessel
+1436	area_12	188340.0	432991000	Fishing Vessel
+1523	area_12	22560.0	576441000	Tug
+1579	area_12	631320.0	654045800	Fishing Vessel
+1580	area_12	892560.0	654045800	Fishing Vessel
+1581	area_12	240660.0	654045800	Fishing Vessel
+1582	area_12	57540.0	654045800	Fishing Vessel
+1583	area_12	65280.0	654045800	Fishing Vessel
+1584	area_12	232800.0	654045800	Fishing Vessel
+1586	area_12	144060.0	654045800	Fishing Vessel
+1587	area_12	28020.0	654045800	Fishing Vessel
+1588	area_12	103020.0	654045800	Fishing Vessel
+1598	area_12	120.0	704643314	Pilot Vessel
+3	area_13	480.0	205741010	Pleasure Craft
+4	area_13	69120.0	205864510	Pleasure Craft
+7	area_13	24120.0	205864510	Pleasure Craft
+8	area_13	58680.0	205864510	Pleasure Craft
+9	area_13	15120.0	205864510	Pleasure Craft
+10	area_13	12600.0	205864510	Pleasure Craft
+12	area_13	47220.0	205864510	Pleasure Craft
+13	area_13	55740.0	205864510	Pleasure Craft
+14	area_13	173400.0	205864510	Pleasure Craft
+17	area_13	16560.0	205864510	Pleasure Craft
+18	area_13	17640.0	205864510	Pleasure Craft
+20	area_13	60480.0	205864510	Pleasure Craft
+22	area_13	13140.0	207337000	Pleasure Craft
+54	area_13	632220.0	211513610	Pleasure Craft
+55	area_13	1817940.0	211513610	Pleasure Craft
+56	area_13	18300.0	211513610	Pleasure Craft
+57	area_13	77940.0	211513610	Pleasure Craft
+58	area_13	17460.0	211513610	Pleasure Craft
+59	area_13	1620.0	211609680	Pleasure Craft
+60	area_13	6840.0	211609680	Pleasure Craft
+61	area_13	1980.0	211609680	Pleasure Craft
+158	area_13	300.0	224049950	SAR
+159	area_13	33180.0	224049950	SAR
+160	area_13	31860.0	224049950	SAR
+161	area_13	31860.0	224049950	SAR
+162	area_13	480.0	224049950	SAR
+164	area_13	28500.0	224049950	SAR
+165	area_13	30420.0	224049950	SAR
+166	area_13	2820.0	224049950	SAR
+167	area_13	20700.0	224049950	SAR
+168	area_13	33300.0	224049950	SAR
+169	area_13	28260.0	224049950	SAR
+170	area_13	30600.0	224049950	SAR
+171	area_13	21600.0	224049950	SAR
+172	area_13	21240.0	224049950	SAR
+173	area_13	22860.0	224049950	SAR
+174	area_13	23220.0	224049950	SAR
+176	area_13	38340.0	224049950	SAR
+177	area_13	43260.0	224049950	SAR
+178	area_13	20160.0	224049950	SAR
+179	area_13	20520.0	224049950	SAR
+180	area_13	20340.0	224049950	SAR
+182	area_13	300.0	224049950	SAR
+184	area_13	21960.0	224049950	SAR
+255	area_13	7200.0	224070890	Pleasure Craft
+256	area_13	15540.0	224070890	Pleasure Craft
+257	area_13	10020.0	224070890	Pleasure Craft
+259	area_13	56460.0	224070890	Pleasure Craft
+260	area_13	82020.0	224070890	Pleasure Craft
+268	area_13	10380.0	224080480	Fishing Vessel
+269	area_13	120.0	224080480	Fishing Vessel
+275	area_13	720.0	224121420	Pleasure Craft
+276	area_13	180.0	224121420	Pleasure Craft
+278	area_13	8400.0	224121420	Pleasure Craft
+279	area_13	1560.0	224121420	Pleasure Craft
+280	area_13	1860.0	224121420	Pleasure Craft
+281	area_13	240.0	224121420	Pleasure Craft
+282	area_13	16200.0	224123390	Pleasure Craft
+283	area_13	191880.0	224123390	Pleasure Craft
+284	area_13	12960.0	224123390	Pleasure Craft
+286	area_13	32400.0	224123390	Pleasure Craft
+290	area_13	21600.0	224123390	Pleasure Craft
+291	area_13	13620.0	224123390	Pleasure Craft
+293	area_13	28080.0	224123390	Pleasure Craft
+294	area_13	55440.0	224123390	Pleasure Craft
+295	area_13	59400.0	224123390	Pleasure Craft
+296	area_13	16200.0	224123390	Pleasure Craft
+299	area_13	38880.0	224123390	Pleasure Craft
+300	area_13	32040.0	224123390	Pleasure Craft
+301	area_13	13260.0	224123390	Pleasure Craft
+306	area_13	12960.0	224123390	Pleasure Craft
+308	area_13	27720.0	224123390	Pleasure Craft
+309	area_13	31320.0	224123390	Pleasure Craft
+312	area_13	12240.0	224123390	Pleasure Craft
+313	area_13	23760.0	224123390	Pleasure Craft
+314	area_13	100620.0	224123390	Pleasure Craft
+315	area_13	114840.0	224123390	Pleasure Craft
+317	area_13	32340.0	224123390	Pleasure Craft
+318	area_13	73680.0	224123390	Pleasure Craft
+374	area_13	120.0	224162680	Pleasure Craft
+384	area_13	120.0	224166280	Pleasure Craft
+386	area_13	360.0	224168390	Pleasure Craft
+389	area_13	600.0	224184840	Pleasure Craft
+445	area_13	540.0	224191320	Pleasure Craft
+513	area_13	1080.0	224219620	Pilot Vessel
+514	area_13	1380.0	224219620	Pilot Vessel
+515	area_13	2820.0	224227560	Pilot Vessel
+516	area_13	840.0	224227560	Pilot Vessel
+517	area_13	900.0	224227560	Pilot Vessel
+518	area_13	16260.0	224227560	Pilot Vessel
+519	area_13	1800.0	224227560	Pilot Vessel
+525	area_13	1440.0	224255540	Unspecified
+526	area_13	3600.0	224255540	Unspecified
+527	area_13	1800.0	224255540	Unspecified
+529	area_13	13080.0	224255540	Unspecified
+597	area_13	120.0	224486160	Pleasure Craft
+854	area_13	2520.0	225922990	Pleasure Craft
+855	area_13	3060.0	225922990	Pleasure Craft
+859	area_13	1080.0	225939760	Pleasure Craft
+869	area_13	68400.0	227108720	Pleasure Craft
+870	area_13	34920.0	227108720	Pleasure Craft
+871	area_13	10080.0	227108720	Pleasure Craft
+872	area_13	9360.0	227108720	Pleasure Craft
+873	area_13	13320.0	227108720	Pleasure Craft
+874	area_13	10080.0	227108720	Pleasure Craft
+877	area_13	50040.0	227108720	Pleasure Craft
 878	area_13	9e3	227108720	Pleasure Craft
-879	area_13	30960	227108720	Pleasure Craft
-880	area_13	13680	227108720	Pleasure Craft
-881	area_13	15480	227108720	Pleasure Craft
-882	area_13	10440	227108720	Pleasure Craft
-883	area_13	31680	227108720	Pleasure Craft
-885	area_13	142920	227108720	Pleasure Craft
-886	area_13	54240	227108720	Pleasure Craft
-888	area_13	19800	227108720	Pleasure Craft
-889	area_13	34920	227108720	Pleasure Craft
+879	area_13	30960.0	227108720	Pleasure Craft
+880	area_13	13680.0	227108720	Pleasure Craft
+881	area_13	15480.0	227108720	Pleasure Craft
+882	area_13	10440.0	227108720	Pleasure Craft
+883	area_13	31680.0	227108720	Pleasure Craft
+885	area_13	142920.0	227108720	Pleasure Craft
+886	area_13	54240.0	227108720	Pleasure Craft
+888	area_13	19800.0	227108720	Pleasure Craft
+889	area_13	34920.0	227108720	Pleasure Craft
 891	area_13	63e3	227108720	Pleasure Craft
-892	area_13	14640	227108720	Pleasure Craft
-893	area_13	100440	227108720	Pleasure Craft
-894	area_13	24480	227108720	Pleasure Craft
+892	area_13	14640.0	227108720	Pleasure Craft
+893	area_13	100440.0	227108720	Pleasure Craft
+894	area_13	24480.0	227108720	Pleasure Craft
 896	area_13	36e3	227108720	Pleasure Craft
-897	area_13	13320	227108720	Pleasure Craft
-898	area_13	77400	227108720	Pleasure Craft
-900	area_13	130020	227108720	Pleasure Craft
-901	area_13	22260	227108720	Pleasure Craft
-902	area_13	11880	227108720	Pleasure Craft
-903	area_13	89280	227108720	Pleasure Craft
-905	area_13	40380	227108720	Pleasure Craft
-908	area_13	54420	227108720	Pleasure Craft
-910	area_13	29520	227108720	Pleasure Craft
-911	area_13	11880	227108720	Pleasure Craft
-912	area_13	14760	227108720	Pleasure Craft
-913	area_13	16560	227108720	Pleasure Craft
-916	area_13	8640	227108720	Pleasure Craft
-917	area_13	43920	227108720	Pleasure Craft
-919	area_13	13320	227108720	Pleasure Craft
-920	area_13	10080	227108720	Pleasure Craft
-921	area_13	13680	227108720	Pleasure Craft
-923	area_13	20880	227108720	Pleasure Craft
-924	area_13	24480	227108720	Pleasure Craft
-925	area_13	71940	227108720	Pleasure Craft
-930	area_13	43980	227160750	Pleasure Craft
-931	area_13	1080	227160750	Pleasure Craft
-933	area_13	23820	227160750	Pleasure Craft
-936	area_13	17760	227160750	Pleasure Craft
-937	area_13	16380	227160750	Pleasure Craft
-941	area_13	17040	227160750	Pleasure Craft
-942	area_13	27660	227160750	Pleasure Craft
-943	area_13	13500	227160750	Pleasure Craft
-947	area_13	13140	227160750	Pleasure Craft
-949	area_13	17400	227160750	Pleasure Craft
-950	area_13	240	227205840	Pleasure Craft
-956	area_13	1260	227700320	Pleasure Craft
-973	area_13	23580	235009907	Pleasure Craft
-982	area_13	8040	235078897	Pleasure Craft
-984	area_13	4260	235078897	Pleasure Craft
-1036	area_13	10380	244020664	Pleasure Craft
-1037	area_13	1200	244060681	Pleasure Craft
-1039	area_13	30120	244615063	Pleasure Craft
-1041	area_13	1140	244700973	Pleasure Craft
-1042	area_13	8100	244780472	Pleasure Craft
-1104	area_13	5100	258083950	Pleasure Craft
-1111	area_13	2160	263921540	Pleasure Craft
-1112	area_13	288120	265551760	Pleasure Craft
-1113	area_13	1817700	265551760	Pleasure Craft
-1114	area_13	99720	265551760	Pleasure Craft
-1115	area_13	15780	265551760	Pleasure Craft
-1116	area_13	632460	265603100	Pleasure Craft
-1117	area_13	649140	265603100	Pleasure Craft
-1118	area_13	216660	265603100	Pleasure Craft
-1119	area_13	480	265636940	Pleasure Craft
-1120	area_13	142440	265698560	Pleasure Craft
-1121	area_13	8280	265698560	Pleasure Craft
-1127	area_13	947820	265698560	Pleasure Craft
-1128	area_13	41040	265698560	Pleasure Craft
-1129	area_13	467100	265698560	Pleasure Craft
-1130	area_13	99900	265698560	Pleasure Craft
-1133	area_13	33840	265698560	Pleasure Craft
-1134	area_13	15660	265698560	Pleasure Craft
-1135	area_13	42480	265698560	Pleasure Craft
-1136	area_13	41280	265698560	Pleasure Craft
-1137	area_13	26460	265698560	Pleasure Craft
-1138	area_13	15300	265698560	Pleasure Craft
-1139	area_13	20160	265698560	Pleasure Craft
-1140	area_13	12840	265698560	Pleasure Craft
-1141	area_13	26640	265698560	Pleasure Craft
-1142	area_13	21600	265698560	Pleasure Craft
-1143	area_13	32760	265698560	Pleasure Craft
-1147	area_13	425940	265708930	Pleasure Craft
-1276	area_13	300	316014142	Pleasure Craft
+897	area_13	13320.0	227108720	Pleasure Craft
+898	area_13	77400.0	227108720	Pleasure Craft
+900	area_13	130020.0	227108720	Pleasure Craft
+901	area_13	22260.0	227108720	Pleasure Craft
+902	area_13	11880.0	227108720	Pleasure Craft
+903	area_13	89280.0	227108720	Pleasure Craft
+905	area_13	40380.0	227108720	Pleasure Craft
+908	area_13	54420.0	227108720	Pleasure Craft
+910	area_13	29520.0	227108720	Pleasure Craft
+911	area_13	11880.0	227108720	Pleasure Craft
+912	area_13	14760.0	227108720	Pleasure Craft
+913	area_13	16560.0	227108720	Pleasure Craft
+916	area_13	8640.0	227108720	Pleasure Craft
+917	area_13	43920.0	227108720	Pleasure Craft
+919	area_13	13320.0	227108720	Pleasure Craft
+920	area_13	10080.0	227108720	Pleasure Craft
+921	area_13	13680.0	227108720	Pleasure Craft
+923	area_13	20880.0	227108720	Pleasure Craft
+924	area_13	24480.0	227108720	Pleasure Craft
+925	area_13	71940.0	227108720	Pleasure Craft
+930	area_13	43980.0	227160750	Pleasure Craft
+931	area_13	1080.0	227160750	Pleasure Craft
+933	area_13	23820.0	227160750	Pleasure Craft
+936	area_13	17760.0	227160750	Pleasure Craft
+937	area_13	16380.0	227160750	Pleasure Craft
+941	area_13	17040.0	227160750	Pleasure Craft
+942	area_13	27660.0	227160750	Pleasure Craft
+943	area_13	13500.0	227160750	Pleasure Craft
+947	area_13	13140.0	227160750	Pleasure Craft
+949	area_13	17400.0	227160750	Pleasure Craft
+950	area_13	240.0	227205840	Pleasure Craft
+956	area_13	1260.0	227700320	Pleasure Craft
+973	area_13	23580.0	235009907	Pleasure Craft
+982	area_13	8040.0	235078897	Pleasure Craft
+984	area_13	4260.0	235078897	Pleasure Craft
+1036	area_13	10380.0	244020664	Pleasure Craft
+1037	area_13	1200.0	244060681	Pleasure Craft
+1039	area_13	30120.0	244615063	Pleasure Craft
+1041	area_13	1140.0	244700973	Pleasure Craft
+1042	area_13	8100.0	244780472	Pleasure Craft
+1104	area_13	5100.0	258083950	Pleasure Craft
+1111	area_13	2160.0	263921540	Pleasure Craft
+1112	area_13	288120.0	265551760	Pleasure Craft
+1113	area_13	1817700.0	265551760	Pleasure Craft
+1114	area_13	99720.0	265551760	Pleasure Craft
+1115	area_13	15780.0	265551760	Pleasure Craft
+1116	area_13	632460.0	265603100	Pleasure Craft
+1117	area_13	649140.0	265603100	Pleasure Craft
+1118	area_13	216660.0	265603100	Pleasure Craft
+1119	area_13	480.0	265636940	Pleasure Craft
+1120	area_13	142440.0	265698560	Pleasure Craft
+1121	area_13	8280.0	265698560	Pleasure Craft
+1127	area_13	947820.0	265698560	Pleasure Craft
+1128	area_13	41040.0	265698560	Pleasure Craft
+1129	area_13	467100.0	265698560	Pleasure Craft
+1130	area_13	99900.0	265698560	Pleasure Craft
+1133	area_13	33840.0	265698560	Pleasure Craft
+1134	area_13	15660.0	265698560	Pleasure Craft
+1135	area_13	42480.0	265698560	Pleasure Craft
+1136	area_13	41280.0	265698560	Pleasure Craft
+1137	area_13	26460.0	265698560	Pleasure Craft
+1138	area_13	15300.0	265698560	Pleasure Craft
+1139	area_13	20160.0	265698560	Pleasure Craft
+1140	area_13	12840.0	265698560	Pleasure Craft
+1141	area_13	26640.0	265698560	Pleasure Craft
+1142	area_13	21600.0	265698560	Pleasure Craft
+1143	area_13	32760.0	265698560	Pleasure Craft
+1147	area_13	425940.0	265708930	Pleasure Craft
+1276	area_13	300.0	316014142	Pleasure Craft
 1277	area_13	18e3	316014142	Pleasure Craft
-1347	area_13	1260	367617440	Pleasure Craft
-1349	area_13	11460	367617440	Pleasure Craft
-1351	area_13	6840	367617440	Pleasure Craft
-1352	area_13	600	367617440	Pleasure Craft
-1462	area_13	46800	518565000	Pleasure Craft
-1463	area_13	50040	518565000	Pleasure Craft
-1464	area_13	57780	518565000	Pleasure Craft
-1465	area_13	30960	518565000	Pleasure Craft
-1466	area_13	46080	518565000	Pleasure Craft
+1347	area_13	1260.0	367617440	Pleasure Craft
+1349	area_13	11460.0	367617440	Pleasure Craft
+1351	area_13	6840.0	367617440	Pleasure Craft
+1352	area_13	600.0	367617440	Pleasure Craft
+1462	area_13	46800.0	518565000	Pleasure Craft
+1463	area_13	50040.0	518565000	Pleasure Craft
+1464	area_13	57780.0	518565000	Pleasure Craft
+1465	area_13	30960.0	518565000	Pleasure Craft
+1466	area_13	46080.0	518565000	Pleasure Craft
 1469	area_13	9e3	518565000	Pleasure Craft
-1471	area_13	14760	518565000	Pleasure Craft
-1473	area_13	24780	518565000	Pleasure Craft
-1476	area_13	88800	518565000	Pleasure Craft
+1471	area_13	14760.0	518565000	Pleasure Craft
+1473	area_13	24780.0	518565000	Pleasure Craft
+1476	area_13	88800.0	518565000	Pleasure Craft
 1477	area_13	9e3	518565000	Pleasure Craft
-1479	area_13	16560	518565000	Pleasure Craft
-1480	area_13	19080	518565000	Pleasure Craft
-1481	area_13	38880	518565000	Pleasure Craft
-1482	area_13	111060	518565000	Pleasure Craft
-1488	area_13	100380	518565000	Pleasure Craft
-1489	area_13	44220	518565000	Pleasure Craft
-1490	area_13	11160	518565000	Pleasure Craft
-1597	area_13	780	704643314	Pilot Vessel
-1598	area_13	9060	704643314	Pilot Vessel
-1599	area_13	780	704643314	Pilot Vessel
-185	area_14	30240	224050350	Pleasure Craft
-186	area_14	13680	224050350	Pleasure Craft
-187	area_14	26640	224050350	Pleasure Craft
-188	area_14	30240	224050350	Pleasure Craft
-190	area_14	38880	224050350	Pleasure Craft
-192	area_14	26220	224050350	Pleasure Craft
-193	area_14	90360	224050350	Pleasure Craft
-194	area_14	36360	224050350	Pleasure Craft
-196	area_14	29520	224050350	Pleasure Craft
-197	area_14	63720	224050350	Pleasure Craft
-198	area_14	13500	224050350	Pleasure Craft
+1479	area_13	16560.0	518565000	Pleasure Craft
+1480	area_13	19080.0	518565000	Pleasure Craft
+1481	area_13	38880.0	518565000	Pleasure Craft
+1482	area_13	111060.0	518565000	Pleasure Craft
+1488	area_13	100380.0	518565000	Pleasure Craft
+1489	area_13	44220.0	518565000	Pleasure Craft
+1490	area_13	11160.0	518565000	Pleasure Craft
+1597	area_13	780.0	704643314	Pilot Vessel
+1598	area_13	9060.0	704643314	Pilot Vessel
+1599	area_13	780.0	704643314	Pilot Vessel
+185	area_14	30240.0	224050350	Pleasure Craft
+186	area_14	13680.0	224050350	Pleasure Craft
+187	area_14	26640.0	224050350	Pleasure Craft
+188	area_14	30240.0	224050350	Pleasure Craft
+190	area_14	38880.0	224050350	Pleasure Craft
+192	area_14	26220.0	224050350	Pleasure Craft
+193	area_14	90360.0	224050350	Pleasure Craft
+194	area_14	36360.0	224050350	Pleasure Craft
+196	area_14	29520.0	224050350	Pleasure Craft
+197	area_14	63720.0	224050350	Pleasure Craft
+198	area_14	13500.0	224050350	Pleasure Craft
 199	area_14	18e3	224050350	Pleasure Craft
-200	area_14	47520	224050350	Pleasure Craft
-201	area_14	33120	224050350	Pleasure Craft
-202	area_14	23040	224050350	Pleasure Craft
-203	area_14	88500	224050350	Pleasure Craft
-204	area_14	27660	224050350	Pleasure Craft
-205	area_14	38820	224050350	Pleasure Craft
-207	area_14	123120	224050350	Pleasure Craft
-210	area_14	75600	224050350	Pleasure Craft
-211	area_14	165540	224050350	Pleasure Craft
-212	area_14	14400	224050350	Pleasure Craft
-213	area_14	42840	224050350	Pleasure Craft
-214	area_14	92880	224050350	Pleasure Craft
-216	area_14	28080	224050350	Pleasure Craft
-217	area_14	81300	224050350	Pleasure Craft
-218	area_14	38880	224050350	Pleasure Craft
-220	area_14	26880	224050350	Pleasure Craft
-221	area_14	19080	224050350	Pleasure Craft
-222	area_14	46440	224050350	Pleasure Craft
-223	area_14	19260	224050350	Pleasure Craft
-251	area_14	960	224063640	Pleasure Craft
-254	area_14	2100	224063640	Pleasure Craft
-319	area_14	283440	224133350	Pleasure Craft
-320	area_14	346440	224133350	Pleasure Craft
-321	area_14	1817400	224133350	Pleasure Craft
-322	area_14	99960	224133350	Pleasure Craft
-323	area_14	16020	224133350	Pleasure Craft
-324	area_14	1380	224134280	Pleasure Craft
-325	area_14	85860	224137960	Pleasure Craft
-326	area_14	25560	224137960	Pleasure Craft
-328	area_14	120	224137960	Pleasure Craft
-330	area_14	14400	224137960	Pleasure Craft
-331	area_14	3960	224137960	Pleasure Craft
-374	area_14	480	224162680	Pleasure Craft
-375	area_14	840	224162680	Pleasure Craft
-376	area_14	240	224162680	Pleasure Craft
-377	area_14	840	224166280	Pleasure Craft
-378	area_14	1080	224166280	Pleasure Craft
-380	area_14	180	224166280	Pleasure Craft
-381	area_14	360	224166280	Pleasure Craft
-383	area_14	240	224166280	Pleasure Craft
-384	area_14	360	224166280	Pleasure Craft
-385	area_14	780	224166280	Pleasure Craft
-392	area_14	36720	224191320	Pleasure Craft
-393	area_14	26040	224191320	Pleasure Craft
-396	area_14	9360	224191320	Pleasure Craft
-397	area_14	26640	224191320	Pleasure Craft
-398	area_14	23400	224191320	Pleasure Craft
-402	area_14	8640	224191320	Pleasure Craft
-403	area_14	29520	224191320	Pleasure Craft
-404	area_14	35640	224191320	Pleasure Craft
-407	area_14	12960	224191320	Pleasure Craft
+200	area_14	47520.0	224050350	Pleasure Craft
+201	area_14	33120.0	224050350	Pleasure Craft
+202	area_14	23040.0	224050350	Pleasure Craft
+203	area_14	88500.0	224050350	Pleasure Craft
+204	area_14	27660.0	224050350	Pleasure Craft
+205	area_14	38820.0	224050350	Pleasure Craft
+207	area_14	123120.0	224050350	Pleasure Craft
+210	area_14	75600.0	224050350	Pleasure Craft
+211	area_14	165540.0	224050350	Pleasure Craft
+212	area_14	14400.0	224050350	Pleasure Craft
+213	area_14	42840.0	224050350	Pleasure Craft
+214	area_14	92880.0	224050350	Pleasure Craft
+216	area_14	28080.0	224050350	Pleasure Craft
+217	area_14	81300.0	224050350	Pleasure Craft
+218	area_14	38880.0	224050350	Pleasure Craft
+220	area_14	26880.0	224050350	Pleasure Craft
+221	area_14	19080.0	224050350	Pleasure Craft
+222	area_14	46440.0	224050350	Pleasure Craft
+223	area_14	19260.0	224050350	Pleasure Craft
+251	area_14	960.0	224063640	Pleasure Craft
+254	area_14	2100.0	224063640	Pleasure Craft
+319	area_14	283440.0	224133350	Pleasure Craft
+320	area_14	346440.0	224133350	Pleasure Craft
+321	area_14	1817400.0	224133350	Pleasure Craft
+322	area_14	99960.0	224133350	Pleasure Craft
+323	area_14	16020.0	224133350	Pleasure Craft
+324	area_14	1380.0	224134280	Pleasure Craft
+325	area_14	85860.0	224137960	Pleasure Craft
+326	area_14	25560.0	224137960	Pleasure Craft
+328	area_14	120.0	224137960	Pleasure Craft
+330	area_14	14400.0	224137960	Pleasure Craft
+331	area_14	3960.0	224137960	Pleasure Craft
+374	area_14	480.0	224162680	Pleasure Craft
+375	area_14	840.0	224162680	Pleasure Craft
+376	area_14	240.0	224162680	Pleasure Craft
+377	area_14	840.0	224166280	Pleasure Craft
+378	area_14	1080.0	224166280	Pleasure Craft
+380	area_14	180.0	224166280	Pleasure Craft
+381	area_14	360.0	224166280	Pleasure Craft
+383	area_14	240.0	224166280	Pleasure Craft
+384	area_14	360.0	224166280	Pleasure Craft
+385	area_14	780.0	224166280	Pleasure Craft
+392	area_14	36720.0	224191320	Pleasure Craft
+393	area_14	26040.0	224191320	Pleasure Craft
+396	area_14	9360.0	224191320	Pleasure Craft
+397	area_14	26640.0	224191320	Pleasure Craft
+398	area_14	23400.0	224191320	Pleasure Craft
+402	area_14	8640.0	224191320	Pleasure Craft
+403	area_14	29520.0	224191320	Pleasure Craft
+404	area_14	35640.0	224191320	Pleasure Craft
+407	area_14	12960.0	224191320	Pleasure Craft
 408	area_14	18e3	224191320	Pleasure Craft
-409	area_14	45720	224191320	Pleasure Craft
-410	area_14	51360	224191320	Pleasure Craft
-411	area_14	41040	224191320	Pleasure Craft
-413	area_14	66240	224191320	Pleasure Craft
-414	area_14	73560	224191320	Pleasure Craft
-419	area_14	67680	224191320	Pleasure Craft
-421	area_14	52920	224191320	Pleasure Craft
-422	area_14	22080	224191320	Pleasure Craft
-425	area_14	42720	224191320	Pleasure Craft
-426	area_14	36720	224191320	Pleasure Craft
-427	area_14	56160	224191320	Pleasure Craft
-428	area_14	92280	224191320	Pleasure Craft
-430	area_14	57900	224191320	Pleasure Craft
-431	area_14	52860	224191320	Pleasure Craft
-432	area_14	31200	224191320	Pleasure Craft
-433	area_14	28800	224191320	Pleasure Craft
-434	area_14	95040	224191320	Pleasure Craft
-435	area_14	26400	224191320	Pleasure Craft
-438	area_14	13980	224191320	Pleasure Craft
-440	area_14	10080	224191320	Pleasure Craft
-441	area_14	16560	224191320	Pleasure Craft
-442	area_14	52260	224191320	Pleasure Craft
-445	area_14	33540	224191320	Pleasure Craft
-449	area_14	27180	224191320	Pleasure Craft
-454	area_14	6300	224191320	Pleasure Craft
-455	area_14	34920	224191320	Pleasure Craft
-462	area_14	18720	224191320	Pleasure Craft
-465	area_14	77760	224191320	Pleasure Craft
-466	area_14	16560	224191320	Pleasure Craft
-467	area_14	87180	224191320	Pleasure Craft
-468	area_14	58320	224191320	Pleasure Craft
-469	area_14	23640	224191320	Pleasure Craft
-470	area_14	62280	224191320	Pleasure Craft
-475	area_14	12960	224191320	Pleasure Craft
-476	area_14	48240	224191320	Pleasure Craft
-477	area_14	9360	224191320	Pleasure Craft
-478	area_14	11880	224191320	Pleasure Craft
-479	area_14	14760	224191320	Pleasure Craft
-480	area_14	8640	224191320	Pleasure Craft
-481	area_14	19080	224191320	Pleasure Craft
-482	area_14	50040	224191320	Pleasure Craft
-483	area_14	13320	224191320	Pleasure Craft
-484	area_14	13320	224191320	Pleasure Craft
-485	area_14	16200	224191320	Pleasure Craft
-487	area_14	11160	224191320	Pleasure Craft
-493	area_14	226020	224205780	Pleasure Craft
-494	area_14	251760	224205780	Pleasure Craft
-495	area_14	82920	224205780	Pleasure Craft
-496	area_14	19800	224205780	Pleasure Craft
-497	area_14	18720	224205780	Pleasure Craft
-499	area_14	335940	224205780	Pleasure Craft
-500	area_14	157320	224205780	Pleasure Craft
-501	area_14	21600	224205780	Pleasure Craft
-502	area_14	122760	224205780	Pleasure Craft
-503	area_14	480240	224205780	Pleasure Craft
-504	area_14	117360	224205780	Pleasure Craft
-505	area_14	61920	224205780	Pleasure Craft
-506	area_14	2700	224205780	Pleasure Craft
-508	area_14	317040	224205780	Pleasure Craft
-509	area_14	54240	224205780	Pleasure Craft
-510	area_14	41040	224205780	Pleasure Craft
-511	area_14	11880	224205780	Pleasure Craft
+409	area_14	45720.0	224191320	Pleasure Craft
+410	area_14	51360.0	224191320	Pleasure Craft
+411	area_14	41040.0	224191320	Pleasure Craft
+413	area_14	66240.0	224191320	Pleasure Craft
+414	area_14	73560.0	224191320	Pleasure Craft
+419	area_14	67680.0	224191320	Pleasure Craft
+421	area_14	52920.0	224191320	Pleasure Craft
+422	area_14	22080.0	224191320	Pleasure Craft
+425	area_14	42720.0	224191320	Pleasure Craft
+426	area_14	36720.0	224191320	Pleasure Craft
+427	area_14	56160.0	224191320	Pleasure Craft
+428	area_14	92280.0	224191320	Pleasure Craft
+430	area_14	57900.0	224191320	Pleasure Craft
+431	area_14	52860.0	224191320	Pleasure Craft
+432	area_14	31200.0	224191320	Pleasure Craft
+433	area_14	28800.0	224191320	Pleasure Craft
+434	area_14	95040.0	224191320	Pleasure Craft
+435	area_14	26400.0	224191320	Pleasure Craft
+438	area_14	13980.0	224191320	Pleasure Craft
+440	area_14	10080.0	224191320	Pleasure Craft
+441	area_14	16560.0	224191320	Pleasure Craft
+442	area_14	52260.0	224191320	Pleasure Craft
+445	area_14	33540.0	224191320	Pleasure Craft
+449	area_14	27180.0	224191320	Pleasure Craft
+454	area_14	6300.0	224191320	Pleasure Craft
+455	area_14	34920.0	224191320	Pleasure Craft
+462	area_14	18720.0	224191320	Pleasure Craft
+465	area_14	77760.0	224191320	Pleasure Craft
+466	area_14	16560.0	224191320	Pleasure Craft
+467	area_14	87180.0	224191320	Pleasure Craft
+468	area_14	58320.0	224191320	Pleasure Craft
+469	area_14	23640.0	224191320	Pleasure Craft
+470	area_14	62280.0	224191320	Pleasure Craft
+475	area_14	12960.0	224191320	Pleasure Craft
+476	area_14	48240.0	224191320	Pleasure Craft
+477	area_14	9360.0	224191320	Pleasure Craft
+478	area_14	11880.0	224191320	Pleasure Craft
+479	area_14	14760.0	224191320	Pleasure Craft
+480	area_14	8640.0	224191320	Pleasure Craft
+481	area_14	19080.0	224191320	Pleasure Craft
+482	area_14	50040.0	224191320	Pleasure Craft
+483	area_14	13320.0	224191320	Pleasure Craft
+484	area_14	13320.0	224191320	Pleasure Craft
+485	area_14	16200.0	224191320	Pleasure Craft
+487	area_14	11160.0	224191320	Pleasure Craft
+493	area_14	226020.0	224205780	Pleasure Craft
+494	area_14	251760.0	224205780	Pleasure Craft
+495	area_14	82920.0	224205780	Pleasure Craft
+496	area_14	19800.0	224205780	Pleasure Craft
+497	area_14	18720.0	224205780	Pleasure Craft
+499	area_14	335940.0	224205780	Pleasure Craft
+500	area_14	157320.0	224205780	Pleasure Craft
+501	area_14	21600.0	224205780	Pleasure Craft
+502	area_14	122760.0	224205780	Pleasure Craft
+503	area_14	480240.0	224205780	Pleasure Craft
+504	area_14	117360.0	224205780	Pleasure Craft
+505	area_14	61920.0	224205780	Pleasure Craft
+506	area_14	2700.0	224205780	Pleasure Craft
+508	area_14	317040.0	224205780	Pleasure Craft
+509	area_14	54240.0	224205780	Pleasure Craft
+510	area_14	41040.0	224205780	Pleasure Craft
+511	area_14	11880.0	224205780	Pleasure Craft
 512	area_14	9e4	224219620	Pilot Vessel
-515	area_14	1620	224227560	Pilot Vessel
-518	area_14	300	224227560	Pilot Vessel
-520	area_14	16860	224254290	Pleasure Craft
-521	area_14	5040	224254290	Pleasure Craft
-522	area_14	3780	224254290	Pleasure Craft
-523	area_14	3180	224254290	Pleasure Craft
-526	area_14	180	224255540	Unspecified
-535	area_14	2040	224267930	Passenger
-536	area_14	631560	224276650	Pleasure Craft
-537	area_14	1490880	224276650	Pleasure Craft
-538	area_14	317640	224276650	Pleasure Craft
-539	area_14	118740	224276650	Pleasure Craft
-547	area_14	15120	224349000	Passenger
-548	area_14	16140	224349000	Passenger
-549	area_14	85260	224349000	Passenger
-550	area_14	5580	224350770	Pleasure Craft
-551	area_14	4200	224350770	Pleasure Craft
-567	area_14	360	224419540	Pleasure Craft
-568	area_14	3960	224419540	Pleasure Craft
-569	area_14	180	224419540	Pleasure Craft
-853	area_14	632280	225922990	Pleasure Craft
-854	area_14	1800780	225922990	Pleasure Craft
-855	area_14	97260	225922990	Pleasure Craft
-856	area_14	162240	225939760	Pleasure Craft
-857	area_14	1260	225939760	Pleasure Craft
-859	area_14	16320	225939760	Pleasure Craft
-861	area_14	6060	225966730	Pleasure Craft
-863	area_14	1200	225966730	Pleasure Craft
-864	area_14	240	225966730	Pleasure Craft
-865	area_14	7500	225966730	Pleasure Craft
-866	area_14	1920	225966730	Pleasure Craft
-953	area_14	10320	227237270	Pleasure Craft
-955	area_14	8220	227237270	Pleasure Craft
-2	area_15	1020	203048100	Pleasure Craft
-3	area_15	1980	205741010	Pleasure Craft
-4	area_15	69120	205864510	Pleasure Craft
-7	area_15	24120	205864510	Pleasure Craft
-8	area_15	58680	205864510	Pleasure Craft
-9	area_15	15120	205864510	Pleasure Craft
-10	area_15	12600	205864510	Pleasure Craft
-12	area_15	48780	205864510	Pleasure Craft
-13	area_15	58080	205864510	Pleasure Craft
-14	area_15	176400	205864510	Pleasure Craft
-17	area_15	16560	205864510	Pleasure Craft
-18	area_15	17640	205864510	Pleasure Craft
-20	area_15	60480	205864510	Pleasure Craft
-21	area_15	22680	207137000	General Cargo
-22	area_15	14220	207337000	Pleasure Craft
-23	area_15	97260	209098000	Container Ship
-24	area_15	107760	209098000	Container Ship
-25	area_15	40860	209283000	Container Ship
-26	area_15	80700	209283000	Container Ship
-27	area_15	45360	209283000	Container Ship
-28	area_15	55140	209283000	Container Ship
-29	area_15	18060	209366000	General Cargo
-31	area_15	51420	209857000	Container Ship
-32	area_15	5880	209857000	Container Ship
-33	area_15	38160	209857000	Container Ship
-34	area_15	16440	210047000	General Cargo
-36	area_15	38220	210585000	Container Ship
-37	area_15	27720	210585000	Container Ship
-39	area_15	61260	210585000	Container Ship
-41	area_15	27840	210757000	Container Ship
-42	area_15	25800	210757000	Container Ship
-43	area_15	1380	210831000	Bulk Carrier
-44	area_15	61800	210903000	Container Ship
-45	area_15	72840	210903000	Container Ship
-47	area_15	87300	211215500	Fishery Research Vessel
-48	area_15	36420	211217360	Container Ship
-49	area_15	29100	211217360	Container Ship
-50	area_15	28680	211217360	Container Ship
-51	area_15	27240	211217360	Container Ship
-52	area_15	29400	211217360	Container Ship
-53	area_15	98940	211382280	Container Ship
-54	area_15	632220	211513610	Pleasure Craft
-55	area_15	1817940	211513610	Pleasure Craft
-56	area_15	18300	211513610	Pleasure Craft
-57	area_15	77940	211513610	Pleasure Craft
-58	area_15	17460	211513610	Pleasure Craft
-59	area_15	2760	211609680	Pleasure Craft
-60	area_15	9900	211609680	Pleasure Craft
-61	area_15	2880	211609680	Pleasure Craft
-64	area_15	19140	212136000	General Cargo
+515	area_14	1620.0	224227560	Pilot Vessel
+518	area_14	300.0	224227560	Pilot Vessel
+520	area_14	16860.0	224254290	Pleasure Craft
+521	area_14	5040.0	224254290	Pleasure Craft
+522	area_14	3780.0	224254290	Pleasure Craft
+523	area_14	3180.0	224254290	Pleasure Craft
+526	area_14	180.0	224255540	Unspecified
+535	area_14	2040.0	224267930	Passenger
+536	area_14	631560.0	224276650	Pleasure Craft
+537	area_14	1490880.0	224276650	Pleasure Craft
+538	area_14	317640.0	224276650	Pleasure Craft
+539	area_14	118740.0	224276650	Pleasure Craft
+547	area_14	15120.0	224349000	Passenger
+548	area_14	16140.0	224349000	Passenger
+549	area_14	85260.0	224349000	Passenger
+550	area_14	5580.0	224350770	Pleasure Craft
+551	area_14	4200.0	224350770	Pleasure Craft
+567	area_14	360.0	224419540	Pleasure Craft
+568	area_14	3960.0	224419540	Pleasure Craft
+569	area_14	180.0	224419540	Pleasure Craft
+853	area_14	632280.0	225922990	Pleasure Craft
+854	area_14	1800780.0	225922990	Pleasure Craft
+855	area_14	97260.0	225922990	Pleasure Craft
+856	area_14	162240.0	225939760	Pleasure Craft
+857	area_14	1260.0	225939760	Pleasure Craft
+859	area_14	16320.0	225939760	Pleasure Craft
+861	area_14	6060.0	225966730	Pleasure Craft
+863	area_14	1200.0	225966730	Pleasure Craft
+864	area_14	240.0	225966730	Pleasure Craft
+865	area_14	7500.0	225966730	Pleasure Craft
+866	area_14	1920.0	225966730	Pleasure Craft
+953	area_14	10320.0	227237270	Pleasure Craft
+955	area_14	8220.0	227237270	Pleasure Craft
+2	area_15	1020.0	203048100	Pleasure Craft
+3	area_15	1980.0	205741010	Pleasure Craft
+4	area_15	69120.0	205864510	Pleasure Craft
+7	area_15	24120.0	205864510	Pleasure Craft
+8	area_15	58680.0	205864510	Pleasure Craft
+9	area_15	15120.0	205864510	Pleasure Craft
+10	area_15	12600.0	205864510	Pleasure Craft
+12	area_15	48780.0	205864510	Pleasure Craft
+13	area_15	58080.0	205864510	Pleasure Craft
+14	area_15	176400.0	205864510	Pleasure Craft
+17	area_15	16560.0	205864510	Pleasure Craft
+18	area_15	17640.0	205864510	Pleasure Craft
+20	area_15	60480.0	205864510	Pleasure Craft
+21	area_15	22680.0	207137000	General Cargo
+22	area_15	14220.0	207337000	Pleasure Craft
+23	area_15	97260.0	209098000	Container Ship
+24	area_15	107760.0	209098000	Container Ship
+25	area_15	40860.0	209283000	Container Ship
+26	area_15	80700.0	209283000	Container Ship
+27	area_15	45360.0	209283000	Container Ship
+28	area_15	55140.0	209283000	Container Ship
+29	area_15	18060.0	209366000	General Cargo
+31	area_15	51420.0	209857000	Container Ship
+32	area_15	5880.0	209857000	Container Ship
+33	area_15	38160.0	209857000	Container Ship
+34	area_15	16440.0	210047000	General Cargo
+36	area_15	38220.0	210585000	Container Ship
+37	area_15	27720.0	210585000	Container Ship
+39	area_15	61260.0	210585000	Container Ship
+41	area_15	27840.0	210757000	Container Ship
+42	area_15	25800.0	210757000	Container Ship
+43	area_15	1380.0	210831000	Bulk Carrier
+44	area_15	61800.0	210903000	Container Ship
+45	area_15	72840.0	210903000	Container Ship
+47	area_15	87300.0	211215500	Fishery Research Vessel
+48	area_15	36420.0	211217360	Container Ship
+49	area_15	29100.0	211217360	Container Ship
+50	area_15	28680.0	211217360	Container Ship
+51	area_15	27240.0	211217360	Container Ship
+52	area_15	29400.0	211217360	Container Ship
+53	area_15	98940.0	211382280	Container Ship
+54	area_15	632220.0	211513610	Pleasure Craft
+55	area_15	1817940.0	211513610	Pleasure Craft
+56	area_15	18300.0	211513610	Pleasure Craft
+57	area_15	77940.0	211513610	Pleasure Craft
+58	area_15	17460.0	211513610	Pleasure Craft
+59	area_15	2760.0	211609680	Pleasure Craft
+60	area_15	9900.0	211609680	Pleasure Craft
+61	area_15	2880.0	211609680	Pleasure Craft
+64	area_15	19140.0	212136000	General Cargo
 66	area_15	36e3	212477000	Container Ship
-67	area_15	13920	212477000	Container Ship
-68	area_15	37200	212634000	General Cargo
-69	area_15	23400	212740000	Container Ship
-70	area_15	20280	212740000	Container Ship
-71	area_15	27960	212740000	Container Ship
-72	area_15	19320	212740000	Container Ship
-73	area_15	91440	212772000	Cargo/Containership
-74	area_15	13380	212777000	Container Ship
-75	area_15	83220	212777000	Container Ship
-76	area_15	72480	212777000	Container Ship
-77	area_15	65940	212903000	Container Ship
-78	area_15	58080	212903000	Container Ship
-79	area_15	10260	212903000	Container Ship
-80	area_15	38880	212903000	Container Ship
+67	area_15	13920.0	212477000	Container Ship
+68	area_15	37200.0	212634000	General Cargo
+69	area_15	23400.0	212740000	Container Ship
+70	area_15	20280.0	212740000	Container Ship
+71	area_15	27960.0	212740000	Container Ship
+72	area_15	19320.0	212740000	Container Ship
+73	area_15	91440.0	212772000	Cargo/Containership
+74	area_15	13380.0	212777000	Container Ship
+75	area_15	83220.0	212777000	Container Ship
+76	area_15	72480.0	212777000	Container Ship
+77	area_15	65940.0	212903000	Container Ship
+78	area_15	58080.0	212903000	Container Ship
+79	area_15	10260.0	212903000	Container Ship
+80	area_15	38880.0	212903000	Container Ship
 81	area_15	27e3	212903000	Container Ship
-82	area_15	43200	212903000	Container Ship
-84	area_15	63420	215107000	Tanker
-85	area_15	80820	215107000	Tanker
-86	area_15	82980	215107000	Tanker
-87	area_15	34260	215143000	Bulk Carrier
-88	area_15	38280	215228000	Bulk Carrier
-89	area_15	42300	215825000	Tanker
-90	area_15	28740	219148000	Tanker
-91	area_15	27600	219473000	Tanker
-93	area_15	130380	220502000	Tanker
-94	area_15	81300	220540000	General Cargo
-95	area_15	39780	220637000	Tanker
-96	area_15	27660	224016190	Port Tender
-97	area_15	15480	224016190	Port Tender
-98	area_15	37800	224016190	Port Tender
-99	area_15	67920	224016190	Port Tender
-101	area_15	5940	224016190	Port Tender
-102	area_15	5640	224016190	Port Tender
-103	area_15	5580	224016190	Port Tender
-104	area_15	2700	224016190	Port Tender
-105	area_15	1020	224016190	Port Tender
-106	area_15	57900	224016190	Port Tender
-107	area_15	136800	224016190	Port Tender
-108	area_15	14940	224016190	Port Tender
-109	area_15	4740	224016190	Port Tender
-110	area_15	41340	224016190	Port Tender
-111	area_15	7200	224016190	Port Tender
-112	area_15	60720	224016190	Port Tender
-113	area_15	13860	224016190	Port Tender
-114	area_15	7680	224016190	Port Tender
-115	area_15	2040	224016190	Port Tender
-117	area_15	14220	224016190	Port Tender
-118	area_15	8760	224016190	Port Tender
-119	area_15	4560	224016190	Port Tender
-120	area_15	78300	224016190	Port Tender
-121	area_15	15180	224016190	Port Tender
-124	area_15	52380	224016190	Port Tender
-125	area_15	3900	224016190	Port Tender
-126	area_15	2940	224016190	Port Tender
-127	area_15	19200	224016190	Port Tender
-128	area_15	18540	224016190	Port Tender
-129	area_15	45840	224016190	Port Tender
-131	area_15	34500	224016190	Port Tender
-132	area_15	13140	224016190	Port Tender
-133	area_15	6960	224016190	Port Tender
-134	area_15	4680	224016190	Port Tender
-135	area_15	4380	224016190	Port Tender
-136	area_15	1980	224016190	Port Tender
+82	area_15	43200.0	212903000	Container Ship
+84	area_15	63420.0	215107000	Tanker
+85	area_15	80820.0	215107000	Tanker
+86	area_15	82980.0	215107000	Tanker
+87	area_15	34260.0	215143000	Bulk Carrier
+88	area_15	38280.0	215228000	Bulk Carrier
+89	area_15	42300.0	215825000	Tanker
+90	area_15	28740.0	219148000	Tanker
+91	area_15	27600.0	219473000	Tanker
+93	area_15	130380.0	220502000	Tanker
+94	area_15	81300.0	220540000	General Cargo
+95	area_15	39780.0	220637000	Tanker
+96	area_15	27660.0	224016190	Port Tender
+97	area_15	15480.0	224016190	Port Tender
+98	area_15	37800.0	224016190	Port Tender
+99	area_15	67920.0	224016190	Port Tender
+101	area_15	5940.0	224016190	Port Tender
+102	area_15	5640.0	224016190	Port Tender
+103	area_15	5580.0	224016190	Port Tender
+104	area_15	2700.0	224016190	Port Tender
+105	area_15	1020.0	224016190	Port Tender
+106	area_15	57900.0	224016190	Port Tender
+107	area_15	136800.0	224016190	Port Tender
+108	area_15	14940.0	224016190	Port Tender
+109	area_15	4740.0	224016190	Port Tender
+110	area_15	41340.0	224016190	Port Tender
+111	area_15	7200.0	224016190	Port Tender
+112	area_15	60720.0	224016190	Port Tender
+113	area_15	13860.0	224016190	Port Tender
+114	area_15	7680.0	224016190	Port Tender
+115	area_15	2040.0	224016190	Port Tender
+117	area_15	14220.0	224016190	Port Tender
+118	area_15	8760.0	224016190	Port Tender
+119	area_15	4560.0	224016190	Port Tender
+120	area_15	78300.0	224016190	Port Tender
+121	area_15	15180.0	224016190	Port Tender
+124	area_15	52380.0	224016190	Port Tender
+125	area_15	3900.0	224016190	Port Tender
+126	area_15	2940.0	224016190	Port Tender
+127	area_15	19200.0	224016190	Port Tender
+128	area_15	18540.0	224016190	Port Tender
+129	area_15	45840.0	224016190	Port Tender
+131	area_15	34500.0	224016190	Port Tender
+132	area_15	13140.0	224016190	Port Tender
+133	area_15	6960.0	224016190	Port Tender
+134	area_15	4680.0	224016190	Port Tender
+135	area_15	4380.0	224016190	Port Tender
+136	area_15	1980.0	224016190	Port Tender
 137	area_15	9e3	224016190	Port Tender
-138	area_15	12780	224016190	Port Tender
-139	area_15	4440	224016190	Port Tender
-140	area_15	9060	224016190	Port Tender
-141	area_15	61440	224016190	Port Tender
-142	area_15	5160	224016190	Port Tender
-143	area_15	2400	224016190	Port Tender
-144	area_15	14160	224016440	Motor Hopper
-146	area_15	5760	224016440	Motor Hopper
-147	area_15	123300	224020910	Tug
-148	area_15	960	224024810	Tug
-149	area_15	15120	224024810	Tug
-150	area_15	15120	224024810	Tug
-153	area_15	19800	224029000	Vehicles Carrier
-154	area_15	26340	224029000	Vehicles Carrier
-155	area_15	23520	224029000	Vehicles Carrier
-156	area_15	20100	224029000	Vehicles Carrier
-157	area_15	21780	224029000	Vehicles Carrier
-158	area_15	660	224049950	SAR
-159	area_15	33360	224049950	SAR
-160	area_15	31860	224049950	SAR
-161	area_15	31860	224049950	SAR
-162	area_15	840	224049950	SAR
-163	area_15	5880	224049950	SAR
-164	area_15	28500	224049950	SAR
-165	area_15	30420	224049950	SAR
+138	area_15	12780.0	224016190	Port Tender
+139	area_15	4440.0	224016190	Port Tender
+140	area_15	9060.0	224016190	Port Tender
+141	area_15	61440.0	224016190	Port Tender
+142	area_15	5160.0	224016190	Port Tender
+143	area_15	2400.0	224016190	Port Tender
+144	area_15	14160.0	224016440	Motor Hopper
+146	area_15	5760.0	224016440	Motor Hopper
+147	area_15	123300.0	224020910	Tug
+148	area_15	960.0	224024810	Tug
+149	area_15	15120.0	224024810	Tug
+150	area_15	15120.0	224024810	Tug
+153	area_15	19800.0	224029000	Vehicles Carrier
+154	area_15	26340.0	224029000	Vehicles Carrier
+155	area_15	23520.0	224029000	Vehicles Carrier
+156	area_15	20100.0	224029000	Vehicles Carrier
+157	area_15	21780.0	224029000	Vehicles Carrier
+158	area_15	660.0	224049950	SAR
+159	area_15	33360.0	224049950	SAR
+160	area_15	31860.0	224049950	SAR
+161	area_15	31860.0	224049950	SAR
+162	area_15	840.0	224049950	SAR
+163	area_15	5880.0	224049950	SAR
+164	area_15	28500.0	224049950	SAR
+165	area_15	30420.0	224049950	SAR
 166	area_15	3e3	224049950	SAR
-167	area_15	20880	224049950	SAR
-168	area_15	33300	224049950	SAR
-169	area_15	29340	224049950	SAR
-170	area_15	30600	224049950	SAR
-171	area_15	21600	224049950	SAR
-172	area_15	24480	224049950	SAR
-173	area_15	22860	224049950	SAR
-174	area_15	23220	224049950	SAR
-176	area_15	38340	224049950	SAR
-177	area_15	44280	224049950	SAR
-178	area_15	20160	224049950	SAR
-179	area_15	20520	224049950	SAR
-180	area_15	20340	224049950	SAR
-181	area_15	3420	224049950	SAR
-182	area_15	480	224049950	SAR
-184	area_15	21960	224049950	SAR
-185	area_15	30240	224050350	Pleasure Craft
-186	area_15	13680	224050350	Pleasure Craft
-187	area_15	26640	224050350	Pleasure Craft
-188	area_15	30240	224050350	Pleasure Craft
-190	area_15	38880	224050350	Pleasure Craft
-192	area_15	26220	224050350	Pleasure Craft
-193	area_15	90360	224050350	Pleasure Craft
-194	area_15	36360	224050350	Pleasure Craft
-196	area_15	29520	224050350	Pleasure Craft
-197	area_15	63720	224050350	Pleasure Craft
-198	area_15	13500	224050350	Pleasure Craft
+167	area_15	20880.0	224049950	SAR
+168	area_15	33300.0	224049950	SAR
+169	area_15	29340.0	224049950	SAR
+170	area_15	30600.0	224049950	SAR
+171	area_15	21600.0	224049950	SAR
+172	area_15	24480.0	224049950	SAR
+173	area_15	22860.0	224049950	SAR
+174	area_15	23220.0	224049950	SAR
+176	area_15	38340.0	224049950	SAR
+177	area_15	44280.0	224049950	SAR
+178	area_15	20160.0	224049950	SAR
+179	area_15	20520.0	224049950	SAR
+180	area_15	20340.0	224049950	SAR
+181	area_15	3420.0	224049950	SAR
+182	area_15	480.0	224049950	SAR
+184	area_15	21960.0	224049950	SAR
+185	area_15	30240.0	224050350	Pleasure Craft
+186	area_15	13680.0	224050350	Pleasure Craft
+187	area_15	26640.0	224050350	Pleasure Craft
+188	area_15	30240.0	224050350	Pleasure Craft
+190	area_15	38880.0	224050350	Pleasure Craft
+192	area_15	26220.0	224050350	Pleasure Craft
+193	area_15	90360.0	224050350	Pleasure Craft
+194	area_15	36360.0	224050350	Pleasure Craft
+196	area_15	29520.0	224050350	Pleasure Craft
+197	area_15	63720.0	224050350	Pleasure Craft
+198	area_15	13500.0	224050350	Pleasure Craft
 199	area_15	18e3	224050350	Pleasure Craft
-200	area_15	47520	224050350	Pleasure Craft
-201	area_15	33120	224050350	Pleasure Craft
-202	area_15	23040	224050350	Pleasure Craft
-203	area_15	88500	224050350	Pleasure Craft
-204	area_15	27660	224050350	Pleasure Craft
-205	area_15	38820	224050350	Pleasure Craft
-207	area_15	123120	224050350	Pleasure Craft
-210	area_15	75600	224050350	Pleasure Craft
-211	area_15	165540	224050350	Pleasure Craft
-212	area_15	14400	224050350	Pleasure Craft
-213	area_15	42840	224050350	Pleasure Craft
-214	area_15	92880	224050350	Pleasure Craft
-216	area_15	28080	224050350	Pleasure Craft
-217	area_15	81300	224050350	Pleasure Craft
-218	area_15	38880	224050350	Pleasure Craft
-220	area_15	26880	224050350	Pleasure Craft
-221	area_15	19080	224050350	Pleasure Craft
-222	area_15	46440	224050350	Pleasure Craft
-223	area_15	19260	224050350	Pleasure Craft
-225	area_15	6540	224060250	Port Tender
-226	area_15	8940	224060250	Port Tender
-227	area_15	2820	224060250	Port Tender
-228	area_15	1980	224060250	Port Tender
-229	area_15	7020	224060250	Port Tender
-230	area_15	11100	224060250	Port Tender
-231	area_15	3540	224060250	Port Tender
-233	area_15	960	224060250	Port Tender
-234	area_15	4740	224060250	Port Tender
-235	area_15	5160	224060250	Port Tender
-237	area_15	17220	224060250	Port Tender
-238	area_15	2160	224060250	Port Tender
-239	area_15	2760	224060250	Port Tender
-240	area_15	2400	224060250	Port Tender
-241	area_15	5340	224060250	Port Tender
-242	area_15	3660	224060250	Port Tender
-243	area_15	9660	224060250	Port Tender
-244	area_15	25740	224060250	Port Tender
-245	area_15	10980	224060250	Port Tender
-246	area_15	8760	224060250	Port Tender
-247	area_15	4200	224060250	Port Tender
-248	area_15	10800	224060250	Port Tender
-249	area_15	4560	224060250	Port Tender
-250	area_15	6240	224063640	Pleasure Craft
-251	area_15	7980	224063640	Pleasure Craft
-254	area_15	3600	224063640	Pleasure Craft
-255	area_15	8220	224070890	Pleasure Craft
-256	area_15	15540	224070890	Pleasure Craft
-257	area_15	10020	224070890	Pleasure Craft
-259	area_15	56460	224070890	Pleasure Craft
-260	area_15	82020	224070890	Pleasure Craft
-263	area_15	240	224070890	Pleasure Craft
-265	area_15	420	224080480	Fishing Vessel
-266	area_15	600	224080480	Fishing Vessel
-267	area_15	420	224080480	Fishing Vessel
-268	area_15	12060	224080480	Fishing Vessel
-269	area_15	720	224080480	Fishing Vessel
-270	area_15	18720	224091140	Tug
-271	area_15	1080	224091140	Tug
-272	area_15	720	224091140	Tug
-273	area_15	474660	224101930	Tanker
-274	area_15	1192680	224101930	Tanker
-275	area_15	2280	224121420	Pleasure Craft
-276	area_15	1200	224121420	Pleasure Craft
-277	area_15	1320	224121420	Pleasure Craft
-278	area_15	10620	224121420	Pleasure Craft
-279	area_15	4440	224121420	Pleasure Craft
-280	area_15	2820	224121420	Pleasure Craft
-281	area_15	1800	224121420	Pleasure Craft
-282	area_15	16200	224123390	Pleasure Craft
-283	area_15	191880	224123390	Pleasure Craft
-284	area_15	12960	224123390	Pleasure Craft
-286	area_15	32400	224123390	Pleasure Craft
-290	area_15	21600	224123390	Pleasure Craft
-291	area_15	13620	224123390	Pleasure Craft
-293	area_15	28080	224123390	Pleasure Craft
-294	area_15	55440	224123390	Pleasure Craft
-295	area_15	59400	224123390	Pleasure Craft
-296	area_15	16200	224123390	Pleasure Craft
-299	area_15	38880	224123390	Pleasure Craft
-300	area_15	32040	224123390	Pleasure Craft
-301	area_15	13260	224123390	Pleasure Craft
-306	area_15	12960	224123390	Pleasure Craft
-308	area_15	27720	224123390	Pleasure Craft
-309	area_15	31320	224123390	Pleasure Craft
-312	area_15	12240	224123390	Pleasure Craft
-313	area_15	23760	224123390	Pleasure Craft
-314	area_15	100620	224123390	Pleasure Craft
-315	area_15	114840	224123390	Pleasure Craft
-317	area_15	32340	224123390	Pleasure Craft
-318	area_15	74460	224123390	Pleasure Craft
-319	area_15	283440	224133350	Pleasure Craft
-320	area_15	346440	224133350	Pleasure Craft
-321	area_15	1817400	224133350	Pleasure Craft
-322	area_15	99960	224133350	Pleasure Craft
-323	area_15	16020	224133350	Pleasure Craft
-324	area_15	10380	224134280	Pleasure Craft
-325	area_15	85860	224137960	Pleasure Craft
-326	area_15	25560	224137960	Pleasure Craft
-328	area_15	1920	224137960	Pleasure Craft
-330	area_15	18180	224137960	Pleasure Craft
-331	area_15	7080	224137960	Pleasure Craft
-332	area_15	12960	224145000	Passenger
-333	area_15	38760	224145000	Passenger
-334	area_15	47820	224145000	Passenger
-335	area_15	46380	224145000	Passenger
-336	area_15	46740	224145000	Passenger
-337	area_15	5040	224145000	Passenger
-338	area_15	32100	224145000	Passenger
-339	area_15	19980	224145000	Passenger
-340	area_15	56700	224145000	Passenger
-341	area_15	5220	224145000	Passenger
-342	area_15	21360	224145000	Passenger
-343	area_15	31920	224145000	Passenger
-344	area_15	4680	224145000	Passenger
-345	area_15	21300	224145000	Passenger
-346	area_15	32220	224145000	Passenger
-347	area_15	5100	224145000	Passenger
-348	area_15	31020	224145000	Passenger
-349	area_15	48420	224145000	Passenger
-350	area_15	34380	224145000	Passenger
-351	area_15	5460	224145000	Passenger
-352	area_15	21900	224145000	Passenger
-353	area_15	33360	224145000	Passenger
-354	area_15	47640	224145000	Passenger
-355	area_15	48180	224145000	Passenger
-356	area_15	4740	224145000	Passenger
-357	area_15	3840	224145000	Passenger
-358	area_15	4380	224145000	Passenger
-359	area_15	3660	224145000	Passenger
-360	area_15	4320	224145000	Passenger
-361	area_15	12480	224145000	Passenger
-362	area_15	40020	224145000	Passenger
-363	area_15	48180	224145000	Passenger
-364	area_15	47640	224145000	Passenger
-365	area_15	47880	224145000	Passenger
-366	area_15	4560	224145000	Passenger
-367	area_15	3480	224145000	Passenger
-368	area_15	4620	224145000	Passenger
-369	area_15	3360	224145000	Passenger
-370	area_15	4560	224145000	Passenger
-371	area_15	360	224145000	Passenger
-372	area_15	39420	224145000	Passenger
-373	area_15	21060	224145000	Passenger
-374	area_15	4380	224162680	Pleasure Craft
-375	area_15	2700	224162680	Pleasure Craft
-376	area_15	1860	224162680	Pleasure Craft
-377	area_15	2880	224166280	Pleasure Craft
-378	area_15	2160	224166280	Pleasure Craft
-380	area_15	1500	224166280	Pleasure Craft
-381	area_15	3420	224166280	Pleasure Craft
-382	area_15	9360	224166280	Pleasure Craft
-383	area_15	5940	224166280	Pleasure Craft
-384	area_15	5580	224166280	Pleasure Craft
-385	area_15	3660	224166280	Pleasure Craft
-386	area_15	2280	224168390	Pleasure Craft
-388	area_15	692340	224184000	Salvage/Rescue Vessel
-389	area_15	1200	224184840	Pleasure Craft
-390	area_15	4680	224187980	Tug
-392	area_15	36720	224191320	Pleasure Craft
-393	area_15	26040	224191320	Pleasure Craft
-396	area_15	9360	224191320	Pleasure Craft
-397	area_15	26640	224191320	Pleasure Craft
-398	area_15	23400	224191320	Pleasure Craft
-402	area_15	8640	224191320	Pleasure Craft
-403	area_15	29520	224191320	Pleasure Craft
-404	area_15	35640	224191320	Pleasure Craft
-407	area_15	12960	224191320	Pleasure Craft
+200	area_15	47520.0	224050350	Pleasure Craft
+201	area_15	33120.0	224050350	Pleasure Craft
+202	area_15	23040.0	224050350	Pleasure Craft
+203	area_15	88500.0	224050350	Pleasure Craft
+204	area_15	27660.0	224050350	Pleasure Craft
+205	area_15	38820.0	224050350	Pleasure Craft
+207	area_15	123120.0	224050350	Pleasure Craft
+210	area_15	75600.0	224050350	Pleasure Craft
+211	area_15	165540.0	224050350	Pleasure Craft
+212	area_15	14400.0	224050350	Pleasure Craft
+213	area_15	42840.0	224050350	Pleasure Craft
+214	area_15	92880.0	224050350	Pleasure Craft
+216	area_15	28080.0	224050350	Pleasure Craft
+217	area_15	81300.0	224050350	Pleasure Craft
+218	area_15	38880.0	224050350	Pleasure Craft
+220	area_15	26880.0	224050350	Pleasure Craft
+221	area_15	19080.0	224050350	Pleasure Craft
+222	area_15	46440.0	224050350	Pleasure Craft
+223	area_15	19260.0	224050350	Pleasure Craft
+225	area_15	6540.0	224060250	Port Tender
+226	area_15	8940.0	224060250	Port Tender
+227	area_15	2820.0	224060250	Port Tender
+228	area_15	1980.0	224060250	Port Tender
+229	area_15	7020.0	224060250	Port Tender
+230	area_15	11100.0	224060250	Port Tender
+231	area_15	3540.0	224060250	Port Tender
+233	area_15	960.0	224060250	Port Tender
+234	area_15	4740.0	224060250	Port Tender
+235	area_15	5160.0	224060250	Port Tender
+237	area_15	17220.0	224060250	Port Tender
+238	area_15	2160.0	224060250	Port Tender
+239	area_15	2760.0	224060250	Port Tender
+240	area_15	2400.0	224060250	Port Tender
+241	area_15	5340.0	224060250	Port Tender
+242	area_15	3660.0	224060250	Port Tender
+243	area_15	9660.0	224060250	Port Tender
+244	area_15	25740.0	224060250	Port Tender
+245	area_15	10980.0	224060250	Port Tender
+246	area_15	8760.0	224060250	Port Tender
+247	area_15	4200.0	224060250	Port Tender
+248	area_15	10800.0	224060250	Port Tender
+249	area_15	4560.0	224060250	Port Tender
+250	area_15	6240.0	224063640	Pleasure Craft
+251	area_15	7980.0	224063640	Pleasure Craft
+254	area_15	3600.0	224063640	Pleasure Craft
+255	area_15	8220.0	224070890	Pleasure Craft
+256	area_15	15540.0	224070890	Pleasure Craft
+257	area_15	10020.0	224070890	Pleasure Craft
+259	area_15	56460.0	224070890	Pleasure Craft
+260	area_15	82020.0	224070890	Pleasure Craft
+263	area_15	240.0	224070890	Pleasure Craft
+265	area_15	420.0	224080480	Fishing Vessel
+266	area_15	600.0	224080480	Fishing Vessel
+267	area_15	420.0	224080480	Fishing Vessel
+268	area_15	12060.0	224080480	Fishing Vessel
+269	area_15	720.0	224080480	Fishing Vessel
+270	area_15	18720.0	224091140	Tug
+271	area_15	1080.0	224091140	Tug
+272	area_15	720.0	224091140	Tug
+273	area_15	474660.0	224101930	Tanker
+274	area_15	1192680.0	224101930	Tanker
+275	area_15	2280.0	224121420	Pleasure Craft
+276	area_15	1200.0	224121420	Pleasure Craft
+277	area_15	1320.0	224121420	Pleasure Craft
+278	area_15	10620.0	224121420	Pleasure Craft
+279	area_15	4440.0	224121420	Pleasure Craft
+280	area_15	2820.0	224121420	Pleasure Craft
+281	area_15	1800.0	224121420	Pleasure Craft
+282	area_15	16200.0	224123390	Pleasure Craft
+283	area_15	191880.0	224123390	Pleasure Craft
+284	area_15	12960.0	224123390	Pleasure Craft
+286	area_15	32400.0	224123390	Pleasure Craft
+290	area_15	21600.0	224123390	Pleasure Craft
+291	area_15	13620.0	224123390	Pleasure Craft
+293	area_15	28080.0	224123390	Pleasure Craft
+294	area_15	55440.0	224123390	Pleasure Craft
+295	area_15	59400.0	224123390	Pleasure Craft
+296	area_15	16200.0	224123390	Pleasure Craft
+299	area_15	38880.0	224123390	Pleasure Craft
+300	area_15	32040.0	224123390	Pleasure Craft
+301	area_15	13260.0	224123390	Pleasure Craft
+306	area_15	12960.0	224123390	Pleasure Craft
+308	area_15	27720.0	224123390	Pleasure Craft
+309	area_15	31320.0	224123390	Pleasure Craft
+312	area_15	12240.0	224123390	Pleasure Craft
+313	area_15	23760.0	224123390	Pleasure Craft
+314	area_15	100620.0	224123390	Pleasure Craft
+315	area_15	114840.0	224123390	Pleasure Craft
+317	area_15	32340.0	224123390	Pleasure Craft
+318	area_15	74460.0	224123390	Pleasure Craft
+319	area_15	283440.0	224133350	Pleasure Craft
+320	area_15	346440.0	224133350	Pleasure Craft
+321	area_15	1817400.0	224133350	Pleasure Craft
+322	area_15	99960.0	224133350	Pleasure Craft
+323	area_15	16020.0	224133350	Pleasure Craft
+324	area_15	10380.0	224134280	Pleasure Craft
+325	area_15	85860.0	224137960	Pleasure Craft
+326	area_15	25560.0	224137960	Pleasure Craft
+328	area_15	1920.0	224137960	Pleasure Craft
+330	area_15	18180.0	224137960	Pleasure Craft
+331	area_15	7080.0	224137960	Pleasure Craft
+332	area_15	12960.0	224145000	Passenger
+333	area_15	38760.0	224145000	Passenger
+334	area_15	47820.0	224145000	Passenger
+335	area_15	46380.0	224145000	Passenger
+336	area_15	46740.0	224145000	Passenger
+337	area_15	5040.0	224145000	Passenger
+338	area_15	32100.0	224145000	Passenger
+339	area_15	19980.0	224145000	Passenger
+340	area_15	56700.0	224145000	Passenger
+341	area_15	5220.0	224145000	Passenger
+342	area_15	21360.0	224145000	Passenger
+343	area_15	31920.0	224145000	Passenger
+344	area_15	4680.0	224145000	Passenger
+345	area_15	21300.0	224145000	Passenger
+346	area_15	32220.0	224145000	Passenger
+347	area_15	5100.0	224145000	Passenger
+348	area_15	31020.0	224145000	Passenger
+349	area_15	48420.0	224145000	Passenger
+350	area_15	34380.0	224145000	Passenger
+351	area_15	5460.0	224145000	Passenger
+352	area_15	21900.0	224145000	Passenger
+353	area_15	33360.0	224145000	Passenger
+354	area_15	47640.0	224145000	Passenger
+355	area_15	48180.0	224145000	Passenger
+356	area_15	4740.0	224145000	Passenger
+357	area_15	3840.0	224145000	Passenger
+358	area_15	4380.0	224145000	Passenger
+359	area_15	3660.0	224145000	Passenger
+360	area_15	4320.0	224145000	Passenger
+361	area_15	12480.0	224145000	Passenger
+362	area_15	40020.0	224145000	Passenger
+363	area_15	48180.0	224145000	Passenger
+364	area_15	47640.0	224145000	Passenger
+365	area_15	47880.0	224145000	Passenger
+366	area_15	4560.0	224145000	Passenger
+367	area_15	3480.0	224145000	Passenger
+368	area_15	4620.0	224145000	Passenger
+369	area_15	3360.0	224145000	Passenger
+370	area_15	4560.0	224145000	Passenger
+371	area_15	360.0	224145000	Passenger
+372	area_15	39420.0	224145000	Passenger
+373	area_15	21060.0	224145000	Passenger
+374	area_15	4380.0	224162680	Pleasure Craft
+375	area_15	2700.0	224162680	Pleasure Craft
+376	area_15	1860.0	224162680	Pleasure Craft
+377	area_15	2880.0	224166280	Pleasure Craft
+378	area_15	2160.0	224166280	Pleasure Craft
+380	area_15	1500.0	224166280	Pleasure Craft
+381	area_15	3420.0	224166280	Pleasure Craft
+382	area_15	9360.0	224166280	Pleasure Craft
+383	area_15	5940.0	224166280	Pleasure Craft
+384	area_15	5580.0	224166280	Pleasure Craft
+385	area_15	3660.0	224166280	Pleasure Craft
+386	area_15	2280.0	224168390	Pleasure Craft
+388	area_15	692340.0	224184000	Salvage/Rescue Vessel
+389	area_15	1200.0	224184840	Pleasure Craft
+390	area_15	4680.0	224187980	Tug
+392	area_15	36720.0	224191320	Pleasure Craft
+393	area_15	26040.0	224191320	Pleasure Craft
+396	area_15	9360.0	224191320	Pleasure Craft
+397	area_15	26640.0	224191320	Pleasure Craft
+398	area_15	23400.0	224191320	Pleasure Craft
+402	area_15	8640.0	224191320	Pleasure Craft
+403	area_15	29520.0	224191320	Pleasure Craft
+404	area_15	35640.0	224191320	Pleasure Craft
+407	area_15	12960.0	224191320	Pleasure Craft
 408	area_15	18e3	224191320	Pleasure Craft
-409	area_15	45720	224191320	Pleasure Craft
-410	area_15	51360	224191320	Pleasure Craft
-411	area_15	41040	224191320	Pleasure Craft
-413	area_15	66240	224191320	Pleasure Craft
-414	area_15	75300	224191320	Pleasure Craft
-419	area_15	67680	224191320	Pleasure Craft
-421	area_15	52920	224191320	Pleasure Craft
-422	area_15	22080	224191320	Pleasure Craft
-425	area_15	42720	224191320	Pleasure Craft
-426	area_15	36720	224191320	Pleasure Craft
-427	area_15	56160	224191320	Pleasure Craft
-428	area_15	97200	224191320	Pleasure Craft
-430	area_15	57900	224191320	Pleasure Craft
-431	area_15	52860	224191320	Pleasure Craft
-432	area_15	31200	224191320	Pleasure Craft
-433	area_15	28800	224191320	Pleasure Craft
-434	area_15	95040	224191320	Pleasure Craft
-435	area_15	26400	224191320	Pleasure Craft
-438	area_15	13980	224191320	Pleasure Craft
-440	area_15	10080	224191320	Pleasure Craft
-441	area_15	16560	224191320	Pleasure Craft
-442	area_15	52260	224191320	Pleasure Craft
-445	area_15	35700	224191320	Pleasure Craft
-449	area_15	27180	224191320	Pleasure Craft
-454	area_15	10800	224191320	Pleasure Craft
-455	area_15	34920	224191320	Pleasure Craft
-462	area_15	18720	224191320	Pleasure Craft
-465	area_15	77760	224191320	Pleasure Craft
-466	area_15	16560	224191320	Pleasure Craft
-467	area_15	87180	224191320	Pleasure Craft
-468	area_15	58320	224191320	Pleasure Craft
-469	area_15	23640	224191320	Pleasure Craft
-470	area_15	62280	224191320	Pleasure Craft
-475	area_15	12960	224191320	Pleasure Craft
-476	area_15	48240	224191320	Pleasure Craft
-477	area_15	9360	224191320	Pleasure Craft
-478	area_15	11880	224191320	Pleasure Craft
-479	area_15	14760	224191320	Pleasure Craft
-480	area_15	8640	224191320	Pleasure Craft
-481	area_15	19080	224191320	Pleasure Craft
-482	area_15	50040	224191320	Pleasure Craft
-483	area_15	13320	224191320	Pleasure Craft
-484	area_15	13320	224191320	Pleasure Craft
-485	area_15	16200	224191320	Pleasure Craft
-487	area_15	11160	224191320	Pleasure Craft
-493	area_15	226020	224205780	Pleasure Craft
-494	area_15	253080	224205780	Pleasure Craft
-495	area_15	84600	224205780	Pleasure Craft
-496	area_15	19800	224205780	Pleasure Craft
-497	area_15	18720	224205780	Pleasure Craft
-499	area_15	335940	224205780	Pleasure Craft
-500	area_15	157320	224205780	Pleasure Craft
-501	area_15	21600	224205780	Pleasure Craft
-502	area_15	122760	224205780	Pleasure Craft
-503	area_15	517800	224205780	Pleasure Craft
-504	area_15	117360	224205780	Pleasure Craft
-505	area_15	62520	224205780	Pleasure Craft
-506	area_15	3840	224205780	Pleasure Craft
-508	area_15	317040	224205780	Pleasure Craft
-509	area_15	58080	224205780	Pleasure Craft
-510	area_15	41040	224205780	Pleasure Craft
-511	area_15	11880	224205780	Pleasure Craft
-512	area_15	214500	224219620	Pilot Vessel
-513	area_15	134340	224219620	Pilot Vessel
-514	area_15	113280	224219620	Pilot Vessel
-515	area_15	327060	224227560	Pilot Vessel
-516	area_15	53700	224227560	Pilot Vessel
-517	area_15	187620	224227560	Pilot Vessel
-518	area_15	1693800	224227560	Pilot Vessel
-519	area_15	103140	224227560	Pilot Vessel
-520	area_15	16860	224254290	Pleasure Craft
-521	area_15	8400	224254290	Pleasure Craft
-522	area_15	6300	224254290	Pleasure Craft
-523	area_15	5160	224254290	Pleasure Craft
-525	area_15	168660	224255540	Unspecified
-526	area_15	219120	224255540	Unspecified
-527	area_15	173520	224255540	Unspecified
-528	area_15	90540	224255540	Unspecified
-529	area_15	1613460	224255540	Unspecified
-530	area_15	119100	224255540	Unspecified
-531	area_15	165780	224261240	Fire Fighting Vessel
-532	area_15	387540	224261240	Fire Fighting Vessel
-533	area_15	1813680	224261240	Fire Fighting Vessel
-534	area_15	119100	224261240	Fire Fighting Vessel
-535	area_15	2520	224267930	Passenger
-536	area_15	631560	224276650	Pleasure Craft
-537	area_15	1492080	224276650	Pleasure Craft
-538	area_15	323520	224276650	Pleasure Craft
-539	area_15	118740	224276650	Pleasure Craft
-540	area_15	320940	224298290	Motor Hopper
-541	area_15	277980	224298290	Motor Hopper
-543	area_15	1032720	224298290	Motor Hopper
-544	area_15	5760	224298290	Motor Hopper
-545	area_15	3240	224298290	Motor Hopper
-547	area_15	15120	224349000	Passenger
-548	area_15	16140	224349000	Passenger
-549	area_15	86160	224349000	Passenger
-550	area_15	10800	224350770	Pleasure Craft
-551	area_15	6540	224350770	Pleasure Craft
-552	area_15	517560	224365000	Tanker
-553	area_15	1241520	224365000	Tanker
-554	area_15	86400	224365000	Tanker
-556	area_15	342120	224393420	Military Ops
-557	area_15	473820	224399490	Work Vessel
-558	area_15	132840	224399490	Work Vessel
-559	area_15	767160	224399490	Work Vessel
-560	area_15	29880	224399490	Work Vessel
-561	area_15	204720	224399490	Work Vessel
-562	area_15	88560	224399490	Work Vessel
-563	area_15	133860	224399490	Work Vessel
-564	area_15	10260	224399490	Work Vessel
-565	area_15	467100	224399490	Work Vessel
-566	area_15	119220	224399490	Work Vessel
-567	area_15	2400	224419540	Pleasure Craft
-568	area_15	5160	224419540	Pleasure Craft
-569	area_15	1260	224419540	Pleasure Craft
-579	area_15	2160	224462000	Tanker
-580	area_15	3360	224462000	Tanker
-587	area_15	1740	224462000	Tanker
-588	area_15	3900	224462000	Tanker
-591	area_15	2220	224462000	Tanker
-592	area_15	3960	224462000	Tanker
-593	area_15	2220	224462000	Tanker
-594	area_15	3420	224462000	Tanker
-596	area_15	8280	224474000	Fire Fighting Vessel
-597	area_15	1740	224486160	Pleasure Craft
-598	area_15	616320	224494000	Tug
-599	area_15	1817640	224494000	Tug
-600	area_15	119100	224494000	Tug
-602	area_15	424860	224522000	Offshore Supply Ship
-603	area_15	82860	224522000	Offshore Supply Ship
-604	area_15	618660	224533000	Fire Fighting Vessel
-605	area_15	725400	224533000	Fire Fighting Vessel
-606	area_15	151500	224533000	Fire Fighting Vessel
-607	area_15	885180	224533000	Fire Fighting Vessel
-608	area_15	118980	224533000	Fire Fighting Vessel
-609	area_15	21600	224548000	Passenger
-610	area_15	29580	224548000	Passenger
-611	area_15	628380	224550000	Tug
-612	area_15	1779600	224550000	Tug
-613	area_15	119100	224550000	Tug
-614	area_15	21900	224600000	Passenger
-615	area_15	25920	224600000	Passenger
-616	area_15	354420	224608620	Tanker
-617	area_15	113880	224608620	Tanker
-618	area_15	25080	224692000	Passenger
-619	area_15	5280	224692000	Passenger
-620	area_15	21300	224692000	Passenger
-621	area_15	32220	224692000	Passenger
-622	area_15	5160	224692000	Passenger
-623	area_15	22500	224692000	Passenger
-624	area_15	11160	224692000	Passenger
-625	area_15	27960	224692000	Passenger
-626	area_15	7020	224692000	Passenger
-627	area_15	35040	224692000	Passenger
-628	area_15	36480	224692000	Passenger
-629	area_15	21240	224692000	Passenger
-630	area_15	34920	224692000	Passenger
-631	area_15	12420	224692000	Passenger
-632	area_15	22140	224692000	Passenger
-633	area_15	33660	224692000	Passenger
-634	area_15	19500	224692000	Passenger
-635	area_15	28260	224692000	Passenger
-636	area_15	7020	224692000	Passenger
-637	area_15	8460	224692000	Passenger
-638	area_15	13260	224692000	Passenger
-639	area_15	18540	224692000	Passenger
-640	area_15	34740	224692000	Passenger
-641	area_15	12540	224692000	Passenger
-642	area_15	21960	224692000	Passenger
-643	area_15	34020	224692000	Passenger
-644	area_15	22200	224692000	Passenger
-645	area_15	27900	224692000	Passenger
-646	area_15	6540	224692000	Passenger
-647	area_15	33720	224692000	Passenger
-648	area_15	34860	224692000	Passenger
-649	area_15	6180	224692000	Passenger
-650	area_15	22260	224692000	Passenger
-651	area_15	31920	224692000	Passenger
-652	area_15	20280	224692000	Passenger
-653	area_15	7500	224692000	Passenger
-654	area_15	32520	224692000	Passenger
-655	area_15	6060	224692000	Passenger
-656	area_15	33060	224692000	Passenger
-657	area_15	22140	224692000	Passenger
-658	area_15	64740	224692000	Passenger
-660	area_15	34140	224692000	Passenger
-661	area_15	12300	224692000	Passenger
-662	area_15	73680	224713000	Research/Survey Vessel
-663	area_15	9180	224713000	Research/Survey Vessel
-664	area_15	458700	224731000	Hospital Ship
-665	area_15	60360	224731000	Hospital Ship
-666	area_15	169860	224761000	Passenger
-667	area_15	24600	224761000	Passenger
-668	area_15	25560	224761000	Passenger
-669	area_15	24960	224761000	Passenger
-670	area_15	23340	224761000	Passenger
-671	area_15	55140	224761000	Passenger
-672	area_15	138060	224761000	Passenger
-673	area_15	22320	224761000	Passenger
-674	area_15	22920	224761000	Passenger
-675	area_15	24480	224761000	Passenger
-676	area_15	25260	224761000	Passenger
-677	area_15	196560	224761000	Passenger
-678	area_15	22860	224761000	Passenger
-679	area_15	25980	224761000	Passenger
-680	area_15	22680	224761000	Passenger
-681	area_15	22920	224761000	Passenger
-682	area_15	59820	224761000	Passenger
-683	area_15	88500	224761000	Passenger
-684	area_15	5160	224761000	Passenger
-685	area_15	22260	224761000	Passenger
-686	area_15	22920	224761000	Passenger
-687	area_15	22320	224761000	Passenger
-688	area_15	25620	224761000	Passenger
-689	area_15	62520	224761000	Passenger
-690	area_15	85020	224761000	Passenger
-691	area_15	17940	224761000	Passenger
-692	area_15	3060	224768000	High Speed Craft
-693	area_15	3840	224768000	High Speed Craft
-694	area_15	3480	224768000	High Speed Craft
-695	area_15	3600	224768000	High Speed Craft
-696	area_15	6720	224768000	High Speed Craft
-697	area_15	3780	224768000	High Speed Craft
-698	area_15	7200	224768000	High Speed Craft
-699	area_15	3660	224768000	High Speed Craft
-700	area_15	6540	224768000	High Speed Craft
-701	area_15	3840	224768000	High Speed Craft
-702	area_15	6540	224768000	High Speed Craft
-703	area_15	3660	224768000	High Speed Craft
-704	area_15	5580	224768000	High Speed Craft
-705	area_15	3300	224768000	High Speed Craft
-706	area_15	7080	224768000	High Speed Craft
-707	area_15	2940	224768000	High Speed Craft
-708	area_15	3900	224768000	High Speed Craft
-709	area_15	4140	224768000	High Speed Craft
-710	area_15	7440	224768000	High Speed Craft
-711	area_15	3660	224768000	High Speed Craft
-712	area_15	6540	224768000	High Speed Craft
-713	area_15	3900	224768000	High Speed Craft
-714	area_15	4560	224768000	High Speed Craft
-715	area_15	3780	224768000	High Speed Craft
-716	area_15	5460	224768000	High Speed Craft
-717	area_15	4020	224768000	High Speed Craft
-718	area_15	6720	224768000	High Speed Craft
-719	area_15	3360	224768000	High Speed Craft
-720	area_15	7500	224768000	High Speed Craft
-721	area_15	3180	224768000	High Speed Craft
-722	area_15	3480	224768000	High Speed Craft
-723	area_15	3660	224768000	High Speed Craft
-724	area_15	7080	224768000	High Speed Craft
-725	area_15	3960	224768000	High Speed Craft
-726	area_15	6180	224768000	High Speed Craft
-727	area_15	3780	224768000	High Speed Craft
-728	area_15	6480	224768000	High Speed Craft
-729	area_15	4500	224768000	High Speed Craft
-730	area_15	6120	224768000	High Speed Craft
-731	area_15	4200	224768000	High Speed Craft
-732	area_15	7200	224768000	High Speed Craft
-733	area_15	3900	224768000	High Speed Craft
-734	area_15	6240	224768000	High Speed Craft
-735	area_15	3300	224768000	High Speed Craft
-736	area_15	3600	224768000	High Speed Craft
-737	area_15	4200	224768000	High Speed Craft
-738	area_15	6660	224768000	High Speed Craft
-739	area_15	3780	224768000	High Speed Craft
+409	area_15	45720.0	224191320	Pleasure Craft
+410	area_15	51360.0	224191320	Pleasure Craft
+411	area_15	41040.0	224191320	Pleasure Craft
+413	area_15	66240.0	224191320	Pleasure Craft
+414	area_15	75300.0	224191320	Pleasure Craft
+419	area_15	67680.0	224191320	Pleasure Craft
+421	area_15	52920.0	224191320	Pleasure Craft
+422	area_15	22080.0	224191320	Pleasure Craft
+425	area_15	42720.0	224191320	Pleasure Craft
+426	area_15	36720.0	224191320	Pleasure Craft
+427	area_15	56160.0	224191320	Pleasure Craft
+428	area_15	97200.0	224191320	Pleasure Craft
+430	area_15	57900.0	224191320	Pleasure Craft
+431	area_15	52860.0	224191320	Pleasure Craft
+432	area_15	31200.0	224191320	Pleasure Craft
+433	area_15	28800.0	224191320	Pleasure Craft
+434	area_15	95040.0	224191320	Pleasure Craft
+435	area_15	26400.0	224191320	Pleasure Craft
+438	area_15	13980.0	224191320	Pleasure Craft
+440	area_15	10080.0	224191320	Pleasure Craft
+441	area_15	16560.0	224191320	Pleasure Craft
+442	area_15	52260.0	224191320	Pleasure Craft
+445	area_15	35700.0	224191320	Pleasure Craft
+449	area_15	27180.0	224191320	Pleasure Craft
+454	area_15	10800.0	224191320	Pleasure Craft
+455	area_15	34920.0	224191320	Pleasure Craft
+462	area_15	18720.0	224191320	Pleasure Craft
+465	area_15	77760.0	224191320	Pleasure Craft
+466	area_15	16560.0	224191320	Pleasure Craft
+467	area_15	87180.0	224191320	Pleasure Craft
+468	area_15	58320.0	224191320	Pleasure Craft
+469	area_15	23640.0	224191320	Pleasure Craft
+470	area_15	62280.0	224191320	Pleasure Craft
+475	area_15	12960.0	224191320	Pleasure Craft
+476	area_15	48240.0	224191320	Pleasure Craft
+477	area_15	9360.0	224191320	Pleasure Craft
+478	area_15	11880.0	224191320	Pleasure Craft
+479	area_15	14760.0	224191320	Pleasure Craft
+480	area_15	8640.0	224191320	Pleasure Craft
+481	area_15	19080.0	224191320	Pleasure Craft
+482	area_15	50040.0	224191320	Pleasure Craft
+483	area_15	13320.0	224191320	Pleasure Craft
+484	area_15	13320.0	224191320	Pleasure Craft
+485	area_15	16200.0	224191320	Pleasure Craft
+487	area_15	11160.0	224191320	Pleasure Craft
+493	area_15	226020.0	224205780	Pleasure Craft
+494	area_15	253080.0	224205780	Pleasure Craft
+495	area_15	84600.0	224205780	Pleasure Craft
+496	area_15	19800.0	224205780	Pleasure Craft
+497	area_15	18720.0	224205780	Pleasure Craft
+499	area_15	335940.0	224205780	Pleasure Craft
+500	area_15	157320.0	224205780	Pleasure Craft
+501	area_15	21600.0	224205780	Pleasure Craft
+502	area_15	122760.0	224205780	Pleasure Craft
+503	area_15	517800.0	224205780	Pleasure Craft
+504	area_15	117360.0	224205780	Pleasure Craft
+505	area_15	62520.0	224205780	Pleasure Craft
+506	area_15	3840.0	224205780	Pleasure Craft
+508	area_15	317040.0	224205780	Pleasure Craft
+509	area_15	58080.0	224205780	Pleasure Craft
+510	area_15	41040.0	224205780	Pleasure Craft
+511	area_15	11880.0	224205780	Pleasure Craft
+512	area_15	214500.0	224219620	Pilot Vessel
+513	area_15	134340.0	224219620	Pilot Vessel
+514	area_15	113280.0	224219620	Pilot Vessel
+515	area_15	327060.0	224227560	Pilot Vessel
+516	area_15	53700.0	224227560	Pilot Vessel
+517	area_15	187620.0	224227560	Pilot Vessel
+518	area_15	1693800.0	224227560	Pilot Vessel
+519	area_15	103140.0	224227560	Pilot Vessel
+520	area_15	16860.0	224254290	Pleasure Craft
+521	area_15	8400.0	224254290	Pleasure Craft
+522	area_15	6300.0	224254290	Pleasure Craft
+523	area_15	5160.0	224254290	Pleasure Craft
+525	area_15	168660.0	224255540	Unspecified
+526	area_15	219120.0	224255540	Unspecified
+527	area_15	173520.0	224255540	Unspecified
+528	area_15	90540.0	224255540	Unspecified
+529	area_15	1613460.0	224255540	Unspecified
+530	area_15	119100.0	224255540	Unspecified
+531	area_15	165780.0	224261240	Fire Fighting Vessel
+532	area_15	387540.0	224261240	Fire Fighting Vessel
+533	area_15	1813680.0	224261240	Fire Fighting Vessel
+534	area_15	119100.0	224261240	Fire Fighting Vessel
+535	area_15	2520.0	224267930	Passenger
+536	area_15	631560.0	224276650	Pleasure Craft
+537	area_15	1492080.0	224276650	Pleasure Craft
+538	area_15	323520.0	224276650	Pleasure Craft
+539	area_15	118740.0	224276650	Pleasure Craft
+540	area_15	320940.0	224298290	Motor Hopper
+541	area_15	277980.0	224298290	Motor Hopper
+543	area_15	1032720.0	224298290	Motor Hopper
+544	area_15	5760.0	224298290	Motor Hopper
+545	area_15	3240.0	224298290	Motor Hopper
+547	area_15	15120.0	224349000	Passenger
+548	area_15	16140.0	224349000	Passenger
+549	area_15	86160.0	224349000	Passenger
+550	area_15	10800.0	224350770	Pleasure Craft
+551	area_15	6540.0	224350770	Pleasure Craft
+552	area_15	517560.0	224365000	Tanker
+553	area_15	1241520.0	224365000	Tanker
+554	area_15	86400.0	224365000	Tanker
+556	area_15	342120.0	224393420	Military Ops
+557	area_15	473820.0	224399490	Work Vessel
+558	area_15	132840.0	224399490	Work Vessel
+559	area_15	767160.0	224399490	Work Vessel
+560	area_15	29880.0	224399490	Work Vessel
+561	area_15	204720.0	224399490	Work Vessel
+562	area_15	88560.0	224399490	Work Vessel
+563	area_15	133860.0	224399490	Work Vessel
+564	area_15	10260.0	224399490	Work Vessel
+565	area_15	467100.0	224399490	Work Vessel
+566	area_15	119220.0	224399490	Work Vessel
+567	area_15	2400.0	224419540	Pleasure Craft
+568	area_15	5160.0	224419540	Pleasure Craft
+569	area_15	1260.0	224419540	Pleasure Craft
+579	area_15	2160.0	224462000	Tanker
+580	area_15	3360.0	224462000	Tanker
+587	area_15	1740.0	224462000	Tanker
+588	area_15	3900.0	224462000	Tanker
+591	area_15	2220.0	224462000	Tanker
+592	area_15	3960.0	224462000	Tanker
+593	area_15	2220.0	224462000	Tanker
+594	area_15	3420.0	224462000	Tanker
+596	area_15	8280.0	224474000	Fire Fighting Vessel
+597	area_15	1740.0	224486160	Pleasure Craft
+598	area_15	616320.0	224494000	Tug
+599	area_15	1817640.0	224494000	Tug
+600	area_15	119100.0	224494000	Tug
+602	area_15	424860.0	224522000	Offshore Supply Ship
+603	area_15	82860.0	224522000	Offshore Supply Ship
+604	area_15	618660.0	224533000	Fire Fighting Vessel
+605	area_15	725400.0	224533000	Fire Fighting Vessel
+606	area_15	151500.0	224533000	Fire Fighting Vessel
+607	area_15	885180.0	224533000	Fire Fighting Vessel
+608	area_15	118980.0	224533000	Fire Fighting Vessel
+609	area_15	21600.0	224548000	Passenger
+610	area_15	29580.0	224548000	Passenger
+611	area_15	628380.0	224550000	Tug
+612	area_15	1779600.0	224550000	Tug
+613	area_15	119100.0	224550000	Tug
+614	area_15	21900.0	224600000	Passenger
+615	area_15	25920.0	224600000	Passenger
+616	area_15	354420.0	224608620	Tanker
+617	area_15	113880.0	224608620	Tanker
+618	area_15	25080.0	224692000	Passenger
+619	area_15	5280.0	224692000	Passenger
+620	area_15	21300.0	224692000	Passenger
+621	area_15	32220.0	224692000	Passenger
+622	area_15	5160.0	224692000	Passenger
+623	area_15	22500.0	224692000	Passenger
+624	area_15	11160.0	224692000	Passenger
+625	area_15	27960.0	224692000	Passenger
+626	area_15	7020.0	224692000	Passenger
+627	area_15	35040.0	224692000	Passenger
+628	area_15	36480.0	224692000	Passenger
+629	area_15	21240.0	224692000	Passenger
+630	area_15	34920.0	224692000	Passenger
+631	area_15	12420.0	224692000	Passenger
+632	area_15	22140.0	224692000	Passenger
+633	area_15	33660.0	224692000	Passenger
+634	area_15	19500.0	224692000	Passenger
+635	area_15	28260.0	224692000	Passenger
+636	area_15	7020.0	224692000	Passenger
+637	area_15	8460.0	224692000	Passenger
+638	area_15	13260.0	224692000	Passenger
+639	area_15	18540.0	224692000	Passenger
+640	area_15	34740.0	224692000	Passenger
+641	area_15	12540.0	224692000	Passenger
+642	area_15	21960.0	224692000	Passenger
+643	area_15	34020.0	224692000	Passenger
+644	area_15	22200.0	224692000	Passenger
+645	area_15	27900.0	224692000	Passenger
+646	area_15	6540.0	224692000	Passenger
+647	area_15	33720.0	224692000	Passenger
+648	area_15	34860.0	224692000	Passenger
+649	area_15	6180.0	224692000	Passenger
+650	area_15	22260.0	224692000	Passenger
+651	area_15	31920.0	224692000	Passenger
+652	area_15	20280.0	224692000	Passenger
+653	area_15	7500.0	224692000	Passenger
+654	area_15	32520.0	224692000	Passenger
+655	area_15	6060.0	224692000	Passenger
+656	area_15	33060.0	224692000	Passenger
+657	area_15	22140.0	224692000	Passenger
+658	area_15	64740.0	224692000	Passenger
+660	area_15	34140.0	224692000	Passenger
+661	area_15	12300.0	224692000	Passenger
+662	area_15	73680.0	224713000	Research/Survey Vessel
+663	area_15	9180.0	224713000	Research/Survey Vessel
+664	area_15	458700.0	224731000	Hospital Ship
+665	area_15	60360.0	224731000	Hospital Ship
+666	area_15	169860.0	224761000	Passenger
+667	area_15	24600.0	224761000	Passenger
+668	area_15	25560.0	224761000	Passenger
+669	area_15	24960.0	224761000	Passenger
+670	area_15	23340.0	224761000	Passenger
+671	area_15	55140.0	224761000	Passenger
+672	area_15	138060.0	224761000	Passenger
+673	area_15	22320.0	224761000	Passenger
+674	area_15	22920.0	224761000	Passenger
+675	area_15	24480.0	224761000	Passenger
+676	area_15	25260.0	224761000	Passenger
+677	area_15	196560.0	224761000	Passenger
+678	area_15	22860.0	224761000	Passenger
+679	area_15	25980.0	224761000	Passenger
+680	area_15	22680.0	224761000	Passenger
+681	area_15	22920.0	224761000	Passenger
+682	area_15	59820.0	224761000	Passenger
+683	area_15	88500.0	224761000	Passenger
+684	area_15	5160.0	224761000	Passenger
+685	area_15	22260.0	224761000	Passenger
+686	area_15	22920.0	224761000	Passenger
+687	area_15	22320.0	224761000	Passenger
+688	area_15	25620.0	224761000	Passenger
+689	area_15	62520.0	224761000	Passenger
+690	area_15	85020.0	224761000	Passenger
+691	area_15	17940.0	224761000	Passenger
+692	area_15	3060.0	224768000	High Speed Craft
+693	area_15	3840.0	224768000	High Speed Craft
+694	area_15	3480.0	224768000	High Speed Craft
+695	area_15	3600.0	224768000	High Speed Craft
+696	area_15	6720.0	224768000	High Speed Craft
+697	area_15	3780.0	224768000	High Speed Craft
+698	area_15	7200.0	224768000	High Speed Craft
+699	area_15	3660.0	224768000	High Speed Craft
+700	area_15	6540.0	224768000	High Speed Craft
+701	area_15	3840.0	224768000	High Speed Craft
+702	area_15	6540.0	224768000	High Speed Craft
+703	area_15	3660.0	224768000	High Speed Craft
+704	area_15	5580.0	224768000	High Speed Craft
+705	area_15	3300.0	224768000	High Speed Craft
+706	area_15	7080.0	224768000	High Speed Craft
+707	area_15	2940.0	224768000	High Speed Craft
+708	area_15	3900.0	224768000	High Speed Craft
+709	area_15	4140.0	224768000	High Speed Craft
+710	area_15	7440.0	224768000	High Speed Craft
+711	area_15	3660.0	224768000	High Speed Craft
+712	area_15	6540.0	224768000	High Speed Craft
+713	area_15	3900.0	224768000	High Speed Craft
+714	area_15	4560.0	224768000	High Speed Craft
+715	area_15	3780.0	224768000	High Speed Craft
+716	area_15	5460.0	224768000	High Speed Craft
+717	area_15	4020.0	224768000	High Speed Craft
+718	area_15	6720.0	224768000	High Speed Craft
+719	area_15	3360.0	224768000	High Speed Craft
+720	area_15	7500.0	224768000	High Speed Craft
+721	area_15	3180.0	224768000	High Speed Craft
+722	area_15	3480.0	224768000	High Speed Craft
+723	area_15	3660.0	224768000	High Speed Craft
+724	area_15	7080.0	224768000	High Speed Craft
+725	area_15	3960.0	224768000	High Speed Craft
+726	area_15	6180.0	224768000	High Speed Craft
+727	area_15	3780.0	224768000	High Speed Craft
+728	area_15	6480.0	224768000	High Speed Craft
+729	area_15	4500.0	224768000	High Speed Craft
+730	area_15	6120.0	224768000	High Speed Craft
+731	area_15	4200.0	224768000	High Speed Craft
+732	area_15	7200.0	224768000	High Speed Craft
+733	area_15	3900.0	224768000	High Speed Craft
+734	area_15	6240.0	224768000	High Speed Craft
+735	area_15	3300.0	224768000	High Speed Craft
+736	area_15	3600.0	224768000	High Speed Craft
+737	area_15	4200.0	224768000	High Speed Craft
+738	area_15	6660.0	224768000	High Speed Craft
+739	area_15	3780.0	224768000	High Speed Craft
 740	area_15	6e3	224768000	High Speed Craft
-741	area_15	3240	224768000	High Speed Craft
-742	area_15	480	224768000	High Speed Craft
-746	area_15	6480	224768000	High Speed Craft
-747	area_15	3840	224768000	High Speed Craft
-748	area_15	5520	224768000	High Speed Craft
-749	area_15	540	224768000	High Speed Craft
-751	area_15	6600	224768000	High Speed Craft
-752	area_15	3300	224768000	High Speed Craft
-753	area_15	3720	224768000	High Speed Craft
-754	area_15	5880	224768000	High Speed Craft
-755	area_15	65040	224782000	Fishing Vessel
-756	area_15	613200	224783000	Pollution Control Vessel
-757	area_15	1806060	224783000	Pollution Control Vessel
-758	area_15	99360	224783000	Pollution Control Vessel
-759	area_15	14760	224783000	Pollution Control Vessel
-760	area_15	21360	224957000	Passenger
-761	area_15	6240	224957000	Passenger
-762	area_15	32400	224957000	Passenger
-763	area_15	11580	224957000	Passenger
-764	area_15	21660	224957000	Passenger
-765	area_15	33480	224957000	Passenger
-766	area_15	47880	224957000	Passenger
-767	area_15	4740	224957000	Passenger
-768	area_15	3180	224957000	Passenger
-769	area_15	4980	224957000	Passenger
-770	area_15	3540	224957000	Passenger
-771	area_15	3480	224957000	Passenger
-772	area_15	12720	224957000	Passenger
-773	area_15	39600	224957000	Passenger
-774	area_15	48360	224957000	Passenger
-775	area_15	48420	224957000	Passenger
-776	area_15	41520	224957000	Passenger
-777	area_15	3300	224957000	Passenger
-778	area_15	2820	224957000	Passenger
-779	area_15	4680	224957000	Passenger
-780	area_15	3060	224957000	Passenger
-781	area_15	69300	224957000	Passenger
-782	area_15	39120	224957000	Passenger
-783	area_15	45780	224957000	Passenger
-784	area_15	20100	224957000	Passenger
-785	area_15	7680	224957000	Passenger
-786	area_15	29340	224957000	Passenger
-787	area_15	5160	224957000	Passenger
-788	area_15	32340	224957000	Passenger
-789	area_15	19680	224957000	Passenger
-790	area_15	82800	224957000	Passenger
-791	area_15	33840	224957000	Passenger
-792	area_15	12600	224957000	Passenger
-793	area_15	21480	224957000	Passenger
-794	area_15	32880	224957000	Passenger
-795	area_15	21120	224957000	Passenger
-796	area_15	25800	224957000	Passenger
-797	area_15	6420	224957000	Passenger
-798	area_15	30720	224957000	Passenger
-799	area_15	33900	224957000	Passenger
-800	area_15	5040	224957000	Passenger
-801	area_15	21300	224957000	Passenger
-802	area_15	7500	224957000	Passenger
-803	area_15	15900	225302000	Passenger
-804	area_15	19200	225302000	Passenger
-805	area_15	18780	225302000	Passenger
-806	area_15	19920	225302000	Passenger
-807	area_15	9720	225302000	Passenger
-808	area_15	71520	225315000	Passenger
-809	area_15	54600	225315000	Passenger
-810	area_15	51120	225315000	Passenger
-811	area_15	46740	225315000	Passenger
-812	area_15	32880	225317000	Passenger
-813	area_15	1440	225317000	Passenger
-814	area_15	18840	225317000	Passenger
-815	area_15	44580	225317000	Passenger
-816	area_15	19980	225317000	Passenger
-818	area_15	7320	225416000	Passenger
-819	area_15	20580	225416000	Passenger
-820	area_15	27900	225416000	Passenger
-821	area_15	22500	225416000	Passenger
-822	area_15	3660	225416000	Passenger
-823	area_15	7560	225416000	Passenger
-824	area_15	19980	225416000	Passenger
-825	area_15	25800	225416000	Passenger
-826	area_15	20160	225416000	Passenger
-827	area_15	3600	225416000	Passenger
-828	area_15	6960	225416000	Passenger
+741	area_15	3240.0	224768000	High Speed Craft
+742	area_15	480.0	224768000	High Speed Craft
+746	area_15	6480.0	224768000	High Speed Craft
+747	area_15	3840.0	224768000	High Speed Craft
+748	area_15	5520.0	224768000	High Speed Craft
+749	area_15	540.0	224768000	High Speed Craft
+751	area_15	6600.0	224768000	High Speed Craft
+752	area_15	3300.0	224768000	High Speed Craft
+753	area_15	3720.0	224768000	High Speed Craft
+754	area_15	5880.0	224768000	High Speed Craft
+755	area_15	65040.0	224782000	Fishing Vessel
+756	area_15	613200.0	224783000	Pollution Control Vessel
+757	area_15	1806060.0	224783000	Pollution Control Vessel
+758	area_15	99360.0	224783000	Pollution Control Vessel
+759	area_15	14760.0	224783000	Pollution Control Vessel
+760	area_15	21360.0	224957000	Passenger
+761	area_15	6240.0	224957000	Passenger
+762	area_15	32400.0	224957000	Passenger
+763	area_15	11580.0	224957000	Passenger
+764	area_15	21660.0	224957000	Passenger
+765	area_15	33480.0	224957000	Passenger
+766	area_15	47880.0	224957000	Passenger
+767	area_15	4740.0	224957000	Passenger
+768	area_15	3180.0	224957000	Passenger
+769	area_15	4980.0	224957000	Passenger
+770	area_15	3540.0	224957000	Passenger
+771	area_15	3480.0	224957000	Passenger
+772	area_15	12720.0	224957000	Passenger
+773	area_15	39600.0	224957000	Passenger
+774	area_15	48360.0	224957000	Passenger
+775	area_15	48420.0	224957000	Passenger
+776	area_15	41520.0	224957000	Passenger
+777	area_15	3300.0	224957000	Passenger
+778	area_15	2820.0	224957000	Passenger
+779	area_15	4680.0	224957000	Passenger
+780	area_15	3060.0	224957000	Passenger
+781	area_15	69300.0	224957000	Passenger
+782	area_15	39120.0	224957000	Passenger
+783	area_15	45780.0	224957000	Passenger
+784	area_15	20100.0	224957000	Passenger
+785	area_15	7680.0	224957000	Passenger
+786	area_15	29340.0	224957000	Passenger
+787	area_15	5160.0	224957000	Passenger
+788	area_15	32340.0	224957000	Passenger
+789	area_15	19680.0	224957000	Passenger
+790	area_15	82800.0	224957000	Passenger
+791	area_15	33840.0	224957000	Passenger
+792	area_15	12600.0	224957000	Passenger
+793	area_15	21480.0	224957000	Passenger
+794	area_15	32880.0	224957000	Passenger
+795	area_15	21120.0	224957000	Passenger
+796	area_15	25800.0	224957000	Passenger
+797	area_15	6420.0	224957000	Passenger
+798	area_15	30720.0	224957000	Passenger
+799	area_15	33900.0	224957000	Passenger
+800	area_15	5040.0	224957000	Passenger
+801	area_15	21300.0	224957000	Passenger
+802	area_15	7500.0	224957000	Passenger
+803	area_15	15900.0	225302000	Passenger
+804	area_15	19200.0	225302000	Passenger
+805	area_15	18780.0	225302000	Passenger
+806	area_15	19920.0	225302000	Passenger
+807	area_15	9720.0	225302000	Passenger
+808	area_15	71520.0	225315000	Passenger
+809	area_15	54600.0	225315000	Passenger
+810	area_15	51120.0	225315000	Passenger
+811	area_15	46740.0	225315000	Passenger
+812	area_15	32880.0	225317000	Passenger
+813	area_15	1440.0	225317000	Passenger
+814	area_15	18840.0	225317000	Passenger
+815	area_15	44580.0	225317000	Passenger
+816	area_15	19980.0	225317000	Passenger
+818	area_15	7320.0	225416000	Passenger
+819	area_15	20580.0	225416000	Passenger
+820	area_15	27900.0	225416000	Passenger
+821	area_15	22500.0	225416000	Passenger
+822	area_15	3660.0	225416000	Passenger
+823	area_15	7560.0	225416000	Passenger
+824	area_15	19980.0	225416000	Passenger
+825	area_15	25800.0	225416000	Passenger
+826	area_15	20160.0	225416000	Passenger
+827	area_15	3600.0	225416000	Passenger
+828	area_15	6960.0	225416000	Passenger
 829	area_15	21e3	225416000	Passenger
-830	area_15	9900	225416000	Passenger
-831	area_15	36120	225416000	Passenger
-832	area_15	4020	225416000	Passenger
-833	area_15	7980	225416000	Passenger
-834	area_15	20640	225416000	Passenger
-835	area_15	11280	225416000	Passenger
-836	area_15	35520	225416000	Passenger
-837	area_15	3600	225416000	Passenger
-838	area_15	7680	225416000	Passenger
-839	area_15	20340	225416000	Passenger
-840	area_15	138300	225430000	Passenger
-841	area_15	136800	225430000	Passenger
-842	area_15	137160	225430000	Passenger
-843	area_15	137100	225430000	Passenger
-844	area_15	41100	225430000	Passenger
-845	area_15	14520	225430000	Passenger
-846	area_15	644220	225438000	Tanker
-847	area_15	14280	225459000	Fishing Vessel
-848	area_15	74460	225459000	Fishing Vessel
-849	area_15	53160	225459000	Fishing Vessel
-850	area_15	47100	225459000	Fishing Vessel
-851	area_15	82860	225459000	Fishing Vessel
-852	area_15	29040	225459000	Fishing Vessel
-853	area_15	632280	225922990	Pleasure Craft
-854	area_15	1808040	225922990	Pleasure Craft
-855	area_15	108840	225922990	Pleasure Craft
-856	area_15	165360	225939760	Pleasure Craft
-857	area_15	2160	225939760	Pleasure Craft
-859	area_15	19980	225939760	Pleasure Craft
-861	area_15	9180	225966730	Pleasure Craft
-863	area_15	2640	225966730	Pleasure Craft
-864	area_15	1320	225966730	Pleasure Craft
-865	area_15	13800	225966730	Pleasure Craft
-866	area_15	3780	225966730	Pleasure Craft
-869	area_15	68400	227108720	Pleasure Craft
-870	area_15	34920	227108720	Pleasure Craft
-871	area_15	10080	227108720	Pleasure Craft
-872	area_15	9360	227108720	Pleasure Craft
-873	area_15	13320	227108720	Pleasure Craft
-874	area_15	10080	227108720	Pleasure Craft
-877	area_15	50040	227108720	Pleasure Craft
+830	area_15	9900.0	225416000	Passenger
+831	area_15	36120.0	225416000	Passenger
+832	area_15	4020.0	225416000	Passenger
+833	area_15	7980.0	225416000	Passenger
+834	area_15	20640.0	225416000	Passenger
+835	area_15	11280.0	225416000	Passenger
+836	area_15	35520.0	225416000	Passenger
+837	area_15	3600.0	225416000	Passenger
+838	area_15	7680.0	225416000	Passenger
+839	area_15	20340.0	225416000	Passenger
+840	area_15	138300.0	225430000	Passenger
+841	area_15	136800.0	225430000	Passenger
+842	area_15	137160.0	225430000	Passenger
+843	area_15	137100.0	225430000	Passenger
+844	area_15	41100.0	225430000	Passenger
+845	area_15	14520.0	225430000	Passenger
+846	area_15	644220.0	225438000	Tanker
+847	area_15	14280.0	225459000	Fishing Vessel
+848	area_15	74460.0	225459000	Fishing Vessel
+849	area_15	53160.0	225459000	Fishing Vessel
+850	area_15	47100.0	225459000	Fishing Vessel
+851	area_15	82860.0	225459000	Fishing Vessel
+852	area_15	29040.0	225459000	Fishing Vessel
+853	area_15	632280.0	225922990	Pleasure Craft
+854	area_15	1808040.0	225922990	Pleasure Craft
+855	area_15	108840.0	225922990	Pleasure Craft
+856	area_15	165360.0	225939760	Pleasure Craft
+857	area_15	2160.0	225939760	Pleasure Craft
+859	area_15	19980.0	225939760	Pleasure Craft
+861	area_15	9180.0	225966730	Pleasure Craft
+863	area_15	2640.0	225966730	Pleasure Craft
+864	area_15	1320.0	225966730	Pleasure Craft
+865	area_15	13800.0	225966730	Pleasure Craft
+866	area_15	3780.0	225966730	Pleasure Craft
+869	area_15	68400.0	227108720	Pleasure Craft
+870	area_15	34920.0	227108720	Pleasure Craft
+871	area_15	10080.0	227108720	Pleasure Craft
+872	area_15	9360.0	227108720	Pleasure Craft
+873	area_15	13320.0	227108720	Pleasure Craft
+874	area_15	10080.0	227108720	Pleasure Craft
+877	area_15	50040.0	227108720	Pleasure Craft
 878	area_15	9e3	227108720	Pleasure Craft
-879	area_15	30960	227108720	Pleasure Craft
-880	area_15	13680	227108720	Pleasure Craft
-881	area_15	15480	227108720	Pleasure Craft
-882	area_15	10440	227108720	Pleasure Craft
-883	area_15	31680	227108720	Pleasure Craft
-885	area_15	142920	227108720	Pleasure Craft
-886	area_15	54240	227108720	Pleasure Craft
-888	area_15	19800	227108720	Pleasure Craft
-889	area_15	34920	227108720	Pleasure Craft
+879	area_15	30960.0	227108720	Pleasure Craft
+880	area_15	13680.0	227108720	Pleasure Craft
+881	area_15	15480.0	227108720	Pleasure Craft
+882	area_15	10440.0	227108720	Pleasure Craft
+883	area_15	31680.0	227108720	Pleasure Craft
+885	area_15	142920.0	227108720	Pleasure Craft
+886	area_15	54240.0	227108720	Pleasure Craft
+888	area_15	19800.0	227108720	Pleasure Craft
+889	area_15	34920.0	227108720	Pleasure Craft
 891	area_15	63e3	227108720	Pleasure Craft
-892	area_15	14640	227108720	Pleasure Craft
-893	area_15	100440	227108720	Pleasure Craft
-894	area_15	24480	227108720	Pleasure Craft
+892	area_15	14640.0	227108720	Pleasure Craft
+893	area_15	100440.0	227108720	Pleasure Craft
+894	area_15	24480.0	227108720	Pleasure Craft
 896	area_15	36e3	227108720	Pleasure Craft
-897	area_15	13320	227108720	Pleasure Craft
-898	area_15	77400	227108720	Pleasure Craft
-900	area_15	130020	227108720	Pleasure Craft
-901	area_15	22260	227108720	Pleasure Craft
-902	area_15	11880	227108720	Pleasure Craft
-903	area_15	89280	227108720	Pleasure Craft
-905	area_15	40380	227108720	Pleasure Craft
-908	area_15	54420	227108720	Pleasure Craft
-910	area_15	29520	227108720	Pleasure Craft
-911	area_15	11880	227108720	Pleasure Craft
-912	area_15	14760	227108720	Pleasure Craft
-913	area_15	16560	227108720	Pleasure Craft
-916	area_15	8640	227108720	Pleasure Craft
-917	area_15	43920	227108720	Pleasure Craft
-919	area_15	13320	227108720	Pleasure Craft
-920	area_15	10080	227108720	Pleasure Craft
-921	area_15	13680	227108720	Pleasure Craft
-923	area_15	20880	227108720	Pleasure Craft
-924	area_15	24480	227108720	Pleasure Craft
-925	area_15	71940	227108720	Pleasure Craft
-930	area_15	45420	227160750	Pleasure Craft
-931	area_15	2640	227160750	Pleasure Craft
-933	area_15	23820	227160750	Pleasure Craft
-936	area_15	17760	227160750	Pleasure Craft
-937	area_15	16380	227160750	Pleasure Craft
-941	area_15	17040	227160750	Pleasure Craft
-942	area_15	27660	227160750	Pleasure Craft
-943	area_15	13500	227160750	Pleasure Craft
-947	area_15	13140	227160750	Pleasure Craft
-949	area_15	18600	227160750	Pleasure Craft
-950	area_15	1380	227205840	Pleasure Craft
-953	area_15	12240	227237270	Pleasure Craft
-954	area_15	1680	227237270	Pleasure Craft
-955	area_15	9780	227237270	Pleasure Craft
-956	area_15	2520	227700320	Pleasure Craft
-957	area_15	34260	229081000	Bulk Carrier
-958	area_15	29100	229334000	Bulk Carrier
-959	area_15	35520	229335000	Bulk Carrier
-960	area_15	62520	229651000	Container Ship
-961	area_15	29640	229815000	Bulk Carrier
-963	area_15	53880	232977000	General Cargo
-964	area_15	31200	233659000	Trawler
-965	area_15	153480	233694000	General Cargo
-966	area_15	327300	233694000	General Cargo
-967	area_15	84480	233694000	General Cargo
-968	area_15	1624680	233694000	General Cargo
-969	area_15	97200	233694000	General Cargo
-971	area_15	10080	233694000	General Cargo
-973	area_15	23580	235009907	Pleasure Craft
-974	area_15	213840	235056099	Tug
-975	area_15	114720	235060252	Tanker
-976	area_15	18420	235067944	General Cargo
-977	area_15	28620	235069271	General Cargo
-978	area_15	26220	235070715	General Cargo
-979	area_15	19500	235073372	General Cargo
-981	area_15	186120	235077805	General Cargo
-982	area_15	8040	235078897	Pleasure Craft
-984	area_15	5340	235078897	Pleasure Craft
-985	area_15	97440	235080632	General Cargo
-986	area_15	22800	235080999	General Cargo
-987	area_15	60240	235084806	Tug
-988	area_15	25320	235100377	Bulk Carrier
-989	area_15	26160	235465000	Tug/Supply Vessel
-990	area_15	397020	235465000	Tug/Supply Vessel
-991	area_15	895440	235465000	Tug/Supply Vessel
-992	area_15	68940	235631000	Offshore Supply Ship
-993	area_15	118320	235631000	Offshore Supply Ship
-994	area_15	58440	236111768	Tanker
-995	area_15	54120	236111913	Bulk Carrier
-996	area_15	1440	236111913	Bulk Carrier
-997	area_15	2100	236502000	Tanker
-998	area_15	447360	236502000	Tanker
-999	area_15	1264200	236502000	Tanker
-1000	area_15	227220	236502000	Tanker
-1001	area_15	46200	236502000	Tanker
-1002	area_15	120360	236518000	Tanker
-1003	area_15	369240	236518000	Tanker
-1004	area_15	1205280	236518000	Tanker
-1005	area_15	414540	236518000	Tanker
-1006	area_15	100800	236518000	Tanker
-1007	area_15	209820	236579000	Offshore Supply Ship
-1008	area_15	540	236579000	Offshore Supply Ship
-1011	area_15	222780	240028000	Container Ship
-1014	area_15	29460	240564000	Bulk Carrier
-1020	area_15	60600	241284000	Bulk Carrier
-1021	area_15	43200	242135100	Fishing Vessel
+897	area_15	13320.0	227108720	Pleasure Craft
+898	area_15	77400.0	227108720	Pleasure Craft
+900	area_15	130020.0	227108720	Pleasure Craft
+901	area_15	22260.0	227108720	Pleasure Craft
+902	area_15	11880.0	227108720	Pleasure Craft
+903	area_15	89280.0	227108720	Pleasure Craft
+905	area_15	40380.0	227108720	Pleasure Craft
+908	area_15	54420.0	227108720	Pleasure Craft
+910	area_15	29520.0	227108720	Pleasure Craft
+911	area_15	11880.0	227108720	Pleasure Craft
+912	area_15	14760.0	227108720	Pleasure Craft
+913	area_15	16560.0	227108720	Pleasure Craft
+916	area_15	8640.0	227108720	Pleasure Craft
+917	area_15	43920.0	227108720	Pleasure Craft
+919	area_15	13320.0	227108720	Pleasure Craft
+920	area_15	10080.0	227108720	Pleasure Craft
+921	area_15	13680.0	227108720	Pleasure Craft
+923	area_15	20880.0	227108720	Pleasure Craft
+924	area_15	24480.0	227108720	Pleasure Craft
+925	area_15	71940.0	227108720	Pleasure Craft
+930	area_15	45420.0	227160750	Pleasure Craft
+931	area_15	2640.0	227160750	Pleasure Craft
+933	area_15	23820.0	227160750	Pleasure Craft
+936	area_15	17760.0	227160750	Pleasure Craft
+937	area_15	16380.0	227160750	Pleasure Craft
+941	area_15	17040.0	227160750	Pleasure Craft
+942	area_15	27660.0	227160750	Pleasure Craft
+943	area_15	13500.0	227160750	Pleasure Craft
+947	area_15	13140.0	227160750	Pleasure Craft
+949	area_15	18600.0	227160750	Pleasure Craft
+950	area_15	1380.0	227205840	Pleasure Craft
+953	area_15	12240.0	227237270	Pleasure Craft
+954	area_15	1680.0	227237270	Pleasure Craft
+955	area_15	9780.0	227237270	Pleasure Craft
+956	area_15	2520.0	227700320	Pleasure Craft
+957	area_15	34260.0	229081000	Bulk Carrier
+958	area_15	29100.0	229334000	Bulk Carrier
+959	area_15	35520.0	229335000	Bulk Carrier
+960	area_15	62520.0	229651000	Container Ship
+961	area_15	29640.0	229815000	Bulk Carrier
+963	area_15	53880.0	232977000	General Cargo
+964	area_15	31200.0	233659000	Trawler
+965	area_15	153480.0	233694000	General Cargo
+966	area_15	327300.0	233694000	General Cargo
+967	area_15	84480.0	233694000	General Cargo
+968	area_15	1624680.0	233694000	General Cargo
+969	area_15	97200.0	233694000	General Cargo
+971	area_15	10080.0	233694000	General Cargo
+973	area_15	23580.0	235009907	Pleasure Craft
+974	area_15	213840.0	235056099	Tug
+975	area_15	114720.0	235060252	Tanker
+976	area_15	18420.0	235067944	General Cargo
+977	area_15	28620.0	235069271	General Cargo
+978	area_15	26220.0	235070715	General Cargo
+979	area_15	19500.0	235073372	General Cargo
+981	area_15	186120.0	235077805	General Cargo
+982	area_15	8040.0	235078897	Pleasure Craft
+984	area_15	5340.0	235078897	Pleasure Craft
+985	area_15	97440.0	235080632	General Cargo
+986	area_15	22800.0	235080999	General Cargo
+987	area_15	60240.0	235084806	Tug
+988	area_15	25320.0	235100377	Bulk Carrier
+989	area_15	26160.0	235465000	Tug/Supply Vessel
+990	area_15	397020.0	235465000	Tug/Supply Vessel
+991	area_15	895440.0	235465000	Tug/Supply Vessel
+992	area_15	68940.0	235631000	Offshore Supply Ship
+993	area_15	118320.0	235631000	Offshore Supply Ship
+994	area_15	58440.0	236111768	Tanker
+995	area_15	54120.0	236111913	Bulk Carrier
+996	area_15	1440.0	236111913	Bulk Carrier
+997	area_15	2100.0	236502000	Tanker
+998	area_15	447360.0	236502000	Tanker
+999	area_15	1264200.0	236502000	Tanker
+1000	area_15	227220.0	236502000	Tanker
+1001	area_15	46200.0	236502000	Tanker
+1002	area_15	120360.0	236518000	Tanker
+1003	area_15	369240.0	236518000	Tanker
+1004	area_15	1205280.0	236518000	Tanker
+1005	area_15	414540.0	236518000	Tanker
+1006	area_15	100800.0	236518000	Tanker
+1007	area_15	209820.0	236579000	Offshore Supply Ship
+1008	area_15	540.0	236579000	Offshore Supply Ship
+1011	area_15	222780.0	240028000	Container Ship
+1014	area_15	29460.0	240564000	Bulk Carrier
+1020	area_15	60600.0	241284000	Bulk Carrier
+1021	area_15	43200.0	242135100	Fishing Vessel
 1022	area_15	168e3	242135100	Fishing Vessel
-1023	area_15	418080	242135100	Fishing Vessel
-1024	area_15	547800	242135100	Fishing Vessel
-1025	area_15	631320	242141100	Trawler
-1026	area_15	1264020	242141100	Trawler
-1027	area_15	33900	242141100	Trawler
-1028	area_15	119100	242141100	Trawler
-1029	area_15	12060	242173100	Fishing Vessel
-1030	area_15	798060	242173100	Fishing Vessel
-1031	area_15	162240	242173100	Fishing Vessel
-1032	area_15	323880	242173100	Fishing Vessel
-1033	area_15	118560	242173100	Fishing Vessel
-1034	area_15	44400	242576000	Tanker
-1035	area_15	239460	244002000	General Cargo
-1036	area_15	12120	244020664	Pleasure Craft
-1037	area_15	2580	244060681	Pleasure Craft
-1039	area_15	33240	244615063	Pleasure Craft
-1041	area_15	2220	244700973	Pleasure Craft
-1042	area_15	9120	244780472	Pleasure Craft
-1043	area_15	80700	244810083	Tug
-1044	area_15	38340	244819000	General Cargo
-1045	area_15	32940	245021000	Heavy Load Carrier
-1046	area_15	69660	245107000	Container Ship
-1047	area_15	92580	245107000	Container Ship
-1049	area_15	8760	245811000	Factory Trawler
-1050	area_15	25680	245949000	General Cargo
-1051	area_15	122820	246100000	General Cargo
-1052	area_15	472320	246130000	Offshore Supply Ship
-1053	area_15	22080	246246000	General Cargo
-1054	area_15	18360	246661000	Heavy Load Carrier
-1055	area_15	147360	246719000	General Cargo
-1056	area_15	124920	247118800	Tanker
-1057	area_15	124440	247118800	Tanker
-1058	area_15	19680	247189500	General Cargo
-1059	area_15	166200	247191500	Fire Fighting Vessel
-1060	area_15	12900	247191500	Fire Fighting Vessel
-1065	area_15	1351980	248428000	Passenger
-1066	area_15	118800	248428000	Passenger
-1067	area_15	94140	248931000	Container Ship
-1068	area_15	80820	248955000	Container Ship
-1069	area_15	28020	249210000	Tanker
-1070	area_15	12960	249210000	Tanker
-1071	area_15	140400	249560000	Tug/Supply Vessel
-1072	area_15	80580	249715000	Container Ship
-1074	area_15	18600	255802440	Tanker
-1075	area_15	51180	255802440	Tanker
-1076	area_15	29940	255802850	General Cargo
-1077	area_15	55380	255803940	Container Ship
-1078	area_15	47100	255803940	Container Ship
-1079	area_15	51900	255803950	Container Ship
-1080	area_15	70020	255803950	Container Ship
-1081	area_15	51960	255803960	General Cargo
-1083	area_15	55920	255805600	Container Ship
-1084	area_15	61380	255805600	Container Ship
-1085	area_15	64620	255805601	Container Ship
-1086	area_15	58020	255805601	Container Ship
-1087	area_15	121740	256210000	Tanker
-1088	area_15	52500	256252000	General Cargo
-1089	area_15	84480	256252000	General Cargo
-1091	area_15	83880	256462000	Tanker
-1092	area_15	390720	256462000	Tanker
-1093	area_15	1539180	256462000	Tanker
-1094	area_15	98580	256462000	Tanker
-1095	area_15	17460	256462000	Tanker
-1096	area_15	22740	256678000	Bulk Carrier
-1097	area_15	420	256682000	Bulk Carrier
-1098	area_15	27420	256934000	Tanker
-1100	area_15	264060	257146000	Trawler
-1102	area_15	46020	257146000	Trawler
-1104	area_15	5700	258083950	Pleasure Craft
-1107	area_15	5580	259861000	LNG Tanker
-1108	area_15	35400	259889000	Multi Purpose Offshore Vessel
-1109	area_15	82920	261522000	Trawler
-1110	area_15	297600	263141000	Pleasure Craft
-1111	area_15	5820	263921540	Pleasure Craft
-1112	area_15	288120	265551760	Pleasure Craft
-1113	area_15	1817700	265551760	Pleasure Craft
-1114	area_15	99720	265551760	Pleasure Craft
-1115	area_15	15780	265551760	Pleasure Craft
-1116	area_15	632460	265603100	Pleasure Craft
-1117	area_15	649140	265603100	Pleasure Craft
-1118	area_15	216660	265603100	Pleasure Craft
-1119	area_15	2340	265636940	Pleasure Craft
-1120	area_15	143700	265698560	Pleasure Craft
-1121	area_15	8280	265698560	Pleasure Craft
-1127	area_15	947820	265698560	Pleasure Craft
-1128	area_15	41040	265698560	Pleasure Craft
-1129	area_15	467100	265698560	Pleasure Craft
-1130	area_15	99900	265698560	Pleasure Craft
-1133	area_15	33840	265698560	Pleasure Craft
-1134	area_15	15660	265698560	Pleasure Craft
-1135	area_15	42480	265698560	Pleasure Craft
-1136	area_15	41280	265698560	Pleasure Craft
-1137	area_15	26460	265698560	Pleasure Craft
-1138	area_15	15300	265698560	Pleasure Craft
-1139	area_15	20160	265698560	Pleasure Craft
-1140	area_15	12840	265698560	Pleasure Craft
-1141	area_15	26640	265698560	Pleasure Craft
-1142	area_15	21600	265698560	Pleasure Craft
-1143	area_15	32760	265698560	Pleasure Craft
-1147	area_15	427260	265708930	Pleasure Craft
-1148	area_15	1980	266201000	Tanker
-1149	area_15	5040	266201000	Tanker
-1151	area_15	25500	271000601	General Cargo
-1156	area_15	78180	273250200	Factory Trawler
-1158	area_15	49920	273250200	Factory Trawler
-1159	area_15	704340	273250200	Factory Trawler
-1160	area_15	1108680	273250200	Factory Trawler
-1161	area_15	118320	273250200	Factory Trawler
-1162	area_15	632700	273290500	Factory Trawler
-1163	area_15	194580	273290500	Factory Trawler
-1164	area_15	1294440	273290500	Factory Trawler
-1165	area_15	66060	273290500	Factory Trawler
-1167	area_15	77400	273290500	Factory Trawler
-1168	area_15	79020	273290500	Factory Trawler
-1169	area_15	68940	273290500	Factory Trawler
-1170	area_15	8820	273290500	Factory Trawler
-1171	area_15	91800	273290500	Factory Trawler
-1172	area_15	7740	273290500	Factory Trawler
-1173	area_15	6900	273345950	Factory Trawler
-1174	area_15	135300	273345950	Factory Trawler
-1175	area_15	40380	273345950	Factory Trawler
-1176	area_15	154920	273353290	Suction Dredger
+1023	area_15	418080.0	242135100	Fishing Vessel
+1024	area_15	547800.0	242135100	Fishing Vessel
+1025	area_15	631320.0	242141100	Trawler
+1026	area_15	1264020.0	242141100	Trawler
+1027	area_15	33900.0	242141100	Trawler
+1028	area_15	119100.0	242141100	Trawler
+1029	area_15	12060.0	242173100	Fishing Vessel
+1030	area_15	798060.0	242173100	Fishing Vessel
+1031	area_15	162240.0	242173100	Fishing Vessel
+1032	area_15	323880.0	242173100	Fishing Vessel
+1033	area_15	118560.0	242173100	Fishing Vessel
+1034	area_15	44400.0	242576000	Tanker
+1035	area_15	239460.0	244002000	General Cargo
+1036	area_15	12120.0	244020664	Pleasure Craft
+1037	area_15	2580.0	244060681	Pleasure Craft
+1039	area_15	33240.0	244615063	Pleasure Craft
+1041	area_15	2220.0	244700973	Pleasure Craft
+1042	area_15	9120.0	244780472	Pleasure Craft
+1043	area_15	80700.0	244810083	Tug
+1044	area_15	38340.0	244819000	General Cargo
+1045	area_15	32940.0	245021000	Heavy Load Carrier
+1046	area_15	69660.0	245107000	Container Ship
+1047	area_15	92580.0	245107000	Container Ship
+1049	area_15	8760.0	245811000	Factory Trawler
+1050	area_15	25680.0	245949000	General Cargo
+1051	area_15	122820.0	246100000	General Cargo
+1052	area_15	472320.0	246130000	Offshore Supply Ship
+1053	area_15	22080.0	246246000	General Cargo
+1054	area_15	18360.0	246661000	Heavy Load Carrier
+1055	area_15	147360.0	246719000	General Cargo
+1056	area_15	124920.0	247118800	Tanker
+1057	area_15	124440.0	247118800	Tanker
+1058	area_15	19680.0	247189500	General Cargo
+1059	area_15	166200.0	247191500	Fire Fighting Vessel
+1060	area_15	12900.0	247191500	Fire Fighting Vessel
+1065	area_15	1351980.0	248428000	Passenger
+1066	area_15	118800.0	248428000	Passenger
+1067	area_15	94140.0	248931000	Container Ship
+1068	area_15	80820.0	248955000	Container Ship
+1069	area_15	28020.0	249210000	Tanker
+1070	area_15	12960.0	249210000	Tanker
+1071	area_15	140400.0	249560000	Tug/Supply Vessel
+1072	area_15	80580.0	249715000	Container Ship
+1074	area_15	18600.0	255802440	Tanker
+1075	area_15	51180.0	255802440	Tanker
+1076	area_15	29940.0	255802850	General Cargo
+1077	area_15	55380.0	255803940	Container Ship
+1078	area_15	47100.0	255803940	Container Ship
+1079	area_15	51900.0	255803950	Container Ship
+1080	area_15	70020.0	255803950	Container Ship
+1081	area_15	51960.0	255803960	General Cargo
+1083	area_15	55920.0	255805600	Container Ship
+1084	area_15	61380.0	255805600	Container Ship
+1085	area_15	64620.0	255805601	Container Ship
+1086	area_15	58020.0	255805601	Container Ship
+1087	area_15	121740.0	256210000	Tanker
+1088	area_15	52500.0	256252000	General Cargo
+1089	area_15	84480.0	256252000	General Cargo
+1091	area_15	83880.0	256462000	Tanker
+1092	area_15	390720.0	256462000	Tanker
+1093	area_15	1539180.0	256462000	Tanker
+1094	area_15	98580.0	256462000	Tanker
+1095	area_15	17460.0	256462000	Tanker
+1096	area_15	22740.0	256678000	Bulk Carrier
+1097	area_15	420.0	256682000	Bulk Carrier
+1098	area_15	27420.0	256934000	Tanker
+1100	area_15	264060.0	257146000	Trawler
+1102	area_15	46020.0	257146000	Trawler
+1104	area_15	5700.0	258083950	Pleasure Craft
+1107	area_15	5580.0	259861000	LNG Tanker
+1108	area_15	35400.0	259889000	Multi Purpose Offshore Vessel
+1109	area_15	82920.0	261522000	Trawler
+1110	area_15	297600.0	263141000	Pleasure Craft
+1111	area_15	5820.0	263921540	Pleasure Craft
+1112	area_15	288120.0	265551760	Pleasure Craft
+1113	area_15	1817700.0	265551760	Pleasure Craft
+1114	area_15	99720.0	265551760	Pleasure Craft
+1115	area_15	15780.0	265551760	Pleasure Craft
+1116	area_15	632460.0	265603100	Pleasure Craft
+1117	area_15	649140.0	265603100	Pleasure Craft
+1118	area_15	216660.0	265603100	Pleasure Craft
+1119	area_15	2340.0	265636940	Pleasure Craft
+1120	area_15	143700.0	265698560	Pleasure Craft
+1121	area_15	8280.0	265698560	Pleasure Craft
+1127	area_15	947820.0	265698560	Pleasure Craft
+1128	area_15	41040.0	265698560	Pleasure Craft
+1129	area_15	467100.0	265698560	Pleasure Craft
+1130	area_15	99900.0	265698560	Pleasure Craft
+1133	area_15	33840.0	265698560	Pleasure Craft
+1134	area_15	15660.0	265698560	Pleasure Craft
+1135	area_15	42480.0	265698560	Pleasure Craft
+1136	area_15	41280.0	265698560	Pleasure Craft
+1137	area_15	26460.0	265698560	Pleasure Craft
+1138	area_15	15300.0	265698560	Pleasure Craft
+1139	area_15	20160.0	265698560	Pleasure Craft
+1140	area_15	12840.0	265698560	Pleasure Craft
+1141	area_15	26640.0	265698560	Pleasure Craft
+1142	area_15	21600.0	265698560	Pleasure Craft
+1143	area_15	32760.0	265698560	Pleasure Craft
+1147	area_15	427260.0	265708930	Pleasure Craft
+1148	area_15	1980.0	266201000	Tanker
+1149	area_15	5040.0	266201000	Tanker
+1151	area_15	25500.0	271000601	General Cargo
+1156	area_15	78180.0	273250200	Factory Trawler
+1158	area_15	49920.0	273250200	Factory Trawler
+1159	area_15	704340.0	273250200	Factory Trawler
+1160	area_15	1108680.0	273250200	Factory Trawler
+1161	area_15	118320.0	273250200	Factory Trawler
+1162	area_15	632700.0	273290500	Factory Trawler
+1163	area_15	194580.0	273290500	Factory Trawler
+1164	area_15	1294440.0	273290500	Factory Trawler
+1165	area_15	66060.0	273290500	Factory Trawler
+1167	area_15	77400.0	273290500	Factory Trawler
+1168	area_15	79020.0	273290500	Factory Trawler
+1169	area_15	68940.0	273290500	Factory Trawler
+1170	area_15	8820.0	273290500	Factory Trawler
+1171	area_15	91800.0	273290500	Factory Trawler
+1172	area_15	7740.0	273290500	Factory Trawler
+1173	area_15	6900.0	273345950	Factory Trawler
+1174	area_15	135300.0	273345950	Factory Trawler
+1175	area_15	40380.0	273345950	Factory Trawler
+1176	area_15	154920.0	273353290	Suction Dredger
 1178	area_15	18e3	273522400	Factory Trawler
-1179	area_15	86940	273522400	Factory Trawler
-1180	area_15	144360	273522400	Factory Trawler
-1181	area_15	14820	273523300	Factory Trawler
-1182	area_15	462840	273524300	Factory Trawler
-1183	area_15	324960	273527800	Factory Trawler
-1184	area_15	118020	273527800	Factory Trawler
-1185	area_15	23520	277329000	General Cargo
-1186	area_15	537960	277519000	Factory Trawler
-1187	area_15	92340	277519000	Factory Trawler
-1188	area_15	1486260	277519000	Factory Trawler
-1189	area_15	323100	277519000	Factory Trawler
-1190	area_15	98640	277519000	Factory Trawler
-1191	area_15	17820	277519000	Factory Trawler
-1193	area_15	22620	304183000	General Cargo
-1194	area_15	30060	304183000	General Cargo
-1195	area_15	21600	304517000	General Cargo
-1196	area_15	121140	304517000	General Cargo
-1197	area_15	71100	304517000	General Cargo
-1198	area_15	121560	304984000	General Cargo
-1199	area_15	18240	305204000	General Cargo
-1200	area_15	28800	305223000	General Cargo
-1201	area_15	24660	305251000	General Cargo
-1203	area_15	47040	305412000	Container Ship
-1204	area_15	35700	305412000	Container Ship
-1205	area_15	56580	305445000	Container Ship
-1206	area_15	293700	305592000	Multi Purpose Offshore Vessel
-1207	area_15	22080	305592000	Multi Purpose Offshore Vessel
-1212	area_15	44580	305915000	General Cargo
-1213	area_15	25140	305956000	General Cargo
-1214	area_15	204120	306704000	Heavy Load Carrier
-1217	area_15	8640	306796000	Reefer
-1218	area_15	122760	306796000	Reefer
-1219	area_15	5880	306872000	Reefer
-1220	area_15	14280	306872000	Reefer
-1221	area_15	263700	308014000	Research/Survey Vessel
-1222	area_15	19080	308287000	Bulk Carrier
-1223	area_15	632580	309361000	Reefer
-1224	area_15	1036560	309361000	Reefer
-1225	area_15	779820	309361000	Reefer
-1226	area_15	118020	309361000	Reefer
-1229	area_15	6600	310529000	Passenger
-1236	area_15	4020	310529000	Passenger
-1237	area_15	58200	310531000	Passenger
-1246	area_15	23820	311009600	Reefer
-1247	area_15	20760	311012500	Research/Survey Vessel
-1249	area_15	204180	311042400	Reefer
-1250	area_15	10080	311052800	Research/Survey Vessel
-1261	area_15	13680	311665000	Reefer
-1263	area_15	600360	312036000	Multi Purpose Offshore Vessel
-1264	area_15	1817400	312036000	Multi Purpose Offshore Vessel
-1265	area_15	118620	312036000	Multi Purpose Offshore Vessel
-1266	area_15	147840	312448000	General Cargo
-1267	area_15	453600	312448000	General Cargo
-1268	area_15	269160	312534000	Reefer
-1269	area_15	63240	312534000	Reefer
-1270	area_15	295920	312534000	Reefer
-1271	area_15	125700	312534000	Reefer
-1272	area_15	27240	312534000	Reefer
-1273	area_15	862740	312867000	Fishing Vessel
-1274	area_15	96660	312867000	Fishing Vessel
-1275	area_15	17820	312867000	Fishing Vessel
-1276	area_15	1200	316014142	Pleasure Craft
+1179	area_15	86940.0	273522400	Factory Trawler
+1180	area_15	144360.0	273522400	Factory Trawler
+1181	area_15	14820.0	273523300	Factory Trawler
+1182	area_15	462840.0	273524300	Factory Trawler
+1183	area_15	324960.0	273527800	Factory Trawler
+1184	area_15	118020.0	273527800	Factory Trawler
+1185	area_15	23520.0	277329000	General Cargo
+1186	area_15	537960.0	277519000	Factory Trawler
+1187	area_15	92340.0	277519000	Factory Trawler
+1188	area_15	1486260.0	277519000	Factory Trawler
+1189	area_15	323100.0	277519000	Factory Trawler
+1190	area_15	98640.0	277519000	Factory Trawler
+1191	area_15	17820.0	277519000	Factory Trawler
+1193	area_15	22620.0	304183000	General Cargo
+1194	area_15	30060.0	304183000	General Cargo
+1195	area_15	21600.0	304517000	General Cargo
+1196	area_15	121140.0	304517000	General Cargo
+1197	area_15	71100.0	304517000	General Cargo
+1198	area_15	121560.0	304984000	General Cargo
+1199	area_15	18240.0	305204000	General Cargo
+1200	area_15	28800.0	305223000	General Cargo
+1201	area_15	24660.0	305251000	General Cargo
+1203	area_15	47040.0	305412000	Container Ship
+1204	area_15	35700.0	305412000	Container Ship
+1205	area_15	56580.0	305445000	Container Ship
+1206	area_15	293700.0	305592000	Multi Purpose Offshore Vessel
+1207	area_15	22080.0	305592000	Multi Purpose Offshore Vessel
+1212	area_15	44580.0	305915000	General Cargo
+1213	area_15	25140.0	305956000	General Cargo
+1214	area_15	204120.0	306704000	Heavy Load Carrier
+1217	area_15	8640.0	306796000	Reefer
+1218	area_15	122760.0	306796000	Reefer
+1219	area_15	5880.0	306872000	Reefer
+1220	area_15	14280.0	306872000	Reefer
+1221	area_15	263700.0	308014000	Research/Survey Vessel
+1222	area_15	19080.0	308287000	Bulk Carrier
+1223	area_15	632580.0	309361000	Reefer
+1224	area_15	1036560.0	309361000	Reefer
+1225	area_15	779820.0	309361000	Reefer
+1226	area_15	118020.0	309361000	Reefer
+1229	area_15	6600.0	310529000	Passenger
+1236	area_15	4020.0	310529000	Passenger
+1237	area_15	58200.0	310531000	Passenger
+1246	area_15	23820.0	311009600	Reefer
+1247	area_15	20760.0	311012500	Research/Survey Vessel
+1249	area_15	204180.0	311042400	Reefer
+1250	area_15	10080.0	311052800	Research/Survey Vessel
+1261	area_15	13680.0	311665000	Reefer
+1263	area_15	600360.0	312036000	Multi Purpose Offshore Vessel
+1264	area_15	1817400.0	312036000	Multi Purpose Offshore Vessel
+1265	area_15	118620.0	312036000	Multi Purpose Offshore Vessel
+1266	area_15	147840.0	312448000	General Cargo
+1267	area_15	453600.0	312448000	General Cargo
+1268	area_15	269160.0	312534000	Reefer
+1269	area_15	63240.0	312534000	Reefer
+1270	area_15	295920.0	312534000	Reefer
+1271	area_15	125700.0	312534000	Reefer
+1272	area_15	27240.0	312534000	Reefer
+1273	area_15	862740.0	312867000	Fishing Vessel
+1274	area_15	96660.0	312867000	Fishing Vessel
+1275	area_15	17820.0	312867000	Fishing Vessel
+1276	area_15	1200.0	316014142	Pleasure Craft
 1277	area_15	18e3	316014142	Pleasure Craft
-1280	area_15	71280	319538000	Bulk Carrier
-1281	area_15	12180	338108461	Pleasure Craft
-1282	area_15	17700	338108461	Pleasure Craft
-1283	area_15	43920	341591000	Trawler
-1284	area_15	20340	341891000	Reefer
-1285	area_15	157920	351238000	Reefer
-1286	area_15	1818180	351238000	Reefer
-1287	area_15	97680	351238000	Reefer
-1289	area_15	10440	351238000	Reefer
-1290	area_15	62580	351268000	Container Ship
-1292	area_15	29460	351607000	Container Ship
-1293	area_15	28140	351737000	Container Ship
-1294	area_15	56100	351737000	Container Ship
-1295	area_15	90360	351819000	Container Ship
-1296	area_15	180	351998000	General Cargo
-1297	area_15	632100	352491000	Tanker
-1298	area_15	1817400	352491000	Tanker
-1299	area_15	118680	352491000	Tanker
-1300	area_15	100020	352515000	Reefer
-1301	area_15	80580	352619000	Container Ship
-1303	area_15	49680	352649000	Container Ship
-1304	area_15	79080	352649000	Container Ship
-1305	area_15	16200	352760000	Bulk Carrier
-1306	area_15	256080	352896000	Tug
-1307	area_15	720	352896000	Tug
-1308	area_15	1288140	352896000	Tug
-1309	area_15	98700	352896000	Tug
-1310	area_15	10140	352896000	Tug
-1311	area_15	71100	352913000	General Cargo
-1313	area_15	55320	353082000	Container Ship
-1315	area_15	10080	353444000	Tug
+1280	area_15	71280.0	319538000	Bulk Carrier
+1281	area_15	12180.0	338108461	Pleasure Craft
+1282	area_15	17700.0	338108461	Pleasure Craft
+1283	area_15	43920.0	341591000	Trawler
+1284	area_15	20340.0	341891000	Reefer
+1285	area_15	157920.0	351238000	Reefer
+1286	area_15	1818180.0	351238000	Reefer
+1287	area_15	97680.0	351238000	Reefer
+1289	area_15	10440.0	351238000	Reefer
+1290	area_15	62580.0	351268000	Container Ship
+1292	area_15	29460.0	351607000	Container Ship
+1293	area_15	28140.0	351737000	Container Ship
+1294	area_15	56100.0	351737000	Container Ship
+1295	area_15	90360.0	351819000	Container Ship
+1296	area_15	180.0	351998000	General Cargo
+1297	area_15	632100.0	352491000	Tanker
+1298	area_15	1817400.0	352491000	Tanker
+1299	area_15	118680.0	352491000	Tanker
+1300	area_15	100020.0	352515000	Reefer
+1301	area_15	80580.0	352619000	Container Ship
+1303	area_15	49680.0	352649000	Container Ship
+1304	area_15	79080.0	352649000	Container Ship
+1305	area_15	16200.0	352760000	Bulk Carrier
+1306	area_15	256080.0	352896000	Tug
+1307	area_15	720.0	352896000	Tug
+1308	area_15	1288140.0	352896000	Tug
+1309	area_15	98700.0	352896000	Tug
+1310	area_15	10140.0	352896000	Tug
+1311	area_15	71100.0	352913000	General Cargo
+1313	area_15	55320.0	353082000	Container Ship
+1315	area_15	10080.0	353444000	Tug
 1318	area_15	27e3	353444000	Tug
-1319	area_15	1035660	353444000	Tug
-1320	area_15	119160	353444000	Tug
-1321	area_15	66960	353775000	Container Ship
-1322	area_15	61380	353775000	Container Ship
-1323	area_15	38100	354036000	Reefer
-1324	area_15	3960	354537000	Container Ship
-1325	area_15	41820	354537000	Container Ship
-1326	area_15	24060	354594000	General Cargo
-1327	area_15	73560	354767000	Passenger
-1328	area_15	86940	355194000	Container Ship
-1329	area_15	76140	355249000	Container Ship
-1330	area_15	74340	355289000	Container Ship
-1331	area_15	240	355422000	Pipe Layer
-1332	area_15	25980	355422000	Pipe Layer
-1333	area_15	146820	355645000	Offshore Supply Ship
-1334	area_15	54300	355645000	Offshore Supply Ship
-1335	area_15	41040	355661000	Bulk Carrier
-1336	area_15	13200	355768000	Passenger
-1337	area_15	54060	356032000	General Cargo
-1338	area_15	13320	356032000	General Cargo
-1339	area_15	90660	356101000	Container Ship
-1340	area_15	32100	356101000	Container Ship
-1343	area_15	22500	357330000	Bulk Carrier
-1344	area_15	180	357577000	Bulk Carrier
-1346	area_15	152520	367449000	Cargo/Containership
-1347	area_15	2640	367617440	Pleasure Craft
-1349	area_15	11460	367617440	Pleasure Craft
-1351	area_15	10140	367617440	Pleasure Craft
-1352	area_15	1680	367617440	Pleasure Craft
-1354	area_15	35640	370103000	Tug
-1358	area_15	1440	370367000	Bulk Carrier
-1359	area_15	23760	370387000	General Cargo
-1360	area_15	824580	370545000	General Cargo
-1361	area_15	75480	371059000	Container Ship
-1362	area_15	96840	371215000	Container Ship
-1363	area_15	158220	371215000	Container Ship
-1364	area_15	107460	371215000	Container Ship
-1365	area_15	114300	371245000	Container Ship
-1366	area_15	868500	371322000	Reefer
-1367	area_15	100260	371322000	Reefer
-1368	area_15	95400	371443000	Container Ship
-1372	area_15	80580	371602000	Container Ship
-1373	area_15	97680	371602000	Container Ship
-1375	area_15	118800	372045000	Container Ship
-1377	area_15	240	372609000	Bulk Carrier
-1378	area_15	632340	372653000	Tanker
-1379	area_15	168780	372653000	Tanker
-1383	area_15	632100	373289000	Drill Ship
-1384	area_15	1818060	373289000	Drill Ship
-1385	area_15	118980	373289000	Drill Ship
-1386	area_15	15060	373471000	General Cargo
-1387	area_15	10080	373471000	General Cargo
-1389	area_15	13500	373639000	General Cargo
-1393	area_15	358080	412110221	Fishing Vessel
-1394	area_15	188280	412110221	Fishing Vessel
-1395	area_15	114120	412110254	Pleasure Craft
+1319	area_15	1035660.0	353444000	Tug
+1320	area_15	119160.0	353444000	Tug
+1321	area_15	66960.0	353775000	Container Ship
+1322	area_15	61380.0	353775000	Container Ship
+1323	area_15	38100.0	354036000	Reefer
+1324	area_15	3960.0	354537000	Container Ship
+1325	area_15	41820.0	354537000	Container Ship
+1326	area_15	24060.0	354594000	General Cargo
+1327	area_15	73560.0	354767000	Passenger
+1328	area_15	86940.0	355194000	Container Ship
+1329	area_15	76140.0	355249000	Container Ship
+1330	area_15	74340.0	355289000	Container Ship
+1331	area_15	240.0	355422000	Pipe Layer
+1332	area_15	25980.0	355422000	Pipe Layer
+1333	area_15	146820.0	355645000	Offshore Supply Ship
+1334	area_15	54300.0	355645000	Offshore Supply Ship
+1335	area_15	41040.0	355661000	Bulk Carrier
+1336	area_15	13200.0	355768000	Passenger
+1337	area_15	54060.0	356032000	General Cargo
+1338	area_15	13320.0	356032000	General Cargo
+1339	area_15	90660.0	356101000	Container Ship
+1340	area_15	32100.0	356101000	Container Ship
+1343	area_15	22500.0	357330000	Bulk Carrier
+1344	area_15	180.0	357577000	Bulk Carrier
+1346	area_15	152520.0	367449000	Cargo/Containership
+1347	area_15	2640.0	367617440	Pleasure Craft
+1349	area_15	11460.0	367617440	Pleasure Craft
+1351	area_15	10140.0	367617440	Pleasure Craft
+1352	area_15	1680.0	367617440	Pleasure Craft
+1354	area_15	35640.0	370103000	Tug
+1358	area_15	1440.0	370367000	Bulk Carrier
+1359	area_15	23760.0	370387000	General Cargo
+1360	area_15	824580.0	370545000	General Cargo
+1361	area_15	75480.0	371059000	Container Ship
+1362	area_15	96840.0	371215000	Container Ship
+1363	area_15	158220.0	371215000	Container Ship
+1364	area_15	107460.0	371215000	Container Ship
+1365	area_15	114300.0	371245000	Container Ship
+1366	area_15	868500.0	371322000	Reefer
+1367	area_15	100260.0	371322000	Reefer
+1368	area_15	95400.0	371443000	Container Ship
+1372	area_15	80580.0	371602000	Container Ship
+1373	area_15	97680.0	371602000	Container Ship
+1375	area_15	118800.0	372045000	Container Ship
+1377	area_15	240.0	372609000	Bulk Carrier
+1378	area_15	632340.0	372653000	Tanker
+1379	area_15	168780.0	372653000	Tanker
+1383	area_15	632100.0	373289000	Drill Ship
+1384	area_15	1818060.0	373289000	Drill Ship
+1385	area_15	118980.0	373289000	Drill Ship
+1386	area_15	15060.0	373471000	General Cargo
+1387	area_15	10080.0	373471000	General Cargo
+1389	area_15	13500.0	373639000	General Cargo
+1393	area_15	358080.0	412110221	Fishing Vessel
+1394	area_15	188280.0	412110221	Fishing Vessel
+1395	area_15	114120.0	412110254	Pleasure Craft
 1396	area_15	207e3	412110254	Pleasure Craft
-1397	area_15	49740	412110427	Fishing Vessel
-1398	area_15	228960	412110427	Fishing Vessel
-1399	area_15	210240	412110427	Fishing Vessel
-1400	area_15	26820	412110427	Fishing Vessel
-1401	area_15	767400	412110427	Fishing Vessel
-1402	area_15	25860	412110427	Fishing Vessel
-1404	area_15	19080	412110427	Fishing Vessel
-1405	area_15	13680	412110427	Fishing Vessel
-1406	area_15	15480	412110427	Fishing Vessel
-1407	area_15	8040	412110427	Fishing Vessel
-1408	area_15	349020	412110429	Fishing Vessel
+1397	area_15	49740.0	412110427	Fishing Vessel
+1398	area_15	228960.0	412110427	Fishing Vessel
+1399	area_15	210240.0	412110427	Fishing Vessel
+1400	area_15	26820.0	412110427	Fishing Vessel
+1401	area_15	767400.0	412110427	Fishing Vessel
+1402	area_15	25860.0	412110427	Fishing Vessel
+1404	area_15	19080.0	412110427	Fishing Vessel
+1405	area_15	13680.0	412110427	Fishing Vessel
+1406	area_15	15480.0	412110427	Fishing Vessel
+1407	area_15	8040.0	412110427	Fishing Vessel
+1408	area_15	349020.0	412110429	Fishing Vessel
 1409	area_15	213e3	412110429	Fishing Vessel
-1410	area_15	337920	412110441	Fishing Vessel
-1411	area_15	10500	412110441	Fishing Vessel
-1412	area_15	2340	412110441	Fishing Vessel
-1413	area_15	603780	412280992	Fishing Vessel
-1414	area_15	972060	412280992	Fishing Vessel
-1415	area_15	316320	412280992	Fishing Vessel
-1416	area_15	631620	412280993	Fishing Vessel
-1417	area_15	45840	412660220	Tanker
-1418	area_15	107100	412660220	Tanker
-1419	area_15	121080	431038000	Fishing Vessel
-1420	area_15	165780	431500470	Fishing Vessel
-1421	area_15	253740	431700260	Fishing Vessel
-1422	area_15	12600	431701650	Fishing Vessel
-1423	area_15	12780	431701650	Fishing Vessel
-1426	area_15	7920	431701650	Fishing Vessel
-1427	area_15	19080	431813000	Fishing Vessel
-1428	area_15	11700	431813000	Fishing Vessel
-1430	area_15	430620	431813000	Fishing Vessel
-1431	area_15	9540	431927000	Fishing Vessel
-1433	area_15	11880	431927000	Fishing Vessel
-1436	area_15	370680	432991000	Fishing Vessel
-1438	area_15	631080	440747000	Trawler
-1439	area_15	510720	440747000	Trawler
-1440	area_15	550020	440747000	Trawler
-1441	area_15	13740	440747000	Trawler
-1442	area_15	24900	440747000	Trawler
-1446	area_15	23580	477056800	General Cargo
-1448	area_15	7200	477098800	Bulk Carrier
-1449	area_15	57180	477167200	General Cargo
-1450	area_15	158400	477220500	Container Ship
-1451	area_15	17040	477319400	Cargo/Containership
-1453	area_15	23940	477462500	Bulk Carrier
-1454	area_15	83460	477519400	Container Ship
-1455	area_15	73320	477519400	Container Ship
-1456	area_15	960	477559800	Bulk Carrier
-1457	area_15	30900	477777000	Bulk Carrier
-1459	area_15	50760	477892200	Bulk Carrier
-1460	area_15	33840	477902400	General Cargo
-1461	area_15	37380	477960900	Bulk Carrier
-1462	area_15	46800	518565000	Pleasure Craft
-1463	area_15	50040	518565000	Pleasure Craft
-1464	area_15	57780	518565000	Pleasure Craft
-1465	area_15	30960	518565000	Pleasure Craft
-1466	area_15	46080	518565000	Pleasure Craft
+1410	area_15	337920.0	412110441	Fishing Vessel
+1411	area_15	10500.0	412110441	Fishing Vessel
+1412	area_15	2340.0	412110441	Fishing Vessel
+1413	area_15	603780.0	412280992	Fishing Vessel
+1414	area_15	972060.0	412280992	Fishing Vessel
+1415	area_15	316320.0	412280992	Fishing Vessel
+1416	area_15	631620.0	412280993	Fishing Vessel
+1417	area_15	45840.0	412660220	Tanker
+1418	area_15	107100.0	412660220	Tanker
+1419	area_15	121080.0	431038000	Fishing Vessel
+1420	area_15	165780.0	431500470	Fishing Vessel
+1421	area_15	253740.0	431700260	Fishing Vessel
+1422	area_15	12600.0	431701650	Fishing Vessel
+1423	area_15	12780.0	431701650	Fishing Vessel
+1426	area_15	7920.0	431701650	Fishing Vessel
+1427	area_15	19080.0	431813000	Fishing Vessel
+1428	area_15	11700.0	431813000	Fishing Vessel
+1430	area_15	430620.0	431813000	Fishing Vessel
+1431	area_15	9540.0	431927000	Fishing Vessel
+1433	area_15	11880.0	431927000	Fishing Vessel
+1436	area_15	370680.0	432991000	Fishing Vessel
+1438	area_15	631080.0	440747000	Trawler
+1439	area_15	510720.0	440747000	Trawler
+1440	area_15	550020.0	440747000	Trawler
+1441	area_15	13740.0	440747000	Trawler
+1442	area_15	24900.0	440747000	Trawler
+1446	area_15	23580.0	477056800	General Cargo
+1448	area_15	7200.0	477098800	Bulk Carrier
+1449	area_15	57180.0	477167200	General Cargo
+1450	area_15	158400.0	477220500	Container Ship
+1451	area_15	17040.0	477319400	Cargo/Containership
+1453	area_15	23940.0	477462500	Bulk Carrier
+1454	area_15	83460.0	477519400	Container Ship
+1455	area_15	73320.0	477519400	Container Ship
+1456	area_15	960.0	477559800	Bulk Carrier
+1457	area_15	30900.0	477777000	Bulk Carrier
+1459	area_15	50760.0	477892200	Bulk Carrier
+1460	area_15	33840.0	477902400	General Cargo
+1461	area_15	37380.0	477960900	Bulk Carrier
+1462	area_15	46800.0	518565000	Pleasure Craft
+1463	area_15	50040.0	518565000	Pleasure Craft
+1464	area_15	57780.0	518565000	Pleasure Craft
+1465	area_15	30960.0	518565000	Pleasure Craft
+1466	area_15	46080.0	518565000	Pleasure Craft
 1469	area_15	9e3	518565000	Pleasure Craft
-1471	area_15	14760	518565000	Pleasure Craft
-1473	area_15	24780	518565000	Pleasure Craft
-1476	area_15	88800	518565000	Pleasure Craft
+1471	area_15	14760.0	518565000	Pleasure Craft
+1473	area_15	24780.0	518565000	Pleasure Craft
+1476	area_15	88800.0	518565000	Pleasure Craft
 1477	area_15	9e3	518565000	Pleasure Craft
-1479	area_15	16560	518565000	Pleasure Craft
-1480	area_15	19080	518565000	Pleasure Craft
-1481	area_15	38880	518565000	Pleasure Craft
-1482	area_15	111060	518565000	Pleasure Craft
-1488	area_15	100380	518565000	Pleasure Craft
-1489	area_15	44220	518565000	Pleasure Craft
-1490	area_15	11760	518565000	Pleasure Craft
-1491	area_15	1636140	518579000	Standby Safety Vessel
-1492	area_15	118260	518579000	Standby Safety Vessel
-1493	area_15	14100	538001750	Platform
-1494	area_15	3540	538002237	Bulk Carrier
-1495	area_15	24660	538003424	General Cargo
-1500	area_15	191340	538004308	Tanker
-1501	area_15	27300	538004345	Bulk Carrier
-1502	area_15	42120	538004355	Bulk Carrier
-1505	area_15	9360	538004585	Bulk Carrier
-1506	area_15	660	538004767	Bulk Carrier
-1513	area_15	100920	564081000	Tanker
-1514	area_15	27900	564163000	Bulk Carrier
-1517	area_15	59880	565592000	Tanker
-1519	area_15	283740	566347000	Offshore Supply Ship
-1521	area_15	27480	567038000	Unspecified
-1522	area_15	57060	567312000	Bulk Carrier
-1523	area_15	43680	576441000	Tug
-1524	area_15	102360	577129000	Offshore Supply Ship
-1525	area_15	63360	577129000	Offshore Supply Ship
-1526	area_15	499740	577129000	Offshore Supply Ship
-1527	area_15	3420	616885000	Reefer
-1529	area_15	432960	616999079	Tug
-1532	area_15	53100	636011195	Platform
-1533	area_15	53460	636011195	Platform
-1534	area_15	63660	636011195	Platform
-1535	area_15	1560	636011537	Bulk Carrier
-1537	area_15	1980	636013308	Tanker
-1538	area_15	5220	636013411	Tanker
-1543	area_15	20640	636014597	Reefer
+1479	area_15	16560.0	518565000	Pleasure Craft
+1480	area_15	19080.0	518565000	Pleasure Craft
+1481	area_15	38880.0	518565000	Pleasure Craft
+1482	area_15	111060.0	518565000	Pleasure Craft
+1488	area_15	100380.0	518565000	Pleasure Craft
+1489	area_15	44220.0	518565000	Pleasure Craft
+1490	area_15	11760.0	518565000	Pleasure Craft
+1491	area_15	1636140.0	518579000	Standby Safety Vessel
+1492	area_15	118260.0	518579000	Standby Safety Vessel
+1493	area_15	14100.0	538001750	Platform
+1494	area_15	3540.0	538002237	Bulk Carrier
+1495	area_15	24660.0	538003424	General Cargo
+1500	area_15	191340.0	538004308	Tanker
+1501	area_15	27300.0	538004345	Bulk Carrier
+1502	area_15	42120.0	538004355	Bulk Carrier
+1505	area_15	9360.0	538004585	Bulk Carrier
+1506	area_15	660.0	538004767	Bulk Carrier
+1513	area_15	100920.0	564081000	Tanker
+1514	area_15	27900.0	564163000	Bulk Carrier
+1517	area_15	59880.0	565592000	Tanker
+1519	area_15	283740.0	566347000	Offshore Supply Ship
+1521	area_15	27480.0	567038000	Unspecified
+1522	area_15	57060.0	567312000	Bulk Carrier
+1523	area_15	43680.0	576441000	Tug
+1524	area_15	102360.0	577129000	Offshore Supply Ship
+1525	area_15	63360.0	577129000	Offshore Supply Ship
+1526	area_15	499740.0	577129000	Offshore Supply Ship
+1527	area_15	3420.0	616885000	Reefer
+1529	area_15	432960.0	616999079	Tug
+1532	area_15	53100.0	636011195	Platform
+1533	area_15	53460.0	636011195	Platform
+1534	area_15	63660.0	636011195	Platform
+1535	area_15	1560.0	636011537	Bulk Carrier
+1537	area_15	1980.0	636013308	Tanker
+1538	area_15	5220.0	636013411	Tanker
+1543	area_15	20640.0	636014597	Reefer
 1544	area_15	9e4	636014613	Container Ship
-1545	area_15	11760	636014613	Container Ship
-1551	area_15	1800	636015400	Tanker
-1552	area_15	192960	636015400	Tanker
-1553	area_15	82080	636015400	Tanker
-1555	area_15	34080	636015519	Tanker
-1556	area_15	67080	636015530	General Cargo
-1558	area_15	60060	636015666	Container Ship
-1559	area_15	34200	636015751	Bulk Carrier
-1560	area_15	23760	636015875	Tanker
-1561	area_15	156720	636016014	Container Ship
-1562	area_15	32400	636016043	Bulk Carrier
-1565	area_15	186240	636016457	Container Ship
-1566	area_15	78300	636090524	Container Ship
-1567	area_15	17400	636090524	Container Ship
-1569	area_15	122700	636091187	Container Ship
-1570	area_15	97620	636091187	Container Ship
+1545	area_15	11760.0	636014613	Container Ship
+1551	area_15	1800.0	636015400	Tanker
+1552	area_15	192960.0	636015400	Tanker
+1553	area_15	82080.0	636015400	Tanker
+1555	area_15	34080.0	636015519	Tanker
+1556	area_15	67080.0	636015530	General Cargo
+1558	area_15	60060.0	636015666	Container Ship
+1559	area_15	34200.0	636015751	Bulk Carrier
+1560	area_15	23760.0	636015875	Tanker
+1561	area_15	156720.0	636016014	Container Ship
+1562	area_15	32400.0	636016043	Bulk Carrier
+1565	area_15	186240.0	636016457	Container Ship
+1566	area_15	78300.0	636090524	Container Ship
+1567	area_15	17400.0	636090524	Container Ship
+1569	area_15	122700.0	636091187	Container Ship
+1570	area_15	97620.0	636091187	Container Ship
 1571	area_15	21e3	636092084	Bulk Carrier
-1572	area_15	14580	636092141	Tanker
-1574	area_15	3900	636092242	General Cargo
-1575	area_15	76500	636092242	General Cargo
-1577	area_15	18120	636092314	General Cargo
-1578	area_15	6600	636092314	General Cargo
-1579	area_15	631320	654045800	Fishing Vessel
-1580	area_15	892560	654045800	Fishing Vessel
-1581	area_15	240660	654045800	Fishing Vessel
-1582	area_15	57540	654045800	Fishing Vessel
-1583	area_15	65280	654045800	Fishing Vessel
-1584	area_15	232800	654045800	Fishing Vessel
-1586	area_15	144060	654045800	Fishing Vessel
-1587	area_15	28020	654045800	Fishing Vessel
-1588	area_15	103020	654045800	Fishing Vessel
-1589	area_15	48720	667997000	General Cargo
-1590	area_15	88620	667997000	General Cargo
-1591	area_15	62280	667997000	General Cargo
-1592	area_15	54660	667997000	General Cargo
-1595	area_15	90480	667997000	General Cargo
-1596	area_15	428460	704643314	Pilot Vessel
-1597	area_15	157920	704643314	Pilot Vessel
-1598	area_15	1517820	704643314	Pilot Vessel
-1599	area_15	188700	704643314	Pilot Vessel
-1600	area_15	119220	704643314	Pilot Vessel
+1572	area_15	14580.0	636092141	Tanker
+1574	area_15	3900.0	636092242	General Cargo
+1575	area_15	76500.0	636092242	General Cargo
+1577	area_15	18120.0	636092314	General Cargo
+1578	area_15	6600.0	636092314	General Cargo
+1579	area_15	631320.0	654045800	Fishing Vessel
+1580	area_15	892560.0	654045800	Fishing Vessel
+1581	area_15	240660.0	654045800	Fishing Vessel
+1582	area_15	57540.0	654045800	Fishing Vessel
+1583	area_15	65280.0	654045800	Fishing Vessel
+1584	area_15	232800.0	654045800	Fishing Vessel
+1586	area_15	144060.0	654045800	Fishing Vessel
+1587	area_15	28020.0	654045800	Fishing Vessel
+1588	area_15	103020.0	654045800	Fishing Vessel
+1589	area_15	48720.0	667997000	General Cargo
+1590	area_15	88620.0	667997000	General Cargo
+1591	area_15	62280.0	667997000	General Cargo
+1592	area_15	54660.0	667997000	General Cargo
+1595	area_15	90480.0	667997000	General Cargo
+1596	area_15	428460.0	704643314	Pilot Vessel
+1597	area_15	157920.0	704643314	Pilot Vessel
+1598	area_15	1517820.0	704643314	Pilot Vessel
+1599	area_15	188700.0	704643314	Pilot Vessel
+1600	area_15	119220.0	704643314	Pilot Vessel

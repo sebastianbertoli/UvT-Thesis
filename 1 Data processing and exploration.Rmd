@@ -1,9 +1,6 @@
 ---
-title: "Data processing & exploration"
-output:
-  html_notebook: default
-  html_document: default
-  pdf_document: default
+title: "Data processing and exploration"
+output: html_notebook
 ---
 ```{r libraries, message=FALSE, warning=FALSE, include=TRUE}
 library(tidyverse)
@@ -15,9 +12,10 @@ library(ggthemes)
 library(Matrix)
 library(rstudioapi)
 library(leaflet)
+library(reshape2)
+library(arules)
 # library(mapview)
 source("define functions.r")
-
 options(dplyr.show_progress = FALSE)
 options(scipen = 999)
 categories <- c("Bulk Carrier", "Fishing Vessel", "High Speed Craft", 
@@ -46,11 +44,11 @@ aisdata <- read_csv('dataset/in/df_1d_selection_restricted.csv')
 
 tmp_noimp <-  nrow(aisdata)
 aisdata <- aisdata %>% 
-  subset(select = -c(1,2)) %>%  #TODO Change to name selection
+  subset(select = -c(1,2)) %>%  #TODO Change to name selection and drop xy col
   filter(MMSI %in% vesseldetails$MMSI) %>%
   subset(!duplicated(select(.,MMSI,TIMESTAMP))) %>% 
   group_by(MMSI) %>% 
-  filter(n() > 10) %>%  # TODO Try turning this one off.
+  filter(n() > 10) %>%
   ungroup() %>%
   arrange(MMSI,TIMESTAMP) %>% 
   mutate(POSID = row_number(x = .$MMSI))
@@ -103,13 +101,14 @@ tmp_p1 <- ggplot(tmp) +
 tmp_p2 <- ggplot(tmp) + 
   geom_point(aes(LON, LAT)) + 
   geom_path(aes(LON, LAT)) + thm +
-  ggtitle('Tracks') + coord_fixed()
+  ggtitle('Trajectory') + coord_fixed()
 tmp_p3 <- ggplot() + 
   geom_point(data = tmp, aes(LON, LAT, color = daytrip)) +
   geom_path(data = tmp, aes(LON, LAT, color = daytrip)) + thm +
   ggtitle('Trips') + theme(legend.position = 'none') + coord_fixed() +
   scale_colour_brewer(palette = "Set1")
-plot_point_tracks <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1)
+plot_point_tracks <- grid.arrange(tmp_p1, tmp_p2, tmp_p3, ncol = 3, nrow = 1) + 
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
 # plot_point_tracks
 RemoveObjects('tmp')
 ```
@@ -285,7 +284,7 @@ of the crude vessel categorisation provided by the AIS devices themselves.
 Furthermore the categorisation was further refined by recoding some of the
 categories.
 ```{r recode vessel categories}
-vesseldetails$VESSEL_TYPE <- recode(vesseldetails$ship.type,
+vesseldetails$VESSEL_TYPE <- dplyr::recode(vesseldetails$ship.type,
                                    "Sailing Vessel" = "Pleasure Craft",
                                    "Passengers Ship" = "Passenger",
                                    "Ro-Ro/Passenger Ship" = "Passenger",
@@ -405,7 +404,6 @@ time_in_area_long <- gather(time_in_area, statistic, value, area_1:area_15,
 rm(time_in_area_list)
 ```
 
-
 It is also useful to know which segments of a vessel's trips are outside the 
 port area and which ones are inside. For instance when comparing the average 
 speed across different types of vessels it makes sense to do this only on those 
@@ -422,32 +420,122 @@ levels(trips$IN_PORT) <- c("Outside Port", "In Port")
 trips <- cbind(trips, as.data.frame(as.matrix(locmat_sparse))) 
 ```
 
+Finally we create a filtered set of the trips dataframe since we are only 
+interested in the vessel of the type specified in categories. 
+```{r Ony keep keep small number of vessels}
+trips_fl <- filter(trips, VESSEL_TYPE %in% categories)
+rm(trips)
+```
+
 ### Computing trip statistics 
 Here we calculate various trip statistics to be used as features. We also add
-the statistics concerning the time spent 
-```{r trip statistics}
-trips_stats <- group_by(trips, TRIP_ID, MMSI, VESSEL_TYPE) %>% 
+the statistics concerning the time spent in each area. We express the time spent
+in each area as a proportion of the total trip duration as well as absolute time.
+
+Furthermore we add information of the proportion of activity spent at which
+hour of the day. We bin the hours into morning, afternoon, evening, night in order
+to reduce the number of variables This is necessary because as we will see later
+there does not seem to be enough variation otherwise given the relatively small
+amount of data that is available.
+
+Finally we add information on whether the trip was carried out during a weekday
+or a weekend. Similar as before just looking at the individual days did not seem
+to be conclusive enough. 
+```{r}
+# Calculate general vessel statistics and add time in area. 
+trips_stats <- group_by(trips_fl, TRIP_ID, MMSI, VESSEL_TYPE) %>% 
   summarize(duration_total = sum(TIME_DIFF),
             duration_segment = mean(TIME_DIFF),
             speed_avg = mean(AVG_SPEED),
             speed_max = max(AVG_SPEED),
+            speed_upperquartile = quantile(AVG_SPEED, .90),
             distance_total = sum(DISTANCE),
             distance_segment = mean(DISTANCE),
-            time_start = min(TIME_START),
-            time_end = max(TIME_END)) %>%
+            time_diff_avg = mean(TIME_DIFF),
+            hour_min = min(hour(TIME_START)),
+            hour_max = max(hour(TIME_END)),
+            day_min = min(wday(TIME_START)),
+            day_max = max(wday(TIME_END))) %>%
   ungroup() %>% 
   left_join(x=., y = time_in_area, by = "TRIP_ID")
 trips_stats[is.na(trips_stats)] <- 0
 
-# Just keep the categfories we are actually interested in
-trips_stats_fl <- filter(trips_stats, VESSEL_TYPE %in% categories)
-trips_fl <- filter(trips, VESSEL_TYPE %in% categories)
-```  
+# Calculate average speed outside port
+tmp_speed_out <- filter(trips_fl, IN_PORT == "Outside Port") %>% 
+  group_by(TRIP_ID) %>% 
+  summarize(speed_avg_out = mean(AVG_SPEED))
+
+# Convert time in area variables into proportion of trip duration 
+# spent in area. Add to dataframe.
+tmp <- lapply(trips_stats[,grep("^area_", names(trips_stats))], 
+       function(x) x/trips_stats$duration_total ) %>% data.frame()
+colnames(tmp) <- paste(names(tmp),"_p") %>% gsub(" ", "", .)
+trips_stats <- cbind(trips_stats, tmp)
+rm(tmp)
+
+# Add information on proportion of trip activity (when the vessel is moving) spent 
+# at which time period of the day. (e.g .morning, afternoon, etc.). 
+# Define labels and categories
+day_labels <- c("Night", "Morning", "Afternoon", "Evening")
+day_categories <- c(0,6,12,18,24)
+# Calculate amount of time spent at which hour 
+tmp_hour <- filter(trips_fl, AVG_SPEED >= 0.5) %>% 
+  select(TRIP_ID, MMSI, TIME_END) %>% 
+  mutate(hour_bin = discretize(hour(TIME_END), method="fixed",
+                               categories = day_categories, labels = day_labels)) %>% 
+  select(-(TIME_END)) %>% group_by(TRIP_ID) %>% count(hour_bin)
+# Add up total time for each group and get convert to proprtion
+tmp_groupcount <- tmp_hour %>% group_by(TRIP_ID) %>% summarise_at("n",sum)
+tmp_hour_prop <- left_join(tmp_hour, tmp_groupcount,by = "TRIP_ID") %>% 
+  mutate(prop = n.x / n.y) %>% 
+  select(TRIP_ID, hour_bin, prop) %>% 
+  spread(key="hour_bin",value="prop") %>% 
+  round(3)
+tmp_hour_prop[is.na(tmp_hour_prop)] <- 0
+
+
+# Add information on proportion of trip activity (when the vessels is moving)
+# spent during a weekday vs. the weekend (Saturday, Sunday). 
+# Define labels and categories
+wday_labels <- c("In-week", "Weekend")
+wday_categories <- c(1,5,7)
+# Calculate amount of time spent at which day 
+tmp_day <- filter(trips_fl, AVG_SPEED >= 0.5) %>% 
+  select(TRIP_ID, MMSI, TIME_END) %>% 
+  mutate(day_bin = discretize(wday(TIME_END), method = "fixed",
+                               categories = wday_categories, labels = wday_labels)) %>% 
+  select(-(TIME_END)) %>% group_by(TRIP_ID) %>% count(day_bin)
+# Add up total time for each group and get convert to proprtion
+tmp_groupcount <- tmp_day %>% group_by(TRIP_ID) %>% summarise_at("n",sum)
+tmp_day_prop <- left_join(tmp_day, tmp_groupcount,by = "TRIP_ID") %>% 
+  mutate(prop = n.x / n.y) %>% 
+  select(TRIP_ID, day_bin, prop) %>% 
+  spread(key="day_bin",value="prop") %>% 
+  round(3)
+tmp_day_prop[is.na(tmp_day_prop)] <- 0
+
+
+# Join everything together and remove temporary objects
+trips_stats <- left_join(trips_stats, tmp_hour_prop, by = "TRIP_ID") %>%
+  left_join(tmp_day_prop,  by = "TRIP_ID") %>% 
+  left_join(tmp_speed_out, by = "TRIP_ID")
+trips_stats[is.na(trips_stats[,c("speed_avg_out")]),c("speed_avg_out")] <- 0
+trips_stats[is.na(trips_stats)] <- 0
+RemoveObjects('tmp')
+```
 
 ## Exploratory Analysis
 In this section we carry out the exploratory data analysis. The goal is on the 
 one hand to get a better feel of the data, to answer some preliminary but
 nonetheless important question and to inform the feature engineering process.
+
+### What are the summary statistics
+```{r}
+# trips_stats[,-c(3)] %>% 
+#   basicStats() %>% 
+#   write.csv("./dataset/out/basicstats.csv",)
+# filter(trips_stats, distance_total > 100000)
+```
 
 ### Which vessel types carry out the greatest number of trips?
 Since the purpose of this research is to classify vessels we first need to find 
@@ -461,10 +549,11 @@ For instance while we have 341 one trips recorded by pleasure crafts we only
 have 58 trips from high speed vessels. This class imbalance can be problematic
 later on when we will be training and evaluating the training model. 
 
-There are 4 approaches on how to deal with such class imbalances. The first is
-to 
+There different approaches for dealing with class unbalances such as downsampling
+or upsampling. We will discuss the approach later on in the machine learning 
+section.
 ```{r}
-select(trips, VESSEL_TYPE, TRIP_ID) %>% 
+plot_n_trips <- select(trips_fl, VESSEL_TYPE, TRIP_ID) %>% 
   unique() %>% 
   count(VESSEL_TYPE) %>%
   filter(n > 50) %>%
@@ -473,15 +562,16 @@ select(trips, VESSEL_TYPE, TRIP_ID) %>%
   geom_text(mapping = aes(x=VESSEL_TYPE, y=n, label=n), 
             nudge_y = 10, size=3) +
   labs(title='Number Trips per Vessel Type', y='# Trips', x='Vessel Type') +
-  coord_flip() + thm + theme(aspect.ratio = .5)
+  coord_flip()
+plot_n_trips
+ggsave("figures/plot_n_trips.png", plot = plot_n_trips, width = 10, height = 6)
 ```
-
 
 ### Do vessels travel at different speeds?
 Here we investigate whether different types of vessels navigate at different 
 speeds. To do this we check the navigation speed distribution per vesseltype. We
 consider a ship to be navigating when it's travellspeed exceeds a thresholdvalue
-of 1m/s. We do this for the trips taking place inside as well as outside the
+of 0.5 m/s. We do this for the trips taking place inside as well as outside the
 port of Las Palmas. We make this distinction because we hypothesize that inside
 the port vessels will either travel at similar speeds prescribed by the port
 authorities or they will be docked.
@@ -494,50 +584,74 @@ also see that the speed distributions vary too. For instance they are much more
 narrow for pleasure crafts in contrast to passenger vessels where speeds vary a
 lot.
 
-Overall these plots suggest that the navigatin speed may be a good feature to 
+Looking at the distribution of maximum speeds we gain even more telling insights.
+Here it is very clear that the maximum speed of the different vesseltypes is
+very different and that even a better distinction may be possible instead of
+using the mere average speed over the entire trip.
+
+Overall these plots suggest that the navigating speed may be a good feature to 
 individuate high speed vessels but it is less of a good feature to for instance 
 distinguish between bulk carriers and container vessels where there is much
 overlap.
 
 ```{r boxplots speed, echo=FALSE, message=FALSE}
-plot_speeds_box <- filter(trips_fl, AVG_SPEED > 1) %>% 
+plot_speeds_box <- filter(trips_fl, AVG_SPEED >= 0) %>% 
   ggplot(mapping = aes(x = VESSEL_TYPE, y = AVG_SPEED)) +
   geom_boxplot( outlier.alpha = 0.1, outlier.size = 1) +
-  labs(title = 'Distribution of average speed per segment.',
-       x = 'Vessel Type', y = 'Moving Speed (m/s)') +
+  labs(title = 'Distribution of vessel speed',
+       x = 'Vessel type', y = 'Moving speed (m/s)') +
   facet_wrap(~ IN_PORT, nrow = 2) +
-  coord_flip()
-plot_speeds_box + thm
+  coord_flip() + thm
+plot_speeds_box
+
+plot_speeds_max <- ggplot(trips_stats, 
+                          aes(VESSEL_TYPE, speed_max, color = VESSEL_TYPE)) +
+  geom_jitter(alpha = 0.2, position = position_jitter(0.3)) +
+  geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
+               fill = 'black', color = 'black', width = 0.2) +
+  labs(title = 'Maximum speed reached at each trip',
+       x = 'Vessel type', y = 'Maximum speed reached (m/s)')  +
+  theme(legend.position = "none") + 
+  coord_flip() +
+  theme(legend.position = "none") +
+  thm
+plot_speeds_max
 ```
 
 We also plot some density estimates to give us insights into the shape of the 
-speed distributions. We see that the distributions bell curved shapes. 
+speed distributions. We see that the passenger vessels and high speed vessels are
+far further out. 
 ```{r density speed, message=FALSE, echo=FALSE}
 plot_speeds_density <- trips_fl %>% 
-  filter(AVG_SPEED > 1, AVG_SPEED < 10, IN_PORT=="In Port") %>% 
+  filter(AVG_SPEED > 0,  IN_PORT=="Outside Port") %>% 
   ggplot() +
   geom_freqpoly(mapping = aes(x = AVG_SPEED, color=VESSEL_TYPE), stat = 'density') +
-  labs(title = 'Smoothed density estimates', x = 'Moving Speed (m/s)', y = 'Density') +
-  xlim(0,10) + 
+  labs(title = 'Density estimates of vessel speed', x = 'Moving Speed (m/s)', y = 'Density') +
+  xlim(0,25) + 
   theme(legend.position="bottom", legend.title=element_blank())
 plot_speeds_density + thm
 ```
 
 ### Which vessels spent how much time in each area?
-See Tableau chart.
+See Tableau chart. #TODO
+
 
 ### How long is a trip? 
-A trip starts from the moment a vessel enters the captured area and ends either
-when there is no position updadte for more than 30 minutes indicating that a 
-vessel has left the area. Typically a vessel will dock at the port, stay there
-for some time and depart again. Below we plotted the distribution of trip duration per type of vessel. We can see that drip durations vary wildly for some type of
-vessels whereas for others they are less. The most important finding here is
-that High Speed Vessels have the most regular pattern when it comes to the trip
-duration which is consistently under 2.5 hours. 
+A trip starts from the moment a vessel enters the captured area and ends when
+there is no position update for more than 30 minutes indicating that a vessel
+has left the area. Typically a vessel will dock at the port, stay there for some
+time and depart again. However there are also  cases where a vessel never leaves
+the port and just stays docked in the port broadcasting its position.
+
+Below we plotted the distribution of trip duration per type of vessel. We can 
+see that drip durations vary wildly for some type of vessels whereas for others 
+they are less different. The most important finding here is that High Speed Vessels have 
+the most regular pattern when it comes to the trip duration which is 
+consistently under 2.5 hours.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# tmp <- nrow(filter(trips_stats_fl, duration_total_minutes < 6000)
-plot_tripduration <- trips_stats_fl %>%
+# tmp <- nrow(filter(trips_stats, duration_total_minutes < 6000)
+plot_tripduration <- trips_stats %>%
   ggplot(aes(VESSEL_TYPE, duration_total/60/60/24, color=VESSEL_TYPE)) +
   geom_jitter(alpha=0.2, position=position_jitter(0.3)) +
   geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
@@ -549,66 +663,223 @@ plot_tripduration <- trips_stats_fl %>%
 plot_tripduration <- plot_tripduration + thm + theme(legend.position="none")
 plot_tripduration
 ```
-### Time spent in the port-area
+
+### How much distance is covered during a trip?
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# tmp <- nrow(filter(trips_stats_fl, duration_total_minutes < 6000)
-plot_time_in_port <- trips_stats_fl %>%
-  ggplot(aes(VESSEL_TYPE, area_15/60/60, color=VESSEL_TYPE)) +
+# tmp <- nrow(filter(trips_stats, duration_total_minutes < 6000)
+plot_tripdistance <- trips_stats %>%
+  ggplot(aes(VESSEL_TYPE, distance_total/1000, color=VESSEL_TYPE)) +
   geom_jitter(alpha=0.2, position=position_jitter(0.3)) +
   geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
                fill='black', color = 'black', width=0.2) +
-  labs(title = 'Time spent in the port-area',
+  labs(title = 'Trip distance',
+       x = 'Vessel type', y = 'Total trip distance in kilometers')  +
+  coord_flip() +
+  ylim(0,100) 
+plot_tripdistance <- plot_tripdistance + thm + theme(legend.position="none")
+plot_tripdistance
+```
+### Time spent in the port-area
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot_time_in_port <- trips_stats %>%
+  ggplot(aes(VESSEL_TYPE, area_15/60/60, color = VESSEL_TYPE)) +
+  geom_jitter(alpha = 0.2, position = position_jitter(0.3)) +
+  geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
+               fill = 'black', color = 'black', width = 0.2) +
+  labs(title = 'Time spent in the port of Las Palmas',
        x = 'Vessel Type', y = 'Time spent in the port-area in Hours')  +
-  theme(legend.position="none") + 
+  theme(legend.position = "none") + 
   coord_flip() +
   ylim(0,36) 
-plot_time_in_port <- plot_time_in_port + thm + theme(legend.position="none")
+plot_time_in_port <- plot_time_in_port + thm + theme(legend.position = "none")
 plot_time_in_port
+
+plot_time_in_port2 <- trips_stats %>%
+  ggplot(aes(VESSEL_TYPE, area_15_p, color = VESSEL_TYPE)) +
+  geom_jitter(alpha = 0.2, position = position_jitter(0.3)) +
+  geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
+               fill = 'black', color = 'black', width = 0.2) +
+  labs(title = 'Ratio of trip-duration spent in the port of Las Palmas',
+       x = 'Vessel Type', y = 'Ratio of trip duration')  +
+  theme(legend.position = "none") + 
+  coord_flip() +
+  ylim(0,1) 
+plot_time_in_port2 <- plot_time_in_port2 + thm + theme(legend.position = "none")
+plot_time_in_port2
 ```
 
 ### On what days do vessels travel?
-Below we have plotted the number of unique trips carried out by the vessels of 
-each vesseltype. What we are interested here is not the absolute number of trips
-carried out by each vessel but on the contrary the what the traffic patterns for
-each individual vessel type is. For instance we can see that pleasure crafts
-(e.g. sailing vessels) tend to travel less mid-week as opposed to the weekend or
-beginning of the week. Ohter vessel types also show different travel patterns
-throughout the different weekdays, however they appear to be less pronounced.
+We have plotted moving vessel activity per ship type in both plots However in
+the second plot we just distinguish between weekday and weekend. this is because
+indeed it is difficult to discern any particular pattern from the daily moving
+activity.
+
+In contrast from the binned plot a clear pattern emerges. Most moving activity
+of pleasure crafts and Fishing vessels takes place in thr weekend. Whereas for
+all other vessels the activity takes place in the week. The most active vessels
+during the week are Port Tenders, Bulk Carriers and Tankers.
 ```{r}
 tmp <- trips_fl %>% 
+  filter(AVG_SPEED > 0.5) %>% 
   select(VESSEL_TYPE, TIME_END, TRIP_ID) %>% 
   mutate(week_day = wday(TIME_END)) %>% 
   select(-(TIME_END)) %>% 
-  distinct() %>% 
   group_by(VESSEL_TYPE) %>% 
   count(week_day)
-  
-plot_tripsperday <- ggplot(data = tmp) +
-  geom_line(mapping = aes(x=week_day, y=n, colour=VESSEL_TYPE))  + 
+
+tmp_groupcount <- tmp %>% group_by(VESSEL_TYPE) %>% summarise_at("n",sum)
+tmp_prop <- left_join(tmp, tmp_groupcount,by="VESSEL_TYPE") %>% 
+  mutate(prop = n.x / n.y)
+
+plot_tripsperday <- ggplot(data = tmp_prop) +
+  geom_line(mapping = aes(x=week_day, y=prop, colour=VESSEL_TYPE))  + 
+  geom_point(mapping = aes(x=week_day, y=prop, colour=VESSEL_TYPE))  + 
   scale_x_continuous(breaks=c(1:7), labels=c("Monday", "Tuesday", "Wednesday",
-                              "Thursday", "Friday", "Saturday", "Sunday"))
+                              "Thursday", "Friday", "Saturday", "Sunday")) + 
+  labs(title = 'Ratio of moving vessel activity per vesseltype per day',
+       x = 'Day of the week', y = 'Ratio of vessel activity') +
+  scale_colour_hue(name = "Vessel Type")  + 
+  theme(legend.position = "none")
 plot_tripsperday
 rm(tmp)
+
+categories_wday <- c(1,5,7)
+labels_wday <- c("In-week", "Weekend")
+tmp <- trips_fl %>% 
+  filter(AVG_SPEED > 0.5) %>% 
+  select(VESSEL_TYPE, TIME_END, TRIP_ID) %>% 
+  mutate(week_day = discretize(wday(TIME_END), method="fixed", 
+                               categories=categories_wday,
+                               labels=labels_wday)) %>% 
+  select(-(TIME_END)) %>% 
+  group_by(VESSEL_TYPE) %>% 
+  count(week_day)
+
+tmp_groupcount <- tmp %>% group_by(VESSEL_TYPE) %>% summarise_at("n",sum)
+tmp_prop <- left_join(tmp, tmp_groupcount,by="VESSEL_TYPE") %>% 
+  mutate(prop = n.x / n.y)
+
+plot_tripsperweekperiod <- ggplot(data = tmp_prop) +
+  geom_point(mapping = aes(x = week_day, y = prop, colour = VESSEL_TYPE)) +
+  labs(title = 'Ratio of moving vessel activity per vessel type workday vs. weekend',
+       x = 'Workday vs. weekend', y = 'Ratio of vessel activity') + 
+  scale_colour_hue(name = "Vessel Type") + 
+  theme(legend.position = "none")
+plot_tripsperweekperiod
+RemoveObjects("tmp")
 ```
+
+### At what hour do vessels travel
+Below we plot the moving activity of each type of vessel throughout the day. We 
+see that high speed vessels only travel between 9am and 9m. and that plesure
+crafts travel primarily after 9am in the morning. We summarise this information
+into 6-hour intervals in order to reduce the number of features. In the
+summarised plot we see that while during the night pleasure crafts are the least
+likely vessels in the afternoon they appear to be the most likely vessels.
+```{r time of the day}
+tmp2 <- trips_fl %>%
+  filter(AVG_SPEED > 0.5) %>% 
+  select(VESSEL_TYPE, TIME_END, TRIP_ID) %>% 
+  mutate(hour_time = hour(TIME_END)) %>% 
+  select(-(TIME_END)) %>% 
+  group_by(VESSEL_TYPE) %>% 
+  count(hour_time)
+tmp_groupcount <- tmp2 %>% group_by(VESSEL_TYPE) %>% summarise_at("n",sum)
+tmp_prop2 <- left_join(tmp2, tmp_groupcount,by="VESSEL_TYPE") %>% mutate(prop = n.x / n.y)
+
+plot_hour <- ggplot(data = tmp_prop2) +
+  geom_line(mapping = aes(x=hour_time, y = prop, colour = VESSEL_TYPE)) +
+  geom_point(mapping = aes(x=hour_time, y = prop, colour = VESSEL_TYPE)) +
+  scale_x_continuous(breaks=c(0:24)) + 
+  scale_y_log10() + 
+  scale_colour_hue(name = "Vessel Type")  + 
+  theme(legend.position = "none")
+plot_hour
+
+tmp2 <- trips_fl %>%
+  filter(AVG_SPEED > 0.5) %>% 
+  select(VESSEL_TYPE, TIME_END, TRIP_ID) %>% 
+  mutate(hour_time = discretize(hour(TIME_END), categories = 4, labels = day_labels)) %>% 
+  select(-(TIME_END)) %>% 
+  group_by(VESSEL_TYPE) %>% 
+  count(hour_time)
+tmp_groupcount <- tmp2 %>% group_by(VESSEL_TYPE) %>% summarise_at("n",sum)
+tmp_prop2 <- left_join(tmp2, tmp_groupcount,by="VESSEL_TYPE") %>% mutate(prop = n.x / n.y)
+
+plot_dayp <- ggplot(data = tmp_prop2) +
+  geom_path(mapping = aes(x=hour_time, y = prop, 
+                          group = VESSEL_TYPE, colour = VESSEL_TYPE)) +
+  geom_point(mapping = aes(x=hour_time, y = prop, colour = VESSEL_TYPE)) +
+  scale_colour_hue(name = "Vessel Type")  + 
+  theme(legend.position = "none")
+plot_dayp
+```
+### How frequent are update intervals?
+```{r}
+plot_updateintervals <- ggplot(trips_stats, aes(VESSEL_TYPE, time_diff_avg, color = VESSEL_TYPE)) +
+  geom_jitter(alpha = 0.2, position = position_jitter(0.3)) +
+  geom_boxplot(outlier.alpha = 0, alpha = 0.1, 
+               fill = 'black', color = 'black', width = 0.2) +
+  labs(title = 'Frequency of update intervals',
+       x = 'Vessel Type', y = 'Update Interval in seconds')  +
+  theme(legend.position = "none") + 
+  coord_flip() + thm +
+  theme(legend.position = "none")
+```
+### Time spent in areas
+```{r}
+tmp_cols <- c(grep("^area_\\d*$", names(trips_stats)),
+  grep("^VESSEL_TYPE", names(trips_stats)))
+tmp_absolute <- select(trips_stats, tmp_cols) %>%
+  melt() %>%
+  filter(variable != "area_15") %>%  
+  group_by(VESSEL_TYPE, variable) %>% 
+  summarise_at("value",sum)
+
+tmp_total <- tmp_absolute %>%
+  group_by(variable) %>% 
+  summarise(sum = sum(value))
+
+tmp_prop <- left_join(tmp_absolute, tmp_total, by="variable") %>% 
+  mutate(prop = round(value/sum, 5))
+
+
+plot_time_in_areas_prop <- ggplot(tmp_prop) +
+  geom_col(aes(variable, prop, fill = VESSEL_TYPE), position = "stack") +
+  theme(legend.position = "bottom") +
+  coord_flip()
+
+plot_time_in_areas_prop
+```
+
+
+
 ## Export all data
 ```{r export data, eval=FALSE, include=TRUE}
 write_csv(trajectories, path = './dataset/out/trajectories.csv')
 write_csv(vesseldetails,'./dataset/out/vesseldetails.csv')
-write_csv(trips,'./dataset/out/trips.csv')
 write_tsv(trips_stats,'./dataset/out/trips_stats.tsv')
-write_tsv(trips_stats_fl,'./dataset/out/trips_stats_fl.tsv')
 write_tsv(time_in_area_long,'./dataset/out/time_in_area_long.tsv')
 ```
 
 ## Export all figures
-```{r, message=FALSE, warning=FALSE}
-# TODO Write function to export all figures in one go. 
+```{r, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# TODO Write function to export all figures in one go.
 ggsave("figures/plot_point_tracks.png", plot = plot_point_tracks)
-ggsave("figures/plot_tdiff.png", plot = plot_tdiff)
-ggsave("figures/plot_speeds_box_new.png", plot = plot_speeds_box)
+ggsave("figures/plot_speeds_box.png", plot = plot_speeds_box, width = 10, height = 6)
+ggsave("figures/plot_n_trips.png", plot = plot_n_trips, width = 10, height = 4)
 ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
-ggsave("figures/plot_tripduration.png", plot = plot_tripduration)
-ggsave("figures/plot_time_in_port.png", plot = plot_time_in_port)
-ggsave("figures/plot_tripsperday.png", plot = plot_tripsperday)
+ggsave("figures/plot_speeds_max.png", plot = plot_speeds_max, width = 10, height = 4)
+ggsave("figures/plot_tripdistance.png", plot = plot_tripdistance, width = 10, height = 4)
+ggsave("figures/plot_tdiff.png", plot = plot_tdiff, width = 10, height = 6)
+ggsave("figures/plot_time_in_port.png", plot = plot_time_in_port, width = 10, height = 8)
+ggsave("figures/plot_ratio_in_port.png", plot = plot_time_in_port2, width = 10, height = 8)
+ggsave("figures/plot_tripduration.png", plot = plot_tripduration, width = 10, height = 4)
+ggsave("figures/plot_updateintervals.png", plot = plot_updateintervals, width = 10, height = 4)
 
+ggsave("figures/plot_dayp.png", plot = plot_dayp)
+ggsave("figures/plot_hour.png", plot = plot_hour)
+ggsave("figures/plot_tripsperday.png", plot = plot_tripsperday)
+ggsave("figures/plot_tripsperweekperiod.png", plot = plot_tripsperweekperiod)
+ggsave("figures/plot_time_in_areas_prop.png", plot = plot_time_in_areas_prop, width=10, height = 4)
 ```

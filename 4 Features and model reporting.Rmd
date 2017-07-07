@@ -1,0 +1,81 @@
+---
+title: "4 Feature and model reporting"
+output: html_notebook
+---
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(caret)
+library(tibble)
+```
+
+# Evaluating feature selection
+```{r Read in data}
+rfProfiles <- list()
+rfProfiles[["train_cv"]] <- readRDS("./models/rfProfile_train_cv")
+rfProfiles[["train_down_cv"]]  <- readRDS("./models/rfProfile_train_down_cv")
+rfProfiles[["train_boot"]]  <- readRDS("./models/rfProfile_boot")
+rfProfiles[["train_down_boot"]]  <- readRDS("./models/rfProfile_down_boot")
+```
+
+```{r}
+df <- rfProfiles[["train_boot"]]["results"] %>% as.data.frame()
+df2 <- rfProfiles[["train_down_boot"]]["results"] %>% as.data.frame()
+colnames(df) <- c("Variables", "Accuracy", "Kappa", "AccuracySD", "KappaSD")
+colnames(df2) <- c("Variables", "Accuracy", "Kappa", "AccuracySD", "KappaSD")
+KappaSE <- 2*(df$KappaSD/sqrt(length(rfProfiles[["train_boot"]] $control$index)))
+AccuracySE <- 2*(df$AccuracySD/sqrt(length(rfProfiles[["train_boot"]] $control$index)))
+write_csv(round(cbind(df2,df),3), path = "./tables/rfProfile_train_boot_performance.csv")
+
+tmp1 <- varImp(rfProfiles[["train_boot"]]) %>% rownames_to_column
+tmp2 <- varImp(rfProfiles[["train_down_boot"]]) %>% rownames_to_column
+
+write_csv(tmp1, 
+          path="./tables/varimportance_varsel_train_boot.csv")
+write_csv(tmp2, 
+          path="./tables/varimportance_varsel_train_boot_down.csv")
+```
+
+```{r Plotting function}
+get_performanceplot <- function(rfProfile, title_i){
+df <- rfProfile["results"] %>% as.data.frame()
+colnames(df) <- c("Variables", "Accuracy", "Kappa", "AccuracySD", "KappaSD")
+KappaSE <- 2*(df$KappaSD/sqrt(length(rfProfile$control$index)))
+AccuracySE <- 2*(df$AccuracySD/sqrt(length(rfProfile$control$index)))
+ggplot(df) +
+  # Original dataset
+  geom_path(aes(Variables, Kappa, color="Kappa"))  +
+  geom_point(aes(Variables, Kappa, color="Kappa")) +
+  geom_errorbar(aes(Variables, ymin=Kappa-KappaSE, ymax=Kappa+KappaSE, color="Kappa"), width=.05) +
+  geom_path(aes(Variables, Accuracy, color="Accuracy")) +
+  geom_point(aes(Variables, Accuracy, color="Accuracy")) +
+  geom_errorbar(aes(Variables, ymin=Accuracy-AccuracySE, ymax=Accuracy+AccuracySE, color="Accuracy"), width=.05) +
+  # Downsampled
+  geom_path(aes(Variables, Kappa, color="Kappa"))  +
+  geom_point(aes(Variables, Kappa, color="Kappa")) +
+  geom_errorbar(aes(Variables, ymin=Kappa-KappaSE, ymax=Kappa+KappaSE, color="Kappa"), width=.05) +
+  geom_path(aes(Variables, Accuracy, color="Accuracy")) +
+  geom_point(aes(Variables, Accuracy, color="Accuracy")) +
+  geom_errorbar(aes(Variables, ymin=Accuracy-AccuracySE, ymax=Accuracy+AccuracySE, color="Accuracy"), width=.05) +
+  labs(title=title_i, y="Performance Estimate", x="Number Features") +
+  scale_y_continuous(breaks = seq(0,1,0.025), labels = seq(0,1,0.025), limits = c(0.4,0.85)) +
+  scale_x_continuous(breaks = seq(0,34,4), labels = seq(0,34,4)) +
+  theme(legend.position = c(0.8,0.2))
+}
+```
+
+```{r Export figures}
+titles <- c("Repeated Cross Validation", "Repeated Cross Validation (balanced classes)",
+       "Bootstrap", "Bootstrap (balanced classes)")
+for (i in 1:length(rfProfiles)){
+  current_index <- names(rfProfiles[i])
+  df <- rfProfiles[[current_index]]
+  ggsave(paste("figures/plot_",current_index,".png",sep=""), get_performanceplot(df, titles[i]))
+}
+```
+
+
+
+

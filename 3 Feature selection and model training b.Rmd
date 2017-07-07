@@ -1,0 +1,173 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r, message=FALSE, warning=FALSE}
+library(plyr)
+library(readr)
+library(reshape2)
+library(e1071)
+library(caret)
+library(mlbench)
+library(gbm)
+library(doMC)
+library(xgboost)
+library(Hmisc)
+library(randomForest)
+library(kernlab)
+registerDoMC(cores = 3)
+```
+
+# Import data, apply log transformation
+In the previous step we engineered different features to be used in our model. 
+Here we create import the data, log-transform it and split it into train and 
+test. Note, we apply the pre-processing steps such as centering and scaling only
+during the cross-validation process otherwise we risk leaking information across
+test and train partitions.
+```{r, message=FALSE, warning=FALSE}
+tmp <- read_rds("dataset/out/yxdata.rds")
+tmp[,2:ncol(tmp)] <- data.frame(sapply(tmp[,2:ncol(tmp)],function(x) log(1+x)))
+yxdata_log <- tmp
+
+# We split the data into training and test. 
+set.seed(123)
+inTraining <- createDataPartition(yxdata_log$ydata, p = .75, list = FALSE)
+training <- yxdata_log[ inTraining,]
+testing  <- yxdata_log[-inTraining,]
+x_train <- training[,2:35]
+y_train <- training[,1]
+rm(inTraining, tmp)
+saveRDS(testing, file = "./dataset/out/testing")
+# Remove troublefeature
+x_train <- x_train[,-c(26)]
+```
+
+# Feature Selection
+```{r}
+set.seed(1234)
+downsampled <- downSample(training[,2:35],training[,1], yname = "ydata")
+x_train_down <- downsampled[,1:34]
+y_train_down <- downsampled[,35]
+rm(downsampled)
+```
+
+## Using random forests repeated cross validation
+```{r, eval=FALSE, include=FALSE}
+# subsets <- c(1:35)
+# ctrl_cv <- rfeControl(functions = rfFuncs,
+#                    method = "repeatedcv",
+#                    returnResamp = "all",
+#                    number = 10,
+#                    repeats = 10,
+#                    verbose = FALSE)
+# 
+# set.seed(105)
+# rfProfile <- rfe(x_train, y_train,
+#                       sizes = subsets,
+#                       preProcess = c("center", "scale"),
+#                       rfeControl = ctrl_cv)
+# set.seed(105)
+# rfProfile_down <- rfe(x_train_down, y_train_down,
+#                       sizes = subsets,
+#                       preProcess = c("center", "scale"),
+#                       rfeControl = ctrl_cv)
+```
+
+## Using random forests repeated bootstrap
+```{r}
+# subsets <- c(1:35)
+# ctrl_boot <- rfeControl(functions = rfFuncs,
+#                    number = 500,
+#                    verbose = FALSE)
+# 
+# set.seed(105)
+# rfProfile_boot <- rfe(x_train, y_train,
+#                       sizes = subsets,
+#                       rfeControl = ctrl_boot)
+# set.seed(105)
+# rfProfile_down_boot <- rfe(x_train_down, y_train_down,
+#                       sizes = subsets,
+#                       rfeControl = ctrl_boot)
+```
+
+# Machine Learning Experiments
+First setup traincontrol elements and parameter tuning grids
+```{r}
+# Repeated k-fold cross validation
+fitcontrols <- list()
+tuning_grids <- list()
+n_number <- 10
+n_repeats <- 3
+
+fitcontrols[["cv"]] <- trainControl(method = "repeatedcv",
+                              number = n_number,
+                              repeats = n_repeats,
+                              allowParallel = TRUE,
+                              returnResamp	= "final",
+                              classProbs = TRUE)
+
+fitcontrols[["cv_down"]] <- trainControl(method = "repeatedcv",
+                              number = n_number,
+                              repeats = n_repeats,
+                              allowParallel = TRUE,
+                              returnResamp	= "final",
+                              classProbs = TRUE,
+                              sampling = "down")
+
+tuning_grids[["gbm"]] <- expand.grid(interaction.depth = c(1, 3), 
+                                     n.trees = (1:7)*200, 
+                                     shrinkage = 0.01,
+                                     n.minobsinnode = 10)
+
+tuning_grids[["rf"]] <- expand.grid(mtry = c(1, 2, 4, 8, 16, 24, 33))
+
+tuning_grids[["svmLinear2"]] <- expand.grid(cost = c(0.2, 0.5, 1, 1.5, 2))
+```
+
+```{r}
+start.time <- Sys.time()
+train(x_train, y_train,
+      method = "gbm", 
+      trControl = fitcontrols[["cv"]],
+      metric = "Kappa",
+      preProc = c("center", "scale"),
+      verbose = FALSE)
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
+```
+
+
+## Fit models
+
+```{r}
+# models <- c("gbm", "rf", "svmLinear2")
+# Update just one model
+models <- c("gbm")
+Fitobjects <- list()
+Fitobjects <- readRDS(file = "./models/Fitobjects copy")
+
+```
+
+
+```{r}
+# Train model using different fir control settings.
+for (current_model in models){
+  for (i in 1:length(fitcontrols)){
+    current_version <- paste(current_model,
+                             names(fitcontrols[i]), sep = "_")
+    print(current_version)
+    set.seed(105)
+    Fitobjects[[current_version]] <- train(x_train, y_train,
+                                              method = current_model, 
+                                              trControl = fitcontrols[[i]],
+                                              tuneGrid = tuning_grids[[current_model]],
+                                              metric = "Kappa",
+                                              preProc = c("center", "scale"),
+                                              verbose = FALSE)
+    saveRDS(Fitobjects, file = "models/Fitobjects")
+  }
+}
+```

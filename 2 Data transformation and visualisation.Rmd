@@ -25,35 +25,40 @@ transforming the data into a state that makes it suitable for modelling. For
 instance by scaling and centering the data.
 ```{r}
 # Import data if not already loaded.
-if(!exists("trips_stats_fl")){
- trips_stats_fl <- read_tsv("./dataset/out/trips_stats_fl.tsv")
+if(!exists("trips_stats")){
+ trips_stats <- read_tsv("./dataset/out/trips_stats.tsv")
 }
+feature_ranking <- readRDS("./dataset/out/featureranking")
+```
 
+Here we create the x and y data. We already drop some columns which we do not 
+think will be needed.
+```{r}
+tmp_dropcols <- c("VESSEL_TYPE", "TRIP_ID", "MMSI")
+tmp_areacols <- names(trips_stats) %>% str_extract("area_\\d*") %>% 
+  na.omit() %>% as.vector()
 
-tmp_dropcols <- c("VESSEL_TYPE", "TRIP_ID", "MMSI", "time_start", "time_end")
-tmp_areacols <- names(trips_stats_fl) %>% str_extract("area_\\d*") %>% na.omit() %>% as.vector()
-
-# Create x and y data. 
-xdata <- trips_stats_fl %>%
+# Create x data and drop columns
+xdata <- trips_stats %>%
   ungroup() %>% 
   select(-one_of(tmp_dropcols))
-# ydata <- trips_stats_fl$VESSEL_TYPE %>% as.factor()
-
-ydata <- plyr::mapvalues(trips_stats_fl$VESSEL_TYPE,
-  from = c("Bulk Carrier", "Container Ship", "Fishing Vessel", 
-           "High Speed Craft", "Passenger", "Pleasure Craft", "Port Tender",
-           "Tanker"), to = 1:8) %>% as.factor()
+xdata <- select(xdata, -grep("^area_\\d*$", names(xdata)))
 
 
+# Ydata
+ydata <- trips_stats$VESSEL_TYPE %>% gsub(" ", ".", .) %>% as.factor()
+```
 
+```{r}
 # Apply log+1 transformation and scaling. 
 xdata_transformed <- sapply(xdata, function(x) scale(log(1+x))) %>% data.frame()
-
 yxdata_transformed <- cbind(ydata, xdata_transformed)
 yxdata <- cbind(ydata, xdata)
 
-write_tsv(yxdata_transformed, "dataset/out/yxdata_transformed.tsv")
-write_tsv(yxdata, "dataset/out/yxdata.tsv")
+# Write to file
+write_rds(yxdata_transformed, "dataset/out/yxdata_transformed.rds")
+write_rds(yxdata, "dataset/out/yxdata.rds")
+# write_rds(yxdata_pca, "dataset/out/yxdata_pca.rds")
 ```
 
 Below we plot density plots for the semantic features and the trip statistics we
@@ -83,23 +88,10 @@ a 0 mean and standard deviation of 1. This also helps with the training of a
 neural netwwork classifier because convergence is usually faster when using
 normalized inputs /cite{Lecun efficient backprop}.
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Plot area densities
-plot_area_densities <- xdata[, tmp_areacols] %>% 
-  melt() %>% 
-  ggplot() +
-  geom_density(mapping = aes(x=value/60/60), color="black", fill="blue", alpha=0.3) +
-  scale_x_continuous(breaks=c(0, 1, 2, 4, 8, 16, 32, 64),trans="log1p", expand=c(0,0)) +
-  scale_y_continuous(breaks=c(0, 0.25, 0.5, 1, 2, 4),trans="log1p", expand=c(0,0)) +
-  labs(title="Densityes of area features", x="Time spent in area [hours]", y="Density") +
-  facet_wrap(~ variable, ncol = 5, scales = "free")
-
-xdata[, tmp_areacols] %>% 
-  melt() %>% group_by(variable) %>% filter(value > 0) %>% count() %>% arrange(n)
-
-plot_vars_histo <- xdata[,0:6]%>%
+plot_vars_histo <- xdata[,c(1:8,34)]%>%
   melt() %>%
   ggplot() +
-  geom_histogram(mapping = aes(x=value), color="black", fill="blue", alpha=0.3) +
+  geom_histogram(mapping = aes(x=value), color="black", fill="gray", alpha=1) +
   theme(text = element_text(size=8)) +
   facet_wrap(~ variable, ncol = 3, scales = "free")
 plot_vars_histo
@@ -113,13 +105,27 @@ deviation. #TODO Combine before after of certain variables.
 Plot the stuff...
 
 ```{r, message=FALSE, warning=FALSE}
-plot_scalelogvars_densities <- xdata_transformed[,c(0:6)] %>%
+plot_scalelogvars_densities <- xdata_transformed[,c(1:8, 34)] %>%
   melt() %>%
   ggplot() +
-  geom_histogram(mapping = aes(x=value), color="black", fill="blue", alpha=0.3) +
+  geom_histogram(mapping = aes(x=value), color="black", fill="gray", alpha=1) +
   theme(text = element_text(size=8)) +
   facet_wrap(~ variable, ncol = 3, scales = "free")
 plot_scalelogvars_densities
+```
+
+Create side-by-side comparison of transformed and not-transformed feature
+```{r}
+tmp <- cbind(xdata[,c(1,6)], xdata_transformed[,c(1,6)])
+colnames(tmp) <- c("Duration", "Distance", "Duration transformed", "Distance transformed")
+plot_datatransform <- tmp %>%
+  melt() %>%
+  ggplot() +
+  geom_histogram(mapping = aes(x=value), color="black", fill="gray", alpha=1, bins = 40) +
+  theme(text = element_text(size=8)) +
+  facet_wrap(~ variable, ncol = 2, scales = "free")
+plot_datatransform
+rm(tmp)
 ```
 
 # Investigate relationship between features
@@ -131,25 +137,45 @@ trip. When using the spearman correlation, which is invariant to transformaiton
 the measured correlation before and after the data transformation remains 
 unchanged. 
 ```{r}
-segCorr <- cor(xdata_transformed, method = "pearson")
-corrplot(segCorr, order = "original", tl.cex = .7, tl.col = "black")
-
-segCorr2 <- cor(xdata, method = "pearson")
-corrplot(segCorr2, order = "original", tl.cex = .7, tl.col = "black")
-```
-Below we plot again the correlation matrix for just the features that showed
-some correltion before. We can see how the data-transformation did increase the 
-pearson correlation between the features. We will consider removing some feature
-since they appear to express the same information anyway. For instance the
-distance covered within a segment is a function of the overall average speed of
-the vessel and the duration of the segment.
-```{r, message=FALSE, warning=FALSE}
-plot_corrxtrans <- cbind(ydata, xdata_transformed) %>% ggscatmat(columns = 1:6, color="ydata", alpha=0.1, corMethod="pearson")
-ggsave("figures/plot_corrxtrans.png", plot_corrxtrans)
-plot_corrxtrans
+# XDATA TRANSFORMED
+tmp <- xdata_transformed
+segCorr <- cor(tmp, method = "pearson")
+png(height=3000, width=3000, pointsize=64, file="figures/plot_corrmatrix.png")
+corrplot(segCorr, order = "original", tl.cex = 0.8, tl.col = "black")
+dev.off()
 ```
 
-## PCA
+As we have seen before a number of vessel-navigation related features show relatively
+strong correlation. We decide to summarise these features using PCA, remove them
+and to plot the correlation matrix again
+```{r}
+corr_features <- c(1,2,3,4,5,6,7,8,34)
+tmp_data_tr <- xdata_transformed[,corr_features]
+pca_object_tr <- prcomp(tmp_data_tr, center = TRUE, scale = TRUE)
+percentVariance_tr <- pca_object_tr$sd^2/sum(pca_object_tr$sd^2)*100
+# Variance explained plot
+plot_pca_variance <- ggplot() +
+  geom_path(aes(1:length(percentVariance_tr), cumsum(percentVariance_tr))) +
+  geom_point(aes(1:length(percentVariance_tr), cumsum(percentVariance_tr)),
+             size=1) +
+  labs(x="Principal Component", y="Variance explained (%)") +
+  scale_x_continuous(breaks=1:length(percentVariance_tr))
+plot_pca_variance
+```
+
+```{r}
+# Remove correlated features but keep first 3 components. Plot corrmatrix
+xdata_transformed_pc <- cbind(xdata_transformed[,-corr_features],
+                              as.data.frame(pca_object_tr["x"])[,1:3])
+tmp <- xdata_transformed_pc
+segCorr <- cor(tmp, method = "pearson")
+png(height=3000, width=3000, pointsize=64, file="figures/plot_corrmatrix_pca.png")
+corrplot(segCorr, order = "original", tl.cex = 0.8, tl.col = "black")
+dev.off()
+```
+
+
+## PCA entire dataset
 We carry out a principal component analysis projecting the data down to 2
 dimensions. We find that the data does not seem to be easily separable across
 the classes. However since the invention of PCA (1930s) more sophisticated
@@ -157,20 +183,30 @@ techniques have been developed which are able to take into account non-linear
 relations between the data. Next we project the data onto 2 dimensions using
 T-SNE developed by Laurens van der Maaten.
 ```{r}
-pca_object <- prcomp(yxdata_transformed[,2:21], center = TRUE, scale = TRUE)
-percentVariance <- pca_object$sd^2/sum(pca_object$sd^2)*100
-# percentVariance
-# head(pca_object$rotation[, 1:3])
+tmp_data <- xdata[feature_ranking[1:10]]
+tmp_data_tr <- xdata_transformed[feature_ranking[1:10]]
 
-autoplot(pca_object, data = yxdata_transformed, colour = 'ydata', alpha=1, size=3)
+pca_object <- prcomp(tmp_data, center = TRUE, scale = TRUE)
+pca_object_tr <- prcomp(tmp_data_tr, center = TRUE, scale = TRUE)
+
+percentVariance <- pca_object$sd^2/sum(pca_object$sd^2)*100
+percentVariance_tr <- pca_object_tr$sd^2/sum(pca_object_tr$sd^2)*100
+
+plot_pca <- autoplot(pca_object, data = yxdata_transformed, colour = 'ydata', 
+         alpha=0.5, size=1) + theme(legend.position = "none")
+plot_pca_tr <- autoplot(pca_object_tr, data = yxdata_transformed, colour = 'ydata', 
+         alpha=0.5, size=1) + theme(legend.position = "none")
+plot_pca
+plot_pca_tr
 ```
+
 
 ## T-Sne
 T-Sne is a non-linear algorithm that projects a higher dimensional input to a 
 lower dimensional representation such as a 2D plane. The algorithm also adapts 
 to the underlying data and performs different transformations on different 
 regions. Crucially, it is necessary to try different hyper-parameter settings
-(the main one being the perplexity score) to get a meaningful
+(the main one being the perplexityscore) to get a meaningful
 representation\cite{wattenberg2016how}.
 
 Below we plotted the final result after trying different hyper parameter
@@ -179,23 +215,39 @@ nicely while others do not seem to be easily separable.
 
 We can also see that there are also multiple clusters for the same
 class. For instance for the pleasure crafts. This could be due to... TODO.
+
 ```{r, eval=FALSE, warning=TRUE, include=FALSE}
 # Parameter settings
-perplexity_list <- c(120, 140, 160, 180, 200, 220, 240)
-perplexity_list <- c(120)  # Only use 120 for now
+perplexity_list <- c(100, 120, 160, 180)
 maxiter <- 5000
+
+# CHOOSE DATA TO USE
+data_to_use <- tmp_data_tr
 
 for (i in perplexity_list) {
   set.seed(1234)
-  tsne <- Rtsne(yxdata_transformed[,2:21], dims = 2, perplexity = i, 
+  tsne <- Rtsne(data_to_use, dims = 2, perplexity = i, 
                 verbose=FALSE, max_iter = maxiter)
   
   embedding <- as.data.frame(tsne$Y)
   embedding$Class <- as.factor(yxdata_transformed$ydata)
   
   plot_tsne <- ggplot(embedding, aes(x = V1, y = V2, color = Class)) +
-    geom_point(size = 2, alpha = 0.2)
-  ggsave(filename = paste("./figures/tsne_perp_", i,"_",maxiter,".png"), plot = plot_tsne)
+    geom_point(size = 1, alpha = 0.4) + 
+    theme(legend.position = "none")
+  ggsave(filename = paste("./figures/tsne_perp_", i,"_",maxiter,"_tr.png", 
+                          sep = ""), plot = plot_tsne)
 }
 plot_tsne
+```
+
+# Export Figures
+```{r}
+ggsave("figures/plot_datatransform.png", plot_datatransform, width = 10, height = 6)
+ggsave("figures/plot_scalelogvars_densities.png", plot_scalelogvars_densities)
+ggsave("figures/plot_vars_histo.png", plot_vars_histo)
+ggsave("figures/plot_pca.png", plot_pca)
+ggsave("figures/plot_pca_tr.png", plot_pca_tr)
+ggsave("figures/plot_pca_variance.png", plot_pca_variance, width = 10, height = 4)
+
 ```

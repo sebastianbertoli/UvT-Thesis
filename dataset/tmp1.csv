@@ -1,0 +1,178 @@
+"VESSEL_TYPE","hour_time","n"
+"Bulk Carrier",0,213
+"Bulk Carrier",1,181
+"Bulk Carrier",2,180
+"Bulk Carrier",3,157
+"Bulk Carrier",4,173
+"Bulk Carrier",5,210
+"Bulk Carrier",6,219
+"Bulk Carrier",7,305
+"Bulk Carrier",8,311
+"Bulk Carrier",9,315
+"Bulk Carrier",10,266
+"Bulk Carrier",11,266
+"Bulk Carrier",12,249
+"Bulk Carrier",13,253
+"Bulk Carrier",14,274
+"Bulk Carrier",15,311
+"Bulk Carrier",16,323
+"Bulk Carrier",17,293
+"Bulk Carrier",18,282
+"Bulk Carrier",19,272
+"Bulk Carrier",20,239
+"Bulk Carrier",21,226
+"Bulk Carrier",22,218
+"Bulk Carrier",23,184
+"Container Ship",0,197
+"Container Ship",1,186
+"Container Ship",2,182
+"Container Ship",3,171
+"Container Ship",4,146
+"Container Ship",5,193
+"Container Ship",6,242
+"Container Ship",7,210
+"Container Ship",8,211
+"Container Ship",9,242
+"Container Ship",10,248
+"Container Ship",11,258
+"Container Ship",12,285
+"Container Ship",13,270
+"Container Ship",14,252
+"Container Ship",15,244
+"Container Ship",16,249
+"Container Ship",17,267
+"Container Ship",18,283
+"Container Ship",19,257
+"Container Ship",20,228
+"Container Ship",21,227
+"Container Ship",22,226
+"Container Ship",23,237
+"Fishing Vessel",0,391
+"Fishing Vessel",1,417
+"Fishing Vessel",2,420
+"Fishing Vessel",3,408
+"Fishing Vessel",4,419
+"Fishing Vessel",5,444
+"Fishing Vessel",6,419
+"Fishing Vessel",7,434
+"Fishing Vessel",8,417
+"Fishing Vessel",9,430
+"Fishing Vessel",10,432
+"Fishing Vessel",11,462
+"Fishing Vessel",12,439
+"Fishing Vessel",13,433
+"Fishing Vessel",14,413
+"Fishing Vessel",15,420
+"Fishing Vessel",16,420
+"Fishing Vessel",17,413
+"Fishing Vessel",18,399
+"Fishing Vessel",19,418
+"Fishing Vessel",20,401
+"Fishing Vessel",21,400
+"Fishing Vessel",22,404
+"Fishing Vessel",23,413
+"High Speed Craft",7,25
+"High Speed Craft",8,33
+"High Speed Craft",9,5
+"High Speed Craft",13,6
+"High Speed Craft",14,3
+"High Speed Craft",17,19
+"High Speed Craft",18,68
+"High Speed Craft",19,36
+"High Speed Craft",20,2
+"Passenger",0,245
+"Passenger",1,252
+"Passenger",2,247
+"Passenger",3,262
+"Passenger",4,249
+"Passenger",5,254
+"Passenger",6,275
+"Passenger",7,166
+"Passenger",8,187
+"Passenger",9,233
+"Passenger",10,186
+"Passenger",11,206
+"Passenger",12,188
+"Passenger",13,186
+"Passenger",14,199
+"Passenger",15,151
+"Passenger",16,201
+"Passenger",17,292
+"Passenger",18,352
+"Passenger",19,288
+"Passenger",20,311
+"Passenger",21,351
+"Passenger",22,393
+"Passenger",23,302
+"Pleasure Craft",0,869
+"Pleasure Craft",1,848
+"Pleasure Craft",2,869
+"Pleasure Craft",3,887
+"Pleasure Craft",4,886
+"Pleasure Craft",5,876
+"Pleasure Craft",6,863
+"Pleasure Craft",7,866
+"Pleasure Craft",8,847
+"Pleasure Craft",9,879
+"Pleasure Craft",10,900
+"Pleasure Craft",11,894
+"Pleasure Craft",12,894
+"Pleasure Craft",13,875
+"Pleasure Craft",14,880
+"Pleasure Craft",15,894
+"Pleasure Craft",16,902
+"Pleasure Craft",17,886
+"Pleasure Craft",18,860
+"Pleasure Craft",19,857
+"Pleasure Craft",20,821
+"Pleasure Craft",21,814
+"Pleasure Craft",22,845
+"Pleasure Craft",23,838
+"Port Tender",0,55
+"Port Tender",1,57
+"Port Tender",2,36
+"Port Tender",3,29
+"Port Tender",4,35
+"Port Tender",5,24
+"Port Tender",6,29
+"Port Tender",7,66
+"Port Tender",8,125
+"Port Tender",9,169
+"Port Tender",10,134
+"Port Tender",11,103
+"Port Tender",12,92
+"Port Tender",13,71
+"Port Tender",14,124
+"Port Tender",15,106
+"Port Tender",16,113
+"Port Tender",17,103
+"Port Tender",18,97
+"Port Tender",19,78
+"Port Tender",20,81
+"Port Tender",21,73
+"Port Tender",22,64
+"Port Tender",23,71
+"Tanker",0,757
+"Tanker",1,762
+"Tanker",2,723
+"Tanker",3,721
+"Tanker",4,688
+"Tanker",5,700
+"Tanker",6,711
+"Tanker",7,768
+"Tanker",8,805
+"Tanker",9,754
+"Tanker",10,713
+"Tanker",11,733
+"Tanker",12,823
+"Tanker",13,785
+"Tanker",14,825
+"Tanker",15,829
+"Tanker",16,761
+"Tanker",17,823
+"Tanker",18,772
+"Tanker",19,801
+"Tanker",20,806
+"Tanker",21,785
+"Tanker",22,803
+"Tanker",23,789

@@ -1,0 +1,169 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r, message=FALSE, warning=FALSE}
+library(caret)
+library(plyr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggthemes)
+```
+
+```{r}
+Fitobjects <- readRDS("./models/Fitobjects")
+names(Fitobjects)
+```
+
+# Evaluate Machine learning models
+
+## Evaluate resampling performance
+```{r}
+resamps <- resamples(Fitobjects)
+
+
+# Create data to plot
+tmp <- resamps$values %>% data.frame() %>% gather() %>%
+  mutate(Model = as.factor(key),
+         Score = as.numeric(value)) %>% 
+  filter(key != "Resample") %>% 
+  select(-one_of(c("key", "value"))) %>% 
+  mutate(Measure = str_extract(Model, "\\w*$"),
+         Model = as.factor(str_extract(Model, "^\\w*"))) 
+tmp$Model <- mapvalues(tmp$Model, from = levels(tmp$Model), to = c("GBM", "GBM down", "RF", "RF down",
+                                                      "SVM", "SVM down"))
+tmp$Model <- factor(tmp$Model, levels(tmp$Model)[c(2,4,6, 1,3,5)])
+
+plot_resampscores <- ggplot(tmp, aes(x=Model, y=Score, colour=Model)) +
+  geom_boxplot(outlier.alpha = 0, alpha = 1, 
+               fill = 'white', color = 'black', width = 0.5) +
+  coord_flip() +
+  theme(legend.position = "none") +
+  scale_y_continuous(breaks = seq(0.6,1,0.05)) +
+  facet_grid(. ~ Measure)
+plot_resampscores
+
+summary(resamps)
+bwplot(resamps, layout = c(2, 1))
+ggsave(filename = "./figures/plot_resampscores.png", plot_resampscores, width = 10, height = 4)
+```
+
+We evaluate the statistical importance...
+```{r}
+difValues <- diff(resamps)
+summary(difValues)
+difValues
+# bwplot(difValues, layout = c(2, 1))
+```
+
+We also check how hyperparameter tuning affected performance. 
+```{r}
+names(Fitobjects)
+for (i in names(Fitobjects)){
+  tmp_plot <- ggplot(Fitobjects[[i]]) + 
+    theme(legend.position = "bottom")
+  ggsave(paste("./figures/plot_paramtuning_",i,".png",sep=""),plot=tmp_plot)
+}
+```
+
+
+
+# Predict test-data and report results
+
+```{r}
+testing <- readRDS("./dataset/out/testing")
+# Get rid of variable that is causing issues
+testing <- testing[,-c(27)]
+
+# Get predictions and performance
+predictions <- sapply(Fitobjects, function(x) predict(x, testing))  %>% as.data.frame()
+predictions_performance <- sapply(predictions, function(x){
+  predtest <- data.frame(x, testing$ydata)
+  names(predtest) <- c("pred", "obs")
+  multiClassSummary(predtest, levels(testing$ydata))
+}) %>% as.data.frame() 
+colnames(predictions_performance) <- c("GBM", "GBM down", "RF", "RF down",
+                                       "SVM", "SVM down")
+predictions_performance <- predictions_performance[,c(1,3,5,2,4,6)] %>% 
+  t() %>% data.frame() %>% round(3) %>% add_rownames()
+write_csv(predictions_performance, path = "./dataset/out/predictions_performance.csv")
+predictions_performance
+```
+Statistical significance
+```{r}
+diff(predictions)
+
+predictions
+tmp <- lapply(predictions, as.numeric)
+tmp
+```
+
+ConfusionMatrix to check performance per score
+```{r}
+tmp1 <- confusionMatrix(predictions$gbm_cv,testing$ydata)$byClass %>% as.data.frame()
+tmp2 <- confusionMatrix(predictions$gbm_cv_down,testing$ydata)$byClass %>% as.data.frame()
+
+# tmp2 <- apply(tmp$table, 1, function(x) x / colSums(tmp$table)) %>%
+#   data.frame() %>% add_rownames()
+# tmp3 <- reshape2::melt(tmp2)
+# colnames(tmp3) <- c("Prediction", "Reference", "value")
+# tmp3
+tmp3 <- ((tmp1-tmp2)*100) %>% t() %>% as.data.frame() %>% 
+  add_rownames() 
+colnames(tmp3) <- c("Measure", "Bulk", "Container", "Fishing", "High Speed", 
+                    "Passenger", "Pleasure", "Port", "Tanker")
+  
+tmp4 <- tmp3 %>% melt()
+colnames(tmp4) <- c("measure", "shiptype", "score")
+tmp4$measure <- tmp4$measure %>% as.factor()
+
+plot_difference <- ggplot(tmp4) +
+  geom_col(aes(x=measure, y=score, fill=cut(score, c(-Inf,0, Inf)))) +
+  geom_hline(yintercept = 0, linetype = 1, color = "gray35", size = 0.5) +
+  scale_y_continuous(breaks = c(-4, 0, 4), 
+                     # labels = c("-0.2", "0", "0.2"), 
+                     limits = c(-4,4),) +
+  theme(legend.position = "none") +
+  labs(y="Change (%)", x="Performance measure") +
+  coord_flip()  +
+  facet_grid(~ shiptype)
+plot_difference 
+ggsave("./figures/plot_difference.png", plot_difference,  width=10, height=3)
+```
+
+##  Plot class probablities
+```{r}
+# Get prediction probabilities
+prediction_prob <- predict(Fitobjects[["gbm_cv"]], testing,  type = "prob")
+
+
+prediction_prob <- cbind(ydata = testing$ydata, prediction_prob)
+prediction_prob_avg <- prediction_prob %>% group_by(ydata) %>% summarize_all(mean)
+prediction_prob_avg[,2:9] <- round(prediction_prob_avg[,2:9],3)
+prediction_prob_avg
+
+tmp_data <- reshape2::melt(prediction_prob_avg) %>% arrange(by=desc(ydata))
+colnames(tmp_data) <- c("Reference", "Predicted", "Probability")
+tmp_data
+
+
+plot_classprobs_gbmc_cv <- ggplot(tmp_data, aes(Predicted, Reference)) + 
+  geom_tile(aes(fill = Probability), colour = "white") +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  labs(y="Reference Class", x="Predicted Class") +
+  theme_grey(base_size = 9) + 
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_discrete(expand = c(0, 0)) + 
+  theme(axis.text.x = element_text(angle = 90)) + 
+  coord_fixed()
+plot_classprobs_gbmc_cv
+ggsave("./figures/plot_classprobs_gbmc_cv.png", plot_classprobs_gbmc_cv, width=5, height=5)
+```
+
+```{r}
+
+
+```
+

@@ -1,0 +1,208 @@
+---
+title: "Data modelling and model evaulation"
+output: html_notebook
+---
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(readr)
+library(reshape2)
+library(e1071)
+library(caret)
+library(mlbench)
+library(gbm)
+library(doMC)
+library(xgboost)
+library(Hmisc)
+library(randomForest)
+registerDoMC(cores = 2)
+```
+# Import data, apply log transformation
+In the previous step we engineered different features to be used in our model. 
+Here we create import the data, log-transform it and split it into train and 
+test. Note, we apply the pre-processing steps such as centering and scaling only
+during the cross-validation process otherwise we risk leaking information across
+test and train partitions. 
+```{r, message=FALSE, warning=FALSE}
+tmp <- read_rds("dataset/out/yxdata.rds")
+tmp[,2:ncol(tmp)] <- sapply(tmp[,2:ncol(tmp)],
+                            function(x) log(1+x)) %>% data.frame()
+yxdata_log <- tmp
+rm(tmp)
+```
+
+We split the data into training and test. 
+```{r}
+set.seed(123)
+inTraining <- createDataPartition(yxdata_log$ydata, p = .75, list = FALSE)
+training <- yxdata_log[ inTraining,]
+testing  <- yxdata_log[-inTraining,]
+x_train <- training[,2:35]
+y_train <- training[,1]
+rm(inTraining)
+```
+
+```{r}
+testing$ydata %>% table() %>% data.frame() %>% write_csv("./dataset/out/testset_classfrequency.csv")
+```
+
+
+# Feature Selection
+```{r}
+set.seed(1234)
+downsampled <- downSample(training[,2:35],training[,1], yname = "ydata")
+x_train_down <- downsampled[,1:34]
+y_train_down <- downsampled[,35]
+rm(downsampled)
+```
+
+## Using random forests repeated cross validation
+```{r, eval=FALSE, include=FALSE}
+# subsets <- c(1:35)
+# ctrl_cv <- rfeControl(functions = rfFuncs,
+#                    method = "repeatedcv",
+#                    returnResamp = "all",
+#                    number = 10,
+#                    repeats = 10,
+#                    verbose = FALSE)
+# 
+# set.seed(105)
+# rfProfile <- rfe(x_train, y_train,
+#                       sizes = subsets,
+#                       preProcess = c("center", "scale"),
+#                       rfeControl = ctrl_cv)
+# set.seed(105)
+# rfProfile_down <- rfe(x_train_down, y_train_down,
+#                       sizes = subsets,
+#                       preProcess = c("center", "scale"),
+#                       rfeControl = ctrl_cv)
+```
+
+## Using random forests repeated bootstrap
+```{r}
+# subsets <- c(1:35)
+# ctrl_boot <- rfeControl(functions = rfFuncs,
+#                    number = 500,
+#                    verbose = FALSE)
+# 
+# set.seed(105)
+# rfProfile_boot <- rfe(x_train, y_train,
+#                       sizes = subsets,
+#                       rfeControl = ctrl_boot)
+# set.seed(105)
+# rfProfile_down_boot <- rfe(x_train_down, y_train_down,
+#                       sizes = subsets,
+#                       rfeControl = ctrl_boot)
+```
+
+
+
+# Machine Learning Experiments
+First setup traincontrol elements and parameter tuning grids
+```{r}
+# Repeated k-fold cross validation
+fitcontrols <- list()
+fitcontrols[["cv"]] <- trainControl(method = "repeatedcv",
+                              number = 10,
+                              repeats = 10, 
+                              allowParallel = TRUE,
+                              returnResamp	= "all",
+                              classProbs = TRUE)
+
+fitcontrols[["cv_down"]] <- trainControl(method = "repeatedcv",
+                              number = 10,
+                              repeats = 10, 
+                              allowParallel = TRUE,
+                              returnResamp	= "all",
+                              classProbs = TRUE,
+                              sampling = "down")
+
+fitcontrols[["boot"]] <- trainControl(method = "boot",
+                              number = 100,
+                              allowParallel = TRUE,
+                              returnResamp	= "all",
+                              classProbs = TRUE)
+
+fitcontrols[["boot_down"]] <- trainControl(method = "boot",
+                              number = 100,
+                              allowParallel = TRUE,
+                              returnResamp	= "all",
+                              classProbs = TRUE)
+```
+
+## Fit model on unsampled training data
+```{r}
+x_train <- x_train[,-c(26)]
+# Fitobjects <- list()
+```
+
+```{r}
+# TRAIN GRADIENT BOOSTED MACHINES
+for (i in 1:length(fitcontrols)){
+  print(i)
+  current_version <- paste("gbm_",names(fitcontrols[i]))
+  set.seed(105)
+  if (names(fitcontrols[i]) == "boot_down"){ 
+    x_data <- x_train_down
+    y_data <- y_train_down
+  } else{
+    x_data <- x_train
+    y_data <- y_train
+  }
+  Fitobjects[[current_version]] <- train(x_data, y_data,
+                                            method = "gbm", 
+                                            trControl = fitcontrols[[i]],
+                                            metric = "Kappa",
+                                            verbose = FALSE)
+}
+saveRDS(Fitobjects, file = "models/Fitobjects")
+```
+
+```{r}
+library(klaR)
+# TRAIN NAIVE BAYES
+for (i in 1:length(fitcontrols)){
+  print(i)
+  current_version <- paste("nb_",names(fitcontrols[i]))
+  set.seed(105)
+  Fitobjects[[current_version]] <- train(x_train, y_train,
+                                            method = "nb", 
+                                            trControl = fitcontrols[[i]],
+                                            metric = "Kappa")
+  }
+```
+
+
+```{r}
+resamps <- resamples(list(GBM = gbmFit_1,
+                          xgbTree = xgbm))
+summary(resamps)
+
+# trellis.par.set(theme1)
+bwplot(resamps, layout = c(3, 1))
+
+difValues <- diff(resamps)
+summary(difValues)
+bwplot(difValues, layout = c(2, 1))
+
+confusionMatrix.train(gbmFit_1)
+```
+
+# Testing models
+```{r}
+
+```
+
+# Export data
+```{r}
+# Export Feature Selection Results
+# saveRDS(rfProfile, "./models/rfProfile_train_cv")
+# saveRDS(rfProfile_down, "./models/rfProfile_train_down_cv")
+saveRDS(rfProfile_boot, "./models/rfProfile_boot")
+saveRDS(rfProfile_down_boot, "./models/rfProfile_down_boot")
+saveRDS(rfProfile_nb, "./models/rfProfile_train_tr_nb")
+saveRDS(gbmFitobjects, file = "models/gbmFitobjects")
+```
+
+
+
+
