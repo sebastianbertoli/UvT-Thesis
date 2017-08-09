@@ -116,16 +116,17 @@ plot_scalelogvars_densities
 
 Create side-by-side comparison of transformed and not-transformed feature
 ```{r}
-tmp <- cbind(xdata[,c(1,6)], xdata_transformed[,c(1,6)])
-colnames(tmp) <- c("Duration", "Distance", "Duration transformed", "Distance transformed")
+tmp <- cbind(xdata[,c(1)], xdata_transformed[,c(1)])
+colnames(tmp) <- c("Duration", "Duration transformed")
 plot_datatransform <- tmp %>%
   melt() %>%
   ggplot() +
   geom_histogram(mapping = aes(x=value), color="black", fill="gray", alpha=1, bins = 40) +
-  theme(text = element_text(size=8)) +
+  # theme(text = element_text(size=8)) +
+  labs(x="Duration in minutes (left) and scale free (right)") +
   facet_wrap(~ variable, ncol = 2, scales = "free")
 plot_datatransform
-rm(tmp)
+ggsave("figures/plot_datatransform.png", plot_datatransform, width = 10, height = 6)
 ```
 
 # Investigate relationship between features

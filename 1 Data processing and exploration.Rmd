@@ -764,9 +764,9 @@ plot_tripsperweekperiod <- ggplot(data = tmp_prop) +
   labs(title = 'Ratio of moving vessel activity per vessel type workday vs. weekend',
        x = 'Workday vs. weekend', y = 'Ratio of vessel activity') + 
   scale_colour_hue(name = "Vessel Type") + 
-  theme(legend.position = "none")
+  theme(legend.position = "bottom")
 plot_tripsperweekperiod
-RemoveObjects("tmp")
+# RemoveObjects("tmp")
 ```
 
 ### At what hour do vessels travel
@@ -793,6 +793,8 @@ plot_hour <- ggplot(data = tmp_prop2) +
   scale_x_continuous(breaks=c(0:24)) + 
   scale_y_log10() + 
   scale_colour_hue(name = "Vessel Type")  + 
+  labs(title = 'Ratio of moving vessel activity per time of the day',
+       x = 'Time of the day', y = 'Ratio of vessel activity') + 
   theme(legend.position = "none")
 plot_hour
 
@@ -811,7 +813,9 @@ plot_dayp <- ggplot(data = tmp_prop2) +
                           group = VESSEL_TYPE, colour = VESSEL_TYPE)) +
   geom_point(mapping = aes(x=hour_time, y = prop, colour = VESSEL_TYPE)) +
   scale_colour_hue(name = "Vessel Type")  + 
-  theme(legend.position = "none")
+  labs(title = 'Ratio of moving vessel activity per time-period of the day',
+       x = 'Time-period of the day', y = 'Ratio of vessel activity') + 
+  theme(legend.position = "bottom")
 plot_dayp
 ```
 ### How frequent are update intervals?
@@ -846,6 +850,9 @@ tmp_prop <- left_join(tmp_absolute, tmp_total, by="variable") %>%
 
 plot_time_in_areas_prop <- ggplot(tmp_prop) +
   geom_col(aes(variable, prop, fill = VESSEL_TYPE), position = "stack") +
+  labs(title = 'Proportion of time in area occupied by each vessel type',
+       x = 'Vessel Type', y = 'Proportion of total time occupied in area')  +
+  guides(fill=guide_legend(title="Vessel Type")) +
   theme(legend.position = "bottom") +
   coord_flip()
 
@@ -872,14 +879,14 @@ ggsave("figures/plot_speeds_histo_new.png", plot = plot_speeds_density)
 ggsave("figures/plot_speeds_max.png", plot = plot_speeds_max, width = 10, height = 4)
 ggsave("figures/plot_tripdistance.png", plot = plot_tripdistance, width = 10, height = 4)
 ggsave("figures/plot_tdiff.png", plot = plot_tdiff, width = 10, height = 6)
-ggsave("figures/plot_time_in_port.png", plot = plot_time_in_port, width = 10, height = 8)
-ggsave("figures/plot_ratio_in_port.png", plot = plot_time_in_port2, width = 10, height = 8)
+ggsave("figures/plot_time_in_port.png", plot = plot_time_in_port, width = 10, height = 4)
+ggsave("figures/plot_ratio_in_port.png", plot = plot_time_in_port2, width = 10, height = 4)
 ggsave("figures/plot_tripduration.png", plot = plot_tripduration, width = 10, height = 4)
 ggsave("figures/plot_updateintervals.png", plot = plot_updateintervals, width = 10, height = 4)
 
-ggsave("figures/plot_dayp.png", plot = plot_dayp)
-ggsave("figures/plot_hour.png", plot = plot_hour)
-ggsave("figures/plot_tripsperday.png", plot = plot_tripsperday)
-ggsave("figures/plot_tripsperweekperiod.png", plot = plot_tripsperweekperiod)
+ggsave("figures/plot_dayp.png", plot = plot_dayp, width = 10, height = 4)
+ggsave("figures/plot_hour.png", plot = plot_hour, width = 10, height = 4)
+ggsave("figures/plot_tripsperday.png", plot = plot_tripsperday, width = 10, height = 4)
+ggsave("figures/plot_tripsperweekperiod.png", plot = plot_tripsperweekperiod, width = 10, height = 4)
 ggsave("figures/plot_time_in_areas_prop.png", plot = plot_time_in_areas_prop, width=10, height = 4)
 ```
