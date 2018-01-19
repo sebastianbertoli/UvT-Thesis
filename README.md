@@ -1,3 +1,7 @@
+```
+Note: this repository is not maintained and just a backup of my early foray into data science. ;-)
+```
+
 MSc Thesis
 -------------------
 This is the GitHub repository of my MSc thesis in Datascience: Business and Governance.
