@@ -1,5 +1,5 @@
 ```
-Note: this repository is not maintained and just a backup of my early foray into data science. ;-)
+Note: this repository is not maintained anymore. It is a mess and just a copy of my early forays into data science. :-)
 ```
 
 MSc Thesis
